@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pacai.ui.gridworld.utils API documentation</title>
+<meta name="description" content="Various graphics utilities for gridworld." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pacai.ui.gridworld.utils</code></h1>
+</header>
+<section id="section-intro">
+<p>Various graphics utilities for gridworld.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Various graphics utilities for gridworld.
+&#34;&#34;&#34;
+
+import sys
+import time
+import tkinter
+
+_root_window = None  # The root window for graphics output
+_canvas = None  # The canvas which holds graphics
+_canvas_xs = None  # Size of canvas object
+_canvas_ys = None
+_canvas_x = None  # Current position on canvas
+_canvas_y = None
+_canvas_col = None  # Current colour (set to black below)
+_canvas_tsize = 12
+_canvas_tserifs = 0
+
+def formatColor(r, g, b):
+    return &#39;#%02x%02x%02x&#39; % (int(r * 255), int(g * 255), int(b * 255))
+
+def sleep(secs):
+    global _root_window
+
+    if (_root_window is None):
+        time.sleep(secs)
+    else:
+        _root_window.update_idletasks()
+        _root_window.after(int(1000 * secs), _root_window.quit)
+        _root_window.mainloop()
+
+def begin_graphics(width = 640, height = 480, color = formatColor(0, 0, 0), title = None):
+    global _root_window, _canvas, _canvas_x, _canvas_y, _canvas_xs, _canvas_ys, _bg_color
+
+    # Check for duplicate call
+    if _root_window is not None:
+        # Lose the window.
+        _root_window.destroy()
+
+    # Save the canvas size parameters
+    _canvas_xs, _canvas_ys = width - 1, height - 1
+    _canvas_x, _canvas_y = 0, _canvas_ys
+    _bg_color = color
+
+    # Create the root window
+    _root_window = tkinter.Tk(baseName = &#39;pacman&#39;)
+    _root_window.protocol(&#39;WM_DELETE_WINDOW&#39;, _destroy_window)
+    _root_window.title(title or &#39;Graphics Window&#39;)
+    _root_window.resizable(0, 0)
+
+    # Create the canvas object
+    try:
+        _canvas = tkinter.Canvas(_root_window, width=width, height=height)
+        _canvas.pack()
+        draw_background()
+        _canvas.update()
+    except Exception as ex:
+        _root_window = None
+        raise RuntimeError(&#34;Unable to create tkinter canvas.&#34;) from ex
+
+    # Bind to key-down and key-up events
+    _root_window.bind(&#34;&lt;KeyPress&gt;&#34;, _keypress)
+    _root_window.bind(&#34;&lt;KeyRelease&gt;&#34;, _keyrelease)
+    _root_window.bind(&#34;&lt;FocusIn&gt;&#34;, _clear_keys)
+    _root_window.bind(&#34;&lt;FocusOut&gt;&#34;, _clear_keys)
+    _clear_keys()
+
+def draw_background():
+    corners = [(0, 0), (0, _canvas_ys), (_canvas_xs, _canvas_ys), (_canvas_xs, 0)]
+    polygon(corners, _bg_color, fillColor=_bg_color, filled=True, smoothed=False)
+
+def _destroy_window(event=None):
+    sys.exit(0)
+
+def clear_screen(background=None):
+    global _canvas_x, _canvas_y
+    _canvas.delete(&#39;all&#39;)
+    draw_background()
+    _canvas_x, _canvas_y = 0, _canvas_ys
+
+def polygon(coords, outlineColor, fillColor=None, filled=1, smoothed=1, behind=0, width=1):
+    c = []
+    for coord in coords:
+        c.append(coord[0])
+        c.append(coord[1])
+
+    if (fillColor is None):
+        fillColor = outlineColor
+
+    if filled == 0:
+        fillColor = &#34;&#34;
+
+    poly = _canvas.create_polygon(c, outline=outlineColor, fill=fillColor,
+            smooth=smoothed, width=width)
+    if behind &gt; 0:
+        _canvas.tag_lower(poly, behind)  # Higher should be more visible
+    return poly
+
+def circle(pos, r, outlineColor, fillColor, endpoints=None, style=&#39;pieslice&#39;, width=2):
+    x, y = pos
+    x0, x1 = x - r - 1, x + r
+    y0, y1 = y - r - 1, y + r
+    if (endpoints is None):
+        e = [0, 359]
+    else:
+        e = list(endpoints)
+
+    while e[0] &gt; e[1]:
+        e[1] = e[1] + 360
+
+    return _canvas.create_arc(x0, y0, x1, y1, outline=outlineColor, fill=fillColor,
+                              extent=e[1] - e[0], start=e[0], style=style, width=width)
+
+def text(pos, color, contents, font=&#39;Helvetica&#39;, size=12, style=&#39;normal&#39;, anchor=&#34;nw&#34;):
+    global _canvas_x, _canvas_y
+
+    x, y = pos
+    font = (font, str(size), style)
+    return _canvas.create_text(x, y, fill=color, text=contents, font=font, anchor=anchor)
+
+def line(here, there, color=formatColor(0, 0, 0), width=2):
+    x0, y0 = here[0], here[1]
+    x1, y1 = there[0], there[1]
+    return _canvas.create_line(x0, y0, x1, y1, fill=color, width=width)
+
+###########################
+#   Keypress handling     #
+###########################
+
+# We bind to key-down and key-up events.
+
+_keysdown = {}
+# This holds an unprocessed key release.  We delay key releases by up to
+# one call to keys_pressed() to get round a problem with auto repeat.
+_got_release = None
+
+def _keypress(event):
+    global _got_release
+    _keysdown[event.keysym] = 1
+    # print(event.char, event.keycode)
+    _got_release = None
+
+def _keyrelease(event):
+    global _got_release
+
+    try:
+        del _keysdown[event.keysym]
+    except Exception:
+        pass
+
+    _got_release = 1
+
+def _clear_keys(event=None):
+    global _keysdown, _got_release
+
+    _keysdown = {}
+    _got_release = None
+
+def keys_pressed(d_o_e=None, d_w=tkinter._tkinter.DONT_WAIT):
+    global _root_window
+
+    if (d_o_e is None):
+        d_o_e = _root_window.tk.dooneevent
+
+    d_o_e(d_w)
+    if _got_release:
+        d_o_e(d_w)
+
+    return list(_keysdown.keys())
+
+# Block for a list of keys...
+
+def wait_for_keys():
+    keys = []
+    while keys == []:
+        keys = keys_pressed()
+        sleep(0.05)
+    return keys</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pacai.ui.gridworld.utils.begin_graphics"><code class="name flex">
+<span>def <span class="ident">begin_graphics</span></span>(<span>width=640, height=480, color='#000000', title=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def begin_graphics(width = 640, height = 480, color = formatColor(0, 0, 0), title = None):
+    global _root_window, _canvas, _canvas_x, _canvas_y, _canvas_xs, _canvas_ys, _bg_color
+
+    # Check for duplicate call
+    if _root_window is not None:
+        # Lose the window.
+        _root_window.destroy()
+
+    # Save the canvas size parameters
+    _canvas_xs, _canvas_ys = width - 1, height - 1
+    _canvas_x, _canvas_y = 0, _canvas_ys
+    _bg_color = color
+
+    # Create the root window
+    _root_window = tkinter.Tk(baseName = &#39;pacman&#39;)
+    _root_window.protocol(&#39;WM_DELETE_WINDOW&#39;, _destroy_window)
+    _root_window.title(title or &#39;Graphics Window&#39;)
+    _root_window.resizable(0, 0)
+
+    # Create the canvas object
+    try:
+        _canvas = tkinter.Canvas(_root_window, width=width, height=height)
+        _canvas.pack()
+        draw_background()
+        _canvas.update()
+    except Exception as ex:
+        _root_window = None
+        raise RuntimeError(&#34;Unable to create tkinter canvas.&#34;) from ex
+
+    # Bind to key-down and key-up events
+    _root_window.bind(&#34;&lt;KeyPress&gt;&#34;, _keypress)
+    _root_window.bind(&#34;&lt;KeyRelease&gt;&#34;, _keyrelease)
+    _root_window.bind(&#34;&lt;FocusIn&gt;&#34;, _clear_keys)
+    _root_window.bind(&#34;&lt;FocusOut&gt;&#34;, _clear_keys)
+    _clear_keys()</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.circle"><code class="name flex">
+<span>def <span class="ident">circle</span></span>(<span>pos, r, outlineColor, fillColor, endpoints=None, style='pieslice', width=2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def circle(pos, r, outlineColor, fillColor, endpoints=None, style=&#39;pieslice&#39;, width=2):
+    x, y = pos
+    x0, x1 = x - r - 1, x + r
+    y0, y1 = y - r - 1, y + r
+    if (endpoints is None):
+        e = [0, 359]
+    else:
+        e = list(endpoints)
+
+    while e[0] &gt; e[1]:
+        e[1] = e[1] + 360
+
+    return _canvas.create_arc(x0, y0, x1, y1, outline=outlineColor, fill=fillColor,
+                              extent=e[1] - e[0], start=e[0], style=style, width=width)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.clear_screen"><code class="name flex">
+<span>def <span class="ident">clear_screen</span></span>(<span>background=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear_screen(background=None):
+    global _canvas_x, _canvas_y
+    _canvas.delete(&#39;all&#39;)
+    draw_background()
+    _canvas_x, _canvas_y = 0, _canvas_ys</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.draw_background"><code class="name flex">
+<span>def <span class="ident">draw_background</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw_background():
+    corners = [(0, 0), (0, _canvas_ys), (_canvas_xs, _canvas_ys), (_canvas_xs, 0)]
+    polygon(corners, _bg_color, fillColor=_bg_color, filled=True, smoothed=False)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.formatColor"><code class="name flex">
+<span>def <span class="ident">formatColor</span></span>(<span>r, g, b)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def formatColor(r, g, b):
+    return &#39;#%02x%02x%02x&#39; % (int(r * 255), int(g * 255), int(b * 255))</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.keys_pressed"><code class="name flex">
+<span>def <span class="ident">keys_pressed</span></span>(<span>d_o_e=None, d_w=2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def keys_pressed(d_o_e=None, d_w=tkinter._tkinter.DONT_WAIT):
+    global _root_window
+
+    if (d_o_e is None):
+        d_o_e = _root_window.tk.dooneevent
+
+    d_o_e(d_w)
+    if _got_release:
+        d_o_e(d_w)
+
+    return list(_keysdown.keys())</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.line"><code class="name flex">
+<span>def <span class="ident">line</span></span>(<span>here, there, color='#000000', width=2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def line(here, there, color=formatColor(0, 0, 0), width=2):
+    x0, y0 = here[0], here[1]
+    x1, y1 = there[0], there[1]
+    return _canvas.create_line(x0, y0, x1, y1, fill=color, width=width)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.polygon"><code class="name flex">
+<span>def <span class="ident">polygon</span></span>(<span>coords, outlineColor, fillColor=None, filled=1, smoothed=1, behind=0, width=1)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def polygon(coords, outlineColor, fillColor=None, filled=1, smoothed=1, behind=0, width=1):
+    c = []
+    for coord in coords:
+        c.append(coord[0])
+        c.append(coord[1])
+
+    if (fillColor is None):
+        fillColor = outlineColor
+
+    if filled == 0:
+        fillColor = &#34;&#34;
+
+    poly = _canvas.create_polygon(c, outline=outlineColor, fill=fillColor,
+            smooth=smoothed, width=width)
+    if behind &gt; 0:
+        _canvas.tag_lower(poly, behind)  # Higher should be more visible
+    return poly</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.sleep"><code class="name flex">
+<span>def <span class="ident">sleep</span></span>(<span>secs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sleep(secs):
+    global _root_window
+
+    if (_root_window is None):
+        time.sleep(secs)
+    else:
+        _root_window.update_idletasks()
+        _root_window.after(int(1000 * secs), _root_window.quit)
+        _root_window.mainloop()</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.text"><code class="name flex">
+<span>def <span class="ident">text</span></span>(<span>pos, color, contents, font='Helvetica', size=12, style='normal', anchor='nw')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def text(pos, color, contents, font=&#39;Helvetica&#39;, size=12, style=&#39;normal&#39;, anchor=&#34;nw&#34;):
+    global _canvas_x, _canvas_y
+
+    x, y = pos
+    font = (font, str(size), style)
+    return _canvas.create_text(x, y, fill=color, text=contents, font=font, anchor=anchor)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.gridworld.utils.wait_for_keys"><code class="name flex">
+<span>def <span class="ident">wait_for_keys</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def wait_for_keys():
+    keys = []
+    while keys == []:
+        keys = keys_pressed()
+        sleep(0.05)
+    return keys</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pacai.ui.gridworld" href="index.html">pacai.ui.gridworld</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="pacai.ui.gridworld.utils.begin_graphics" href="#pacai.ui.gridworld.utils.begin_graphics">begin_graphics</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.circle" href="#pacai.ui.gridworld.utils.circle">circle</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.clear_screen" href="#pacai.ui.gridworld.utils.clear_screen">clear_screen</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.draw_background" href="#pacai.ui.gridworld.utils.draw_background">draw_background</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.formatColor" href="#pacai.ui.gridworld.utils.formatColor">formatColor</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.keys_pressed" href="#pacai.ui.gridworld.utils.keys_pressed">keys_pressed</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.line" href="#pacai.ui.gridworld.utils.line">line</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.polygon" href="#pacai.ui.gridworld.utils.polygon">polygon</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.sleep" href="#pacai.ui.gridworld.utils.sleep">sleep</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.text" href="#pacai.ui.gridworld.utils.text">text</a></code></li>
+<li><code><a title="pacai.ui.gridworld.utils.wait_for_keys" href="#pacai.ui.gridworld.utils.wait_for_keys">wait_for_keys</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

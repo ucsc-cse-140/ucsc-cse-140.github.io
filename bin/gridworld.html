@@ -1,0 +1,1772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pacai.bin.gridworld API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pacai.bin.gridworld</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import argparse
+import logging
+import os
+import random
+import sys
+import textwrap
+
+from pacai.agents.learning.reinforcement import ReinforcementAgent
+from pacai.core.environment import Environment
+from pacai.core.mdp import MarkovDecisionProcess
+from pacai.student.qlearningAgents import QLearningAgent
+from pacai.student.valueIterationAgent import ValueIterationAgent
+from pacai.ui.gridworld.text import TextGridworldDisplay
+from pacai.ui.gridworld.utils import wait_for_keys
+from pacai.util.logs import initLogging
+from pacai.util.logs import updateLoggingLevel
+
+class Gridworld(MarkovDecisionProcess):
+    def __init__(self, grid):
+        # layout
+        if (isinstance(grid, list)):
+            grid = makeGrid(grid)
+
+        self.grid = grid
+
+        # parameters
+        self.livingReward = 0.0
+        self.noise = 0.2
+
+    def setLivingReward(self, reward):
+        &#34;&#34;&#34;
+        The (negative) reward for exiting &#34;normal&#34; states.
+
+        Note that in the R+N text, this reward is on entering
+        a state and therefore is not clearly part of the state&#39;s
+        future rewards.
+        &#34;&#34;&#34;
+
+        self.livingReward = reward
+
+    def setNoise(self, noise):
+        &#34;&#34;&#34;
+        The probability of moving in an unintended direction.
+        &#34;&#34;&#34;
+
+        self.noise = noise
+
+    def getPossibleActions(self, state):
+        &#34;&#34;&#34;
+        Returns list of valid actions for &#39;state&#39;.
+
+        Note that you can request moves into walls and
+        that &#34;exit&#34; states transition to the terminal
+        state under the special action &#34;done&#34;.
+        &#34;&#34;&#34;
+
+        if state == self.grid.terminalState:
+            return ()
+
+        x, y = state
+        if isinstance(self.grid[x][y], int):
+            return (&#39;exit&#39;, )
+
+        return (&#39;north&#39;, &#39;west&#39;, &#39;south&#39;, &#39;east&#39;)
+
+    def getStates(self):
+        &#34;&#34;&#34;
+        Return list of all states.
+        &#34;&#34;&#34;
+
+        # The true terminal state.
+        states = [self.grid.terminalState]
+        for x in range(self.grid.width):
+            for y in range(self.grid.height):
+                if self.grid[x][y] != &#39;#&#39;:
+                    state = (x, y)
+                    states.append(state)
+
+        return states
+
+    def getReward(self, state, action, nextState):
+        &#34;&#34;&#34;
+        Get reward for state, action, nextState transition.
+
+        Note that the reward depends only on the state being
+        departed (as in the R+N book examples, which more or
+        less use this convention).
+        &#34;&#34;&#34;
+
+        if state == self.grid.terminalState:
+            return 0.0
+
+        x, y = state
+        cell = self.grid[x][y]
+        if isinstance(cell, int) or isinstance(cell, float):
+            return cell
+
+        return self.livingReward
+
+    def getStartState(self):
+        for x in range(self.grid.width):
+            for y in range(self.grid.height):
+                if self.grid[x][y] == &#39;S&#39;:
+                    return (x, y)
+
+        raise Exception(&#39;Grid has no start state&#39;)
+
+    def isTerminal(self, state):
+        &#34;&#34;&#34;
+        Only the TERMINAL_STATE state is *actually* a terminal state.
+        The other &#34;exit&#34; states are technically non-terminals with
+        a single action &#34;exit&#34; which leads to the true terminal state.
+        This convention is to make the grids line up with the examples
+        in the R+N textbook.
+        &#34;&#34;&#34;
+
+        return state == self.grid.terminalState
+
+    def getTransitionStatesAndProbs(self, state, action):
+        &#34;&#34;&#34;
+        Returns list of (nextState, prob) pairs
+        representing the states reachable
+        from &#39;state&#39; by taking &#39;action&#39; along
+        with their transition probabilities.
+        &#34;&#34;&#34;
+
+        if action not in self.getPossibleActions(state):
+            raise Exception(&#39;Illegal action!&#39;)
+
+        if self.isTerminal(state):
+            return []
+
+        x, y = state
+
+        if isinstance(self.grid[x][y], int) or isinstance(self.grid[x][y], float):
+            termState = self.grid.terminalState
+            return [(termState, 1.0)]
+
+        successors = []
+
+        northState = (self.__isAllowed(y + 1, x) and (x, y + 1)) or state
+        westState = (self.__isAllowed(y, x - 1) and (x - 1, y)) or state
+        southState = (self.__isAllowed(y - 1, x) and (x, y - 1)) or state
+        eastState = (self.__isAllowed(y, x + 1) and (x + 1, y)) or state
+
+        if action == &#39;north&#39; or action == &#39;south&#39;:
+            if action == &#39;north&#39;:
+                successors.append((northState, 1 - self.noise))
+            else:
+                successors.append((southState, 1 - self.noise))
+
+            massLeft = self.noise
+            successors.append((westState, massLeft / 2.0))
+            successors.append((eastState, massLeft / 2.0))
+
+        if action == &#39;west&#39; or action == &#39;east&#39;:
+            if action == &#39;west&#39;:
+                successors.append((westState, 1 - self.noise))
+            else:
+                successors.append((eastState, 1 - self.noise))
+
+            massLeft = self.noise
+            successors.append((northState, massLeft / 2.0))
+            successors.append((southState, massLeft / 2.0))
+
+        successors = self.__aggregate(successors)
+        return successors
+
+    def __aggregate(self, statesAndProbs):
+        counter = {}
+        for state, prob in statesAndProbs:
+            if state not in counter:
+                counter[state] = 0.0
+            counter[state] += prob
+
+        newStatesAndProbs = []
+        for state, prob in counter.items():
+            newStatesAndProbs.append((state, prob))
+
+        return newStatesAndProbs
+
+    def __isAllowed(self, y, x):
+        if y &lt; 0 or y &gt;= self.grid.height:
+            return False
+
+        if x &lt; 0 or x &gt;= self.grid.width:
+            return False
+
+        return self.grid[x][y] != &#39;#&#39;
+
+class GridworldEnvironment(Environment):
+    def __init__(self, gridWorld):
+        self.gridWorld = gridWorld
+        self.reset()
+
+    def getCurrentState(self):
+        return self.state
+
+    def getPossibleActions(self, state):
+        return self.gridWorld.getPossibleActions(state)
+
+    def doAction(self, action):
+        successors = self.gridWorld.getTransitionStatesAndProbs(self.state, action)
+        sum = 0.0
+        rand = random.random()
+        state = self.getCurrentState()
+
+        for nextState, prob in successors:
+            sum += prob
+            if sum &gt; 1.0:
+                raise Exception(&#39;Total transition probability more than one; sample failure.&#39;)
+
+            if rand &lt; sum:
+                reward = self.gridWorld.getReward(state, action, nextState)
+                self.state = nextState
+                return (nextState, reward)
+
+        raise Exception(&#39;Total transition probability less than one; sample failure.&#39;)
+
+    def reset(self):
+        self.state = self.gridWorld.getStartState()
+
+class Grid(object):
+    &#34;&#34;&#34;
+    A 2-dimensional array of immutables backed by a list of lists.
+    Data is accessed via grid[x][y] where (x, y) are cartesian coordinates with x horizontal,
+    y vertical and the origin (0, 0) in the bottom left corner.
+
+    The __str__ method constructs an output that is oriented appropriately.
+    &#34;&#34;&#34;
+
+    def __init__(self, width, height, initialValue=&#39; &#39;):
+        self.width = width
+        self.height = height
+        self.data = [[initialValue for y in range(height)] for x in range(width)]
+        self.terminalState = &#39;TERMINAL_STATE&#39;
+
+    def __getitem__(self, i):
+        return self.data[i]
+
+    def __setitem__(self, key, item):
+        self.data[key] = item
+
+    def __eq__(self, other):
+        if (other is None):
+            return False
+        return self.data == other.data
+
+    def __hash__(self):
+        return hash(self.data)
+
+    def copy(self):
+        g = Grid(self.width, self.height)
+        g.data = [x[:] for x in self.data]
+        return g
+
+    def deepCopy(self):
+        return self.copy()
+
+    def shallowCopy(self):
+        g = Grid(self.width, self.height)
+        g.data = self.data
+        return g
+
+    def _getLegacyText(self):
+        t = [[self.data[x][y] for x in range(self.width)] for y in range(self.height)]
+        t.reverse()
+        return t
+
+    def __str__(self):
+        return str(self._getLegacyText())
+
+def makeGrid(gridString):
+    width, height = len(gridString[0]), len(gridString)
+    grid = Grid(width, height)
+    for ybar, line in enumerate(gridString):
+        y = height - ybar - 1
+        for x, el in enumerate(line):
+            grid[x][y] = el
+
+    return grid
+
+def getUserAction(state, actionFunction):
+    &#34;&#34;&#34;
+    Get an action from the user (rather than the agent).
+
+    Used for debugging and lecture demos.
+    &#34;&#34;&#34;
+
+    action = None
+
+    while True:
+        keys = wait_for_keys()
+
+        if (&#39;Up&#39; in keys):
+            action = &#39;north&#39;
+
+        if (&#39;Down&#39; in keys):
+            action = &#39;south&#39;
+
+        if (&#39;Left&#39; in keys):
+            action = &#39;west&#39;
+
+        if (&#39;Right&#39; in keys):
+            action = &#39;east&#39;
+
+        if (&#39;q&#39; in keys):
+            sys.exit(0)
+
+        if (action is None):
+            continue
+
+        break
+
+    actions = actionFunction(state)
+    if action not in actions:
+        action = actions[0]
+
+    return action
+
+def runEpisode(agent, environment, discount, decision, display, message, pause, episode):
+    returns = 0
+    totalDiscount = 1.0
+    environment.reset()
+
+    if (isinstance(agent, ReinforcementAgent)):
+        agent.startEpisode()
+
+    logging.info(&#39;BEGINNING EPISODE: &#39; + str(episode) + &#34;\n&#34;)
+
+    while True:
+        # DISPLAY CURRENT STATE
+        state = environment.getCurrentState()
+        display(state)
+        pause()
+
+        # END IF IN A TERMINAL STATE
+        actions = environment.getPossibleActions(state)
+        if (len(actions) == 0):
+            logging.info(&#39;EPISODE &#39; + str(episode) + &#39; COMPLETE: RETURN WAS &#39; + str(returns) + &#39;\n&#39;)
+            return returns
+
+        # GET ACTION (USUALLY FROM AGENT)
+        action = decision(state)
+        if (action is None):
+            raise Exception(&#39;Error: Agent returned None action&#39;)
+
+        # EXECUTE ACTION
+        nextState, reward = environment.doAction(action)
+        logString = &#39;&#39;
+        logString += &#39;\nStarted in state: &#39; + str(state)
+        logString += &#39;\nTook action: &#39; + str(action)
+        logString += &#39;\nEnded in state: &#39; + str(nextState)
+        logString += &#39;\nGot reward: &#39; + str(reward) + &#39;\n&#39;
+        logging.debug(logString)
+
+        # Update learner.
+        if (isinstance(agent, ReinforcementAgent)):
+            agent.observeTransition(state, action, nextState, reward)
+
+        returns += reward * totalDiscount
+        totalDiscount *= discount
+
+    if (isinstance(agent, ReinforcementAgent)):
+        agent.stopEpisode()
+
+def parseOptions(argv):
+    &#34;&#34;&#34;
+    Processes the command used to run gridworld from the command line.
+    &#34;&#34;&#34;
+
+    description = &#34;&#34;&#34;
+    DESCRIPTION:
+        This program will create a gridworld. Explore and find the best path to the reward!
+
+    EXAMPLES:
+        (1) python -m pacai.bin.gridworld
+            - Creats a gridworld with default settings.
+        (2) python -m pacai.bin.gridworld --discount 0.7
+            - Creats a gridworld with a 0.7 discount factor.
+    &#34;&#34;&#34;
+
+    parser = argparse.ArgumentParser(description = textwrap.dedent(description),
+        prog = os.path.basename(__file__), formatter_class = argparse.RawTextHelpFormatter)
+
+    parser.add_argument(&#39;-a&#39;, &#39;--agent&#39;, dest = &#39;agent&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;random&#39;,
+            help = &#39;agent type (options are \&#39;random\&#39;, \&#39;value\&#39; and \&#39;q\&#39;, default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-d&#39;, &#39;--debug&#39;, dest = &#39;debug&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;set logging level to debug (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-e&#39;, &#39;--epsilon&#39;, dest = &#39;epsilon&#39;,
+            action = &#39;store&#39;, type = float, default = 0.3,
+            help = &#39;chance of taking a random action in q-learning (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-g&#39;, &#39;--grid&#39;, dest = &#39;grid&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;BookGrid&#39;,
+            help = &#39;grid type: BookGrid, BridgeGrid, CliffGrid, MazeGrid, %(default)s (default)&#39;)
+
+    parser.add_argument(&#39;-i&#39;, &#39;--iterations&#39;, dest = &#39;iters&#39;,
+            action = &#39;store&#39;, type = int, default = 10,
+            help = &#39;number of rounds of value iteration (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-k&#39;, &#39;--episodes&#39;, dest = &#39;episodes&#39;,
+            action = &#39;store&#39;, type = int, default = 1,
+            help = &#39;number of epsiodes of the MDP to run (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-l&#39;, &#39;--learning-rate&#39;, dest = &#39;learningRate&#39;,
+            action = &#39;store&#39;, type = float, default = 0.5,
+            help = &#39;set the learning rate (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-n&#39;, &#39;--noise&#39;, dest = &#39;noise&#39;,
+            action = &#39;store&#39;, type = float, default = 0.2,
+            help = &#39;set how often actions result in unintended directions (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-p&#39;, &#39;--pause&#39;, dest = &#39;pause&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;pause GUI after each time step when running the MDP (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-q&#39;, &#39;--quiet&#39;, dest = &#39;quiet&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;set logging level to warning (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-r&#39;, &#39;--living-reward&#39;, dest = &#39;livingReward&#39;,
+            action = &#39;store&#39;, type = float, default = 0.0,
+            help = &#39;reward for living for a time step (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-s&#39;, &#39;--speed&#39;, dest = &#39;speed&#39;,
+            action = &#39;store&#39;, type = float, default = 1.0,
+            help = &#39;speed of animation, S&gt;1.0 is faster, 0&lt;S&lt;1 is slower (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-v&#39;, &#39;--value-steps&#39;, dest = &#39;valueSteps&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;display each step of value iteration (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-y&#39;, &#39;--discount&#39;, dest = &#39;discount&#39;,
+            action = &#39;store&#39;, type = float, default = 0.9,
+            help = &#39;discount on future (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;--manual&#39;, dest = &#39;manual&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;manually control agent (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;--null-graphics&#39;, dest = &#39;nullGraphics&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;generate no graphics (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;--text-graphics&#39;, dest = &#39;textGraphics&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;display output as text only (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;--window-size&#39;, dest = &#39;gridSize&#39;,
+            action = &#39;store&#39;, type = int, default = 150,
+            help = &#39;request a window width of X pixels *per grid cell* (default %(default)s)&#39;)
+
+    options, otherjunk = parser.parse_known_args(argv)
+
+    if len(otherjunk) != 0:
+        raise ValueError(&#39;Unrecognized options: \&#39;%s\&#39;.&#39; % (str(otherjunk)))
+
+    # Set the logging level
+    if options.quiet and options.debug:
+        raise ValueError(&#39;Logging cannont be set to both debug and quiet.&#39;)
+
+    if options.quiet:
+        updateLoggingLevel(logging.WARNING)
+    elif options.debug:
+        updateLoggingLevel(logging.DEBUG)
+
+    if options.manual and options.agent != &#39;q&#39;:
+        logging.info(&#39;Disabling Agents in Manual Mode.&#39;)
+        options.agent = None
+
+    # MANAGE CONFLICTS
+    if options.textGraphics or options.nullGraphics:
+        options.pause = False
+
+    if options.manual:
+        options.pause = True
+
+    return options
+
+def main(argv):
+    &#34;&#34;&#34;
+    Entry point for the gridworld simulation
+    The args are a blind pass of `sys.argv` with the executable stripped.
+    &#34;&#34;&#34;
+
+    initLogging()
+
+    opts = parseOptions(argv)
+
+    ###########################
+    # GET THE GRIDWORLD
+    ###########################
+
+    mdp = _getGridWorld(opts.grid)
+    mdp.setLivingReward(opts.livingReward)
+    mdp.setNoise(opts.noise)
+    env = GridworldEnvironment(mdp)
+
+    ###########################
+    # GET THE DISPLAY ADAPTER
+    ###########################
+
+    display = TextGridworldDisplay(mdp)
+    if not opts.textGraphics and not opts.nullGraphics:
+        from pacai.ui.gridworld.gui import GraphicsGridworldDisplay
+        display = GraphicsGridworldDisplay(mdp, opts.gridSize, opts.speed)
+
+    display.start()
+
+    ###########################
+    # GET THE AGENT
+    ###########################
+
+    a = None
+    if (opts.agent == &#39;value&#39;):
+        a = ValueIterationAgent(0, mdp, opts.discount, opts.iters)
+    elif (opts.agent == &#39;q&#39;):
+        qLearnOpts = {
+            &#39;gamma&#39;: opts.discount,
+            &#39;alpha&#39;: opts.learningRate,
+            &#39;epsilon&#39;: opts.epsilon,
+            &#39;actionFn&#39;: lambda state: mdp.getPossibleActions(state),
+        }
+        a = QLearningAgent(0, **qLearnOpts)
+    elif (opts.agent == &#39;random&#39;):
+        # No reason to use the random agent without episodes.
+        if (opts.episodes == 0):
+            opts.episodes = 10
+
+        class RandomMDPAgent:
+            def getAction(self, state):
+                return random.choice(mdp.getPossibleActions(state))
+
+            def getValue(self, state):
+                return 0.0
+
+            def getQValue(self, state, action):
+                return 0.0
+
+            def getPolicy(self, state):
+                &#34;NOTE: &#39;random&#39; is a special policy value; don&#39;t use it in your code.&#34;
+                return &#39;random&#39;
+
+            def update(self, state, action, nextState, reward):
+                pass
+
+        a = RandomMDPAgent()
+    else:
+        if (not opts.manual):
+            raise &#39;Unknown agent type: &#39; + opts.agent
+
+    ###########################
+    # RUN EPISODES
+    ###########################
+
+    # Display q/v values before simulation of episodes.
+    if (not opts.manual and opts.agent == &#39;value&#39;):
+        if (opts.valueSteps):
+            for i in range(opts.iters):
+                tempAgent = ValueIterationAgent(0, mdp, opts.discount, i)
+                display.displayValues(tempAgent, message = &#39;VALUES AFTER &#39; + str(i) + &#39; ITERATIONS&#39;)
+                display.pause()
+
+        display.displayValues(a, message = &#39;VALUES AFTER &#39; + str(opts.iters) + &#39; ITERATIONS&#39;)
+        display.pause()
+        display.displayQValues(a, message = &#39;Q-VALUES AFTER &#39; + str(opts.iters) + &#39; ITERATIONS&#39;)
+        display.pause()
+
+    # Figure out what to display each time step (if anything).
+    displayCallback = lambda x: None
+    if (not opts.nullGraphics):
+        if (opts.manual and opts.agent is None):
+            displayCallback = lambda state: display.displayNullValues(state)
+        else:
+            if (opts.agent == &#39;random&#39;):
+                displayCallback = lambda state: display.displayValues(a, state, &#39;CURRENT VALUES&#39;)
+            elif (opts.agent == &#39;value&#39;):
+                displayCallback = lambda state: display.displayValues(a, state, &#39;CURRENT VALUES&#39;)
+            elif (opts.agent == &#39;q&#39;):
+                displayCallback = lambda state: display.displayQValues(a, state, &#39;CURRENT Q-VALUES&#39;)
+
+    messageCallback = lambda x: print(x)
+    if (opts.nullGraphics):
+        messageCallback = lambda x: None
+
+    # FIGURE OUT WHETHER TO WAIT FOR A KEY PRESS AFTER EACH TIME STEP
+    pauseCallback = lambda: None
+    if (opts.pause):
+        pauseCallback = lambda: display.pause()
+
+    # Figure out whether the user wants manual control (for debugging and demos).
+    if (opts.manual):
+        decisionCallback = lambda state: getUserAction(state, mdp.getPossibleActions)
+    else:
+        decisionCallback = a.getAction
+
+    # Run episodes.
+    if (opts.episodes &gt; 0):
+        logging.debug(&#39;RUNNING &#39; + str(opts.episodes) + &#39; EPISODES&#39;)
+
+    returns = 0
+    for episode in range(1, opts.episodes + 1):
+        returns += runEpisode(a, env, opts.discount, decisionCallback, displayCallback,
+                messageCallback, pauseCallback, episode)
+
+    if (opts.episodes &gt; 0):
+        logging.debug(&#39;AVERAGE RETURNS FROM START STATE:&#39; + str((returns + 0.0) / opts.episodes))
+
+    # Display post-learning values / q-values.
+    if (opts.agent == &#39;q&#39; and not opts.manual):
+        display.displayQValues(a, message = &#39;Q-VALUES AFTER &#39; + str(opts.episodes) + &#39; EPISODES&#39;)
+        display.pause()
+        display.displayValues(a, message = &#39;VALUES AFTER &#39; + str(opts.episodes) + &#39; EPISODES&#39;)
+        display.pause()
+
+def _getGridWorld(name):
+    name = name.lower()
+
+    grid = None
+    if (name == &#39;bookgrid&#39;):
+        grid = BOOK_GRID
+    elif (name == &#39;bridgegrid&#39;):
+        grid = BRIDGE_GRID
+    elif (name == &#39;cliffgrid&#39;):
+        grid = CLIFF_GRID
+    elif (name == &#39;cliff2grid&#39;):
+        grid = CLIFF2_GRID
+    elif (name == &#39;discountgrid&#39;):
+        grid = DISCOUNT_GRID
+    elif (name == &#39;mazegrid&#39;):
+        grid = MAZE_GRID
+    else:
+        raise ValueError(&#34;Unknown grid name: &#39;%s&#39;.&#34; % (name))
+
+    return Gridworld(grid)
+
+BOOK_GRID = [
+    [&#39; &#39;, &#39; &#39;, &#39; &#39;, +1],
+    [&#39; &#39;, &#39;#&#39;, &#39; &#39;, -1],
+    [&#39;S&#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;],
+]
+
+BRIDGE_GRID = [
+    [&#39;#&#39;, -100, -100, -100, -100, -100, &#39;#&#39;],
+    [1, &#39;S&#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, 10],
+    [&#39;#&#39;, -100, -100, -100, -100, -100, &#39;#&#39;],
+]
+
+CLIFF_GRID = [
+    [&#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;],
+    [&#39;S&#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, 10],
+    [-100, -100, -100, -100, -100],
+]
+
+CLIFF2_GRID = [
+    [&#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;],
+    [8, &#39;S&#39;, &#39; &#39;, &#39; &#39;, 10],
+    [-100, -100, -100, -100, -100],
+]
+
+DISCOUNT_GRID = [
+    [&#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;],
+    [&#39; &#39;, &#39;#&#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;],
+    [&#39; &#39;, &#39;#&#39;, 1, &#39;#&#39;, 10],
+    [&#39;S&#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;],
+    [-10, -10, -10, -10, -10],
+]
+
+MAZE_GRID = [
+    [&#39; &#39;, &#39; &#39;, &#39; &#39;, +1],
+    [&#39;#&#39;, &#39;#&#39;, &#39; &#39;, &#39;#&#39;],
+    [&#39; &#39;, &#39;#&#39;, &#39; &#39;, &#39; &#39;],
+    [&#39; &#39;, &#39;#&#39;, &#39;#&#39;, &#39; &#39;],
+    [&#39;S&#39;, &#39; &#39;, &#39; &#39;, &#39; &#39;],
+]
+
+if __name__ == &#39;__main__&#39;:
+    main(sys.argv[1:])</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pacai.bin.gridworld.getUserAction"><code class="name flex">
+<span>def <span class="ident">getUserAction</span></span>(<span>state, actionFunction)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get an action from the user (rather than the agent).</p>
+<p>Used for debugging and lecture demos.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getUserAction(state, actionFunction):
+    &#34;&#34;&#34;
+    Get an action from the user (rather than the agent).
+
+    Used for debugging and lecture demos.
+    &#34;&#34;&#34;
+
+    action = None
+
+    while True:
+        keys = wait_for_keys()
+
+        if (&#39;Up&#39; in keys):
+            action = &#39;north&#39;
+
+        if (&#39;Down&#39; in keys):
+            action = &#39;south&#39;
+
+        if (&#39;Left&#39; in keys):
+            action = &#39;west&#39;
+
+        if (&#39;Right&#39; in keys):
+            action = &#39;east&#39;
+
+        if (&#39;q&#39; in keys):
+            sys.exit(0)
+
+        if (action is None):
+            continue
+
+        break
+
+    actions = actionFunction(state)
+    if action not in actions:
+        action = actions[0]
+
+    return action</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Entry point for the gridworld simulation
+The args are a blind pass of <code>sys.argv</code> with the executable stripped.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main(argv):
+    &#34;&#34;&#34;
+    Entry point for the gridworld simulation
+    The args are a blind pass of `sys.argv` with the executable stripped.
+    &#34;&#34;&#34;
+
+    initLogging()
+
+    opts = parseOptions(argv)
+
+    ###########################
+    # GET THE GRIDWORLD
+    ###########################
+
+    mdp = _getGridWorld(opts.grid)
+    mdp.setLivingReward(opts.livingReward)
+    mdp.setNoise(opts.noise)
+    env = GridworldEnvironment(mdp)
+
+    ###########################
+    # GET THE DISPLAY ADAPTER
+    ###########################
+
+    display = TextGridworldDisplay(mdp)
+    if not opts.textGraphics and not opts.nullGraphics:
+        from pacai.ui.gridworld.gui import GraphicsGridworldDisplay
+        display = GraphicsGridworldDisplay(mdp, opts.gridSize, opts.speed)
+
+    display.start()
+
+    ###########################
+    # GET THE AGENT
+    ###########################
+
+    a = None
+    if (opts.agent == &#39;value&#39;):
+        a = ValueIterationAgent(0, mdp, opts.discount, opts.iters)
+    elif (opts.agent == &#39;q&#39;):
+        qLearnOpts = {
+            &#39;gamma&#39;: opts.discount,
+            &#39;alpha&#39;: opts.learningRate,
+            &#39;epsilon&#39;: opts.epsilon,
+            &#39;actionFn&#39;: lambda state: mdp.getPossibleActions(state),
+        }
+        a = QLearningAgent(0, **qLearnOpts)
+    elif (opts.agent == &#39;random&#39;):
+        # No reason to use the random agent without episodes.
+        if (opts.episodes == 0):
+            opts.episodes = 10
+
+        class RandomMDPAgent:
+            def getAction(self, state):
+                return random.choice(mdp.getPossibleActions(state))
+
+            def getValue(self, state):
+                return 0.0
+
+            def getQValue(self, state, action):
+                return 0.0
+
+            def getPolicy(self, state):
+                &#34;NOTE: &#39;random&#39; is a special policy value; don&#39;t use it in your code.&#34;
+                return &#39;random&#39;
+
+            def update(self, state, action, nextState, reward):
+                pass
+
+        a = RandomMDPAgent()
+    else:
+        if (not opts.manual):
+            raise &#39;Unknown agent type: &#39; + opts.agent
+
+    ###########################
+    # RUN EPISODES
+    ###########################
+
+    # Display q/v values before simulation of episodes.
+    if (not opts.manual and opts.agent == &#39;value&#39;):
+        if (opts.valueSteps):
+            for i in range(opts.iters):
+                tempAgent = ValueIterationAgent(0, mdp, opts.discount, i)
+                display.displayValues(tempAgent, message = &#39;VALUES AFTER &#39; + str(i) + &#39; ITERATIONS&#39;)
+                display.pause()
+
+        display.displayValues(a, message = &#39;VALUES AFTER &#39; + str(opts.iters) + &#39; ITERATIONS&#39;)
+        display.pause()
+        display.displayQValues(a, message = &#39;Q-VALUES AFTER &#39; + str(opts.iters) + &#39; ITERATIONS&#39;)
+        display.pause()
+
+    # Figure out what to display each time step (if anything).
+    displayCallback = lambda x: None
+    if (not opts.nullGraphics):
+        if (opts.manual and opts.agent is None):
+            displayCallback = lambda state: display.displayNullValues(state)
+        else:
+            if (opts.agent == &#39;random&#39;):
+                displayCallback = lambda state: display.displayValues(a, state, &#39;CURRENT VALUES&#39;)
+            elif (opts.agent == &#39;value&#39;):
+                displayCallback = lambda state: display.displayValues(a, state, &#39;CURRENT VALUES&#39;)
+            elif (opts.agent == &#39;q&#39;):
+                displayCallback = lambda state: display.displayQValues(a, state, &#39;CURRENT Q-VALUES&#39;)
+
+    messageCallback = lambda x: print(x)
+    if (opts.nullGraphics):
+        messageCallback = lambda x: None
+
+    # FIGURE OUT WHETHER TO WAIT FOR A KEY PRESS AFTER EACH TIME STEP
+    pauseCallback = lambda: None
+    if (opts.pause):
+        pauseCallback = lambda: display.pause()
+
+    # Figure out whether the user wants manual control (for debugging and demos).
+    if (opts.manual):
+        decisionCallback = lambda state: getUserAction(state, mdp.getPossibleActions)
+    else:
+        decisionCallback = a.getAction
+
+    # Run episodes.
+    if (opts.episodes &gt; 0):
+        logging.debug(&#39;RUNNING &#39; + str(opts.episodes) + &#39; EPISODES&#39;)
+
+    returns = 0
+    for episode in range(1, opts.episodes + 1):
+        returns += runEpisode(a, env, opts.discount, decisionCallback, displayCallback,
+                messageCallback, pauseCallback, episode)
+
+    if (opts.episodes &gt; 0):
+        logging.debug(&#39;AVERAGE RETURNS FROM START STATE:&#39; + str((returns + 0.0) / opts.episodes))
+
+    # Display post-learning values / q-values.
+    if (opts.agent == &#39;q&#39; and not opts.manual):
+        display.displayQValues(a, message = &#39;Q-VALUES AFTER &#39; + str(opts.episodes) + &#39; EPISODES&#39;)
+        display.pause()
+        display.displayValues(a, message = &#39;VALUES AFTER &#39; + str(opts.episodes) + &#39; EPISODES&#39;)
+        display.pause()</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.makeGrid"><code class="name flex">
+<span>def <span class="ident">makeGrid</span></span>(<span>gridString)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def makeGrid(gridString):
+    width, height = len(gridString[0]), len(gridString)
+    grid = Grid(width, height)
+    for ybar, line in enumerate(gridString):
+        y = height - ybar - 1
+        for x, el in enumerate(line):
+            grid[x][y] = el
+
+    return grid</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.parseOptions"><code class="name flex">
+<span>def <span class="ident">parseOptions</span></span>(<span>argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Processes the command used to run gridworld from the command line.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parseOptions(argv):
+    &#34;&#34;&#34;
+    Processes the command used to run gridworld from the command line.
+    &#34;&#34;&#34;
+
+    description = &#34;&#34;&#34;
+    DESCRIPTION:
+        This program will create a gridworld. Explore and find the best path to the reward!
+
+    EXAMPLES:
+        (1) python -m pacai.bin.gridworld
+            - Creats a gridworld with default settings.
+        (2) python -m pacai.bin.gridworld --discount 0.7
+            - Creats a gridworld with a 0.7 discount factor.
+    &#34;&#34;&#34;
+
+    parser = argparse.ArgumentParser(description = textwrap.dedent(description),
+        prog = os.path.basename(__file__), formatter_class = argparse.RawTextHelpFormatter)
+
+    parser.add_argument(&#39;-a&#39;, &#39;--agent&#39;, dest = &#39;agent&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;random&#39;,
+            help = &#39;agent type (options are \&#39;random\&#39;, \&#39;value\&#39; and \&#39;q\&#39;, default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-d&#39;, &#39;--debug&#39;, dest = &#39;debug&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;set logging level to debug (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-e&#39;, &#39;--epsilon&#39;, dest = &#39;epsilon&#39;,
+            action = &#39;store&#39;, type = float, default = 0.3,
+            help = &#39;chance of taking a random action in q-learning (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-g&#39;, &#39;--grid&#39;, dest = &#39;grid&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;BookGrid&#39;,
+            help = &#39;grid type: BookGrid, BridgeGrid, CliffGrid, MazeGrid, %(default)s (default)&#39;)
+
+    parser.add_argument(&#39;-i&#39;, &#39;--iterations&#39;, dest = &#39;iters&#39;,
+            action = &#39;store&#39;, type = int, default = 10,
+            help = &#39;number of rounds of value iteration (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-k&#39;, &#39;--episodes&#39;, dest = &#39;episodes&#39;,
+            action = &#39;store&#39;, type = int, default = 1,
+            help = &#39;number of epsiodes of the MDP to run (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-l&#39;, &#39;--learning-rate&#39;, dest = &#39;learningRate&#39;,
+            action = &#39;store&#39;, type = float, default = 0.5,
+            help = &#39;set the learning rate (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-n&#39;, &#39;--noise&#39;, dest = &#39;noise&#39;,
+            action = &#39;store&#39;, type = float, default = 0.2,
+            help = &#39;set how often actions result in unintended directions (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-p&#39;, &#39;--pause&#39;, dest = &#39;pause&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;pause GUI after each time step when running the MDP (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-q&#39;, &#39;--quiet&#39;, dest = &#39;quiet&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;set logging level to warning (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-r&#39;, &#39;--living-reward&#39;, dest = &#39;livingReward&#39;,
+            action = &#39;store&#39;, type = float, default = 0.0,
+            help = &#39;reward for living for a time step (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-s&#39;, &#39;--speed&#39;, dest = &#39;speed&#39;,
+            action = &#39;store&#39;, type = float, default = 1.0,
+            help = &#39;speed of animation, S&gt;1.0 is faster, 0&lt;S&lt;1 is slower (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-v&#39;, &#39;--value-steps&#39;, dest = &#39;valueSteps&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;display each step of value iteration (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;-y&#39;, &#39;--discount&#39;, dest = &#39;discount&#39;,
+            action = &#39;store&#39;, type = float, default = 0.9,
+            help = &#39;discount on future (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;--manual&#39;, dest = &#39;manual&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;manually control agent (default %(default)s)&#39;)
+
+    parser.add_argument(&#39;--null-graphics&#39;, dest = &#39;nullGraphics&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;generate no graphics (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;--text-graphics&#39;, dest = &#39;textGraphics&#39;,
+            action = &#39;store_true&#39;, default = False,
+            help = &#39;display output as text only (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;--window-size&#39;, dest = &#39;gridSize&#39;,
+            action = &#39;store&#39;, type = int, default = 150,
+            help = &#39;request a window width of X pixels *per grid cell* (default %(default)s)&#39;)
+
+    options, otherjunk = parser.parse_known_args(argv)
+
+    if len(otherjunk) != 0:
+        raise ValueError(&#39;Unrecognized options: \&#39;%s\&#39;.&#39; % (str(otherjunk)))
+
+    # Set the logging level
+    if options.quiet and options.debug:
+        raise ValueError(&#39;Logging cannont be set to both debug and quiet.&#39;)
+
+    if options.quiet:
+        updateLoggingLevel(logging.WARNING)
+    elif options.debug:
+        updateLoggingLevel(logging.DEBUG)
+
+    if options.manual and options.agent != &#39;q&#39;:
+        logging.info(&#39;Disabling Agents in Manual Mode.&#39;)
+        options.agent = None
+
+    # MANAGE CONFLICTS
+    if options.textGraphics or options.nullGraphics:
+        options.pause = False
+
+    if options.manual:
+        options.pause = True
+
+    return options</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.runEpisode"><code class="name flex">
+<span>def <span class="ident">runEpisode</span></span>(<span>agent, environment, discount, decision, display, message, pause, episode)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def runEpisode(agent, environment, discount, decision, display, message, pause, episode):
+    returns = 0
+    totalDiscount = 1.0
+    environment.reset()
+
+    if (isinstance(agent, ReinforcementAgent)):
+        agent.startEpisode()
+
+    logging.info(&#39;BEGINNING EPISODE: &#39; + str(episode) + &#34;\n&#34;)
+
+    while True:
+        # DISPLAY CURRENT STATE
+        state = environment.getCurrentState()
+        display(state)
+        pause()
+
+        # END IF IN A TERMINAL STATE
+        actions = environment.getPossibleActions(state)
+        if (len(actions) == 0):
+            logging.info(&#39;EPISODE &#39; + str(episode) + &#39; COMPLETE: RETURN WAS &#39; + str(returns) + &#39;\n&#39;)
+            return returns
+
+        # GET ACTION (USUALLY FROM AGENT)
+        action = decision(state)
+        if (action is None):
+            raise Exception(&#39;Error: Agent returned None action&#39;)
+
+        # EXECUTE ACTION
+        nextState, reward = environment.doAction(action)
+        logString = &#39;&#39;
+        logString += &#39;\nStarted in state: &#39; + str(state)
+        logString += &#39;\nTook action: &#39; + str(action)
+        logString += &#39;\nEnded in state: &#39; + str(nextState)
+        logString += &#39;\nGot reward: &#39; + str(reward) + &#39;\n&#39;
+        logging.debug(logString)
+
+        # Update learner.
+        if (isinstance(agent, ReinforcementAgent)):
+            agent.observeTransition(state, action, nextState, reward)
+
+        returns += reward * totalDiscount
+        totalDiscount *= discount
+
+    if (isinstance(agent, ReinforcementAgent)):
+        agent.stopEpisode()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pacai.bin.gridworld.Grid"><code class="flex name class">
+<span>class <span class="ident">Grid</span></span>
+<span>(</span><span>width, height, initialValue=' ')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A 2-dimensional array of immutables backed by a list of lists.
+Data is accessed via grid[x][y] where (x, y) are cartesian coordinates with x horizontal,
+y vertical and the origin (0, 0) in the bottom left corner.</p>
+<p>The <strong>str</strong> method constructs an output that is oriented appropriately.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Grid(object):
+    &#34;&#34;&#34;
+    A 2-dimensional array of immutables backed by a list of lists.
+    Data is accessed via grid[x][y] where (x, y) are cartesian coordinates with x horizontal,
+    y vertical and the origin (0, 0) in the bottom left corner.
+
+    The __str__ method constructs an output that is oriented appropriately.
+    &#34;&#34;&#34;
+
+    def __init__(self, width, height, initialValue=&#39; &#39;):
+        self.width = width
+        self.height = height
+        self.data = [[initialValue for y in range(height)] for x in range(width)]
+        self.terminalState = &#39;TERMINAL_STATE&#39;
+
+    def __getitem__(self, i):
+        return self.data[i]
+
+    def __setitem__(self, key, item):
+        self.data[key] = item
+
+    def __eq__(self, other):
+        if (other is None):
+            return False
+        return self.data == other.data
+
+    def __hash__(self):
+        return hash(self.data)
+
+    def copy(self):
+        g = Grid(self.width, self.height)
+        g.data = [x[:] for x in self.data]
+        return g
+
+    def deepCopy(self):
+        return self.copy()
+
+    def shallowCopy(self):
+        g = Grid(self.width, self.height)
+        g.data = self.data
+        return g
+
+    def _getLegacyText(self):
+        t = [[self.data[x][y] for x in range(self.width)] for y in range(self.height)]
+        t.reverse()
+        return t
+
+    def __str__(self):
+        return str(self._getLegacyText())</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.bin.gridworld.Grid.copy"><code class="name flex">
+<span>def <span class="ident">copy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copy(self):
+    g = Grid(self.width, self.height)
+    g.data = [x[:] for x in self.data]
+    return g</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.Grid.deepCopy"><code class="name flex">
+<span>def <span class="ident">deepCopy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def deepCopy(self):
+    return self.copy()</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.Grid.shallowCopy"><code class="name flex">
+<span>def <span class="ident">shallowCopy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def shallowCopy(self):
+    g = Grid(self.width, self.height)
+    g.data = self.data
+    return g</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pacai.bin.gridworld.Gridworld"><code class="flex name class">
+<span>class <span class="ident">Gridworld</span></span>
+<span>(</span><span>grid)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Gridworld(MarkovDecisionProcess):
+    def __init__(self, grid):
+        # layout
+        if (isinstance(grid, list)):
+            grid = makeGrid(grid)
+
+        self.grid = grid
+
+        # parameters
+        self.livingReward = 0.0
+        self.noise = 0.2
+
+    def setLivingReward(self, reward):
+        &#34;&#34;&#34;
+        The (negative) reward for exiting &#34;normal&#34; states.
+
+        Note that in the R+N text, this reward is on entering
+        a state and therefore is not clearly part of the state&#39;s
+        future rewards.
+        &#34;&#34;&#34;
+
+        self.livingReward = reward
+
+    def setNoise(self, noise):
+        &#34;&#34;&#34;
+        The probability of moving in an unintended direction.
+        &#34;&#34;&#34;
+
+        self.noise = noise
+
+    def getPossibleActions(self, state):
+        &#34;&#34;&#34;
+        Returns list of valid actions for &#39;state&#39;.
+
+        Note that you can request moves into walls and
+        that &#34;exit&#34; states transition to the terminal
+        state under the special action &#34;done&#34;.
+        &#34;&#34;&#34;
+
+        if state == self.grid.terminalState:
+            return ()
+
+        x, y = state
+        if isinstance(self.grid[x][y], int):
+            return (&#39;exit&#39;, )
+
+        return (&#39;north&#39;, &#39;west&#39;, &#39;south&#39;, &#39;east&#39;)
+
+    def getStates(self):
+        &#34;&#34;&#34;
+        Return list of all states.
+        &#34;&#34;&#34;
+
+        # The true terminal state.
+        states = [self.grid.terminalState]
+        for x in range(self.grid.width):
+            for y in range(self.grid.height):
+                if self.grid[x][y] != &#39;#&#39;:
+                    state = (x, y)
+                    states.append(state)
+
+        return states
+
+    def getReward(self, state, action, nextState):
+        &#34;&#34;&#34;
+        Get reward for state, action, nextState transition.
+
+        Note that the reward depends only on the state being
+        departed (as in the R+N book examples, which more or
+        less use this convention).
+        &#34;&#34;&#34;
+
+        if state == self.grid.terminalState:
+            return 0.0
+
+        x, y = state
+        cell = self.grid[x][y]
+        if isinstance(cell, int) or isinstance(cell, float):
+            return cell
+
+        return self.livingReward
+
+    def getStartState(self):
+        for x in range(self.grid.width):
+            for y in range(self.grid.height):
+                if self.grid[x][y] == &#39;S&#39;:
+                    return (x, y)
+
+        raise Exception(&#39;Grid has no start state&#39;)
+
+    def isTerminal(self, state):
+        &#34;&#34;&#34;
+        Only the TERMINAL_STATE state is *actually* a terminal state.
+        The other &#34;exit&#34; states are technically non-terminals with
+        a single action &#34;exit&#34; which leads to the true terminal state.
+        This convention is to make the grids line up with the examples
+        in the R+N textbook.
+        &#34;&#34;&#34;
+
+        return state == self.grid.terminalState
+
+    def getTransitionStatesAndProbs(self, state, action):
+        &#34;&#34;&#34;
+        Returns list of (nextState, prob) pairs
+        representing the states reachable
+        from &#39;state&#39; by taking &#39;action&#39; along
+        with their transition probabilities.
+        &#34;&#34;&#34;
+
+        if action not in self.getPossibleActions(state):
+            raise Exception(&#39;Illegal action!&#39;)
+
+        if self.isTerminal(state):
+            return []
+
+        x, y = state
+
+        if isinstance(self.grid[x][y], int) or isinstance(self.grid[x][y], float):
+            termState = self.grid.terminalState
+            return [(termState, 1.0)]
+
+        successors = []
+
+        northState = (self.__isAllowed(y + 1, x) and (x, y + 1)) or state
+        westState = (self.__isAllowed(y, x - 1) and (x - 1, y)) or state
+        southState = (self.__isAllowed(y - 1, x) and (x, y - 1)) or state
+        eastState = (self.__isAllowed(y, x + 1) and (x + 1, y)) or state
+
+        if action == &#39;north&#39; or action == &#39;south&#39;:
+            if action == &#39;north&#39;:
+                successors.append((northState, 1 - self.noise))
+            else:
+                successors.append((southState, 1 - self.noise))
+
+            massLeft = self.noise
+            successors.append((westState, massLeft / 2.0))
+            successors.append((eastState, massLeft / 2.0))
+
+        if action == &#39;west&#39; or action == &#39;east&#39;:
+            if action == &#39;west&#39;:
+                successors.append((westState, 1 - self.noise))
+            else:
+                successors.append((eastState, 1 - self.noise))
+
+            massLeft = self.noise
+            successors.append((northState, massLeft / 2.0))
+            successors.append((southState, massLeft / 2.0))
+
+        successors = self.__aggregate(successors)
+        return successors
+
+    def __aggregate(self, statesAndProbs):
+        counter = {}
+        for state, prob in statesAndProbs:
+            if state not in counter:
+                counter[state] = 0.0
+            counter[state] += prob
+
+        newStatesAndProbs = []
+        for state, prob in counter.items():
+            newStatesAndProbs.append((state, prob))
+
+        return newStatesAndProbs
+
+    def __isAllowed(self, y, x):
+        if y &lt; 0 or y &gt;= self.grid.height:
+            return False
+
+        if x &lt; 0 or x &gt;= self.grid.width:
+            return False
+
+        return self.grid[x][y] != &#39;#&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pacai.core.mdp.MarkovDecisionProcess" href="../core/mdp.html#pacai.core.mdp.MarkovDecisionProcess">MarkovDecisionProcess</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.bin.gridworld.Gridworld.getPossibleActions"><code class="name flex">
+<span>def <span class="ident">getPossibleActions</span></span>(<span>self, state)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns list of valid actions for 'state'.</p>
+<p>Note that you can request moves into walls and
+that "exit" states transition to the terminal
+state under the special action "done".</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPossibleActions(self, state):
+    &#34;&#34;&#34;
+    Returns list of valid actions for &#39;state&#39;.
+
+    Note that you can request moves into walls and
+    that &#34;exit&#34; states transition to the terminal
+    state under the special action &#34;done&#34;.
+    &#34;&#34;&#34;
+
+    if state == self.grid.terminalState:
+        return ()
+
+    x, y = state
+    if isinstance(self.grid[x][y], int):
+        return (&#39;exit&#39;, )
+
+    return (&#39;north&#39;, &#39;west&#39;, &#39;south&#39;, &#39;east&#39;)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.Gridworld.getReward"><code class="name flex">
+<span>def <span class="ident">getReward</span></span>(<span>self, state, action, nextState)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get reward for state, action, nextState transition.</p>
+<p>Note that the reward depends only on the state being
+departed (as in the R+N book examples, which more or
+less use this convention).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getReward(self, state, action, nextState):
+    &#34;&#34;&#34;
+    Get reward for state, action, nextState transition.
+
+    Note that the reward depends only on the state being
+    departed (as in the R+N book examples, which more or
+    less use this convention).
+    &#34;&#34;&#34;
+
+    if state == self.grid.terminalState:
+        return 0.0
+
+    x, y = state
+    cell = self.grid[x][y]
+    if isinstance(cell, int) or isinstance(cell, float):
+        return cell
+
+    return self.livingReward</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.Gridworld.getStates"><code class="name flex">
+<span>def <span class="ident">getStates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return list of all states.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getStates(self):
+    &#34;&#34;&#34;
+    Return list of all states.
+    &#34;&#34;&#34;
+
+    # The true terminal state.
+    states = [self.grid.terminalState]
+    for x in range(self.grid.width):
+        for y in range(self.grid.height):
+            if self.grid[x][y] != &#39;#&#39;:
+                state = (x, y)
+                states.append(state)
+
+    return states</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.Gridworld.getTransitionStatesAndProbs"><code class="name flex">
+<span>def <span class="ident">getTransitionStatesAndProbs</span></span>(<span>self, state, action)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns list of (nextState, prob) pairs
+representing the states reachable
+from 'state' by taking 'action' along
+with their transition probabilities.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTransitionStatesAndProbs(self, state, action):
+    &#34;&#34;&#34;
+    Returns list of (nextState, prob) pairs
+    representing the states reachable
+    from &#39;state&#39; by taking &#39;action&#39; along
+    with their transition probabilities.
+    &#34;&#34;&#34;
+
+    if action not in self.getPossibleActions(state):
+        raise Exception(&#39;Illegal action!&#39;)
+
+    if self.isTerminal(state):
+        return []
+
+    x, y = state
+
+    if isinstance(self.grid[x][y], int) or isinstance(self.grid[x][y], float):
+        termState = self.grid.terminalState
+        return [(termState, 1.0)]
+
+    successors = []
+
+    northState = (self.__isAllowed(y + 1, x) and (x, y + 1)) or state
+    westState = (self.__isAllowed(y, x - 1) and (x - 1, y)) or state
+    southState = (self.__isAllowed(y - 1, x) and (x, y - 1)) or state
+    eastState = (self.__isAllowed(y, x + 1) and (x + 1, y)) or state
+
+    if action == &#39;north&#39; or action == &#39;south&#39;:
+        if action == &#39;north&#39;:
+            successors.append((northState, 1 - self.noise))
+        else:
+            successors.append((southState, 1 - self.noise))
+
+        massLeft = self.noise
+        successors.append((westState, massLeft / 2.0))
+        successors.append((eastState, massLeft / 2.0))
+
+    if action == &#39;west&#39; or action == &#39;east&#39;:
+        if action == &#39;west&#39;:
+            successors.append((westState, 1 - self.noise))
+        else:
+            successors.append((eastState, 1 - self.noise))
+
+        massLeft = self.noise
+        successors.append((northState, massLeft / 2.0))
+        successors.append((southState, massLeft / 2.0))
+
+    successors = self.__aggregate(successors)
+    return successors</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.Gridworld.isTerminal"><code class="name flex">
+<span>def <span class="ident">isTerminal</span></span>(<span>self, state)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Only the TERMINAL_STATE state is <em>actually</em> a terminal state.
+The other "exit" states are technically non-terminals with
+a single action "exit" which leads to the true terminal state.
+This convention is to make the grids line up with the examples
+in the R+N textbook.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isTerminal(self, state):
+    &#34;&#34;&#34;
+    Only the TERMINAL_STATE state is *actually* a terminal state.
+    The other &#34;exit&#34; states are technically non-terminals with
+    a single action &#34;exit&#34; which leads to the true terminal state.
+    This convention is to make the grids line up with the examples
+    in the R+N textbook.
+    &#34;&#34;&#34;
+
+    return state == self.grid.terminalState</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.Gridworld.setLivingReward"><code class="name flex">
+<span>def <span class="ident">setLivingReward</span></span>(<span>self, reward)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The (negative) reward for exiting "normal" states.</p>
+<p>Note that in the R+N text, this reward is on entering
+a state and therefore is not clearly part of the state's
+future rewards.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setLivingReward(self, reward):
+    &#34;&#34;&#34;
+    The (negative) reward for exiting &#34;normal&#34; states.
+
+    Note that in the R+N text, this reward is on entering
+    a state and therefore is not clearly part of the state&#39;s
+    future rewards.
+    &#34;&#34;&#34;
+
+    self.livingReward = reward</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.gridworld.Gridworld.setNoise"><code class="name flex">
+<span>def <span class="ident">setNoise</span></span>(<span>self, noise)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The probability of moving in an unintended direction.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setNoise(self, noise):
+    &#34;&#34;&#34;
+    The probability of moving in an unintended direction.
+    &#34;&#34;&#34;
+
+    self.noise = noise</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pacai.core.mdp.MarkovDecisionProcess" href="../core/mdp.html#pacai.core.mdp.MarkovDecisionProcess">MarkovDecisionProcess</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pacai.core.mdp.MarkovDecisionProcess.getStartState" href="../core/mdp.html#pacai.core.mdp.MarkovDecisionProcess.getStartState">getStartState</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pacai.bin.gridworld.GridworldEnvironment"><code class="flex name class">
+<span>class <span class="ident">GridworldEnvironment</span></span>
+<span>(</span><span>gridWorld)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GridworldEnvironment(Environment):
+    def __init__(self, gridWorld):
+        self.gridWorld = gridWorld
+        self.reset()
+
+    def getCurrentState(self):
+        return self.state
+
+    def getPossibleActions(self, state):
+        return self.gridWorld.getPossibleActions(state)
+
+    def doAction(self, action):
+        successors = self.gridWorld.getTransitionStatesAndProbs(self.state, action)
+        sum = 0.0
+        rand = random.random()
+        state = self.getCurrentState()
+
+        for nextState, prob in successors:
+            sum += prob
+            if sum &gt; 1.0:
+                raise Exception(&#39;Total transition probability more than one; sample failure.&#39;)
+
+            if rand &lt; sum:
+                reward = self.gridWorld.getReward(state, action, nextState)
+                self.state = nextState
+                return (nextState, reward)
+
+        raise Exception(&#39;Total transition probability less than one; sample failure.&#39;)
+
+    def reset(self):
+        self.state = self.gridWorld.getStartState()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pacai.core.environment.Environment" href="../core/environment.html#pacai.core.environment.Environment">Environment</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pacai.core.environment.Environment" href="../core/environment.html#pacai.core.environment.Environment">Environment</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pacai.core.environment.Environment.doAction" href="../core/environment.html#pacai.core.environment.Environment.doAction">doAction</a></code></li>
+<li><code><a title="pacai.core.environment.Environment.getCurrentState" href="../core/environment.html#pacai.core.environment.Environment.getCurrentState">getCurrentState</a></code></li>
+<li><code><a title="pacai.core.environment.Environment.getPossibleActions" href="../core/environment.html#pacai.core.environment.Environment.getPossibleActions">getPossibleActions</a></code></li>
+<li><code><a title="pacai.core.environment.Environment.isTerminal" href="../core/environment.html#pacai.core.environment.Environment.isTerminal">isTerminal</a></code></li>
+<li><code><a title="pacai.core.environment.Environment.reset" href="../core/environment.html#pacai.core.environment.Environment.reset">reset</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pacai.bin" href="index.html">pacai.bin</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pacai.bin.gridworld.getUserAction" href="#pacai.bin.gridworld.getUserAction">getUserAction</a></code></li>
+<li><code><a title="pacai.bin.gridworld.main" href="#pacai.bin.gridworld.main">main</a></code></li>
+<li><code><a title="pacai.bin.gridworld.makeGrid" href="#pacai.bin.gridworld.makeGrid">makeGrid</a></code></li>
+<li><code><a title="pacai.bin.gridworld.parseOptions" href="#pacai.bin.gridworld.parseOptions">parseOptions</a></code></li>
+<li><code><a title="pacai.bin.gridworld.runEpisode" href="#pacai.bin.gridworld.runEpisode">runEpisode</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pacai.bin.gridworld.Grid" href="#pacai.bin.gridworld.Grid">Grid</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.bin.gridworld.Grid.copy" href="#pacai.bin.gridworld.Grid.copy">copy</a></code></li>
+<li><code><a title="pacai.bin.gridworld.Grid.deepCopy" href="#pacai.bin.gridworld.Grid.deepCopy">deepCopy</a></code></li>
+<li><code><a title="pacai.bin.gridworld.Grid.shallowCopy" href="#pacai.bin.gridworld.Grid.shallowCopy">shallowCopy</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pacai.bin.gridworld.Gridworld" href="#pacai.bin.gridworld.Gridworld">Gridworld</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.bin.gridworld.Gridworld.getPossibleActions" href="#pacai.bin.gridworld.Gridworld.getPossibleActions">getPossibleActions</a></code></li>
+<li><code><a title="pacai.bin.gridworld.Gridworld.getReward" href="#pacai.bin.gridworld.Gridworld.getReward">getReward</a></code></li>
+<li><code><a title="pacai.bin.gridworld.Gridworld.getStates" href="#pacai.bin.gridworld.Gridworld.getStates">getStates</a></code></li>
+<li><code><a title="pacai.bin.gridworld.Gridworld.getTransitionStatesAndProbs" href="#pacai.bin.gridworld.Gridworld.getTransitionStatesAndProbs">getTransitionStatesAndProbs</a></code></li>
+<li><code><a title="pacai.bin.gridworld.Gridworld.isTerminal" href="#pacai.bin.gridworld.Gridworld.isTerminal">isTerminal</a></code></li>
+<li><code><a title="pacai.bin.gridworld.Gridworld.setLivingReward" href="#pacai.bin.gridworld.Gridworld.setLivingReward">setLivingReward</a></code></li>
+<li><code><a title="pacai.bin.gridworld.Gridworld.setNoise" href="#pacai.bin.gridworld.Gridworld.setNoise">setNoise</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pacai.bin.gridworld.GridworldEnvironment" href="#pacai.bin.gridworld.GridworldEnvironment">GridworldEnvironment</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

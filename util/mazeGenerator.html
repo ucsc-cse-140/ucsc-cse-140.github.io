@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pacai.util.mazeGenerator API documentation</title>
+<meta name="description" content="Maze Generator …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pacai.util.mazeGenerator</code></h1>
+</header>
+<section id="section-intro">
+<p>Maze Generator</p>
+<p>Algorithm:
+- Start with an empty grid.
+- Draw a wall with gaps, dividing the grid in 2.
+- Repeat recursively for each sub-grid.</p>
+<p>Pacman Details:
+- Players 1 and 3 always start in the bottom left; 2 and 4 in the top right.
+- Food is placed in dead ends and then randomly
+(though not too close to the pacmen starting positions).</p>
+<p>Notes:
+- The final map includes a symmetric, flipped copy.
+- The first wall has k gaps, the next wall has k / 2 gaps, etc. (min=1).</p>
+<p>@author: Dan Gillick
+@author: Jie Tang</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Maze Generator
+
+Algorithm:
+ - Start with an empty grid.
+ - Draw a wall with gaps, dividing the grid in 2.
+ - Repeat recursively for each sub-grid.
+
+Pacman Details:
+ - Players 1 and 3 always start in the bottom left; 2 and 4 in the top right.
+ - Food is placed in dead ends and then randomly
+    (though not too close to the pacmen starting positions).
+
+Notes:
+ - The final map includes a symmetric, flipped copy.
+ - The first wall has k gaps, the next wall has k / 2 gaps, etc. (min=1).
+
+@author: Dan Gillick
+@author: Jie Tang
+&#34;&#34;&#34;
+
+import logging
+import random
+import sys
+
+WALL = &#39;%&#39;
+FOOD = &#39;.&#39;
+CAPSULE = &#39;o&#39;
+EMPTY = &#39; &#39;
+
+MAX_DIFFERENT_MAZES = 10000
+
+class Maze(object):
+    def __init__(self, rows, cols, anchor=(0, 0), root=None):
+        &#34;&#34;&#34;
+        Generate an empty maze.
+        Anchor is the top left corner of this grid&#39;s position in its parent grid.
+        &#34;&#34;&#34;
+
+        self.r = rows
+        self.c = cols
+        self.grid = [[EMPTY for col in range(cols)] for row in range(rows)]
+        self.anchor = anchor
+        self.rooms = []
+
+        self.root = root
+        if not self.root:
+            self.root = self
+
+    def to_map(self):
+        &#34;&#34;&#34;
+        Add a flipped symmetric copy on the right.
+        Add a border.
+        &#34;&#34;&#34;
+
+        # Add a flipped symmetric copy
+        for row in range(self.r):
+            for col in range(self.c - 1, -1, -1):
+                self.grid[self.r - row - 1].append(self.grid[row][col])
+        self.c *= 2
+
+        # Add a border
+        for row in range(self.r):
+            self.grid[row] = [WALL] + self.grid[row] + [WALL]
+        self.c += 2
+
+        self.grid.insert(0, [WALL for c in range(self.c)])
+        self.grid.append([WALL for c in range(self.c)])
+        self.r += 2
+
+    def __str__(self):
+        s = &#39;&#39;
+
+        for row in range(self.r):
+            for col in range(self.c):
+                s += self.grid[row][col]
+            s += &#39;\n&#39;
+
+        return s[:-1]
+
+    def add_wall(self, rng, i, gaps=1, vert=True):
+        &#34;&#34;&#34;
+        Add a wall with gaps.
+        &#34;&#34;&#34;
+
+        add_r, add_c = self.anchor
+        if vert:
+            gaps = min(self.r, gaps)
+            slots = [add_r + x for x in range(self.r)]
+            if 0 not in slots:
+                if self.root.grid[min(slots) - 1][add_c + i] == EMPTY:
+                    slots.remove(min(slots))
+
+                if len(slots) &lt;= gaps:
+                    return 0
+            if (self.root.c - 1) not in slots:
+                if self.root.grid[max(slots) + 1][add_c + i] == EMPTY:
+                    slots.remove(max(slots))
+
+            if len(slots) &lt;= gaps:
+                return 0
+
+            rng.shuffle(slots)
+            for row in slots[int(round(gaps)):]:
+                self.root.grid[row][add_c + i] = WALL
+
+            self.rooms.append(Maze(self.r, i, (add_r, add_c), self.root))
+            self.rooms.append(Maze(self.r, self.c - i - 1, (add_r, add_c + i + 1), self.root))
+        else:
+            gaps = min(self.c, gaps)
+            slots = [add_c + x for x in range(self.c)]
+
+            if 0 not in slots:
+                if self.root.grid[add_r + i][min(slots) - 1] == EMPTY:
+                    slots.remove(min(slots))
+
+                if len(slots) &lt;= gaps:
+                    return 0
+
+            if (self.root.r - 1) not in slots:
+                if self.root.grid[add_r + i][max(slots) + 1] == EMPTY:
+                    slots.remove(max(slots))
+
+            if len(slots) &lt;= gaps:
+                return 0
+
+            rng.shuffle(slots)
+            for col in slots[int(round(gaps)):]:
+                self.root.grid[add_r + i][col] = WALL
+
+            self.rooms.append(Maze(i, self.c, (add_r, add_c), self.root))
+            self.rooms.append(Maze(self.r - i - 1, self.c, (add_r + i + 1, add_c), self.root))
+
+        return 1
+
+def make_with_prison(rng, room, depth, gaps=1, vert=True, min_width=1, gapfactor=0.5):
+    &#34;&#34;&#34;
+    Build a maze with 0,1,2 layers of prison (randomly).
+    &#34;&#34;&#34;
+
+    p = rng.randint(0, 2)
+    proll = rng.random()
+    if proll &lt; 0.5:
+        p = 1
+    elif proll &lt; 0.7:
+        p = 0
+    elif proll &lt; 0.9:
+        p = 2
+    else:
+        p = 3
+
+    add_r, add_c = room.anchor
+    for j in range(p):
+        cur_col = 2 * (j + 1) - 1
+        for row in range(room.r):
+            room.root.grid[row][cur_col] = WALL
+
+        if j % 2 == 0:
+            room.root.grid[0][cur_col] = EMPTY
+        else:
+            room.root.grid[room.r - 1][cur_col] = EMPTY
+
+    room.rooms.append(Maze(room.r, room.c - (2 * p), (add_r, add_c + (2 * p)), room.root))
+    for sub_room in room.rooms:
+        make(rng, sub_room, depth + 1, gaps, vert, min_width, gapfactor)
+
+    return 2 * p
+
+def make(rng, room, depth, gaps=1, vert=True, min_width=1, gapfactor=0.5):
+    &#34;&#34;&#34;
+    Recursively build a maze.
+    &#34;&#34;&#34;
+
+    # Extreme base case
+    if room.r &lt;= min_width and room.c &lt;= min_width:
+        return
+
+    # Decide between vertical and horizontal wall
+    if vert:
+        num = room.c
+    else:
+        num = room.r
+
+    if num &lt; min_width + 2:
+        vert = not vert
+        if vert:
+            num = room.c
+        else:
+            num = room.r
+
+    # Add a wall to the current room
+    if depth == 0:
+        wall_slots = [num - 2]  # Fix the first wall
+    else:
+        wall_slots = range(1, num - 1)
+
+    if len(wall_slots) == 0:
+        return
+
+    choice = rng.choice(wall_slots)
+    if not room.add_wall(rng, choice, gaps, vert):
+        return
+
+    # Recursively add walls
+    for sub_room in room.rooms:
+        make(rng, sub_room, depth + 1, max(1, gaps * gapfactor), not vert, min_width, gapfactor)
+
+def copy_grid(grid):
+    new_grid = []
+
+    for row in range(len(grid)):
+        new_grid.append([])
+        for col in range(len(grid[row])):
+            new_grid[row].append(grid[row][col])
+
+    return new_grid
+
+def add_pacman_stuff(rng, maze, max_food=60, max_capsules=4, toskip=0):
+    &#34;&#34;&#34;
+    Add pacmen starting position.
+    Add food at dead ends plus some extra.
+    &#34;&#34;&#34;
+
+    # Parameters
+    max_depth = 2
+
+    # Add food at dead ends
+    depth = 0
+    total_food = 0
+
+    while True:
+        new_grid = copy_grid(maze.grid)
+        depth += 1
+        num_added = 0
+
+        for row in range(1, maze.r - 1):
+            for col in range(1 + toskip, int(maze.c / 2) - 1):
+                if (row &gt; maze.r - 6) and (col &lt; 6):
+                    continue
+
+                if maze.grid[row][col] != EMPTY:
+                    continue
+
+                neighbors = 0
+                neighbors += (maze.grid[row - 1][col] == EMPTY)
+                neighbors += (maze.grid[row][col - 1] == EMPTY)
+                neighbors += (maze.grid[row + 1][col] == EMPTY)
+                neighbors += (maze.grid[row][col + 1] == EMPTY)
+
+                if neighbors == 1:
+                    new_grid[row][col] = FOOD
+                    new_grid[maze.r - row - 1][maze.c - col - 1] = FOOD
+                    num_added += 2
+                    total_food += 2
+
+        maze.grid = new_grid
+        if num_added == 0:
+            break
+
+        if depth &gt;= max_depth:
+            break
+
+    # Starting pacmen positions
+    maze.grid[maze.r - 2][1] = &#39;3&#39;
+    maze.grid[maze.r - 3][1] = &#39;1&#39;
+    maze.grid[1][maze.c - 2] = &#39;4&#39;
+    maze.grid[2][maze.c - 2] = &#39;2&#39;
+
+    # Add capsules
+    total_capsules = 0
+    while (total_capsules &lt; max_capsules):
+        row = rng.randint(1, maze.r - 1)
+        col = rng.randint(1 + toskip, int(maze.c / 2) - 2)
+
+        if (row &gt; maze.r - 6) and (col &lt; 6):
+            continue
+
+        if (abs(col - int(maze.c / 2)) &lt; 3):
+            continue
+
+        if maze.grid[row][col] == EMPTY:
+            maze.grid[row][col] = CAPSULE
+            maze.grid[maze.r - row - 1][maze.c - col - 1] = CAPSULE
+            total_capsules += 2
+
+    # Extra random food
+    while (total_food &lt; max_food):
+        row = rng.randint(1, maze.r - 1)
+        col = rng.randint(1 + toskip, int(maze.c / 2) - 1)
+
+        if (row &gt; maze.r - 6) and (col &lt; 6):
+            continue
+
+        if (abs(col - int(maze.c / 2)) &lt; 3):
+            continue
+
+        if maze.grid[row][col] == EMPTY:
+            maze.grid[row][col] = FOOD
+            maze.grid[maze.r - row - 1][maze.c - col - 1] = FOOD
+            total_food += 2
+
+def generateMaze(seed = None):
+    rng = random.Random()
+    if seed is None:
+        seed = rng.randint(1, MAX_DIFFERENT_MAZES)
+    logging.debug(&#39;Seed value for Maze Generation: &#39; + str(seed))
+
+    rng.seed(seed)
+    maze = Maze(16, 16)
+    gapfactor = min(0.65, rng.gauss(0.5, 0.1))
+    skip = make_with_prison(rng, maze, depth=0, gaps=3, vert=True, min_width=1, gapfactor=gapfactor)
+    maze.to_map()
+    add_pacman_stuff(rng, maze, 2 * (maze.r * int(maze.c / 20)), 4, skip)
+
+    return str(maze)
+
+if __name__ == &#39;__main__&#39;:
+    seed = None
+    if len(sys.argv) &gt; 1:
+        seed = int(sys.argv[1])
+    print(generateMaze(seed))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pacai.util.mazeGenerator.add_pacman_stuff"><code class="name flex">
+<span>def <span class="ident">add_pacman_stuff</span></span>(<span>rng, maze, max_food=60, max_capsules=4, toskip=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add pacmen starting position.
+Add food at dead ends plus some extra.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_pacman_stuff(rng, maze, max_food=60, max_capsules=4, toskip=0):
+    &#34;&#34;&#34;
+    Add pacmen starting position.
+    Add food at dead ends plus some extra.
+    &#34;&#34;&#34;
+
+    # Parameters
+    max_depth = 2
+
+    # Add food at dead ends
+    depth = 0
+    total_food = 0
+
+    while True:
+        new_grid = copy_grid(maze.grid)
+        depth += 1
+        num_added = 0
+
+        for row in range(1, maze.r - 1):
+            for col in range(1 + toskip, int(maze.c / 2) - 1):
+                if (row &gt; maze.r - 6) and (col &lt; 6):
+                    continue
+
+                if maze.grid[row][col] != EMPTY:
+                    continue
+
+                neighbors = 0
+                neighbors += (maze.grid[row - 1][col] == EMPTY)
+                neighbors += (maze.grid[row][col - 1] == EMPTY)
+                neighbors += (maze.grid[row + 1][col] == EMPTY)
+                neighbors += (maze.grid[row][col + 1] == EMPTY)
+
+                if neighbors == 1:
+                    new_grid[row][col] = FOOD
+                    new_grid[maze.r - row - 1][maze.c - col - 1] = FOOD
+                    num_added += 2
+                    total_food += 2
+
+        maze.grid = new_grid
+        if num_added == 0:
+            break
+
+        if depth &gt;= max_depth:
+            break
+
+    # Starting pacmen positions
+    maze.grid[maze.r - 2][1] = &#39;3&#39;
+    maze.grid[maze.r - 3][1] = &#39;1&#39;
+    maze.grid[1][maze.c - 2] = &#39;4&#39;
+    maze.grid[2][maze.c - 2] = &#39;2&#39;
+
+    # Add capsules
+    total_capsules = 0
+    while (total_capsules &lt; max_capsules):
+        row = rng.randint(1, maze.r - 1)
+        col = rng.randint(1 + toskip, int(maze.c / 2) - 2)
+
+        if (row &gt; maze.r - 6) and (col &lt; 6):
+            continue
+
+        if (abs(col - int(maze.c / 2)) &lt; 3):
+            continue
+
+        if maze.grid[row][col] == EMPTY:
+            maze.grid[row][col] = CAPSULE
+            maze.grid[maze.r - row - 1][maze.c - col - 1] = CAPSULE
+            total_capsules += 2
+
+    # Extra random food
+    while (total_food &lt; max_food):
+        row = rng.randint(1, maze.r - 1)
+        col = rng.randint(1 + toskip, int(maze.c / 2) - 1)
+
+        if (row &gt; maze.r - 6) and (col &lt; 6):
+            continue
+
+        if (abs(col - int(maze.c / 2)) &lt; 3):
+            continue
+
+        if maze.grid[row][col] == EMPTY:
+            maze.grid[row][col] = FOOD
+            maze.grid[maze.r - row - 1][maze.c - col - 1] = FOOD
+            total_food += 2</code></pre>
+</details>
+</dd>
+<dt id="pacai.util.mazeGenerator.copy_grid"><code class="name flex">
+<span>def <span class="ident">copy_grid</span></span>(<span>grid)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copy_grid(grid):
+    new_grid = []
+
+    for row in range(len(grid)):
+        new_grid.append([])
+        for col in range(len(grid[row])):
+            new_grid[row].append(grid[row][col])
+
+    return new_grid</code></pre>
+</details>
+</dd>
+<dt id="pacai.util.mazeGenerator.generateMaze"><code class="name flex">
+<span>def <span class="ident">generateMaze</span></span>(<span>seed=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generateMaze(seed = None):
+    rng = random.Random()
+    if seed is None:
+        seed = rng.randint(1, MAX_DIFFERENT_MAZES)
+    logging.debug(&#39;Seed value for Maze Generation: &#39; + str(seed))
+
+    rng.seed(seed)
+    maze = Maze(16, 16)
+    gapfactor = min(0.65, rng.gauss(0.5, 0.1))
+    skip = make_with_prison(rng, maze, depth=0, gaps=3, vert=True, min_width=1, gapfactor=gapfactor)
+    maze.to_map()
+    add_pacman_stuff(rng, maze, 2 * (maze.r * int(maze.c / 20)), 4, skip)
+
+    return str(maze)</code></pre>
+</details>
+</dd>
+<dt id="pacai.util.mazeGenerator.make"><code class="name flex">
+<span>def <span class="ident">make</span></span>(<span>rng, room, depth, gaps=1, vert=True, min_width=1, gapfactor=0.5)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Recursively build a maze.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make(rng, room, depth, gaps=1, vert=True, min_width=1, gapfactor=0.5):
+    &#34;&#34;&#34;
+    Recursively build a maze.
+    &#34;&#34;&#34;
+
+    # Extreme base case
+    if room.r &lt;= min_width and room.c &lt;= min_width:
+        return
+
+    # Decide between vertical and horizontal wall
+    if vert:
+        num = room.c
+    else:
+        num = room.r
+
+    if num &lt; min_width + 2:
+        vert = not vert
+        if vert:
+            num = room.c
+        else:
+            num = room.r
+
+    # Add a wall to the current room
+    if depth == 0:
+        wall_slots = [num - 2]  # Fix the first wall
+    else:
+        wall_slots = range(1, num - 1)
+
+    if len(wall_slots) == 0:
+        return
+
+    choice = rng.choice(wall_slots)
+    if not room.add_wall(rng, choice, gaps, vert):
+        return
+
+    # Recursively add walls
+    for sub_room in room.rooms:
+        make(rng, sub_room, depth + 1, max(1, gaps * gapfactor), not vert, min_width, gapfactor)</code></pre>
+</details>
+</dd>
+<dt id="pacai.util.mazeGenerator.make_with_prison"><code class="name flex">
+<span>def <span class="ident">make_with_prison</span></span>(<span>rng, room, depth, gaps=1, vert=True, min_width=1, gapfactor=0.5)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Build a maze with 0,1,2 layers of prison (randomly).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_with_prison(rng, room, depth, gaps=1, vert=True, min_width=1, gapfactor=0.5):
+    &#34;&#34;&#34;
+    Build a maze with 0,1,2 layers of prison (randomly).
+    &#34;&#34;&#34;
+
+    p = rng.randint(0, 2)
+    proll = rng.random()
+    if proll &lt; 0.5:
+        p = 1
+    elif proll &lt; 0.7:
+        p = 0
+    elif proll &lt; 0.9:
+        p = 2
+    else:
+        p = 3
+
+    add_r, add_c = room.anchor
+    for j in range(p):
+        cur_col = 2 * (j + 1) - 1
+        for row in range(room.r):
+            room.root.grid[row][cur_col] = WALL
+
+        if j % 2 == 0:
+            room.root.grid[0][cur_col] = EMPTY
+        else:
+            room.root.grid[room.r - 1][cur_col] = EMPTY
+
+    room.rooms.append(Maze(room.r, room.c - (2 * p), (add_r, add_c + (2 * p)), room.root))
+    for sub_room in room.rooms:
+        make(rng, sub_room, depth + 1, gaps, vert, min_width, gapfactor)
+
+    return 2 * p</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pacai.util.mazeGenerator.Maze"><code class="flex name class">
+<span>class <span class="ident">Maze</span></span>
+<span>(</span><span>rows, cols, anchor=(0, 0), root=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generate an empty maze.
+Anchor is the top left corner of this grid's position in its parent grid.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Maze(object):
+    def __init__(self, rows, cols, anchor=(0, 0), root=None):
+        &#34;&#34;&#34;
+        Generate an empty maze.
+        Anchor is the top left corner of this grid&#39;s position in its parent grid.
+        &#34;&#34;&#34;
+
+        self.r = rows
+        self.c = cols
+        self.grid = [[EMPTY for col in range(cols)] for row in range(rows)]
+        self.anchor = anchor
+        self.rooms = []
+
+        self.root = root
+        if not self.root:
+            self.root = self
+
+    def to_map(self):
+        &#34;&#34;&#34;
+        Add a flipped symmetric copy on the right.
+        Add a border.
+        &#34;&#34;&#34;
+
+        # Add a flipped symmetric copy
+        for row in range(self.r):
+            for col in range(self.c - 1, -1, -1):
+                self.grid[self.r - row - 1].append(self.grid[row][col])
+        self.c *= 2
+
+        # Add a border
+        for row in range(self.r):
+            self.grid[row] = [WALL] + self.grid[row] + [WALL]
+        self.c += 2
+
+        self.grid.insert(0, [WALL for c in range(self.c)])
+        self.grid.append([WALL for c in range(self.c)])
+        self.r += 2
+
+    def __str__(self):
+        s = &#39;&#39;
+
+        for row in range(self.r):
+            for col in range(self.c):
+                s += self.grid[row][col]
+            s += &#39;\n&#39;
+
+        return s[:-1]
+
+    def add_wall(self, rng, i, gaps=1, vert=True):
+        &#34;&#34;&#34;
+        Add a wall with gaps.
+        &#34;&#34;&#34;
+
+        add_r, add_c = self.anchor
+        if vert:
+            gaps = min(self.r, gaps)
+            slots = [add_r + x for x in range(self.r)]
+            if 0 not in slots:
+                if self.root.grid[min(slots) - 1][add_c + i] == EMPTY:
+                    slots.remove(min(slots))
+
+                if len(slots) &lt;= gaps:
+                    return 0
+            if (self.root.c - 1) not in slots:
+                if self.root.grid[max(slots) + 1][add_c + i] == EMPTY:
+                    slots.remove(max(slots))
+
+            if len(slots) &lt;= gaps:
+                return 0
+
+            rng.shuffle(slots)
+            for row in slots[int(round(gaps)):]:
+                self.root.grid[row][add_c + i] = WALL
+
+            self.rooms.append(Maze(self.r, i, (add_r, add_c), self.root))
+            self.rooms.append(Maze(self.r, self.c - i - 1, (add_r, add_c + i + 1), self.root))
+        else:
+            gaps = min(self.c, gaps)
+            slots = [add_c + x for x in range(self.c)]
+
+            if 0 not in slots:
+                if self.root.grid[add_r + i][min(slots) - 1] == EMPTY:
+                    slots.remove(min(slots))
+
+                if len(slots) &lt;= gaps:
+                    return 0
+
+            if (self.root.r - 1) not in slots:
+                if self.root.grid[add_r + i][max(slots) + 1] == EMPTY:
+                    slots.remove(max(slots))
+
+            if len(slots) &lt;= gaps:
+                return 0
+
+            rng.shuffle(slots)
+            for col in slots[int(round(gaps)):]:
+                self.root.grid[add_r + i][col] = WALL
+
+            self.rooms.append(Maze(i, self.c, (add_r, add_c), self.root))
+            self.rooms.append(Maze(self.r - i - 1, self.c, (add_r + i + 1, add_c), self.root))
+
+        return 1</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.util.mazeGenerator.Maze.add_wall"><code class="name flex">
+<span>def <span class="ident">add_wall</span></span>(<span>self, rng, i, gaps=1, vert=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add a wall with gaps.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_wall(self, rng, i, gaps=1, vert=True):
+    &#34;&#34;&#34;
+    Add a wall with gaps.
+    &#34;&#34;&#34;
+
+    add_r, add_c = self.anchor
+    if vert:
+        gaps = min(self.r, gaps)
+        slots = [add_r + x for x in range(self.r)]
+        if 0 not in slots:
+            if self.root.grid[min(slots) - 1][add_c + i] == EMPTY:
+                slots.remove(min(slots))
+
+            if len(slots) &lt;= gaps:
+                return 0
+        if (self.root.c - 1) not in slots:
+            if self.root.grid[max(slots) + 1][add_c + i] == EMPTY:
+                slots.remove(max(slots))
+
+        if len(slots) &lt;= gaps:
+            return 0
+
+        rng.shuffle(slots)
+        for row in slots[int(round(gaps)):]:
+            self.root.grid[row][add_c + i] = WALL
+
+        self.rooms.append(Maze(self.r, i, (add_r, add_c), self.root))
+        self.rooms.append(Maze(self.r, self.c - i - 1, (add_r, add_c + i + 1), self.root))
+    else:
+        gaps = min(self.c, gaps)
+        slots = [add_c + x for x in range(self.c)]
+
+        if 0 not in slots:
+            if self.root.grid[add_r + i][min(slots) - 1] == EMPTY:
+                slots.remove(min(slots))
+
+            if len(slots) &lt;= gaps:
+                return 0
+
+        if (self.root.r - 1) not in slots:
+            if self.root.grid[add_r + i][max(slots) + 1] == EMPTY:
+                slots.remove(max(slots))
+
+        if len(slots) &lt;= gaps:
+            return 0
+
+        rng.shuffle(slots)
+        for col in slots[int(round(gaps)):]:
+            self.root.grid[add_r + i][col] = WALL
+
+        self.rooms.append(Maze(i, self.c, (add_r, add_c), self.root))
+        self.rooms.append(Maze(self.r - i - 1, self.c, (add_r + i + 1, add_c), self.root))
+
+    return 1</code></pre>
+</details>
+</dd>
+<dt id="pacai.util.mazeGenerator.Maze.to_map"><code class="name flex">
+<span>def <span class="ident">to_map</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add a flipped symmetric copy on the right.
+Add a border.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_map(self):
+    &#34;&#34;&#34;
+    Add a flipped symmetric copy on the right.
+    Add a border.
+    &#34;&#34;&#34;
+
+    # Add a flipped symmetric copy
+    for row in range(self.r):
+        for col in range(self.c - 1, -1, -1):
+            self.grid[self.r - row - 1].append(self.grid[row][col])
+    self.c *= 2
+
+    # Add a border
+    for row in range(self.r):
+        self.grid[row] = [WALL] + self.grid[row] + [WALL]
+    self.c += 2
+
+    self.grid.insert(0, [WALL for c in range(self.c)])
+    self.grid.append([WALL for c in range(self.c)])
+    self.r += 2</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pacai.util" href="index.html">pacai.util</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pacai.util.mazeGenerator.add_pacman_stuff" href="#pacai.util.mazeGenerator.add_pacman_stuff">add_pacman_stuff</a></code></li>
+<li><code><a title="pacai.util.mazeGenerator.copy_grid" href="#pacai.util.mazeGenerator.copy_grid">copy_grid</a></code></li>
+<li><code><a title="pacai.util.mazeGenerator.generateMaze" href="#pacai.util.mazeGenerator.generateMaze">generateMaze</a></code></li>
+<li><code><a title="pacai.util.mazeGenerator.make" href="#pacai.util.mazeGenerator.make">make</a></code></li>
+<li><code><a title="pacai.util.mazeGenerator.make_with_prison" href="#pacai.util.mazeGenerator.make_with_prison">make_with_prison</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pacai.util.mazeGenerator.Maze" href="#pacai.util.mazeGenerator.Maze">Maze</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.util.mazeGenerator.Maze.add_wall" href="#pacai.util.mazeGenerator.Maze.add_wall">add_wall</a></code></li>
+<li><code><a title="pacai.util.mazeGenerator.Maze.to_map" href="#pacai.util.mazeGenerator.Maze.to_map">to_map</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

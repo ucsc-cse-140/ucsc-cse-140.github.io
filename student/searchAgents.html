@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pacai.student.searchAgents API documentation</title>
+<meta name="description" content="This file contains incomplete versions of some agents that can be selected to control Pacman.
+You will complete their implementations …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pacai.student.searchAgents</code></h1>
+</header>
+<section id="section-intro">
+<p>This file contains incomplete versions of some agents that can be selected to control Pacman.
+You will complete their implementations.</p>
+<p>Good luck and happy searching!</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This file contains incomplete versions of some agents that can be selected to control Pacman.
+You will complete their implementations.
+
+Good luck and happy searching!
+&#34;&#34;&#34;
+
+import logging
+
+from pacai.core.actions import Actions
+from pacai.core.search import heuristic
+from pacai.core.search.position import PositionSearchProblem
+from pacai.core.search.problem import SearchProblem
+from pacai.agents.base import BaseAgent
+from pacai.agents.search.base import SearchAgent
+
+class CornersProblem(SearchProblem):
+    &#34;&#34;&#34;
+    This search problem finds paths through all four corners of a layout.
+
+    You must select a suitable state space and successor function.
+    See the `pacai.core.search.position.PositionSearchProblem` class for an example of
+    a working SearchProblem.
+
+    Additional methods to implement:
+
+    `pacai.core.search.problem.SearchProblem.startingState`:
+    Returns the start state (in your search space,
+    NOT a `pacai.core.gamestate.AbstractGameState`).
+
+    `pacai.core.search.problem.SearchProblem.isGoal`:
+    Returns whether this search state is a goal state of the problem.
+
+    `pacai.core.search.problem.SearchProblem.successorStates`:
+    Returns successor states, the actions they require, and a cost of 1.
+    The following code snippet may prove useful:
+    ```
+        successors = []
+
+        for action in Directions.CARDINAL:
+            x, y = currentPosition
+            dx, dy = Actions.directionToVector(action)
+            nextx, nexty = int(x + dx), int(y + dy)
+            hitsWall = self.walls[nextx][nexty]
+
+            if (not hitsWall):
+                # Construct the successor.
+
+        return successors
+    ```
+    &#34;&#34;&#34;
+
+    def __init__(self, startingGameState):
+        super().__init__()
+
+        self.walls = startingGameState.getWalls()
+        self.startingPosition = startingGameState.getPacmanPosition()
+        top = self.walls.getHeight() - 2
+        right = self.walls.getWidth() - 2
+
+        self.corners = ((1, 1), (1, top), (right, 1), (right, top))
+        for corner in self.corners:
+            if not startingGameState.hasFood(*corner):
+                logging.warning(&#39;Warning: no food in corner &#39; + str(corner))
+
+        # *** Your Code Here ***
+        raise NotImplementedError()
+
+    def actionsCost(self, actions):
+        &#34;&#34;&#34;
+        Returns the cost of a particular sequence of actions.
+        If those actions include an illegal move, return 999999.
+        This is implemented for you.
+        &#34;&#34;&#34;
+
+        if (actions is None):
+            return 999999
+
+        x, y = self.startingPosition
+        for action in actions:
+            dx, dy = Actions.directionToVector(action)
+            x, y = int(x + dx), int(y + dy)
+            if self.walls[x][y]:
+                return 999999
+
+        return len(actions)
+
+def cornersHeuristic(state, problem):
+    &#34;&#34;&#34;
+    A heuristic for the CornersProblem that you defined.
+
+    This function should always return a number that is a lower bound
+    on the shortest path from the state to a goal of the problem;
+    i.e. it should be admissible.
+    (You need not worry about consistency for this heuristic to receive full credit.)
+    &#34;&#34;&#34;
+
+    # Useful information.
+    # corners = problem.corners  # These are the corner coordinates
+    # walls = problem.walls  # These are the walls of the maze, as a Grid.
+
+    # *** Your Code Here ***
+    return heuristic.null(state, problem)  # Default to trivial solution
+
+def foodHeuristic(state, problem):
+    &#34;&#34;&#34;
+    Your heuristic for the FoodSearchProblem goes here.
+
+    This heuristic must be consistent to ensure correctness.
+    First, try to come up with an admissible heuristic;
+    almost all admissible heuristics will be consistent as well.
+
+    If using A* ever finds a solution that is worse than what uniform cost search finds,
+    your heuristic is *not* consistent, and probably not admissible!
+    On the other hand, inadmissible or inconsistent heuristics may find optimal solutions,
+    so be careful.
+
+    The state is a tuple (pacmanPosition, foodGrid) where foodGrid is a
+    `pacai.core.grid.Grid` of either True or False.
+    You can call `foodGrid.asList()` to get a list of food coordinates instead.
+
+    If you want access to info like walls, capsules, etc., you can query the problem.
+    For example, `problem.walls` gives you a Grid of where the walls are.
+
+    If you want to *store* information to be reused in other calls to the heuristic,
+    there is a dictionary called problem.heuristicInfo that you can use.
+    For example, if you only want to count the walls once and store that value, try:
+    ```
+    problem.heuristicInfo[&#39;wallCount&#39;] = problem.walls.count()
+    ```
+    Subsequent calls to this heuristic can access problem.heuristicInfo[&#39;wallCount&#39;].
+    &#34;&#34;&#34;
+
+    position, foodGrid = state
+
+    # *** Your Code Here ***
+    return heuristic.null(state, problem)  # Default to the null heuristic.
+
+class ClosestDotSearchAgent(SearchAgent):
+    &#34;&#34;&#34;
+    Search for all food using a sequence of searches.
+    &#34;&#34;&#34;
+
+    def __init__(self, index, **kwargs):
+        super().__init__(index, **kwargs)
+
+    def registerInitialState(self, state):
+        self._actions = []
+        self._actionIndex = 0
+
+        currentState = state
+
+        while (currentState.getFood().count() &gt; 0):
+            nextPathSegment = self.findPathToClosestDot(currentState)  # The missing piece
+            self._actions += nextPathSegment
+
+            for action in nextPathSegment:
+                legal = currentState.getLegalActions()
+                if action not in legal:
+                    raise Exception(&#39;findPathToClosestDot returned an illegal move: %s!\n%s&#39; %
+                            (str(action), str(currentState)))
+
+                currentState = currentState.generateSuccessor(0, action)
+
+        logging.info(&#39;Path found with cost %d.&#39; % len(self._actions))
+
+    def findPathToClosestDot(self, gameState):
+        &#34;&#34;&#34;
+        Returns a path (a list of actions) to the closest dot, starting from gameState.
+        &#34;&#34;&#34;
+
+        # Here are some useful elements of the startState
+        # startPosition = gameState.getPacmanPosition()
+        # food = gameState.getFood()
+        # walls = gameState.getWalls()
+        # problem = AnyFoodSearchProblem(gameState)
+
+        # *** Your Code Here ***
+        raise NotImplementedError()
+
+class AnyFoodSearchProblem(PositionSearchProblem):
+    &#34;&#34;&#34;
+    A search problem for finding a path to any food.
+
+    This search problem is just like the PositionSearchProblem,
+    but has a different goal test, which you need to fill in below.
+    The state space and successor function do not need to be changed.
+
+    The class definition above, `AnyFoodSearchProblem(PositionSearchProblem)`,
+    inherits the methods of `pacai.core.search.position.PositionSearchProblem`.
+
+    You can use this search problem to help you fill in
+    the `ClosestDotSearchAgent.findPathToClosestDot` method.
+
+    Additional methods to implement:
+
+    `pacai.core.search.position.PositionSearchProblem.isGoal`:
+    The state is Pacman&#39;s position.
+    Fill this in with a goal test that will complete the problem definition.
+    &#34;&#34;&#34;
+
+    def __init__(self, gameState, start = None):
+        super().__init__(gameState, goal = None, start = start)
+
+        # Store the food for later reference.
+        self.food = gameState.getFood()
+
+class ApproximateSearchAgent(BaseAgent):
+    &#34;&#34;&#34;
+    Implement your contest entry here.
+
+    Additional methods to implement:
+
+    `pacai.agents.base.BaseAgent.getAction`:
+    Get a `pacai.bin.pacman.PacmanGameState`
+    and return a `pacai.core.directions.Directions`.
+
+    `pacai.agents.base.BaseAgent.registerInitialState`:
+    This method is called before any moves are made.
+    &#34;&#34;&#34;
+
+    def __init__(self, index, **kwargs):
+        super().__init__(index, **kwargs)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pacai.student.searchAgents.cornersHeuristic"><code class="name flex">
+<span>def <span class="ident">cornersHeuristic</span></span>(<span>state, problem)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A heuristic for the CornersProblem that you defined.</p>
+<p>This function should always return a number that is a lower bound
+on the shortest path from the state to a goal of the problem;
+i.e. it should be admissible.
+(You need not worry about consistency for this heuristic to receive full credit.)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cornersHeuristic(state, problem):
+    &#34;&#34;&#34;
+    A heuristic for the CornersProblem that you defined.
+
+    This function should always return a number that is a lower bound
+    on the shortest path from the state to a goal of the problem;
+    i.e. it should be admissible.
+    (You need not worry about consistency for this heuristic to receive full credit.)
+    &#34;&#34;&#34;
+
+    # Useful information.
+    # corners = problem.corners  # These are the corner coordinates
+    # walls = problem.walls  # These are the walls of the maze, as a Grid.
+
+    # *** Your Code Here ***
+    return heuristic.null(state, problem)  # Default to trivial solution</code></pre>
+</details>
+</dd>
+<dt id="pacai.student.searchAgents.foodHeuristic"><code class="name flex">
+<span>def <span class="ident">foodHeuristic</span></span>(<span>state, problem)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Your heuristic for the FoodSearchProblem goes here.</p>
+<p>This heuristic must be consistent to ensure correctness.
+First, try to come up with an admissible heuristic;
+almost all admissible heuristics will be consistent as well.</p>
+<p>If using A<em> ever finds a solution that is worse than what uniform cost search finds,
+your heuristic is </em>not* consistent, and probably not admissible!
+On the other hand, inadmissible or inconsistent heuristics may find optimal solutions,
+so be careful.</p>
+<p>The state is a tuple (pacmanPosition, foodGrid) where foodGrid is a
+<code><a title="pacai.core.grid.Grid" href="../core/grid.html#pacai.core.grid.Grid">Grid</a></code> of either True or False.
+You can call <code>foodGrid.asList()</code> to get a list of food coordinates instead.</p>
+<p>If you want access to info like walls, capsules, etc., you can query the problem.
+For example, <code>problem.walls</code> gives you a Grid of where the walls are.</p>
+<p>If you want to <em>store</em> information to be reused in other calls to the heuristic,
+there is a dictionary called problem.heuristicInfo that you can use.
+For example, if you only want to count the walls once and store that value, try:</p>
+<pre><code>problem.heuristicInfo['wallCount'] = problem.walls.count()
+</code></pre>
+<p>Subsequent calls to this heuristic can access problem.heuristicInfo['wallCount'].</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def foodHeuristic(state, problem):
+    &#34;&#34;&#34;
+    Your heuristic for the FoodSearchProblem goes here.
+
+    This heuristic must be consistent to ensure correctness.
+    First, try to come up with an admissible heuristic;
+    almost all admissible heuristics will be consistent as well.
+
+    If using A* ever finds a solution that is worse than what uniform cost search finds,
+    your heuristic is *not* consistent, and probably not admissible!
+    On the other hand, inadmissible or inconsistent heuristics may find optimal solutions,
+    so be careful.
+
+    The state is a tuple (pacmanPosition, foodGrid) where foodGrid is a
+    `pacai.core.grid.Grid` of either True or False.
+    You can call `foodGrid.asList()` to get a list of food coordinates instead.
+
+    If you want access to info like walls, capsules, etc., you can query the problem.
+    For example, `problem.walls` gives you a Grid of where the walls are.
+
+    If you want to *store* information to be reused in other calls to the heuristic,
+    there is a dictionary called problem.heuristicInfo that you can use.
+    For example, if you only want to count the walls once and store that value, try:
+    ```
+    problem.heuristicInfo[&#39;wallCount&#39;] = problem.walls.count()
+    ```
+    Subsequent calls to this heuristic can access problem.heuristicInfo[&#39;wallCount&#39;].
+    &#34;&#34;&#34;
+
+    position, foodGrid = state
+
+    # *** Your Code Here ***
+    return heuristic.null(state, problem)  # Default to the null heuristic.</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pacai.student.searchAgents.AnyFoodSearchProblem"><code class="flex name class">
+<span>class <span class="ident">AnyFoodSearchProblem</span></span>
+<span>(</span><span>gameState, start=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A search problem for finding a path to any food.</p>
+<p>This search problem is just like the PositionSearchProblem,
+but has a different goal test, which you need to fill in below.
+The state space and successor function do not need to be changed.</p>
+<p>The class definition above, <code><a title="pacai.student.searchAgents.AnyFoodSearchProblem" href="#pacai.student.searchAgents.AnyFoodSearchProblem">AnyFoodSearchProblem</a>(PositionSearchProblem)</code>,
+inherits the methods of <code><a title="pacai.core.search.position.PositionSearchProblem" href="../core/search/position.html#pacai.core.search.position.PositionSearchProblem">PositionSearchProblem</a></code>.</p>
+<p>You can use this search problem to help you fill in
+the <code><a title="pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot" href="#pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot">ClosestDotSearchAgent.findPathToClosestDot()</a></code> method.</p>
+<p>Additional methods to implement:</p>
+<p><code><a title="pacai.core.search.position.PositionSearchProblem.isGoal" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.isGoal">PositionSearchProblem.isGoal()</a></code>:
+The state is Pacman's position.
+Fill this in with a goal test that will complete the problem definition.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>gameState</code></strong></dt>
+<dd>A <code><a title="pacai.core.gamestate.AbstractGameState" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState">AbstractGameState</a></code>.</dd>
+<dt><strong><code>costFn</code></strong></dt>
+<dd>A function from a search state (x, y) to a non-negative number.</dd>
+<dt><strong><code>goal</code></strong></dt>
+<dd>The target position.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AnyFoodSearchProblem(PositionSearchProblem):
+    &#34;&#34;&#34;
+    A search problem for finding a path to any food.
+
+    This search problem is just like the PositionSearchProblem,
+    but has a different goal test, which you need to fill in below.
+    The state space and successor function do not need to be changed.
+
+    The class definition above, `AnyFoodSearchProblem(PositionSearchProblem)`,
+    inherits the methods of `pacai.core.search.position.PositionSearchProblem`.
+
+    You can use this search problem to help you fill in
+    the `ClosestDotSearchAgent.findPathToClosestDot` method.
+
+    Additional methods to implement:
+
+    `pacai.core.search.position.PositionSearchProblem.isGoal`:
+    The state is Pacman&#39;s position.
+    Fill this in with a goal test that will complete the problem definition.
+    &#34;&#34;&#34;
+
+    def __init__(self, gameState, start = None):
+        super().__init__(gameState, goal = None, start = start)
+
+        # Store the food for later reference.
+        self.food = gameState.getFood()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pacai.core.search.position.PositionSearchProblem" href="../core/search/position.html#pacai.core.search.position.PositionSearchProblem">PositionSearchProblem</a></li>
+<li><a title="pacai.core.search.problem.SearchProblem" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem">SearchProblem</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pacai.core.search.position.PositionSearchProblem" href="../core/search/position.html#pacai.core.search.position.PositionSearchProblem">PositionSearchProblem</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pacai.core.search.position.PositionSearchProblem.actionsCost" href="../core/search/position.html#pacai.core.search.position.PositionSearchProblem.actionsCost">actionsCost</a></code></li>
+<li><code><a title="pacai.core.search.position.PositionSearchProblem.isGoal" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.isGoal">isGoal</a></code></li>
+<li><code><a title="pacai.core.search.position.PositionSearchProblem.startingState" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.startingState">startingState</a></code></li>
+<li><code><a title="pacai.core.search.position.PositionSearchProblem.successorStates" href="../core/search/position.html#pacai.core.search.position.PositionSearchProblem.successorStates">successorStates</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pacai.student.searchAgents.ApproximateSearchAgent"><code class="flex name class">
+<span>class <span class="ident">ApproximateSearchAgent</span></span>
+<span>(</span><span>index, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Implement your contest entry here.</p>
+<p>Additional methods to implement:</p>
+<p><code><a title="pacai.agents.base.BaseAgent.getAction" href="../agents/base.html#pacai.agents.base.BaseAgent.getAction">BaseAgent.getAction()</a></code>:
+Get a <code><a title="pacai.bin.pacman.PacmanGameState" href="../bin/pacman.html#pacai.bin.pacman.PacmanGameState">PacmanGameState</a></code>
+and return a <code><a title="pacai.core.directions.Directions" href="../core/directions.html#pacai.core.directions.Directions">Directions</a></code>.</p>
+<p><code><a title="pacai.agents.base.BaseAgent.registerInitialState" href="../agents/base.html#pacai.agents.base.BaseAgent.registerInitialState">BaseAgent.registerInitialState()</a></code>:
+This method is called before any moves are made.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ApproximateSearchAgent(BaseAgent):
+    &#34;&#34;&#34;
+    Implement your contest entry here.
+
+    Additional methods to implement:
+
+    `pacai.agents.base.BaseAgent.getAction`:
+    Get a `pacai.bin.pacman.PacmanGameState`
+    and return a `pacai.core.directions.Directions`.
+
+    `pacai.agents.base.BaseAgent.registerInitialState`:
+    This method is called before any moves are made.
+    &#34;&#34;&#34;
+
+    def __init__(self, index, **kwargs):
+        super().__init__(index, **kwargs)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pacai.agents.base.BaseAgent" href="../agents/base.html#pacai.agents.base.BaseAgent">BaseAgent</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pacai.agents.base.BaseAgent" href="../agents/base.html#pacai.agents.base.BaseAgent">BaseAgent</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pacai.agents.base.BaseAgent.final" href="../agents/base.html#pacai.agents.base.BaseAgent.final">final</a></code></li>
+<li><code><a title="pacai.agents.base.BaseAgent.getAction" href="../agents/base.html#pacai.agents.base.BaseAgent.getAction">getAction</a></code></li>
+<li><code><a title="pacai.agents.base.BaseAgent.loadAgent" href="../agents/base.html#pacai.agents.base.BaseAgent.loadAgent">loadAgent</a></code></li>
+<li><code><a title="pacai.agents.base.BaseAgent.observationFunction" href="../agents/base.html#pacai.agents.base.BaseAgent.observationFunction">observationFunction</a></code></li>
+<li><code><a title="pacai.agents.base.BaseAgent.registerInitialState" href="../agents/base.html#pacai.agents.base.BaseAgent.registerInitialState">registerInitialState</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pacai.student.searchAgents.ClosestDotSearchAgent"><code class="flex name class">
+<span>class <span class="ident">ClosestDotSearchAgent</span></span>
+<span>(</span><span>index, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Search for all food using a sequence of searches.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ClosestDotSearchAgent(SearchAgent):
+    &#34;&#34;&#34;
+    Search for all food using a sequence of searches.
+    &#34;&#34;&#34;
+
+    def __init__(self, index, **kwargs):
+        super().__init__(index, **kwargs)
+
+    def registerInitialState(self, state):
+        self._actions = []
+        self._actionIndex = 0
+
+        currentState = state
+
+        while (currentState.getFood().count() &gt; 0):
+            nextPathSegment = self.findPathToClosestDot(currentState)  # The missing piece
+            self._actions += nextPathSegment
+
+            for action in nextPathSegment:
+                legal = currentState.getLegalActions()
+                if action not in legal:
+                    raise Exception(&#39;findPathToClosestDot returned an illegal move: %s!\n%s&#39; %
+                            (str(action), str(currentState)))
+
+                currentState = currentState.generateSuccessor(0, action)
+
+        logging.info(&#39;Path found with cost %d.&#39; % len(self._actions))
+
+    def findPathToClosestDot(self, gameState):
+        &#34;&#34;&#34;
+        Returns a path (a list of actions) to the closest dot, starting from gameState.
+        &#34;&#34;&#34;
+
+        # Here are some useful elements of the startState
+        # startPosition = gameState.getPacmanPosition()
+        # food = gameState.getFood()
+        # walls = gameState.getWalls()
+        # problem = AnyFoodSearchProblem(gameState)
+
+        # *** Your Code Here ***
+        raise NotImplementedError()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pacai.agents.search.base.SearchAgent" href="../agents/search/base.html#pacai.agents.search.base.SearchAgent">SearchAgent</a></li>
+<li><a title="pacai.agents.base.BaseAgent" href="../agents/base.html#pacai.agents.base.BaseAgent">BaseAgent</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot"><code class="name flex">
+<span>def <span class="ident">findPathToClosestDot</span></span>(<span>self, gameState)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a path (a list of actions) to the closest dot, starting from gameState.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def findPathToClosestDot(self, gameState):
+    &#34;&#34;&#34;
+    Returns a path (a list of actions) to the closest dot, starting from gameState.
+    &#34;&#34;&#34;
+
+    # Here are some useful elements of the startState
+    # startPosition = gameState.getPacmanPosition()
+    # food = gameState.getFood()
+    # walls = gameState.getWalls()
+    # problem = AnyFoodSearchProblem(gameState)
+
+    # *** Your Code Here ***
+    raise NotImplementedError()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pacai.agents.search.base.SearchAgent" href="../agents/search/base.html#pacai.agents.search.base.SearchAgent">SearchAgent</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pacai.agents.search.base.SearchAgent.final" href="../agents/base.html#pacai.agents.base.BaseAgent.final">final</a></code></li>
+<li><code><a title="pacai.agents.search.base.SearchAgent.getAction" href="../agents/search/base.html#pacai.agents.search.base.SearchAgent.getAction">getAction</a></code></li>
+<li><code><a title="pacai.agents.search.base.SearchAgent.loadAgent" href="../agents/base.html#pacai.agents.base.BaseAgent.loadAgent">loadAgent</a></code></li>
+<li><code><a title="pacai.agents.search.base.SearchAgent.observationFunction" href="../agents/base.html#pacai.agents.base.BaseAgent.observationFunction">observationFunction</a></code></li>
+<li><code><a title="pacai.agents.search.base.SearchAgent.registerInitialState" href="../agents/search/base.html#pacai.agents.search.base.SearchAgent.registerInitialState">registerInitialState</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pacai.student.searchAgents.CornersProblem"><code class="flex name class">
+<span>class <span class="ident">CornersProblem</span></span>
+<span>(</span><span>startingGameState)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This search problem finds paths through all four corners of a layout.</p>
+<p>You must select a suitable state space and successor function.
+See the <code><a title="pacai.core.search.position.PositionSearchProblem" href="../core/search/position.html#pacai.core.search.position.PositionSearchProblem">PositionSearchProblem</a></code> class for an example of
+a working SearchProblem.</p>
+<p>Additional methods to implement:</p>
+<p><code><a title="pacai.core.search.problem.SearchProblem.startingState" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.startingState">SearchProblem.startingState()</a></code>:
+Returns the start state (in your search space,
+NOT a <code><a title="pacai.core.gamestate.AbstractGameState" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState">AbstractGameState</a></code>).</p>
+<p><code><a title="pacai.core.search.problem.SearchProblem.isGoal" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.isGoal">SearchProblem.isGoal()</a></code>:
+Returns whether this search state is a goal state of the problem.</p>
+<p><code><a title="pacai.core.search.problem.SearchProblem.successorStates" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.successorStates">SearchProblem.successorStates()</a></code>:
+Returns successor states, the actions they require, and a cost of 1.
+The following code snippet may prove useful:</p>
+<pre><code>    successors = []
+
+    for action in Directions.CARDINAL:
+        x, y = currentPosition
+        dx, dy = Actions.directionToVector(action)
+        nextx, nexty = int(x + dx), int(y + dy)
+        hitsWall = self.walls[nextx][nexty]
+
+        if (not hitsWall):
+            # Construct the successor.
+
+    return successors
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CornersProblem(SearchProblem):
+    &#34;&#34;&#34;
+    This search problem finds paths through all four corners of a layout.
+
+    You must select a suitable state space and successor function.
+    See the `pacai.core.search.position.PositionSearchProblem` class for an example of
+    a working SearchProblem.
+
+    Additional methods to implement:
+
+    `pacai.core.search.problem.SearchProblem.startingState`:
+    Returns the start state (in your search space,
+    NOT a `pacai.core.gamestate.AbstractGameState`).
+
+    `pacai.core.search.problem.SearchProblem.isGoal`:
+    Returns whether this search state is a goal state of the problem.
+
+    `pacai.core.search.problem.SearchProblem.successorStates`:
+    Returns successor states, the actions they require, and a cost of 1.
+    The following code snippet may prove useful:
+    ```
+        successors = []
+
+        for action in Directions.CARDINAL:
+            x, y = currentPosition
+            dx, dy = Actions.directionToVector(action)
+            nextx, nexty = int(x + dx), int(y + dy)
+            hitsWall = self.walls[nextx][nexty]
+
+            if (not hitsWall):
+                # Construct the successor.
+
+        return successors
+    ```
+    &#34;&#34;&#34;
+
+    def __init__(self, startingGameState):
+        super().__init__()
+
+        self.walls = startingGameState.getWalls()
+        self.startingPosition = startingGameState.getPacmanPosition()
+        top = self.walls.getHeight() - 2
+        right = self.walls.getWidth() - 2
+
+        self.corners = ((1, 1), (1, top), (right, 1), (right, top))
+        for corner in self.corners:
+            if not startingGameState.hasFood(*corner):
+                logging.warning(&#39;Warning: no food in corner &#39; + str(corner))
+
+        # *** Your Code Here ***
+        raise NotImplementedError()
+
+    def actionsCost(self, actions):
+        &#34;&#34;&#34;
+        Returns the cost of a particular sequence of actions.
+        If those actions include an illegal move, return 999999.
+        This is implemented for you.
+        &#34;&#34;&#34;
+
+        if (actions is None):
+            return 999999
+
+        x, y = self.startingPosition
+        for action in actions:
+            dx, dy = Actions.directionToVector(action)
+            x, y = int(x + dx), int(y + dy)
+            if self.walls[x][y]:
+                return 999999
+
+        return len(actions)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pacai.core.search.problem.SearchProblem" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem">SearchProblem</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.student.searchAgents.CornersProblem.actionsCost"><code class="name flex">
+<span>def <span class="ident">actionsCost</span></span>(<span>self, actions)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the cost of a particular sequence of actions.
+If those actions include an illegal move, return 999999.
+This is implemented for you.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def actionsCost(self, actions):
+    &#34;&#34;&#34;
+    Returns the cost of a particular sequence of actions.
+    If those actions include an illegal move, return 999999.
+    This is implemented for you.
+    &#34;&#34;&#34;
+
+    if (actions is None):
+        return 999999
+
+    x, y = self.startingPosition
+    for action in actions:
+        dx, dy = Actions.directionToVector(action)
+        x, y = int(x + dx), int(y + dy)
+        if self.walls[x][y]:
+            return 999999
+
+    return len(actions)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pacai.core.search.problem.SearchProblem" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem">SearchProblem</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pacai.core.search.problem.SearchProblem.isGoal" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.isGoal">isGoal</a></code></li>
+<li><code><a title="pacai.core.search.problem.SearchProblem.startingState" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.startingState">startingState</a></code></li>
+<li><code><a title="pacai.core.search.problem.SearchProblem.successorStates" href="../core/search/problem.html#pacai.core.search.problem.SearchProblem.successorStates">successorStates</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pacai.student" href="index.html">pacai.student</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pacai.student.searchAgents.cornersHeuristic" href="#pacai.student.searchAgents.cornersHeuristic">cornersHeuristic</a></code></li>
+<li><code><a title="pacai.student.searchAgents.foodHeuristic" href="#pacai.student.searchAgents.foodHeuristic">foodHeuristic</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pacai.student.searchAgents.AnyFoodSearchProblem" href="#pacai.student.searchAgents.AnyFoodSearchProblem">AnyFoodSearchProblem</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pacai.student.searchAgents.ApproximateSearchAgent" href="#pacai.student.searchAgents.ApproximateSearchAgent">ApproximateSearchAgent</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pacai.student.searchAgents.ClosestDotSearchAgent" href="#pacai.student.searchAgents.ClosestDotSearchAgent">ClosestDotSearchAgent</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot" href="#pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot">findPathToClosestDot</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pacai.student.searchAgents.CornersProblem" href="#pacai.student.searchAgents.CornersProblem">CornersProblem</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.student.searchAgents.CornersProblem.actionsCost" href="#pacai.student.searchAgents.CornersProblem.actionsCost">actionsCost</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pacai.bin.pacman API documentation</title>
+<meta name="description" content="This file holds the logic for a classic pacman game along with the main code to run a game …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pacai.bin.pacman</code></h1>
+</header>
+<section id="section-intro">
+<p>This file holds the logic for a classic pacman game along with the main code to run a game.</p>
+<p>To play your first game, type 'python -m pacai.bin.pacman' from the command line.
+Use WASD (or the arrow keys) to move.</p>
+<p>Have fun!</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This file holds the logic for a classic pacman game along with the main code to run a game.
+
+To play your first game, type &#39;python -m pacai.bin.pacman&#39; from the command line.
+Use WASD (or the arrow keys) to move.
+
+Have fun!
+&#34;&#34;&#34;
+
+import logging
+import os
+import pickle
+import random
+import sys
+
+from pacai.agents.base import BaseAgent
+from pacai.agents.ghost.random import RandomGhost
+from pacai.agents.greedy import GreedyAgent
+from pacai.bin.arguments import getParser
+from pacai.core.actions import Actions
+from pacai.core.directions import Directions
+from pacai.core.distance import manhattan
+from pacai.core.game import Game
+from pacai.core.gamestate import AbstractGameState
+from pacai.core.layout import getLayout
+from pacai.ui.pacman.null import PacmanNullView
+from pacai.ui.pacman.text import PacmanTextView
+from pacai.util.logs import initLogging
+from pacai.util.logs import updateLoggingLevel
+from pacai.util.util import nearestPoint
+
+PACMAN_AGENT_INDEX = 0
+
+SCARED_TIME = 40  # The number of moves that ghosts are scared for.
+COLLISION_TOLERANCE = 0.7  # How close ghosts must be to Pacman to kill.
+
+TIME_PENALTY = 1  # Number of points lost each round.
+FOOD_POINTS = 10  # Points for eating food.
+BOARD_CLEAR_POINTS = 500  # Points for clearning all the food from the board.
+GHOST_POINTS = 200  # Points for eating a ghost.
+LOSE_POINTS = -500  # Points for getting eatten.
+
+class PacmanGameState(AbstractGameState):
+    &#34;&#34;&#34;
+    A game state specific to pacman.
+    Note that in classic Pacman, Pacman is always agent PACMAN_AGENT_INDEX.
+    &#34;&#34;&#34;
+
+    def __init__(self, layout):
+        super().__init__(layout)
+
+    # Override
+    def generateSuccessor(self, agentIndex, action):
+        &#34;&#34;&#34;
+        Returns the successor state after the specified agent takes the action.
+        &#34;&#34;&#34;
+
+        # Check that successors exist.
+        if (self.isOver()):
+            raise RuntimeError(&#34;Can&#39;t generate successors of a terminal state.&#34;)
+
+        successor = self._initSuccessor()
+        successor._applySuccessorAction(agentIndex, action)
+
+        return successor
+
+    # Override
+    def getLegalActions(self, agentIndex = PACMAN_AGENT_INDEX):
+        if (self.isOver()):
+            return []
+
+        # Pacman&#39;s turn.
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            return PacmanRules.getLegalActions(self)
+
+        return GhostRules.getLegalActions(self, agentIndex)
+
+    def generatePacmanSuccessor(self, action):
+        return self.generateSuccessor(PACMAN_AGENT_INDEX, action)
+
+    def getGhostIndexes(self):
+        return range(1, self.getNumAgents())
+
+    def getGhostPosition(self, agentIndex):
+        if (agentIndex &lt;= PACMAN_AGENT_INDEX or agentIndex &gt;= self.getNumAgents()):
+            raise ValueError(&#34;Invalid index passed to getGhostPosition(): %d.&#34; % (agentIndex))
+
+        return self._agentStates[agentIndex].getPosition()
+
+    def getGhostPositions(self):
+        return [ghost.getPosition() for ghost in self.getGhostStates()]
+
+    def getGhostState(self, agentIndex):
+        if (agentIndex &lt;= PACMAN_AGENT_INDEX or agentIndex &gt;= self.getNumAgents()):
+            raise ValueError(&#34;Invalid index passed to getGhostState(): %d.&#34; % (agentIndex))
+
+        return self._agentStates[agentIndex]
+
+    def getGhostStates(self):
+        return self._agentStates[1:]
+
+    def getLegalPacmanActions(self):
+        return self.getLegalActions(PACMAN_AGENT_INDEX)
+
+    def getNumGhosts(self):
+        return self.getNumAgents() - 1
+
+    def getPacmanPosition(self):
+        return self._agentStates[PACMAN_AGENT_INDEX].getPosition()
+
+    def getPacmanState(self):
+        &#34;&#34;&#34;
+        Returns an AgentState object for pacman.
+
+        state.getPosition() gives the current position.
+        state.getDirection() gives the travel vector.
+        &#34;&#34;&#34;
+
+        return self._agentStates[PACMAN_AGENT_INDEX]
+
+    def _applySuccessorAction(self, agentIndex, action):
+        &#34;&#34;&#34;
+        Apply the action to the context state (self).
+        &#34;&#34;&#34;
+
+        # Let the agent&#39;s logic deal with its action&#39;s effects on the board.
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            PacmanRules.applyAction(self, action)
+        else:
+            GhostRules.applyAction(self, action, agentIndex)
+
+        # Time passes.
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            # Penalty for waiting around.
+            self.addScore(-TIME_PENALTY)
+        else:
+            GhostRules.decrementTimer(self.getAgentState(agentIndex))
+
+        # Resolve multi-agent effects.
+        GhostRules.checkDeath(self, agentIndex)
+
+        # Book keeping.
+        self._lastAgentMoved = agentIndex
+
+        self._hash = None
+
+class ClassicGameRules(object):
+    &#34;&#34;&#34;
+    These game rules manage the control flow of a game, deciding when
+    and how the game starts and ends.
+    &#34;&#34;&#34;
+
+    def __init__(self, timeout = 30):
+        self.timeout = timeout
+
+    def newGame(self, layout, pacmanAgent, ghostAgents, display, catchExceptions = False):
+        agents = [pacmanAgent] + ghostAgents[:layout.getNumGhosts()]
+        initState = PacmanGameState(layout)
+        game = Game(agents, display, self, catchExceptions = catchExceptions)
+        game.state = initState
+
+        self._initialFoodCount = initState.getNumFood()
+
+        return game
+
+    def process(self, state, game):
+        &#34;&#34;&#34;
+        Checks to see whether it is time to end the game.
+        &#34;&#34;&#34;
+
+        if (state.isWin()):
+            self.win(state, game)
+        elif (state.isLose()):
+            self.lose(state, game)
+
+    def win(self, state, game):
+        logging.info(&#39;Pacman emerges victorious! Score: %d&#39; % state.getScore())
+        game.gameOver = True
+
+    def lose(self, state, game):
+        logging.info(&#39;Pacman died! Score: %d&#39; % state.getScore())
+        game.gameOver = True
+
+    def agentCrash(self, game, agentIndex):
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            logging.error(&#39;Pacman crashed&#39;)
+        else:
+            logging.error(&#39;A ghost crashed&#39;)
+
+    def getMaxTotalTime(self, agentIndex):
+        return self.timeout
+
+    def getMaxStartupTime(self, agentIndex):
+        return self.timeout
+
+    def getMoveWarningTime(self, agentIndex):
+        return self.timeout
+
+    def getMoveTimeout(self, agentIndex):
+        return self.timeout
+
+    def getMaxTimeWarnings(self, agentIndex):
+        return 0
+
+class PacmanRules:
+    &#34;&#34;&#34;
+    These functions govern how pacman interacts with his environment under
+    the classic game rules.
+    &#34;&#34;&#34;
+
+    PACMAN_SPEED = 1
+
+    @staticmethod
+    def getLegalActions(state):
+        &#34;&#34;&#34;
+        Returns a list of possible actions.
+        &#34;&#34;&#34;
+
+        agentState = state.getPacmanState()
+        return Actions.getPossibleActions(agentState.getPosition(), agentState.getDirection(),
+                state.getWalls())
+
+    @staticmethod
+    def applyAction(state, action):
+        &#34;&#34;&#34;
+        Edits the state to reflect the results of the action.
+        &#34;&#34;&#34;
+
+        legal = PacmanRules.getLegalActions(state)
+        if (action not in legal):
+            raise ValueError(&#39;Illegal pacman action: &#39; + str(action))
+
+        pacmanState = state.getPacmanState()
+
+        # Update position.
+        vector = Actions.directionToVector(action, PacmanRules.PACMAN_SPEED)
+        pacmanState.updatePosition(vector)
+
+        # Eat.
+        nextPosition = pacmanState.getPosition()
+        nearest = nearestPoint(nextPosition)
+        if (manhattan(nearest, nextPosition) &lt;= 0.5):
+            # Remove food
+            PacmanRules.consume(nearest, state)
+
+    @staticmethod
+    def consume(position, state):
+        x, y = position
+
+        if (state.hasFood(x, y)):
+            # Eat food.
+            state.eatFood(x, y)
+            state.addScore(FOOD_POINTS)
+
+            if (state.getNumFood() == 0 and not state.isLose()):
+                state.addScore(BOARD_CLEAR_POINTS)
+                state.endGame(True)
+        elif (state.hasCapsule(x, y)):
+            # Eat a capsule.
+            state.eatCapsule(x, y)
+
+            # Reset all ghosts&#39; scared timers.
+            for ghostState in state.getGhostStates():
+                ghostState.setScaredTimer(SCARED_TIME)
+
+class GhostRules:
+    &#34;&#34;&#34;
+    These functions dictate how ghosts interact with their environment.
+    &#34;&#34;&#34;
+
+    GHOST_SPEED = 1.0
+
+    @staticmethod
+    def getLegalActions(state, ghostIndex):
+        &#34;&#34;&#34;
+        Ghosts cannot stop, and cannot turn around unless they
+        reach a dead end, but can turn 90 degrees at intersections.
+        &#34;&#34;&#34;
+
+        agentState = state.getGhostState(ghostIndex)
+        possibleActions = Actions.getPossibleActions(agentState.getPosition(),
+                agentState.getDirection(), state.getWalls())
+        reverse = Actions.reverseDirection(agentState.getDirection())
+
+        if (Directions.STOP in possibleActions):
+            possibleActions.remove(Directions.STOP)
+
+        if (reverse in possibleActions and len(possibleActions) &gt; 1):
+            possibleActions.remove(reverse)
+
+        return possibleActions
+
+    @staticmethod
+    def applyAction(state, action, ghostIndex):
+        legal = GhostRules.getLegalActions(state, ghostIndex)
+        if (action not in legal):
+            raise ValueError(&#39;Illegal ghost action: &#39; + str(action))
+
+        ghostState = state.getGhostState(ghostIndex)
+        speed = GhostRules.GHOST_SPEED
+        if (ghostState.isScared()):
+            speed /= 2.0
+
+        vector = Actions.directionToVector(action, speed)
+        ghostState.updatePosition(vector)
+
+    @staticmethod
+    def decrementTimer(agentState):
+        if (not agentState.isScared()):
+            return
+
+        agentState.decrementScaredTimer()
+        if (not agentState.isScared()):
+            # If the ghost is done being scared, snap it to the closest point.
+            agentState.snapToNearestPoint()
+
+    @staticmethod
+    def checkDeath(state, agentIndex):
+        pacmanPosition = state.getPacmanPosition()
+
+        # Did pacman just move?
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            # See if a ghost can kill pacman.
+            for index in state.getGhostIndexes():
+                ghostState = state.getGhostState(index)
+                ghostPosition = ghostState.getPosition()
+
+                if (GhostRules.canKill(pacmanPosition, ghostPosition)):
+                    GhostRules.collide(state, ghostState, index)
+
+            return
+        else:
+            # A ghost just moved.
+            ghostState = state.getGhostState(agentIndex)
+            ghostPosition = ghostState.getPosition()
+            if (GhostRules.canKill(pacmanPosition, ghostPosition)):
+                GhostRules.collide(state, ghostState, agentIndex)
+
+    @staticmethod
+    def collide(state, ghostState, agentIndex):
+        if (ghostState.isScared()):
+            # Pacman ate a ghost.
+            state.addScore(GHOST_POINTS)
+            ghostState.respawn()
+        elif (not state.isOver()):
+            # A ghost ate pacman.
+            state.addScore(LOSE_POINTS)
+            state.endGame(False)
+
+    @staticmethod
+    def canKill(pacmanPosition, ghostPosition):
+        return manhattan(ghostPosition, pacmanPosition) &lt;= COLLISION_TOLERANCE
+
+#############################
+# FRAMEWORK TO START A GAME #
+#############################
+
+def parseAgentArgs(str):
+    if (str is None):
+        return {}
+
+    pieces = str.split(&#39;,&#39;)
+    opts = {}
+    for p in pieces:
+        if &#39;=&#39; in p:
+            key, val = p.split(&#39;=&#39;)
+        else:
+            key, val = p, 1
+        opts[key] = val
+
+    return opts
+
+def readCommand(argv):
+    &#34;&#34;&#34;
+    Processes the command used to run pacman from the command line.
+    &#34;&#34;&#34;
+
+    description = &#34;&#34;&#34;
+    DESCRIPTION:
+        This program will run a classic pacman game. Collect all the pellets before
+        the ghosts catch you!
+
+    EXAMPLES:
+        (1) python -m pacai.bin.pacman
+            - Starts an interactive game.
+        (2) python -m pacai.bin.pacman --layout smallClassic
+            - Starts an interactive game on a smaller board.
+    &#34;&#34;&#34;
+
+    parser = getParser(description, os.path.basename(__file__))
+
+    parser.add_argument(&#39;-g&#39;, &#39;--ghosts&#39;, dest = &#39;ghost&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;RandomGhost&#39;,
+            help = &#39;use the specified ghostAgent module for the ghosts (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-k&#39;, &#39;--num-ghosts&#39;, dest = &#39;numGhosts&#39;,
+            action = &#39;store&#39;, type = int, default = 4,
+            help = &#39;set the maximum number of ghosts (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-l&#39;, &#39;--layout&#39;, dest = &#39;layout&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;mediumClassic&#39;,
+            help = &#39;use the specified map layout (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-p&#39;, &#39;--pacman&#39;, dest = &#39;pacman&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;WASDKeyboardAgent&#39;,
+            help = &#39;use the specified pacmanAgent module for pacman (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;--agent-args&#39;, dest = &#39;agentArgs&#39;,
+            action = &#39;store&#39;, type = str, default = None,
+            help = &#39;comma separated arguments to be passed to agents (e.g. \&#39;opt1=val1,opt2\&#39;)&#39;
+                + &#39;(default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;--timeout&#39;, dest = &#39;timeout&#39;,
+            action = &#39;store&#39;, type = int, default = 30,
+            help = &#39;maximum time limit (seconds) an agent can spend computing per game &#39;
+                + &#39;(default: %(default)s)&#39;)
+
+    options, otherjunk = parser.parse_known_args(argv)
+    args = dict()
+
+    if len(otherjunk) != 0:
+        raise ValueError(&#39;Unrecognized options: \&#39;%s\&#39;.&#39; % (str(otherjunk)))
+
+    # Set the logging level.
+    if options.quiet and options.debug:
+        raise ValueError(&#39;Logging cannont be set to both debug and quiet.&#39;)
+
+    if options.quiet:
+        updateLoggingLevel(logging.WARNING)
+    elif options.debug:
+        updateLoggingLevel(logging.DEBUG)
+
+    # If seed value is not entered generate a random seed value.
+    seed = options.seed
+    if seed is None:
+        seed = random.randint(0, 2**32)
+    random.seed(seed)
+    logging.debug(&#39;Seed value: &#39; + str(seed))
+
+    # Choose a layout.
+    args[&#39;layout&#39;] = getLayout(options.layout, maxGhosts = options.numGhosts)
+    if (args[&#39;layout&#39;] is None):
+        raise ValueError(&#39;The layout &#39; + options.layout + &#39; cannot be found.&#39;)
+
+    # Choose a Pacman agent.
+    noKeyboard = (options.replay is None and (options.textGraphics or options.nullGraphics))
+    if (noKeyboard and (&#39;KeyboardAgent&#39; in options.pacman)):
+        raise ValueError(&#39;Keyboard agents require graphics.&#39;)
+
+    agentOpts = parseAgentArgs(options.agentArgs)
+    if options.numTraining &gt; 0:
+        args[&#39;numTraining&#39;] = options.numTraining
+        if &#39;numTraining&#39; not in agentOpts:
+            agentOpts[&#39;numTraining&#39;] = options.numTraining
+
+    # Don&#39;t display training games.
+    if &#39;numTrain&#39; in agentOpts:
+        options.numQuiet = int(agentOpts[&#39;numTrain&#39;])
+        options.numIgnore = int(agentOpts[&#39;numTrain&#39;])
+
+    viewOptions = {
+        &#39;gifFPS&#39;: options.gifFPS,
+        &#39;gifPath&#39;: options.gif,
+        &#39;skipFrames&#39;: options.gifSkipFrames,
+        &#39;spritesPath&#39;: options.spritesPath,
+    }
+
+    # Choose a display format.
+    if options.nullGraphics:
+        args[&#39;display&#39;] = PacmanNullView(**viewOptions)
+    elif options.textGraphics:
+        args[&#39;display&#39;] = PacmanTextView(**viewOptions)
+    else:
+        # Defer importing the GUI unless we actually need it.
+        # This allows people to not have tkinter installed.
+        from pacai.ui.pacman.gui import PacmanGUIView
+
+        args[&#39;display&#39;] = PacmanGUIView(fps = options.fps, title = &#39;Pacman&#39;, **viewOptions)
+        agentOpts[&#39;keyboard&#39;] = args[&#39;display&#39;].getKeyboard()
+
+    args[&#39;catchExceptions&#39;] = options.catchExceptions
+    args[&#39;gameToReplay&#39;] = options.replay
+    args[&#39;ghosts&#39;] = [BaseAgent.loadAgent(options.ghost, i + 1) for i in range(options.numGhosts)]
+    args[&#39;numGames&#39;] = options.numGames
+    args[&#39;pacman&#39;] = BaseAgent.loadAgent(options.pacman, PACMAN_AGENT_INDEX, agentOpts)
+    args[&#39;record&#39;] = options.record
+    args[&#39;timeout&#39;] = options.timeout
+
+    return args
+
+def replayGame(layout, actions, display):
+    rules = ClassicGameRules()
+
+    agents = []
+    agents.append(GreedyAgent(PACMAN_AGENT_INDEX))
+    agents += [RandomGhost(i + 1) for i in range(layout.getNumGhosts())]
+
+    game = rules.newGame(layout, agents[PACMAN_AGENT_INDEX], agents[1:], display)
+    state = game.state
+    display.initialize(state)
+
+    for action in actions:
+        # Execute the action
+        state = state.generateSuccessor(*action)
+
+        # Change the display
+        display.update(state)
+
+        # Allow for game specific conditions (winning, losing, etc.)
+        rules.process(state, game)
+
+    display.finish()
+
+def runGames(layout, pacman, ghosts, display, numGames, record = None, numTraining = 0,
+        catchExceptions = False, timeout = 30, **kwargs):
+    rules = ClassicGameRules(timeout)
+    games = []
+
+    nullView = None
+    if (numTraining &gt; 0):
+        logging.info(&#39;Playing %d training games.&#39; % numTraining)
+        nullView = PacmanNullView()
+
+    for i in range(numGames):
+        isTraining = (i &lt; numTraining)
+
+        if (isTraining):
+            # Suppress graphics for training.
+            gameDisplay = nullView
+        else:
+            gameDisplay = display
+
+        game = rules.newGame(layout, pacman, ghosts, gameDisplay, catchExceptions)
+        game.run()
+
+        if (not isTraining):
+            games.append(game)
+
+        if (record):
+            path = &#39;pacman.replay&#39;
+            if (isinstance(record, str)):
+                path = record
+
+            components = {&#39;layout&#39;: layout, &#39;actions&#39;: game.moveHistory}
+            with open(path, &#39;wb&#39;) as file:
+                pickle.dump(components, file)
+
+    if ((numGames - numTraining) &gt; 0):
+        scores = [game.state.getScore() for game in games]
+        wins = [game.state.isWin() for game in games]
+        winRate = wins.count(True) / float(len(wins))
+        logging.info(&#39;Average Score: %s&#39;, sum(scores) / float(len(scores)))
+        logging.info(&#39;Scores:        %s&#39;, &#39;, &#39;.join([str(score) for score in scores]))
+        logging.info(&#39;Win Rate:      %d/%d (%.2f)&#39; % (wins.count(True), len(wins), winRate))
+        logging.info(&#39;Record:        %s&#39;, &#39;, &#39;.join([[&#39;Loss&#39;, &#39;Win&#39;][int(w)] for w in wins]))
+
+    return games
+
+def main(argv):
+    &#34;&#34;&#34;
+    Entry point for a pacman game.
+    The args are a blind pass of `sys.argv` with the executable stripped.
+    &#34;&#34;&#34;
+
+    initLogging()
+
+    # Get game components based on input
+    args = readCommand(argv)
+
+    # Special case: recorded games don&#39;t use the runGames method.
+    if (args[&#39;gameToReplay&#39;] is not None):
+        logging.info(&#39;Replaying recorded game %s.&#39; % args[&#39;gameToReplay&#39;])
+
+        recorded = None
+        with open(args[&#39;gameToReplay&#39;], &#39;rb&#39;) as file:
+            recorded = pickle.load(file)
+
+        recorded[&#39;display&#39;] = args[&#39;display&#39;]
+        replayGame(**recorded)
+
+        return
+
+    return runGames(**args)
+
+if __name__ == &#39;__main__&#39;:
+    main(sys.argv[1:])</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pacai.bin.pacman.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Entry point for a pacman game.
+The args are a blind pass of <code>sys.argv</code> with the executable stripped.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main(argv):
+    &#34;&#34;&#34;
+    Entry point for a pacman game.
+    The args are a blind pass of `sys.argv` with the executable stripped.
+    &#34;&#34;&#34;
+
+    initLogging()
+
+    # Get game components based on input
+    args = readCommand(argv)
+
+    # Special case: recorded games don&#39;t use the runGames method.
+    if (args[&#39;gameToReplay&#39;] is not None):
+        logging.info(&#39;Replaying recorded game %s.&#39; % args[&#39;gameToReplay&#39;])
+
+        recorded = None
+        with open(args[&#39;gameToReplay&#39;], &#39;rb&#39;) as file:
+            recorded = pickle.load(file)
+
+        recorded[&#39;display&#39;] = args[&#39;display&#39;]
+        replayGame(**recorded)
+
+        return
+
+    return runGames(**args)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.parseAgentArgs"><code class="name flex">
+<span>def <span class="ident">parseAgentArgs</span></span>(<span>str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parseAgentArgs(str):
+    if (str is None):
+        return {}
+
+    pieces = str.split(&#39;,&#39;)
+    opts = {}
+    for p in pieces:
+        if &#39;=&#39; in p:
+            key, val = p.split(&#39;=&#39;)
+        else:
+            key, val = p, 1
+        opts[key] = val
+
+    return opts</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.readCommand"><code class="name flex">
+<span>def <span class="ident">readCommand</span></span>(<span>argv)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Processes the command used to run pacman from the command line.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def readCommand(argv):
+    &#34;&#34;&#34;
+    Processes the command used to run pacman from the command line.
+    &#34;&#34;&#34;
+
+    description = &#34;&#34;&#34;
+    DESCRIPTION:
+        This program will run a classic pacman game. Collect all the pellets before
+        the ghosts catch you!
+
+    EXAMPLES:
+        (1) python -m pacai.bin.pacman
+            - Starts an interactive game.
+        (2) python -m pacai.bin.pacman --layout smallClassic
+            - Starts an interactive game on a smaller board.
+    &#34;&#34;&#34;
+
+    parser = getParser(description, os.path.basename(__file__))
+
+    parser.add_argument(&#39;-g&#39;, &#39;--ghosts&#39;, dest = &#39;ghost&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;RandomGhost&#39;,
+            help = &#39;use the specified ghostAgent module for the ghosts (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-k&#39;, &#39;--num-ghosts&#39;, dest = &#39;numGhosts&#39;,
+            action = &#39;store&#39;, type = int, default = 4,
+            help = &#39;set the maximum number of ghosts (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-l&#39;, &#39;--layout&#39;, dest = &#39;layout&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;mediumClassic&#39;,
+            help = &#39;use the specified map layout (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;-p&#39;, &#39;--pacman&#39;, dest = &#39;pacman&#39;,
+            action = &#39;store&#39;, type = str, default = &#39;WASDKeyboardAgent&#39;,
+            help = &#39;use the specified pacmanAgent module for pacman (default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;--agent-args&#39;, dest = &#39;agentArgs&#39;,
+            action = &#39;store&#39;, type = str, default = None,
+            help = &#39;comma separated arguments to be passed to agents (e.g. \&#39;opt1=val1,opt2\&#39;)&#39;
+                + &#39;(default: %(default)s)&#39;)
+
+    parser.add_argument(&#39;--timeout&#39;, dest = &#39;timeout&#39;,
+            action = &#39;store&#39;, type = int, default = 30,
+            help = &#39;maximum time limit (seconds) an agent can spend computing per game &#39;
+                + &#39;(default: %(default)s)&#39;)
+
+    options, otherjunk = parser.parse_known_args(argv)
+    args = dict()
+
+    if len(otherjunk) != 0:
+        raise ValueError(&#39;Unrecognized options: \&#39;%s\&#39;.&#39; % (str(otherjunk)))
+
+    # Set the logging level.
+    if options.quiet and options.debug:
+        raise ValueError(&#39;Logging cannont be set to both debug and quiet.&#39;)
+
+    if options.quiet:
+        updateLoggingLevel(logging.WARNING)
+    elif options.debug:
+        updateLoggingLevel(logging.DEBUG)
+
+    # If seed value is not entered generate a random seed value.
+    seed = options.seed
+    if seed is None:
+        seed = random.randint(0, 2**32)
+    random.seed(seed)
+    logging.debug(&#39;Seed value: &#39; + str(seed))
+
+    # Choose a layout.
+    args[&#39;layout&#39;] = getLayout(options.layout, maxGhosts = options.numGhosts)
+    if (args[&#39;layout&#39;] is None):
+        raise ValueError(&#39;The layout &#39; + options.layout + &#39; cannot be found.&#39;)
+
+    # Choose a Pacman agent.
+    noKeyboard = (options.replay is None and (options.textGraphics or options.nullGraphics))
+    if (noKeyboard and (&#39;KeyboardAgent&#39; in options.pacman)):
+        raise ValueError(&#39;Keyboard agents require graphics.&#39;)
+
+    agentOpts = parseAgentArgs(options.agentArgs)
+    if options.numTraining &gt; 0:
+        args[&#39;numTraining&#39;] = options.numTraining
+        if &#39;numTraining&#39; not in agentOpts:
+            agentOpts[&#39;numTraining&#39;] = options.numTraining
+
+    # Don&#39;t display training games.
+    if &#39;numTrain&#39; in agentOpts:
+        options.numQuiet = int(agentOpts[&#39;numTrain&#39;])
+        options.numIgnore = int(agentOpts[&#39;numTrain&#39;])
+
+    viewOptions = {
+        &#39;gifFPS&#39;: options.gifFPS,
+        &#39;gifPath&#39;: options.gif,
+        &#39;skipFrames&#39;: options.gifSkipFrames,
+        &#39;spritesPath&#39;: options.spritesPath,
+    }
+
+    # Choose a display format.
+    if options.nullGraphics:
+        args[&#39;display&#39;] = PacmanNullView(**viewOptions)
+    elif options.textGraphics:
+        args[&#39;display&#39;] = PacmanTextView(**viewOptions)
+    else:
+        # Defer importing the GUI unless we actually need it.
+        # This allows people to not have tkinter installed.
+        from pacai.ui.pacman.gui import PacmanGUIView
+
+        args[&#39;display&#39;] = PacmanGUIView(fps = options.fps, title = &#39;Pacman&#39;, **viewOptions)
+        agentOpts[&#39;keyboard&#39;] = args[&#39;display&#39;].getKeyboard()
+
+    args[&#39;catchExceptions&#39;] = options.catchExceptions
+    args[&#39;gameToReplay&#39;] = options.replay
+    args[&#39;ghosts&#39;] = [BaseAgent.loadAgent(options.ghost, i + 1) for i in range(options.numGhosts)]
+    args[&#39;numGames&#39;] = options.numGames
+    args[&#39;pacman&#39;] = BaseAgent.loadAgent(options.pacman, PACMAN_AGENT_INDEX, agentOpts)
+    args[&#39;record&#39;] = options.record
+    args[&#39;timeout&#39;] = options.timeout
+
+    return args</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.replayGame"><code class="name flex">
+<span>def <span class="ident">replayGame</span></span>(<span>layout, actions, display)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def replayGame(layout, actions, display):
+    rules = ClassicGameRules()
+
+    agents = []
+    agents.append(GreedyAgent(PACMAN_AGENT_INDEX))
+    agents += [RandomGhost(i + 1) for i in range(layout.getNumGhosts())]
+
+    game = rules.newGame(layout, agents[PACMAN_AGENT_INDEX], agents[1:], display)
+    state = game.state
+    display.initialize(state)
+
+    for action in actions:
+        # Execute the action
+        state = state.generateSuccessor(*action)
+
+        # Change the display
+        display.update(state)
+
+        # Allow for game specific conditions (winning, losing, etc.)
+        rules.process(state, game)
+
+    display.finish()</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.runGames"><code class="name flex">
+<span>def <span class="ident">runGames</span></span>(<span>layout, pacman, ghosts, display, numGames, record=None, numTraining=0, catchExceptions=False, timeout=30, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def runGames(layout, pacman, ghosts, display, numGames, record = None, numTraining = 0,
+        catchExceptions = False, timeout = 30, **kwargs):
+    rules = ClassicGameRules(timeout)
+    games = []
+
+    nullView = None
+    if (numTraining &gt; 0):
+        logging.info(&#39;Playing %d training games.&#39; % numTraining)
+        nullView = PacmanNullView()
+
+    for i in range(numGames):
+        isTraining = (i &lt; numTraining)
+
+        if (isTraining):
+            # Suppress graphics for training.
+            gameDisplay = nullView
+        else:
+            gameDisplay = display
+
+        game = rules.newGame(layout, pacman, ghosts, gameDisplay, catchExceptions)
+        game.run()
+
+        if (not isTraining):
+            games.append(game)
+
+        if (record):
+            path = &#39;pacman.replay&#39;
+            if (isinstance(record, str)):
+                path = record
+
+            components = {&#39;layout&#39;: layout, &#39;actions&#39;: game.moveHistory}
+            with open(path, &#39;wb&#39;) as file:
+                pickle.dump(components, file)
+
+    if ((numGames - numTraining) &gt; 0):
+        scores = [game.state.getScore() for game in games]
+        wins = [game.state.isWin() for game in games]
+        winRate = wins.count(True) / float(len(wins))
+        logging.info(&#39;Average Score: %s&#39;, sum(scores) / float(len(scores)))
+        logging.info(&#39;Scores:        %s&#39;, &#39;, &#39;.join([str(score) for score in scores]))
+        logging.info(&#39;Win Rate:      %d/%d (%.2f)&#39; % (wins.count(True), len(wins), winRate))
+        logging.info(&#39;Record:        %s&#39;, &#39;, &#39;.join([[&#39;Loss&#39;, &#39;Win&#39;][int(w)] for w in wins]))
+
+    return games</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pacai.bin.pacman.ClassicGameRules"><code class="flex name class">
+<span>class <span class="ident">ClassicGameRules</span></span>
+<span>(</span><span>timeout=30)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>These game rules manage the control flow of a game, deciding when
+and how the game starts and ends.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ClassicGameRules(object):
+    &#34;&#34;&#34;
+    These game rules manage the control flow of a game, deciding when
+    and how the game starts and ends.
+    &#34;&#34;&#34;
+
+    def __init__(self, timeout = 30):
+        self.timeout = timeout
+
+    def newGame(self, layout, pacmanAgent, ghostAgents, display, catchExceptions = False):
+        agents = [pacmanAgent] + ghostAgents[:layout.getNumGhosts()]
+        initState = PacmanGameState(layout)
+        game = Game(agents, display, self, catchExceptions = catchExceptions)
+        game.state = initState
+
+        self._initialFoodCount = initState.getNumFood()
+
+        return game
+
+    def process(self, state, game):
+        &#34;&#34;&#34;
+        Checks to see whether it is time to end the game.
+        &#34;&#34;&#34;
+
+        if (state.isWin()):
+            self.win(state, game)
+        elif (state.isLose()):
+            self.lose(state, game)
+
+    def win(self, state, game):
+        logging.info(&#39;Pacman emerges victorious! Score: %d&#39; % state.getScore())
+        game.gameOver = True
+
+    def lose(self, state, game):
+        logging.info(&#39;Pacman died! Score: %d&#39; % state.getScore())
+        game.gameOver = True
+
+    def agentCrash(self, game, agentIndex):
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            logging.error(&#39;Pacman crashed&#39;)
+        else:
+            logging.error(&#39;A ghost crashed&#39;)
+
+    def getMaxTotalTime(self, agentIndex):
+        return self.timeout
+
+    def getMaxStartupTime(self, agentIndex):
+        return self.timeout
+
+    def getMoveWarningTime(self, agentIndex):
+        return self.timeout
+
+    def getMoveTimeout(self, agentIndex):
+        return self.timeout
+
+    def getMaxTimeWarnings(self, agentIndex):
+        return 0</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.bin.pacman.ClassicGameRules.agentCrash"><code class="name flex">
+<span>def <span class="ident">agentCrash</span></span>(<span>self, game, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def agentCrash(self, game, agentIndex):
+    if (agentIndex == PACMAN_AGENT_INDEX):
+        logging.error(&#39;Pacman crashed&#39;)
+    else:
+        logging.error(&#39;A ghost crashed&#39;)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.getMaxStartupTime"><code class="name flex">
+<span>def <span class="ident">getMaxStartupTime</span></span>(<span>self, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMaxStartupTime(self, agentIndex):
+    return self.timeout</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.getMaxTimeWarnings"><code class="name flex">
+<span>def <span class="ident">getMaxTimeWarnings</span></span>(<span>self, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMaxTimeWarnings(self, agentIndex):
+    return 0</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.getMaxTotalTime"><code class="name flex">
+<span>def <span class="ident">getMaxTotalTime</span></span>(<span>self, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMaxTotalTime(self, agentIndex):
+    return self.timeout</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.getMoveTimeout"><code class="name flex">
+<span>def <span class="ident">getMoveTimeout</span></span>(<span>self, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMoveTimeout(self, agentIndex):
+    return self.timeout</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.getMoveWarningTime"><code class="name flex">
+<span>def <span class="ident">getMoveWarningTime</span></span>(<span>self, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMoveWarningTime(self, agentIndex):
+    return self.timeout</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.lose"><code class="name flex">
+<span>def <span class="ident">lose</span></span>(<span>self, state, game)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lose(self, state, game):
+    logging.info(&#39;Pacman died! Score: %d&#39; % state.getScore())
+    game.gameOver = True</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.newGame"><code class="name flex">
+<span>def <span class="ident">newGame</span></span>(<span>self, layout, pacmanAgent, ghostAgents, display, catchExceptions=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def newGame(self, layout, pacmanAgent, ghostAgents, display, catchExceptions = False):
+    agents = [pacmanAgent] + ghostAgents[:layout.getNumGhosts()]
+    initState = PacmanGameState(layout)
+    game = Game(agents, display, self, catchExceptions = catchExceptions)
+    game.state = initState
+
+    self._initialFoodCount = initState.getNumFood()
+
+    return game</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.process"><code class="name flex">
+<span>def <span class="ident">process</span></span>(<span>self, state, game)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks to see whether it is time to end the game.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process(self, state, game):
+    &#34;&#34;&#34;
+    Checks to see whether it is time to end the game.
+    &#34;&#34;&#34;
+
+    if (state.isWin()):
+        self.win(state, game)
+    elif (state.isLose()):
+        self.lose(state, game)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.ClassicGameRules.win"><code class="name flex">
+<span>def <span class="ident">win</span></span>(<span>self, state, game)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def win(self, state, game):
+    logging.info(&#39;Pacman emerges victorious! Score: %d&#39; % state.getScore())
+    game.gameOver = True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pacai.bin.pacman.GhostRules"><code class="flex name class">
+<span>class <span class="ident">GhostRules</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>These functions dictate how ghosts interact with their environment.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GhostRules:
+    &#34;&#34;&#34;
+    These functions dictate how ghosts interact with their environment.
+    &#34;&#34;&#34;
+
+    GHOST_SPEED = 1.0
+
+    @staticmethod
+    def getLegalActions(state, ghostIndex):
+        &#34;&#34;&#34;
+        Ghosts cannot stop, and cannot turn around unless they
+        reach a dead end, but can turn 90 degrees at intersections.
+        &#34;&#34;&#34;
+
+        agentState = state.getGhostState(ghostIndex)
+        possibleActions = Actions.getPossibleActions(agentState.getPosition(),
+                agentState.getDirection(), state.getWalls())
+        reverse = Actions.reverseDirection(agentState.getDirection())
+
+        if (Directions.STOP in possibleActions):
+            possibleActions.remove(Directions.STOP)
+
+        if (reverse in possibleActions and len(possibleActions) &gt; 1):
+            possibleActions.remove(reverse)
+
+        return possibleActions
+
+    @staticmethod
+    def applyAction(state, action, ghostIndex):
+        legal = GhostRules.getLegalActions(state, ghostIndex)
+        if (action not in legal):
+            raise ValueError(&#39;Illegal ghost action: &#39; + str(action))
+
+        ghostState = state.getGhostState(ghostIndex)
+        speed = GhostRules.GHOST_SPEED
+        if (ghostState.isScared()):
+            speed /= 2.0
+
+        vector = Actions.directionToVector(action, speed)
+        ghostState.updatePosition(vector)
+
+    @staticmethod
+    def decrementTimer(agentState):
+        if (not agentState.isScared()):
+            return
+
+        agentState.decrementScaredTimer()
+        if (not agentState.isScared()):
+            # If the ghost is done being scared, snap it to the closest point.
+            agentState.snapToNearestPoint()
+
+    @staticmethod
+    def checkDeath(state, agentIndex):
+        pacmanPosition = state.getPacmanPosition()
+
+        # Did pacman just move?
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            # See if a ghost can kill pacman.
+            for index in state.getGhostIndexes():
+                ghostState = state.getGhostState(index)
+                ghostPosition = ghostState.getPosition()
+
+                if (GhostRules.canKill(pacmanPosition, ghostPosition)):
+                    GhostRules.collide(state, ghostState, index)
+
+            return
+        else:
+            # A ghost just moved.
+            ghostState = state.getGhostState(agentIndex)
+            ghostPosition = ghostState.getPosition()
+            if (GhostRules.canKill(pacmanPosition, ghostPosition)):
+                GhostRules.collide(state, ghostState, agentIndex)
+
+    @staticmethod
+    def collide(state, ghostState, agentIndex):
+        if (ghostState.isScared()):
+            # Pacman ate a ghost.
+            state.addScore(GHOST_POINTS)
+            ghostState.respawn()
+        elif (not state.isOver()):
+            # A ghost ate pacman.
+            state.addScore(LOSE_POINTS)
+            state.endGame(False)
+
+    @staticmethod
+    def canKill(pacmanPosition, ghostPosition):
+        return manhattan(ghostPosition, pacmanPosition) &lt;= COLLISION_TOLERANCE</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pacai.bin.pacman.GhostRules.GHOST_SPEED"><code class="name">var <span class="ident">GHOST_SPEED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="pacai.bin.pacman.GhostRules.applyAction"><code class="name flex">
+<span>def <span class="ident">applyAction</span></span>(<span>state, action, ghostIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def applyAction(state, action, ghostIndex):
+    legal = GhostRules.getLegalActions(state, ghostIndex)
+    if (action not in legal):
+        raise ValueError(&#39;Illegal ghost action: &#39; + str(action))
+
+    ghostState = state.getGhostState(ghostIndex)
+    speed = GhostRules.GHOST_SPEED
+    if (ghostState.isScared()):
+        speed /= 2.0
+
+    vector = Actions.directionToVector(action, speed)
+    ghostState.updatePosition(vector)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.GhostRules.canKill"><code class="name flex">
+<span>def <span class="ident">canKill</span></span>(<span>pacmanPosition, ghostPosition)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def canKill(pacmanPosition, ghostPosition):
+    return manhattan(ghostPosition, pacmanPosition) &lt;= COLLISION_TOLERANCE</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.GhostRules.checkDeath"><code class="name flex">
+<span>def <span class="ident">checkDeath</span></span>(<span>state, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def checkDeath(state, agentIndex):
+    pacmanPosition = state.getPacmanPosition()
+
+    # Did pacman just move?
+    if (agentIndex == PACMAN_AGENT_INDEX):
+        # See if a ghost can kill pacman.
+        for index in state.getGhostIndexes():
+            ghostState = state.getGhostState(index)
+            ghostPosition = ghostState.getPosition()
+
+            if (GhostRules.canKill(pacmanPosition, ghostPosition)):
+                GhostRules.collide(state, ghostState, index)
+
+        return
+    else:
+        # A ghost just moved.
+        ghostState = state.getGhostState(agentIndex)
+        ghostPosition = ghostState.getPosition()
+        if (GhostRules.canKill(pacmanPosition, ghostPosition)):
+            GhostRules.collide(state, ghostState, agentIndex)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.GhostRules.collide"><code class="name flex">
+<span>def <span class="ident">collide</span></span>(<span>state, ghostState, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def collide(state, ghostState, agentIndex):
+    if (ghostState.isScared()):
+        # Pacman ate a ghost.
+        state.addScore(GHOST_POINTS)
+        ghostState.respawn()
+    elif (not state.isOver()):
+        # A ghost ate pacman.
+        state.addScore(LOSE_POINTS)
+        state.endGame(False)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.GhostRules.decrementTimer"><code class="name flex">
+<span>def <span class="ident">decrementTimer</span></span>(<span>agentState)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def decrementTimer(agentState):
+    if (not agentState.isScared()):
+        return
+
+    agentState.decrementScaredTimer()
+    if (not agentState.isScared()):
+        # If the ghost is done being scared, snap it to the closest point.
+        agentState.snapToNearestPoint()</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.GhostRules.getLegalActions"><code class="name flex">
+<span>def <span class="ident">getLegalActions</span></span>(<span>state, ghostIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Ghosts cannot stop, and cannot turn around unless they
+reach a dead end, but can turn 90 degrees at intersections.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def getLegalActions(state, ghostIndex):
+    &#34;&#34;&#34;
+    Ghosts cannot stop, and cannot turn around unless they
+    reach a dead end, but can turn 90 degrees at intersections.
+    &#34;&#34;&#34;
+
+    agentState = state.getGhostState(ghostIndex)
+    possibleActions = Actions.getPossibleActions(agentState.getPosition(),
+            agentState.getDirection(), state.getWalls())
+    reverse = Actions.reverseDirection(agentState.getDirection())
+
+    if (Directions.STOP in possibleActions):
+        possibleActions.remove(Directions.STOP)
+
+    if (reverse in possibleActions and len(possibleActions) &gt; 1):
+        possibleActions.remove(reverse)
+
+    return possibleActions</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState"><code class="flex name class">
+<span>class <span class="ident">PacmanGameState</span></span>
+<span>(</span><span>layout)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A game state specific to pacman.
+Note that in classic Pacman, Pacman is always agent PACMAN_AGENT_INDEX.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PacmanGameState(AbstractGameState):
+    &#34;&#34;&#34;
+    A game state specific to pacman.
+    Note that in classic Pacman, Pacman is always agent PACMAN_AGENT_INDEX.
+    &#34;&#34;&#34;
+
+    def __init__(self, layout):
+        super().__init__(layout)
+
+    # Override
+    def generateSuccessor(self, agentIndex, action):
+        &#34;&#34;&#34;
+        Returns the successor state after the specified agent takes the action.
+        &#34;&#34;&#34;
+
+        # Check that successors exist.
+        if (self.isOver()):
+            raise RuntimeError(&#34;Can&#39;t generate successors of a terminal state.&#34;)
+
+        successor = self._initSuccessor()
+        successor._applySuccessorAction(agentIndex, action)
+
+        return successor
+
+    # Override
+    def getLegalActions(self, agentIndex = PACMAN_AGENT_INDEX):
+        if (self.isOver()):
+            return []
+
+        # Pacman&#39;s turn.
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            return PacmanRules.getLegalActions(self)
+
+        return GhostRules.getLegalActions(self, agentIndex)
+
+    def generatePacmanSuccessor(self, action):
+        return self.generateSuccessor(PACMAN_AGENT_INDEX, action)
+
+    def getGhostIndexes(self):
+        return range(1, self.getNumAgents())
+
+    def getGhostPosition(self, agentIndex):
+        if (agentIndex &lt;= PACMAN_AGENT_INDEX or agentIndex &gt;= self.getNumAgents()):
+            raise ValueError(&#34;Invalid index passed to getGhostPosition(): %d.&#34; % (agentIndex))
+
+        return self._agentStates[agentIndex].getPosition()
+
+    def getGhostPositions(self):
+        return [ghost.getPosition() for ghost in self.getGhostStates()]
+
+    def getGhostState(self, agentIndex):
+        if (agentIndex &lt;= PACMAN_AGENT_INDEX or agentIndex &gt;= self.getNumAgents()):
+            raise ValueError(&#34;Invalid index passed to getGhostState(): %d.&#34; % (agentIndex))
+
+        return self._agentStates[agentIndex]
+
+    def getGhostStates(self):
+        return self._agentStates[1:]
+
+    def getLegalPacmanActions(self):
+        return self.getLegalActions(PACMAN_AGENT_INDEX)
+
+    def getNumGhosts(self):
+        return self.getNumAgents() - 1
+
+    def getPacmanPosition(self):
+        return self._agentStates[PACMAN_AGENT_INDEX].getPosition()
+
+    def getPacmanState(self):
+        &#34;&#34;&#34;
+        Returns an AgentState object for pacman.
+
+        state.getPosition() gives the current position.
+        state.getDirection() gives the travel vector.
+        &#34;&#34;&#34;
+
+        return self._agentStates[PACMAN_AGENT_INDEX]
+
+    def _applySuccessorAction(self, agentIndex, action):
+        &#34;&#34;&#34;
+        Apply the action to the context state (self).
+        &#34;&#34;&#34;
+
+        # Let the agent&#39;s logic deal with its action&#39;s effects on the board.
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            PacmanRules.applyAction(self, action)
+        else:
+            GhostRules.applyAction(self, action, agentIndex)
+
+        # Time passes.
+        if (agentIndex == PACMAN_AGENT_INDEX):
+            # Penalty for waiting around.
+            self.addScore(-TIME_PENALTY)
+        else:
+            GhostRules.decrementTimer(self.getAgentState(agentIndex))
+
+        # Resolve multi-agent effects.
+        GhostRules.checkDeath(self, agentIndex)
+
+        # Book keeping.
+        self._lastAgentMoved = agentIndex
+
+        self._hash = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pacai.core.gamestate.AbstractGameState" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState">AbstractGameState</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.bin.pacman.PacmanGameState.generatePacmanSuccessor"><code class="name flex">
+<span>def <span class="ident">generatePacmanSuccessor</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generatePacmanSuccessor(self, action):
+    return self.generateSuccessor(PACMAN_AGENT_INDEX, action)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.generateSuccessor"><code class="name flex">
+<span>def <span class="ident">generateSuccessor</span></span>(<span>self, agentIndex, action)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the successor state after the specified agent takes the action.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generateSuccessor(self, agentIndex, action):
+    &#34;&#34;&#34;
+    Returns the successor state after the specified agent takes the action.
+    &#34;&#34;&#34;
+
+    # Check that successors exist.
+    if (self.isOver()):
+        raise RuntimeError(&#34;Can&#39;t generate successors of a terminal state.&#34;)
+
+    successor = self._initSuccessor()
+    successor._applySuccessorAction(agentIndex, action)
+
+    return successor</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getGhostIndexes"><code class="name flex">
+<span>def <span class="ident">getGhostIndexes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getGhostIndexes(self):
+    return range(1, self.getNumAgents())</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getGhostPosition"><code class="name flex">
+<span>def <span class="ident">getGhostPosition</span></span>(<span>self, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getGhostPosition(self, agentIndex):
+    if (agentIndex &lt;= PACMAN_AGENT_INDEX or agentIndex &gt;= self.getNumAgents()):
+        raise ValueError(&#34;Invalid index passed to getGhostPosition(): %d.&#34; % (agentIndex))
+
+    return self._agentStates[agentIndex].getPosition()</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getGhostPositions"><code class="name flex">
+<span>def <span class="ident">getGhostPositions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getGhostPositions(self):
+    return [ghost.getPosition() for ghost in self.getGhostStates()]</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getGhostState"><code class="name flex">
+<span>def <span class="ident">getGhostState</span></span>(<span>self, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getGhostState(self, agentIndex):
+    if (agentIndex &lt;= PACMAN_AGENT_INDEX or agentIndex &gt;= self.getNumAgents()):
+        raise ValueError(&#34;Invalid index passed to getGhostState(): %d.&#34; % (agentIndex))
+
+    return self._agentStates[agentIndex]</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getGhostStates"><code class="name flex">
+<span>def <span class="ident">getGhostStates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getGhostStates(self):
+    return self._agentStates[1:]</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getLegalPacmanActions"><code class="name flex">
+<span>def <span class="ident">getLegalPacmanActions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getLegalPacmanActions(self):
+    return self.getLegalActions(PACMAN_AGENT_INDEX)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getNumGhosts"><code class="name flex">
+<span>def <span class="ident">getNumGhosts</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumGhosts(self):
+    return self.getNumAgents() - 1</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getPacmanPosition"><code class="name flex">
+<span>def <span class="ident">getPacmanPosition</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPacmanPosition(self):
+    return self._agentStates[PACMAN_AGENT_INDEX].getPosition()</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanGameState.getPacmanState"><code class="name flex">
+<span>def <span class="ident">getPacmanState</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns an AgentState object for pacman.</p>
+<p>state.getPosition() gives the current position.
+state.getDirection() gives the travel vector.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPacmanState(self):
+    &#34;&#34;&#34;
+    Returns an AgentState object for pacman.
+
+    state.getPosition() gives the current position.
+    state.getDirection() gives the travel vector.
+    &#34;&#34;&#34;
+
+    return self._agentStates[PACMAN_AGENT_INDEX]</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pacai.core.gamestate.AbstractGameState" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState">AbstractGameState</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pacai.core.gamestate.AbstractGameState.eatCapsule" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.eatCapsule">eatCapsule</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.eatFood" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.eatFood">eatFood</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getAgentPosition" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.getAgentPosition">getAgentPosition</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getCapsules" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.getCapsules">getCapsules</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getFood" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.getFood">getFood</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getInitialLayout" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.getInitialLayout">getInitialLayout</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getLegalActions" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.getLegalActions">getLegalActions</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getNumCapsules" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.getNumCapsules">getNumCapsules</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getNumFood" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.getNumFood">getNumFood</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getWalls" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.getWalls">getWalls</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.hasCapsule" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.hasCapsule">hasCapsule</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.hasFood" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.hasFood">hasFood</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.hasWall" href="../core/gamestate.html#pacai.core.gamestate.AbstractGameState.hasWall">hasWall</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pacai.bin.pacman.PacmanRules"><code class="flex name class">
+<span>class <span class="ident">PacmanRules</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>These functions govern how pacman interacts with his environment under
+the classic game rules.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PacmanRules:
+    &#34;&#34;&#34;
+    These functions govern how pacman interacts with his environment under
+    the classic game rules.
+    &#34;&#34;&#34;
+
+    PACMAN_SPEED = 1
+
+    @staticmethod
+    def getLegalActions(state):
+        &#34;&#34;&#34;
+        Returns a list of possible actions.
+        &#34;&#34;&#34;
+
+        agentState = state.getPacmanState()
+        return Actions.getPossibleActions(agentState.getPosition(), agentState.getDirection(),
+                state.getWalls())
+
+    @staticmethod
+    def applyAction(state, action):
+        &#34;&#34;&#34;
+        Edits the state to reflect the results of the action.
+        &#34;&#34;&#34;
+
+        legal = PacmanRules.getLegalActions(state)
+        if (action not in legal):
+            raise ValueError(&#39;Illegal pacman action: &#39; + str(action))
+
+        pacmanState = state.getPacmanState()
+
+        # Update position.
+        vector = Actions.directionToVector(action, PacmanRules.PACMAN_SPEED)
+        pacmanState.updatePosition(vector)
+
+        # Eat.
+        nextPosition = pacmanState.getPosition()
+        nearest = nearestPoint(nextPosition)
+        if (manhattan(nearest, nextPosition) &lt;= 0.5):
+            # Remove food
+            PacmanRules.consume(nearest, state)
+
+    @staticmethod
+    def consume(position, state):
+        x, y = position
+
+        if (state.hasFood(x, y)):
+            # Eat food.
+            state.eatFood(x, y)
+            state.addScore(FOOD_POINTS)
+
+            if (state.getNumFood() == 0 and not state.isLose()):
+                state.addScore(BOARD_CLEAR_POINTS)
+                state.endGame(True)
+        elif (state.hasCapsule(x, y)):
+            # Eat a capsule.
+            state.eatCapsule(x, y)
+
+            # Reset all ghosts&#39; scared timers.
+            for ghostState in state.getGhostStates():
+                ghostState.setScaredTimer(SCARED_TIME)</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pacai.bin.pacman.PacmanRules.PACMAN_SPEED"><code class="name">var <span class="ident">PACMAN_SPEED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="pacai.bin.pacman.PacmanRules.applyAction"><code class="name flex">
+<span>def <span class="ident">applyAction</span></span>(<span>state, action)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Edits the state to reflect the results of the action.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def applyAction(state, action):
+    &#34;&#34;&#34;
+    Edits the state to reflect the results of the action.
+    &#34;&#34;&#34;
+
+    legal = PacmanRules.getLegalActions(state)
+    if (action not in legal):
+        raise ValueError(&#39;Illegal pacman action: &#39; + str(action))
+
+    pacmanState = state.getPacmanState()
+
+    # Update position.
+    vector = Actions.directionToVector(action, PacmanRules.PACMAN_SPEED)
+    pacmanState.updatePosition(vector)
+
+    # Eat.
+    nextPosition = pacmanState.getPosition()
+    nearest = nearestPoint(nextPosition)
+    if (manhattan(nearest, nextPosition) &lt;= 0.5):
+        # Remove food
+        PacmanRules.consume(nearest, state)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanRules.consume"><code class="name flex">
+<span>def <span class="ident">consume</span></span>(<span>position, state)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def consume(position, state):
+    x, y = position
+
+    if (state.hasFood(x, y)):
+        # Eat food.
+        state.eatFood(x, y)
+        state.addScore(FOOD_POINTS)
+
+        if (state.getNumFood() == 0 and not state.isLose()):
+            state.addScore(BOARD_CLEAR_POINTS)
+            state.endGame(True)
+    elif (state.hasCapsule(x, y)):
+        # Eat a capsule.
+        state.eatCapsule(x, y)
+
+        # Reset all ghosts&#39; scared timers.
+        for ghostState in state.getGhostStates():
+            ghostState.setScaredTimer(SCARED_TIME)</code></pre>
+</details>
+</dd>
+<dt id="pacai.bin.pacman.PacmanRules.getLegalActions"><code class="name flex">
+<span>def <span class="ident">getLegalActions</span></span>(<span>state)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of possible actions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def getLegalActions(state):
+    &#34;&#34;&#34;
+    Returns a list of possible actions.
+    &#34;&#34;&#34;
+
+    agentState = state.getPacmanState()
+    return Actions.getPossibleActions(agentState.getPosition(), agentState.getDirection(),
+            state.getWalls())</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pacai.bin" href="index.html">pacai.bin</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pacai.bin.pacman.main" href="#pacai.bin.pacman.main">main</a></code></li>
+<li><code><a title="pacai.bin.pacman.parseAgentArgs" href="#pacai.bin.pacman.parseAgentArgs">parseAgentArgs</a></code></li>
+<li><code><a title="pacai.bin.pacman.readCommand" href="#pacai.bin.pacman.readCommand">readCommand</a></code></li>
+<li><code><a title="pacai.bin.pacman.replayGame" href="#pacai.bin.pacman.replayGame">replayGame</a></code></li>
+<li><code><a title="pacai.bin.pacman.runGames" href="#pacai.bin.pacman.runGames">runGames</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pacai.bin.pacman.ClassicGameRules" href="#pacai.bin.pacman.ClassicGameRules">ClassicGameRules</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.agentCrash" href="#pacai.bin.pacman.ClassicGameRules.agentCrash">agentCrash</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.getMaxStartupTime" href="#pacai.bin.pacman.ClassicGameRules.getMaxStartupTime">getMaxStartupTime</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.getMaxTimeWarnings" href="#pacai.bin.pacman.ClassicGameRules.getMaxTimeWarnings">getMaxTimeWarnings</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.getMaxTotalTime" href="#pacai.bin.pacman.ClassicGameRules.getMaxTotalTime">getMaxTotalTime</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.getMoveTimeout" href="#pacai.bin.pacman.ClassicGameRules.getMoveTimeout">getMoveTimeout</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.getMoveWarningTime" href="#pacai.bin.pacman.ClassicGameRules.getMoveWarningTime">getMoveWarningTime</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.lose" href="#pacai.bin.pacman.ClassicGameRules.lose">lose</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.newGame" href="#pacai.bin.pacman.ClassicGameRules.newGame">newGame</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.process" href="#pacai.bin.pacman.ClassicGameRules.process">process</a></code></li>
+<li><code><a title="pacai.bin.pacman.ClassicGameRules.win" href="#pacai.bin.pacman.ClassicGameRules.win">win</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pacai.bin.pacman.GhostRules" href="#pacai.bin.pacman.GhostRules">GhostRules</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pacai.bin.pacman.GhostRules.GHOST_SPEED" href="#pacai.bin.pacman.GhostRules.GHOST_SPEED">GHOST_SPEED</a></code></li>
+<li><code><a title="pacai.bin.pacman.GhostRules.applyAction" href="#pacai.bin.pacman.GhostRules.applyAction">applyAction</a></code></li>
+<li><code><a title="pacai.bin.pacman.GhostRules.canKill" href="#pacai.bin.pacman.GhostRules.canKill">canKill</a></code></li>
+<li><code><a title="pacai.bin.pacman.GhostRules.checkDeath" href="#pacai.bin.pacman.GhostRules.checkDeath">checkDeath</a></code></li>
+<li><code><a title="pacai.bin.pacman.GhostRules.collide" href="#pacai.bin.pacman.GhostRules.collide">collide</a></code></li>
+<li><code><a title="pacai.bin.pacman.GhostRules.decrementTimer" href="#pacai.bin.pacman.GhostRules.decrementTimer">decrementTimer</a></code></li>
+<li><code><a title="pacai.bin.pacman.GhostRules.getLegalActions" href="#pacai.bin.pacman.GhostRules.getLegalActions">getLegalActions</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pacai.bin.pacman.PacmanGameState" href="#pacai.bin.pacman.PacmanGameState">PacmanGameState</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.bin.pacman.PacmanGameState.generatePacmanSuccessor" href="#pacai.bin.pacman.PacmanGameState.generatePacmanSuccessor">generatePacmanSuccessor</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.generateSuccessor" href="#pacai.bin.pacman.PacmanGameState.generateSuccessor">generateSuccessor</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getGhostIndexes" href="#pacai.bin.pacman.PacmanGameState.getGhostIndexes">getGhostIndexes</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getGhostPosition" href="#pacai.bin.pacman.PacmanGameState.getGhostPosition">getGhostPosition</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getGhostPositions" href="#pacai.bin.pacman.PacmanGameState.getGhostPositions">getGhostPositions</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getGhostState" href="#pacai.bin.pacman.PacmanGameState.getGhostState">getGhostState</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getGhostStates" href="#pacai.bin.pacman.PacmanGameState.getGhostStates">getGhostStates</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getLegalPacmanActions" href="#pacai.bin.pacman.PacmanGameState.getLegalPacmanActions">getLegalPacmanActions</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getNumGhosts" href="#pacai.bin.pacman.PacmanGameState.getNumGhosts">getNumGhosts</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getPacmanPosition" href="#pacai.bin.pacman.PacmanGameState.getPacmanPosition">getPacmanPosition</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanGameState.getPacmanState" href="#pacai.bin.pacman.PacmanGameState.getPacmanState">getPacmanState</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pacai.bin.pacman.PacmanRules" href="#pacai.bin.pacman.PacmanRules">PacmanRules</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.bin.pacman.PacmanRules.PACMAN_SPEED" href="#pacai.bin.pacman.PacmanRules.PACMAN_SPEED">PACMAN_SPEED</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanRules.applyAction" href="#pacai.bin.pacman.PacmanRules.applyAction">applyAction</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanRules.consume" href="#pacai.bin.pacman.PacmanRules.consume">consume</a></code></li>
+<li><code><a title="pacai.bin.pacman.PacmanRules.getLegalActions" href="#pacai.bin.pacman.PacmanRules.getLegalActions">getLegalActions</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

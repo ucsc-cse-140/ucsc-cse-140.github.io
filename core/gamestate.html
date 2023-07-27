@@ -1,0 +1,1216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pacai.core.gamestate API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pacai.core.gamestate</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import abc
+import copy
+
+from pacai.core.agentstate import AgentState
+from pacai.core.directions import Directions
+from pacai.util import util
+
+class AbstractGameState(abc.ABC):
+    &#34;&#34;&#34;
+    A game state specifies the status of a game, including the food, capsules, agents, and score.
+
+    Game states are used by the `pacai.core.game.Game` to capture the actual state of the game,
+    and can be used by agents to reason about the game.
+
+    Only use the accessor methods to get data about the game state.
+    &#34;&#34;&#34;
+
+    def __init__(self, layout):
+        self._lastAgentMoved = None
+        self._gameover = False
+        self._win = False
+
+        self._layout = layout
+
+        # Keep a copy of the hash, since it is expensive to compute.
+        # Any children should be sure to clear the hash when modifications are made.
+        self._hash = None
+
+        # For food and capsules, we will only copy on write (if we eat one of them).
+        # This avoid additional copies on successors that don&#39;t eat.
+
+        self._foodCopied = False
+        self._food = layout.food.copy()
+        self._lastFoodEaten = None
+
+        self._capsulesCopied = False
+        self._capsules = layout.capsules.copy()
+        self._lastCapsuleEaten = None
+
+        # An ordered list of locations that this state considers special.
+        # A view may choose to specially represent these locations.
+        self._highlightLocations = []
+
+        self._agentStates = []
+        for (isPacman, position) in layout.agentPositions:
+            self._agentStates.append(AgentState(position, Directions.STOP, isPacman))
+
+        self._score = 0
+
+    @abc.abstractmethod
+    def generateSuccessor(self, agentIndex, action):
+        &#34;&#34;&#34;
+        Returns the successor state after the specified agent takes the action.
+        Treat the returned state as a SHALLOW copy that has been modified.
+        &#34;&#34;&#34;
+
+        pass
+
+    @abc.abstractmethod
+    def getLegalActions(self, agentIndex = 0):
+        &#34;&#34;&#34;
+        Gets the legal actions for the agent specified.
+        &#34;&#34;&#34;
+
+        pass
+
+    def addScore(self, score):
+        self._hash = None
+        self._score += score
+
+    def eatCapsule(self, x, y):
+        &#34;&#34;&#34;
+        Mark the capsule at the given location as eaten.
+        &#34;&#34;&#34;
+
+        if (not self.hasCapsule(x, y)):
+            return False
+
+        if (not self._capsulesCopied):
+            self._capsules = self._capsules.copy()
+            self._capsulesCopied = True
+
+        self._capsules.remove((x, y))
+        self._lastCapsuleEaten = (x, y)
+
+        self._hash = None
+        return True
+
+    def eatFood(self, x, y):
+        &#34;&#34;&#34;
+        Mark the food at the given location as eaten.
+        &#34;&#34;&#34;
+
+        if (not self.hasFood(x, y)):
+            return False
+
+        if (not self._foodCopied):
+            self._food = self._food.copy()
+            self._foodCopied = True
+
+        self._food[x][y] = False
+        self._lastFoodEaten = (x, y)
+
+        self._hash = None
+        return True
+
+    def endGame(self, win):
+        self._gameover = True
+        self._win = win
+
+        self._hash = None
+
+    def getAgentPosition(self, index):
+        &#34;&#34;&#34;
+        Returns a location tuple of the agent with the given index.
+        It is possible for this method to return None if the agent&#39;s position is unknown
+        (like if it just died and is respawning).
+        &#34;&#34;&#34;
+
+        position = self._agentStates[index].getPosition()
+        if (position is None):
+            return None
+
+        # Ensure positions are ints.
+        return tuple(int(pos) for pos in position)
+
+    def getAgentState(self, index):
+        return self._agentStates[index]
+
+    def getAgentStates(self):
+        return self._agentStates
+
+    def getCapsules(self):
+        &#34;&#34;&#34;
+        Returns a list of positions (x, y) of the remaining capsules.
+        &#34;&#34;&#34;
+
+        return self._capsules
+
+    def getFood(self):
+        &#34;&#34;&#34;
+        Returns a Grid of boolean food indicator variables.
+
+        Grids can be accessed via list notation.
+        So to check if there is food at (x, y), just do something like: food[x][y].
+
+        Callers should favor hasFood() over this, since this will make a copy of the grid.
+        &#34;&#34;&#34;
+
+        return self._food.copy()
+
+    def getHighlightLocations(self):
+        return self._highlightLocations
+
+    def getInitialAgentPosition(self, agentIndex):
+        return self._layout.agentPositions[agentIndex][1]
+
+    def getInitialLayout(self):
+        &#34;&#34;&#34;
+        Get the initial layout this state starte with.
+        User&#39;s should typically call one of the more detailed methods directly,
+        e.g. getWalls().
+        &#34;&#34;&#34;
+
+        return self._layout
+
+    def getLastAgentMoved(self):
+        return self._lastAgentMoved
+
+    def getLastCapsuleEaten(self):
+        return self._lastCapsuleEaten
+
+    def getLastFoodEaten(self):
+        return self._lastFoodEaten
+
+    def getNumAgents(self):
+        return len(self._agentStates)
+
+    def getNumCapsules(self):
+        &#34;&#34;&#34;
+        Get the amount of capsules left on the board.
+        &#34;&#34;&#34;
+
+        return len(self._capsules)
+
+    def getNumFood(self):
+        &#34;&#34;&#34;
+        Get the amount of food left on the board.
+        &#34;&#34;&#34;
+
+        return self._food.count()
+
+    def getScore(self):
+        return self._score
+
+    def getWalls(self):
+        &#34;&#34;&#34;
+        Returns a Grid of boolean wall indicator variables.
+
+        Grids can be accessed via list notation.
+        So to check if there is a wall at (x, y), just do something like: walls[x][y].
+
+        The caller should not try to modify the walls.
+        &#34;&#34;&#34;
+
+        return self._layout.walls
+
+    def hasCapsule(self, x, y):
+        &#34;&#34;&#34;
+        Returns true if the location (x, y) has a capsule.
+        &#34;&#34;&#34;
+
+        return (x, y) in self._capsules
+
+    def hasFood(self, x, y):
+        &#34;&#34;&#34;
+        Returns true if the location (x, y) has food.
+        &#34;&#34;&#34;
+
+        return self._food[x][y]
+
+    def hasWall(self, x, y):
+        &#34;&#34;&#34;
+        Returns true if (x, y) has a wall, false otherwise.
+        &#34;&#34;&#34;
+
+        return self._layout.walls[x][y]
+
+    def isLose(self):
+        return self.isOver() and not self._win
+
+    def isOver(self):
+        return self._gameover
+
+    def isWin(self):
+        return self.isOver() and self._win
+
+    def setHighlightLocations(self, locations):
+        self._highlightLocations = list(locations)
+
+    def setScore(self, score):
+        self._score = score
+        self._hash = None
+
+    def _initSuccessor(self):
+        &#34;&#34;&#34;
+        Get a state that will eventually serve as a successor.
+        Initialize the successor to look like this state.
+        &#34;&#34;&#34;
+
+        # Start with a shallow copy.
+        successor = copy.copy(self)
+        successor._hash = None
+
+        # Leave food and capsules as a shallow copy, but mark them to be copied on write.
+        successor._foodCopied = False
+        successor._capsulesCopied = False
+
+        # Agent states need to be deep copied.
+        successor._agentStates = [agentState.copy() for agentState in self._agentStates]
+
+        return successor
+
+    def __eq__(self, other):
+        if (other is None):
+            return False
+
+        # Reference equality check.
+        if (self is other):
+            return True
+
+        if (type(self) != type(other)):
+            return False
+
+        # Note that not all fields are being used because we are checking if two states are equal,
+        # not is they got to this confiruation in the same way.
+
+        # Check simple fields first.
+        if (self._score != other._score
+                or self._gameover != other._gameover
+                or self._win != other._win):
+            return False
+
+        # Now check the complex fields in increasing order of complexity.
+        return (self._capsules == other._capsules
+                and self._food == other._food
+                and self._agentStates == other._agentStates
+                and self._layout == other._layout)
+
+    def __hash__(self):
+        if (self._hash is None):
+            self._hash = util.buildHash(self._score, self._gameover, self._win, *self._capsules,
+                self._food, *self._agentStates, self._layout)
+
+        return self._hash</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pacai.core.gamestate.AbstractGameState"><code class="flex name class">
+<span>class <span class="ident">AbstractGameState</span></span>
+<span>(</span><span>layout)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A game state specifies the status of a game, including the food, capsules, agents, and score.</p>
+<p>Game states are used by the <code><a title="pacai.core.game.Game" href="game.html#pacai.core.game.Game">Game</a></code> to capture the actual state of the game,
+and can be used by agents to reason about the game.</p>
+<p>Only use the accessor methods to get data about the game state.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AbstractGameState(abc.ABC):
+    &#34;&#34;&#34;
+    A game state specifies the status of a game, including the food, capsules, agents, and score.
+
+    Game states are used by the `pacai.core.game.Game` to capture the actual state of the game,
+    and can be used by agents to reason about the game.
+
+    Only use the accessor methods to get data about the game state.
+    &#34;&#34;&#34;
+
+    def __init__(self, layout):
+        self._lastAgentMoved = None
+        self._gameover = False
+        self._win = False
+
+        self._layout = layout
+
+        # Keep a copy of the hash, since it is expensive to compute.
+        # Any children should be sure to clear the hash when modifications are made.
+        self._hash = None
+
+        # For food and capsules, we will only copy on write (if we eat one of them).
+        # This avoid additional copies on successors that don&#39;t eat.
+
+        self._foodCopied = False
+        self._food = layout.food.copy()
+        self._lastFoodEaten = None
+
+        self._capsulesCopied = False
+        self._capsules = layout.capsules.copy()
+        self._lastCapsuleEaten = None
+
+        # An ordered list of locations that this state considers special.
+        # A view may choose to specially represent these locations.
+        self._highlightLocations = []
+
+        self._agentStates = []
+        for (isPacman, position) in layout.agentPositions:
+            self._agentStates.append(AgentState(position, Directions.STOP, isPacman))
+
+        self._score = 0
+
+    @abc.abstractmethod
+    def generateSuccessor(self, agentIndex, action):
+        &#34;&#34;&#34;
+        Returns the successor state after the specified agent takes the action.
+        Treat the returned state as a SHALLOW copy that has been modified.
+        &#34;&#34;&#34;
+
+        pass
+
+    @abc.abstractmethod
+    def getLegalActions(self, agentIndex = 0):
+        &#34;&#34;&#34;
+        Gets the legal actions for the agent specified.
+        &#34;&#34;&#34;
+
+        pass
+
+    def addScore(self, score):
+        self._hash = None
+        self._score += score
+
+    def eatCapsule(self, x, y):
+        &#34;&#34;&#34;
+        Mark the capsule at the given location as eaten.
+        &#34;&#34;&#34;
+
+        if (not self.hasCapsule(x, y)):
+            return False
+
+        if (not self._capsulesCopied):
+            self._capsules = self._capsules.copy()
+            self._capsulesCopied = True
+
+        self._capsules.remove((x, y))
+        self._lastCapsuleEaten = (x, y)
+
+        self._hash = None
+        return True
+
+    def eatFood(self, x, y):
+        &#34;&#34;&#34;
+        Mark the food at the given location as eaten.
+        &#34;&#34;&#34;
+
+        if (not self.hasFood(x, y)):
+            return False
+
+        if (not self._foodCopied):
+            self._food = self._food.copy()
+            self._foodCopied = True
+
+        self._food[x][y] = False
+        self._lastFoodEaten = (x, y)
+
+        self._hash = None
+        return True
+
+    def endGame(self, win):
+        self._gameover = True
+        self._win = win
+
+        self._hash = None
+
+    def getAgentPosition(self, index):
+        &#34;&#34;&#34;
+        Returns a location tuple of the agent with the given index.
+        It is possible for this method to return None if the agent&#39;s position is unknown
+        (like if it just died and is respawning).
+        &#34;&#34;&#34;
+
+        position = self._agentStates[index].getPosition()
+        if (position is None):
+            return None
+
+        # Ensure positions are ints.
+        return tuple(int(pos) for pos in position)
+
+    def getAgentState(self, index):
+        return self._agentStates[index]
+
+    def getAgentStates(self):
+        return self._agentStates
+
+    def getCapsules(self):
+        &#34;&#34;&#34;
+        Returns a list of positions (x, y) of the remaining capsules.
+        &#34;&#34;&#34;
+
+        return self._capsules
+
+    def getFood(self):
+        &#34;&#34;&#34;
+        Returns a Grid of boolean food indicator variables.
+
+        Grids can be accessed via list notation.
+        So to check if there is food at (x, y), just do something like: food[x][y].
+
+        Callers should favor hasFood() over this, since this will make a copy of the grid.
+        &#34;&#34;&#34;
+
+        return self._food.copy()
+
+    def getHighlightLocations(self):
+        return self._highlightLocations
+
+    def getInitialAgentPosition(self, agentIndex):
+        return self._layout.agentPositions[agentIndex][1]
+
+    def getInitialLayout(self):
+        &#34;&#34;&#34;
+        Get the initial layout this state starte with.
+        User&#39;s should typically call one of the more detailed methods directly,
+        e.g. getWalls().
+        &#34;&#34;&#34;
+
+        return self._layout
+
+    def getLastAgentMoved(self):
+        return self._lastAgentMoved
+
+    def getLastCapsuleEaten(self):
+        return self._lastCapsuleEaten
+
+    def getLastFoodEaten(self):
+        return self._lastFoodEaten
+
+    def getNumAgents(self):
+        return len(self._agentStates)
+
+    def getNumCapsules(self):
+        &#34;&#34;&#34;
+        Get the amount of capsules left on the board.
+        &#34;&#34;&#34;
+
+        return len(self._capsules)
+
+    def getNumFood(self):
+        &#34;&#34;&#34;
+        Get the amount of food left on the board.
+        &#34;&#34;&#34;
+
+        return self._food.count()
+
+    def getScore(self):
+        return self._score
+
+    def getWalls(self):
+        &#34;&#34;&#34;
+        Returns a Grid of boolean wall indicator variables.
+
+        Grids can be accessed via list notation.
+        So to check if there is a wall at (x, y), just do something like: walls[x][y].
+
+        The caller should not try to modify the walls.
+        &#34;&#34;&#34;
+
+        return self._layout.walls
+
+    def hasCapsule(self, x, y):
+        &#34;&#34;&#34;
+        Returns true if the location (x, y) has a capsule.
+        &#34;&#34;&#34;
+
+        return (x, y) in self._capsules
+
+    def hasFood(self, x, y):
+        &#34;&#34;&#34;
+        Returns true if the location (x, y) has food.
+        &#34;&#34;&#34;
+
+        return self._food[x][y]
+
+    def hasWall(self, x, y):
+        &#34;&#34;&#34;
+        Returns true if (x, y) has a wall, false otherwise.
+        &#34;&#34;&#34;
+
+        return self._layout.walls[x][y]
+
+    def isLose(self):
+        return self.isOver() and not self._win
+
+    def isOver(self):
+        return self._gameover
+
+    def isWin(self):
+        return self.isOver() and self._win
+
+    def setHighlightLocations(self, locations):
+        self._highlightLocations = list(locations)
+
+    def setScore(self, score):
+        self._score = score
+        self._hash = None
+
+    def _initSuccessor(self):
+        &#34;&#34;&#34;
+        Get a state that will eventually serve as a successor.
+        Initialize the successor to look like this state.
+        &#34;&#34;&#34;
+
+        # Start with a shallow copy.
+        successor = copy.copy(self)
+        successor._hash = None
+
+        # Leave food and capsules as a shallow copy, but mark them to be copied on write.
+        successor._foodCopied = False
+        successor._capsulesCopied = False
+
+        # Agent states need to be deep copied.
+        successor._agentStates = [agentState.copy() for agentState in self._agentStates]
+
+        return successor
+
+    def __eq__(self, other):
+        if (other is None):
+            return False
+
+        # Reference equality check.
+        if (self is other):
+            return True
+
+        if (type(self) != type(other)):
+            return False
+
+        # Note that not all fields are being used because we are checking if two states are equal,
+        # not is they got to this confiruation in the same way.
+
+        # Check simple fields first.
+        if (self._score != other._score
+                or self._gameover != other._gameover
+                or self._win != other._win):
+            return False
+
+        # Now check the complex fields in increasing order of complexity.
+        return (self._capsules == other._capsules
+                and self._food == other._food
+                and self._agentStates == other._agentStates
+                and self._layout == other._layout)
+
+    def __hash__(self):
+        if (self._hash is None):
+            self._hash = util.buildHash(self._score, self._gameover, self._win, *self._capsules,
+                self._food, *self._agentStates, self._layout)
+
+        return self._hash</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pacai.bin.capture.CaptureGameState" href="../bin/capture.html#pacai.bin.capture.CaptureGameState">CaptureGameState</a></li>
+<li><a title="pacai.bin.pacman.PacmanGameState" href="../bin/pacman.html#pacai.bin.pacman.PacmanGameState">PacmanGameState</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.core.gamestate.AbstractGameState.addScore"><code class="name flex">
+<span>def <span class="ident">addScore</span></span>(<span>self, score)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addScore(self, score):
+    self._hash = None
+    self._score += score</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.eatCapsule"><code class="name flex">
+<span>def <span class="ident">eatCapsule</span></span>(<span>self, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Mark the capsule at the given location as eaten.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def eatCapsule(self, x, y):
+    &#34;&#34;&#34;
+    Mark the capsule at the given location as eaten.
+    &#34;&#34;&#34;
+
+    if (not self.hasCapsule(x, y)):
+        return False
+
+    if (not self._capsulesCopied):
+        self._capsules = self._capsules.copy()
+        self._capsulesCopied = True
+
+    self._capsules.remove((x, y))
+    self._lastCapsuleEaten = (x, y)
+
+    self._hash = None
+    return True</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.eatFood"><code class="name flex">
+<span>def <span class="ident">eatFood</span></span>(<span>self, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Mark the food at the given location as eaten.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def eatFood(self, x, y):
+    &#34;&#34;&#34;
+    Mark the food at the given location as eaten.
+    &#34;&#34;&#34;
+
+    if (not self.hasFood(x, y)):
+        return False
+
+    if (not self._foodCopied):
+        self._food = self._food.copy()
+        self._foodCopied = True
+
+    self._food[x][y] = False
+    self._lastFoodEaten = (x, y)
+
+    self._hash = None
+    return True</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.endGame"><code class="name flex">
+<span>def <span class="ident">endGame</span></span>(<span>self, win)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def endGame(self, win):
+    self._gameover = True
+    self._win = win
+
+    self._hash = None</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.generateSuccessor"><code class="name flex">
+<span>def <span class="ident">generateSuccessor</span></span>(<span>self, agentIndex, action)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the successor state after the specified agent takes the action.
+Treat the returned state as a SHALLOW copy that has been modified.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+def generateSuccessor(self, agentIndex, action):
+    &#34;&#34;&#34;
+    Returns the successor state after the specified agent takes the action.
+    Treat the returned state as a SHALLOW copy that has been modified.
+    &#34;&#34;&#34;
+
+    pass</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getAgentPosition"><code class="name flex">
+<span>def <span class="ident">getAgentPosition</span></span>(<span>self, index)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a location tuple of the agent with the given index.
+It is possible for this method to return None if the agent's position is unknown
+(like if it just died and is respawning).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAgentPosition(self, index):
+    &#34;&#34;&#34;
+    Returns a location tuple of the agent with the given index.
+    It is possible for this method to return None if the agent&#39;s position is unknown
+    (like if it just died and is respawning).
+    &#34;&#34;&#34;
+
+    position = self._agentStates[index].getPosition()
+    if (position is None):
+        return None
+
+    # Ensure positions are ints.
+    return tuple(int(pos) for pos in position)</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getAgentState"><code class="name flex">
+<span>def <span class="ident">getAgentState</span></span>(<span>self, index)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAgentState(self, index):
+    return self._agentStates[index]</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getAgentStates"><code class="name flex">
+<span>def <span class="ident">getAgentStates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAgentStates(self):
+    return self._agentStates</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getCapsules"><code class="name flex">
+<span>def <span class="ident">getCapsules</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of positions (x, y) of the remaining capsules.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCapsules(self):
+    &#34;&#34;&#34;
+    Returns a list of positions (x, y) of the remaining capsules.
+    &#34;&#34;&#34;
+
+    return self._capsules</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getFood"><code class="name flex">
+<span>def <span class="ident">getFood</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a Grid of boolean food indicator variables.</p>
+<p>Grids can be accessed via list notation.
+So to check if there is food at (x, y), just do something like: food[x][y].</p>
+<p>Callers should favor hasFood() over this, since this will make a copy of the grid.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getFood(self):
+    &#34;&#34;&#34;
+    Returns a Grid of boolean food indicator variables.
+
+    Grids can be accessed via list notation.
+    So to check if there is food at (x, y), just do something like: food[x][y].
+
+    Callers should favor hasFood() over this, since this will make a copy of the grid.
+    &#34;&#34;&#34;
+
+    return self._food.copy()</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getHighlightLocations"><code class="name flex">
+<span>def <span class="ident">getHighlightLocations</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getHighlightLocations(self):
+    return self._highlightLocations</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getInitialAgentPosition"><code class="name flex">
+<span>def <span class="ident">getInitialAgentPosition</span></span>(<span>self, agentIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getInitialAgentPosition(self, agentIndex):
+    return self._layout.agentPositions[agentIndex][1]</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getInitialLayout"><code class="name flex">
+<span>def <span class="ident">getInitialLayout</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the initial layout this state starte with.
+User's should typically call one of the more detailed methods directly,
+e.g. getWalls().</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getInitialLayout(self):
+    &#34;&#34;&#34;
+    Get the initial layout this state starte with.
+    User&#39;s should typically call one of the more detailed methods directly,
+    e.g. getWalls().
+    &#34;&#34;&#34;
+
+    return self._layout</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getLastAgentMoved"><code class="name flex">
+<span>def <span class="ident">getLastAgentMoved</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getLastAgentMoved(self):
+    return self._lastAgentMoved</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getLastCapsuleEaten"><code class="name flex">
+<span>def <span class="ident">getLastCapsuleEaten</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getLastCapsuleEaten(self):
+    return self._lastCapsuleEaten</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getLastFoodEaten"><code class="name flex">
+<span>def <span class="ident">getLastFoodEaten</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getLastFoodEaten(self):
+    return self._lastFoodEaten</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getLegalActions"><code class="name flex">
+<span>def <span class="ident">getLegalActions</span></span>(<span>self, agentIndex=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the legal actions for the agent specified.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+def getLegalActions(self, agentIndex = 0):
+    &#34;&#34;&#34;
+    Gets the legal actions for the agent specified.
+    &#34;&#34;&#34;
+
+    pass</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getNumAgents"><code class="name flex">
+<span>def <span class="ident">getNumAgents</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumAgents(self):
+    return len(self._agentStates)</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getNumCapsules"><code class="name flex">
+<span>def <span class="ident">getNumCapsules</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the amount of capsules left on the board.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumCapsules(self):
+    &#34;&#34;&#34;
+    Get the amount of capsules left on the board.
+    &#34;&#34;&#34;
+
+    return len(self._capsules)</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getNumFood"><code class="name flex">
+<span>def <span class="ident">getNumFood</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the amount of food left on the board.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumFood(self):
+    &#34;&#34;&#34;
+    Get the amount of food left on the board.
+    &#34;&#34;&#34;
+
+    return self._food.count()</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getScore"><code class="name flex">
+<span>def <span class="ident">getScore</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getScore(self):
+    return self._score</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.getWalls"><code class="name flex">
+<span>def <span class="ident">getWalls</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a Grid of boolean wall indicator variables.</p>
+<p>Grids can be accessed via list notation.
+So to check if there is a wall at (x, y), just do something like: walls[x][y].</p>
+<p>The caller should not try to modify the walls.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getWalls(self):
+    &#34;&#34;&#34;
+    Returns a Grid of boolean wall indicator variables.
+
+    Grids can be accessed via list notation.
+    So to check if there is a wall at (x, y), just do something like: walls[x][y].
+
+    The caller should not try to modify the walls.
+    &#34;&#34;&#34;
+
+    return self._layout.walls</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.hasCapsule"><code class="name flex">
+<span>def <span class="ident">hasCapsule</span></span>(<span>self, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns true if the location (x, y) has a capsule.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hasCapsule(self, x, y):
+    &#34;&#34;&#34;
+    Returns true if the location (x, y) has a capsule.
+    &#34;&#34;&#34;
+
+    return (x, y) in self._capsules</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.hasFood"><code class="name flex">
+<span>def <span class="ident">hasFood</span></span>(<span>self, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns true if the location (x, y) has food.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hasFood(self, x, y):
+    &#34;&#34;&#34;
+    Returns true if the location (x, y) has food.
+    &#34;&#34;&#34;
+
+    return self._food[x][y]</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.hasWall"><code class="name flex">
+<span>def <span class="ident">hasWall</span></span>(<span>self, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns true if (x, y) has a wall, false otherwise.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hasWall(self, x, y):
+    &#34;&#34;&#34;
+    Returns true if (x, y) has a wall, false otherwise.
+    &#34;&#34;&#34;
+
+    return self._layout.walls[x][y]</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.isLose"><code class="name flex">
+<span>def <span class="ident">isLose</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isLose(self):
+    return self.isOver() and not self._win</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.isOver"><code class="name flex">
+<span>def <span class="ident">isOver</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isOver(self):
+    return self._gameover</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.isWin"><code class="name flex">
+<span>def <span class="ident">isWin</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isWin(self):
+    return self.isOver() and self._win</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.setHighlightLocations"><code class="name flex">
+<span>def <span class="ident">setHighlightLocations</span></span>(<span>self, locations)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setHighlightLocations(self, locations):
+    self._highlightLocations = list(locations)</code></pre>
+</details>
+</dd>
+<dt id="pacai.core.gamestate.AbstractGameState.setScore"><code class="name flex">
+<span>def <span class="ident">setScore</span></span>(<span>self, score)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setScore(self, score):
+    self._score = score
+    self._hash = None</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pacai.core" href="index.html">pacai.core</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pacai.core.gamestate.AbstractGameState" href="#pacai.core.gamestate.AbstractGameState">AbstractGameState</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.core.gamestate.AbstractGameState.addScore" href="#pacai.core.gamestate.AbstractGameState.addScore">addScore</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.eatCapsule" href="#pacai.core.gamestate.AbstractGameState.eatCapsule">eatCapsule</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.eatFood" href="#pacai.core.gamestate.AbstractGameState.eatFood">eatFood</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.endGame" href="#pacai.core.gamestate.AbstractGameState.endGame">endGame</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.generateSuccessor" href="#pacai.core.gamestate.AbstractGameState.generateSuccessor">generateSuccessor</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getAgentPosition" href="#pacai.core.gamestate.AbstractGameState.getAgentPosition">getAgentPosition</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getAgentState" href="#pacai.core.gamestate.AbstractGameState.getAgentState">getAgentState</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getAgentStates" href="#pacai.core.gamestate.AbstractGameState.getAgentStates">getAgentStates</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getCapsules" href="#pacai.core.gamestate.AbstractGameState.getCapsules">getCapsules</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getFood" href="#pacai.core.gamestate.AbstractGameState.getFood">getFood</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getHighlightLocations" href="#pacai.core.gamestate.AbstractGameState.getHighlightLocations">getHighlightLocations</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getInitialAgentPosition" href="#pacai.core.gamestate.AbstractGameState.getInitialAgentPosition">getInitialAgentPosition</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getInitialLayout" href="#pacai.core.gamestate.AbstractGameState.getInitialLayout">getInitialLayout</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getLastAgentMoved" href="#pacai.core.gamestate.AbstractGameState.getLastAgentMoved">getLastAgentMoved</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getLastCapsuleEaten" href="#pacai.core.gamestate.AbstractGameState.getLastCapsuleEaten">getLastCapsuleEaten</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getLastFoodEaten" href="#pacai.core.gamestate.AbstractGameState.getLastFoodEaten">getLastFoodEaten</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getLegalActions" href="#pacai.core.gamestate.AbstractGameState.getLegalActions">getLegalActions</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getNumAgents" href="#pacai.core.gamestate.AbstractGameState.getNumAgents">getNumAgents</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getNumCapsules" href="#pacai.core.gamestate.AbstractGameState.getNumCapsules">getNumCapsules</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getNumFood" href="#pacai.core.gamestate.AbstractGameState.getNumFood">getNumFood</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getScore" href="#pacai.core.gamestate.AbstractGameState.getScore">getScore</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.getWalls" href="#pacai.core.gamestate.AbstractGameState.getWalls">getWalls</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.hasCapsule" href="#pacai.core.gamestate.AbstractGameState.hasCapsule">hasCapsule</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.hasFood" href="#pacai.core.gamestate.AbstractGameState.hasFood">hasFood</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.hasWall" href="#pacai.core.gamestate.AbstractGameState.hasWall">hasWall</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.isLose" href="#pacai.core.gamestate.AbstractGameState.isLose">isLose</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.isOver" href="#pacai.core.gamestate.AbstractGameState.isOver">isOver</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.isWin" href="#pacai.core.gamestate.AbstractGameState.isWin">isWin</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.setHighlightLocations" href="#pacai.core.gamestate.AbstractGameState.setHighlightLocations">setHighlightLocations</a></code></li>
+<li><code><a title="pacai.core.gamestate.AbstractGameState.setScore" href="#pacai.core.gamestate.AbstractGameState.setScore">setScore</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

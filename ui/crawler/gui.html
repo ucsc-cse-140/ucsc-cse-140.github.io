@@ -1,0 +1,2153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pacai.ui.crawler.gui API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pacai.ui.crawler.gui</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import math
+import time
+import threading
+import tkinter
+import traceback
+
+from pacai.student.qlearningAgents import QLearningAgent
+from pacai.core.environment import Environment
+
+class CrawlingRobotEnvironment(Environment):
+    &#34;&#34;&#34;
+    A GUI display for crawler.
+    &#34;&#34;&#34;
+
+    def __init__(self, crawlingRobot):
+        self.crawlingRobot = crawlingRobot
+
+        # The state is of the form (armAngle, handAngle)
+        # where the angles are bucket numbers, not actual
+        # degree measurements
+        self.state = None
+
+        self.nArmStates = 9
+        self.nHandStates = 13
+
+        # create a list of arm buckets and hand buckets to
+        # discretize the state space
+        minArmAngle, maxArmAngle = self.crawlingRobot.getMinAndMaxArmAngles()
+        minHandAngle, maxHandAngle = self.crawlingRobot.getMinAndMaxHandAngles()
+        armIncrement = (maxArmAngle - minArmAngle) / (self.nArmStates - 1)
+        handIncrement = (maxHandAngle - minHandAngle) / (self.nHandStates - 1)
+        self.armBuckets = [minArmAngle + (armIncrement * i) for i in range(self.nArmStates)]
+        self.handBuckets = [minHandAngle + (handIncrement * i) for i in range(self.nHandStates)]
+
+        # Reset
+        self.reset()
+
+    def getCurrentState(self):
+        &#34;&#34;&#34;
+        Return the current state of the crawling robot.
+        &#34;&#34;&#34;
+
+        return self.state
+
+    def getPossibleActions(self, state):
+        &#34;&#34;&#34;
+        Returns possible actions for the states in the current state.
+        &#34;&#34;&#34;
+
+        actions = list()
+        currArmBucket, currHandBucket = state
+
+        if currArmBucket &gt; 0:
+            actions.append(&#39;arm-down&#39;)
+
+        if currArmBucket &lt; self.nArmStates - 1:
+            actions.append(&#39;arm-up&#39;)
+
+        if currHandBucket &gt; 0:
+            actions.append(&#39;hand-down&#39;)
+
+        if currHandBucket &lt; self.nHandStates - 1:
+            actions.append(&#39;hand-up&#39;)
+
+        return actions
+
+    def doAction(self, action):
+        &#34;&#34;&#34;
+        Perform the action and update
+        the current state of the Environment
+        and return the reward for the
+        current state, the next state
+        and the taken action.
+
+        Returns:
+            nextState, reward
+        &#34;&#34;&#34;
+
+        nextState, reward = None, None
+
+        oldX, oldY = self.crawlingRobot.getRobotPosition()
+
+        armBucket, handBucket = self.state
+        armAngle, handAngle = self.crawlingRobot.getAngles()
+
+        if action == &#39;arm-up&#39;:
+            newArmAngle = self.armBuckets[armBucket + 1]
+            self.crawlingRobot.moveArm(newArmAngle)
+
+            nextState = (armBucket + 1, handBucket)
+        if action == &#39;arm-down&#39;:
+            newArmAngle = self.armBuckets[armBucket - 1]
+            self.crawlingRobot.moveArm(newArmAngle)
+            nextState = (armBucket - 1, handBucket)
+
+        if action == &#39;hand-up&#39;:
+            newHandAngle = self.handBuckets[handBucket + 1]
+            self.crawlingRobot.moveHand(newHandAngle)
+            nextState = (armBucket, handBucket + 1)
+
+        if action == &#39;hand-down&#39;:
+            newHandAngle = self.handBuckets[handBucket - 1]
+            self.crawlingRobot.moveHand(newHandAngle)
+            nextState = (armBucket, handBucket - 1)
+
+        newX, newY = self.crawlingRobot.getRobotPosition()
+
+        # a simple reward function
+        reward = newX - oldX
+
+        self.state = nextState
+        return nextState, reward
+
+    def reset(self):
+        &#34;&#34;&#34;
+        Resets the Environment to the initial state
+        &#34;&#34;&#34;
+
+        # Initialize the state to be the middle
+        # value for each parameter e.g. if there are 13 and 19
+        # buckets for the arm and hand parameters, then the intial
+        # state should be (6, 9)
+
+        # Also call self.crawlingRobot.setAngles()
+        # to the initial arm and hand angle
+
+        armState = int(self.nArmStates / 2)
+        handState = int(self.nHandStates / 2)
+
+        self.state = armState, handState
+        self.crawlingRobot.setAngles(self.armBuckets[armState], self.handBuckets[handState])
+        self.crawlingRobot.positions = [20, self.crawlingRobot.getRobotPosition()[0]]
+
+class CrawlingRobot(object):
+    def setAngles(self, armAngle, handAngle):
+        &#34;&#34;&#34;
+        set the robot&#39;s arm and hand angles
+        to the passed in values
+        &#34;&#34;&#34;
+
+        self.armAngle = armAngle
+        self.handAngle = handAngle
+
+    def getAngles(self):
+        &#34;&#34;&#34;
+        returns the pair of (armAngle, handAngle)
+        &#34;&#34;&#34;
+
+        return self.armAngle, self.handAngle
+
+    def getRobotPosition(self):
+        &#34;&#34;&#34;
+        returns the (x, y) coordinates
+        of the lower-left point of the robot
+        &#34;&#34;&#34;
+
+        return self.robotPos
+
+    def moveArm(self, newArmAngle):
+        &#34;&#34;&#34;
+        move the robot arm to &#39;newArmAngle&#39;
+        &#34;&#34;&#34;
+
+        if newArmAngle &gt; self.maxArmAngle:
+            raise Exception(&#39;Crawling Robot: Arm Raised too high. Careful!&#39;)
+
+        if newArmAngle &lt; self.minArmAngle:
+            raise Exception(&#39;Crawling Robot: Arm Raised too low. Careful!&#39;)
+
+        disp = self.displacement(self.armAngle, self.handAngle, newArmAngle, self.handAngle)
+        curXPos = self.robotPos[0]
+        self.robotPos = (curXPos + disp, self.robotPos[1])
+        self.armAngle = newArmAngle
+
+        # Position and Velocity Sign Post
+        self.positions.append(self.getRobotPosition()[0])
+
+        if len(self.positions) &gt; 100:
+            self.positions.pop(0)
+            # self.angleSums.pop(0)
+
+    def moveHand(self, newHandAngle):
+        &#34;&#34;&#34;
+        move the robot hand to &#39;newArmAngle&#39;
+        &#34;&#34;&#34;
+
+        if newHandAngle &gt; self.maxHandAngle:
+            raise Exception(&#39;Crawling Robot: Hand Raised too high. Careful!&#39;)
+
+        if newHandAngle &lt; self.minHandAngle:
+            raise Exception(&#39;Crawling Robot: Hand Raised too low. Careful!&#39;)
+
+        disp = self.displacement(self.armAngle, self.handAngle, self.armAngle, newHandAngle)
+        curXPos = self.robotPos[0]
+        self.robotPos = (curXPos + disp, self.robotPos[1])
+        self.handAngle = newHandAngle
+
+        # Position and Velocity Sign Post
+        self.positions.append(self.getRobotPosition()[0])
+
+        if len(self.positions) &gt; 100:
+            self.positions.pop(0)
+            # self.angleSums.pop(0)
+
+    def getMinAndMaxArmAngles(self):
+        &#34;&#34;&#34;
+        get the lower- and upper- bound
+        for the arm angles returns (min, max) pair
+        &#34;&#34;&#34;
+
+        return self.minArmAngle, self.maxArmAngle
+
+    def getMinAndMaxHandAngles(self):
+        &#34;&#34;&#34;
+        get the lower- and upper- bound
+        for the hand angles returns (min, max) pair
+        &#34;&#34;&#34;
+
+        return self.minHandAngle, self.maxHandAngle
+
+    def getRotationAngle(self):
+        &#34;&#34;&#34;
+        get the current angle the
+        robot body is rotated off the ground
+        &#34;&#34;&#34;
+
+        armCos, armSin = self.__getCosAndSin(self.armAngle)
+        handCos, handSin = self.__getCosAndSin(self.handAngle)
+
+        x = self.armLength * armCos + self.handLength * handCos + self.robotWidth
+        y = self.armLength * armSin + self.handLength * handSin + self.robotHeight
+
+        if y &lt; 0:
+            return math.atan(-y / x)
+        return 0.0
+
+    # You shouldn&#39;t need methods below here
+
+    def __getCosAndSin(self, angle):
+        return math.cos(angle), math.sin(angle)
+
+    def displacement(self, oldArmDegree, oldHandDegree, armDegree, handDegree):
+        oldArmCos, oldArmSin = self.__getCosAndSin(oldArmDegree)
+        armCos, armSin = self.__getCosAndSin(armDegree)
+        oldHandCos, oldHandSin = self.__getCosAndSin(oldHandDegree)
+        handCos, handSin = self.__getCosAndSin(handDegree)
+
+        xOld = self.armLength * oldArmCos + self.handLength * oldHandCos + self.robotWidth
+        yOld = self.armLength * oldArmSin + self.handLength * oldHandSin + self.robotHeight
+
+        x = self.armLength * armCos + self.handLength * handCos + self.robotWidth
+        y = self.armLength * armSin + self.handLength * handSin + self.robotHeight
+
+        if y &lt; 0:
+            if yOld &lt;= 0:
+                return math.sqrt(xOld * xOld + yOld * yOld) - math.sqrt(x * x + y * y)
+            return (xOld - yOld * (x - xOld) / (y - yOld)) - math.sqrt(x * x + y * y)
+        else:
+            if yOld &gt;= 0:
+                return 0.0
+            return -(x - y * (xOld - x) / (yOld - y)) + math.sqrt(xOld * xOld + yOld * yOld)
+
+        raise Exception(&#39;Never Should See This!&#39;)
+
+    def draw(self, stepCount, stepDelay):
+        x1, y1 = self.getRobotPosition()
+        x1 = x1 % self.totWidth
+
+        # Check Lower Still on the ground
+        if y1 != self.groundY:
+            raise Exception(&#39;Flying Robot!!&#39;)
+
+        rotationAngle = self.getRotationAngle()
+        cosRot, sinRot = self.__getCosAndSin(rotationAngle)
+
+        x2 = x1 + self.robotWidth * cosRot
+        y2 = y1 - self.robotWidth * sinRot
+
+        x3 = x1 - self.robotHeight * sinRot
+        y3 = y1 - self.robotHeight * cosRot
+
+        x4 = x3 + cosRot * self.robotWidth
+        y4 = y3 - sinRot * self.robotWidth
+
+        self.canvas.coords(self.robotBody, x1, y1, x2, y2, x4, y4, x3, y3)
+
+        armCos, armSin = self.__getCosAndSin(rotationAngle + self.armAngle)
+        xArm = x4 + self.armLength * armCos
+        yArm = y4 - self.armLength * armSin
+
+        self.canvas.coords(self.robotArm, x4, y4, xArm, yArm)
+
+        handCos, handSin = self.__getCosAndSin(self.handAngle + rotationAngle)
+        xHand = xArm + self.handLength * handCos
+        yHand = yArm - self.handLength * handSin
+
+        self.canvas.coords(self.robotHand, xArm, yArm, xHand, yHand)
+
+        # Position and Velocity Sign Post
+
+        # time = len(self.positions) + 0.5 * sum(self.angleSums)
+        # velocity = (self.positions[-1]-self.positions[0]) / time
+        # if len(self.positions) == 1: return
+
+        steps = (stepCount - self.lastStep)
+        if (steps == 0):
+            return
+
+        # pos = self.positions[-1]
+        # velocity = (pos - self.lastPos) / steps
+        # g = .9 ** (10 * stepDelay)
+        # g = .99 ** steps
+        # self.velAvg = g * self.velAvg + (1 - g) * velocity
+        # g = .999 ** steps
+        # self.velAvg2 = g * self.velAvg2 + (1 - g) * velocity
+
+        pos = self.positions[-1]
+        velocity = pos - self.positions[-2]
+        vel2 = (pos - self.positions[0]) / len(self.positions)
+        self.velAvg = .9 * self.velAvg + .1 * vel2
+        velMsg = &#39;100-step Avg Velocity: %.2f&#39; % self.velAvg
+        # velMsg2 = &#39;1000-step Avg Velocity: %.2f&#39; % self.velAvg2
+        velocityMsg = &#39;Velocity: %.2f&#39; % velocity
+        positionMsg = &#39;Position: %2.f&#39; % pos
+        stepMsg = &#39;Step: %d&#39; % stepCount
+
+        if (self.vel_msg is not None):
+            self.canvas.delete(self.vel_msg)
+            self.canvas.delete(self.pos_msg)
+            self.canvas.delete(self.step_msg)
+            self.canvas.delete(self.velavg_msg)
+            # self.canvas.delete(self.velavg2_msg)
+            # self.velavg2_msg = self.canvas.create_text(850, 190, text=velMsg2)
+
+        self.velavg_msg = self.canvas.create_text(650, 190, text=velMsg)
+        self.vel_msg = self.canvas.create_text(450, 190, text=velocityMsg)
+        self.pos_msg = self.canvas.create_text(250, 190, text=positionMsg)
+        self.step_msg = self.canvas.create_text(50, 190, text=stepMsg)
+
+        # self.lastPos = pos
+        self.lastStep = stepCount
+        # self.lastVel = velocity
+
+    def __init__(self, canvas):
+        # Canvas
+        self.canvas = canvas
+        self.velAvg = 0
+        # self.velAvg2 = 0
+        # self.lastPos = 0
+        self.lastStep = 0
+        # self.lastVel = 0
+
+        # Arm and Hand Degrees
+        self.armAngle = self.oldArmDegree = 0.0
+        self.handAngle = self.oldHandDegree = -math.pi / 6
+
+        self.maxArmAngle = math.pi / 6
+        self.minArmAngle = -math.pi / 6
+
+        self.maxHandAngle = 0
+        self.minHandAngle = -(5.0 / 6.0) * math.pi
+
+        # Draw Ground
+        self.totWidth = canvas.winfo_reqwidth()
+        self.totHeight = canvas.winfo_reqheight()
+        self.groundHeight = 40
+        self.groundY = self.totHeight - self.groundHeight
+
+        self.ground = canvas.create_rectangle(0, self.groundY, self.totWidth, self.totHeight,
+                fill = &#39;blue&#39;)
+
+        # Robot Body
+        self.robotWidth = 80
+        self.robotHeight = 40
+        self.robotPos = (20, self.groundY)
+        self.robotBody = canvas.create_polygon(0, 0, 0, 0, 0, 0, 0, 0, fill=&#39;green&#39;)
+
+        # Robot Arm
+        self.armLength = 60
+        self.robotArm = canvas.create_line(0, 0, 0, 0, fill=&#39;orange&#39;, width=5)
+
+        # Robot Hand
+        self.handLength = 40
+        self.robotHand = canvas.create_line(0, 0, 0, 0, fill=&#39;red&#39;, width=3)
+
+        self.positions = [0, 0]
+        # self.angleSums = [0, 0]
+
+        self.vel_msg = None
+        self.velavg_msg = None
+        self.pos_msg = None
+        self.step_msg = None
+
+class Application(object):
+    def __init__(self, win, max_steps):
+        self.ep = 0
+        self.ga = 2
+        self.al = 2
+        self.stepCount = 0
+        self.max_steps = max_steps
+        self.exit_status = 0
+
+        # Init Gui
+        self.__initGUI(win)
+
+        self.robot = CrawlingRobot(self.canvas)
+        self.robotEnvironment = CrawlingRobotEnvironment(self.robot)
+
+        # Init Agent
+        actionFn = lambda state: self.robotEnvironment.getPossibleActions(state)
+        self.learner = QLearningAgent(0, actionFn=actionFn)
+
+        self.learner.setEpsilon(self.epsilon)
+        self.learner.setLearningRate(self.alpha)
+        self.learner.setDiscount(self.gamma)
+
+        # Start GUI
+        self.running = True
+        self.stopped = False
+        self.stepsToSkip = 0
+        self.thread = threading.Thread(target = self._run_wrapper)
+        self.thread.start()
+
+    def sigmoid(self, x):
+        return 1.0 / (1.0 + 2.0 ** (-x))
+
+    def incrementSpeed(self, inc):
+        self.tickTime *= inc
+        # self.epsilon = min(1.0, self.epsilon)
+        # self.epsilon = max(0.0, self.epsilon)
+        # self.learner.setSpeed(self.epsilon)
+        self.speed_label[&#39;text&#39;] = &#39;Step Delay: %.5f&#39; % (self.tickTime)
+
+    def incrementEpsilon(self, inc):
+        self.ep += inc
+        self.epsilon = self.sigmoid(self.ep)
+        self.learner.setEpsilon(self.epsilon)
+        self.epsilon_label[&#39;text&#39;] = &#39;Epsilon: %.3f&#39; % (self.epsilon)
+
+    def incrementGamma(self, inc):
+        self.ga += inc
+        self.gamma = self.sigmoid(self.ga)
+        self.learner.setDiscount(self.gamma)
+        self.gamma_label[&#39;text&#39;] = &#39;Discount: %.3f&#39; % (self.gamma)
+
+    def incrementAlpha(self, inc):
+        self.al += inc
+        self.alpha = self.sigmoid(self.al)
+        self.learner.setLearningRate(self.alpha)
+        self.alpha_label[&#39;text&#39;] = &#39;Learning Rate: %.3f&#39; % (self.alpha)
+
+    def __initGUI(self, win):
+        # Window
+        self.win = win
+
+        # Initialize Frame
+        win.grid()
+        self.dec = -0.5
+        self.inc = 0.5
+        self.tickTime = 0.05
+
+        # Epsilon Button + Label
+        self.setupSpeedButtonAndLabel(win)
+
+        self.setupEpsilonButtonAndLabel(win)
+
+        # Gamma Button + Label
+        self.setUpGammaButtonAndLabel(win)
+
+        # Alpha Button + Label
+        self.setupAlphaButtonAndLabel(win)
+
+        # Exit Button
+        # self.exit_button = tkinter.Button(win, text=&#39;Quit&#39;, command=self.exit)
+        # self.exit_button.grid(row=0, column=9)
+
+        # Simulation Buttons
+        # self.setupSimulationButtons(win)
+
+        # Canvas
+        self.canvas = tkinter.Canvas(root, height=200, width=1000)
+        self.canvas.grid(row=2, columnspan=10)
+
+    def setupAlphaButtonAndLabel(self, win):
+        self.alpha_minus = tkinter.Button(win, text=&#34;-&#34;,
+                command=(lambda: self.incrementAlpha(self.dec)))
+        self.alpha_minus.grid(row=1, column=3, padx=10)
+
+        self.alpha = self.sigmoid(self.al)
+        self.alpha_label = tkinter.Label(win, text=&#39;Learning Rate: %.3f&#39; % (self.alpha))
+        self.alpha_label.grid(row=1, column=4)
+
+        self.alpha_plus = tkinter.Button(win, text=&#34;+&#34;,
+                command=(lambda: self.incrementAlpha(self.inc)))
+        self.alpha_plus.grid(row=1, column=5, padx=10)
+
+    def setUpGammaButtonAndLabel(self, win):
+        self.gamma_minus = tkinter.Button(win, text=&#34;-&#34;,
+                command=(lambda: self.incrementGamma(self.dec)))
+        self.gamma_minus.grid(row=1, column=0, padx=10)
+
+        self.gamma = self.sigmoid(self.ga)
+        self.gamma_label = tkinter.Label(win, text=&#39;Discount: %.3f&#39; % (self.gamma))
+        self.gamma_label.grid(row=1, column=1)
+
+        self.gamma_plus = tkinter.Button(win, text=&#34;+&#34;,
+                command=(lambda: self.incrementGamma(self.inc)))
+        self.gamma_plus.grid(row=1, column=2, padx=10)
+
+    def setupEpsilonButtonAndLabel(self, win):
+        self.epsilon_minus = tkinter.Button(win, text=&#34;-&#34;,
+                command=(lambda: self.incrementEpsilon(self.dec)))
+        self.epsilon_minus.grid(row=0, column=3)
+
+        self.epsilon = self.sigmoid(self.ep)
+        self.epsilon_label = tkinter.Label(win, text=&#39;Epsilon: %.3f&#39; % (self.epsilon))
+        self.epsilon_label.grid(row=0, column=4)
+
+        self.epsilon_plus = tkinter.Button(win, text=&#34;+&#34;,
+                command=(lambda: self.incrementEpsilon(self.inc)))
+        self.epsilon_plus.grid(row=0, column=5)
+
+    def setupSpeedButtonAndLabel(self, win):
+        self.speed_minus = tkinter.Button(win, text=&#34;-&#34;, command=(lambda: self.incrementSpeed(0.5)))
+        self.speed_minus.grid(row=0, column=0)
+
+        self.speed_label = tkinter.Label(win, text=&#39;Step Delay: %.5f&#39; % (self.tickTime))
+        self.speed_label.grid(row=0, column=1)
+
+        self.speed_plus = tkinter.Button(win, text=&#34;+&#34;, command=(lambda: self.incrementSpeed(2)))
+        self.speed_plus.grid(row=0, column=2)
+
+    def skip5kSteps(self):
+        self.stepsToSkip = 5000
+
+    def exit(self):
+        self.running = False
+
+        if (self.thread is not None):
+            self.thread.join()
+            self.thread = None
+
+        if (self.win is not None):
+            self.win.destroy()
+            self.win = None
+
+    def step(self):
+        self.stepCount += 1
+
+        state = self.robotEnvironment.getCurrentState()
+        actions = self.robotEnvironment.getPossibleActions(state)
+
+        if len(actions) == 0.0:
+            self.robotEnvironment.reset()
+            state = self.robotEnvironment.getCurrentState()
+            actions = self.robotEnvironment.getPossibleActions(state)
+            print(&#39;Reset!&#39;)
+
+        action = self.learner.getAction(state)
+        if (action is None):
+            raise Exception(&#39;None action returned: Code Not Complete&#39;)
+
+        nextState, reward = self.robotEnvironment.doAction(action)
+        self.learner.observeTransition(state, action, nextState, reward)
+
+    # Run on a different thread.
+    def _run_wrapper(self):
+        try:
+            self.run()
+        except Exception:
+            self.exit_status = 10
+            traceback.print_exc()
+            self.win.quit()
+
+        self.running = False
+        self.stopped = True
+
+        self.win.quit()
+
+    # Run on a different thread.
+    def run(self):
+        self.stepCount = 0
+        self.learner.startEpisode()
+
+        while True:
+            minSleep = 0.01
+            tm = max(minSleep, self.tickTime)
+            time.sleep(tm)
+            self.stepsToSkip = int(tm / self.tickTime) - 1
+
+            if not self.running:
+                break
+
+            for i in range(self.stepsToSkip):
+                self.step()
+
+            self.stepsToSkip = 0
+            self.step()
+
+            if (self.max_steps is not None and self.stepCount &gt;= self.max_steps):
+                break
+
+        self.learner.stopEpisode()
+
+    def start(self):
+        self.win.mainloop()
+
+def run(max_steps = None):
+    global root
+    root = tkinter.Tk(baseName = &#39;crawler&#39;)
+    root.title(&#39;Crawler GUI&#39;)
+    root.resizable(0, 0)
+
+    app = Application(root, max_steps = max_steps)
+
+    def update_gui():
+        if (app.running):
+            app.robot.draw(app.stepCount, app.tickTime)
+            root.after(10, update_gui)
+    update_gui()
+
+    root.protocol(&#39;WM_DELETE_WINDOW&#39;, app.exit)
+    app.start()
+    app.exit()
+
+    return app.exit_status</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pacai.ui.crawler.gui.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>max_steps=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(max_steps = None):
+    global root
+    root = tkinter.Tk(baseName = &#39;crawler&#39;)
+    root.title(&#39;Crawler GUI&#39;)
+    root.resizable(0, 0)
+
+    app = Application(root, max_steps = max_steps)
+
+    def update_gui():
+        if (app.running):
+            app.robot.draw(app.stepCount, app.tickTime)
+            root.after(10, update_gui)
+    update_gui()
+
+    root.protocol(&#39;WM_DELETE_WINDOW&#39;, app.exit)
+    app.start()
+    app.exit()
+
+    return app.exit_status</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pacai.ui.crawler.gui.Application"><code class="flex name class">
+<span>class <span class="ident">Application</span></span>
+<span>(</span><span>win, max_steps)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Application(object):
+    def __init__(self, win, max_steps):
+        self.ep = 0
+        self.ga = 2
+        self.al = 2
+        self.stepCount = 0
+        self.max_steps = max_steps
+        self.exit_status = 0
+
+        # Init Gui
+        self.__initGUI(win)
+
+        self.robot = CrawlingRobot(self.canvas)
+        self.robotEnvironment = CrawlingRobotEnvironment(self.robot)
+
+        # Init Agent
+        actionFn = lambda state: self.robotEnvironment.getPossibleActions(state)
+        self.learner = QLearningAgent(0, actionFn=actionFn)
+
+        self.learner.setEpsilon(self.epsilon)
+        self.learner.setLearningRate(self.alpha)
+        self.learner.setDiscount(self.gamma)
+
+        # Start GUI
+        self.running = True
+        self.stopped = False
+        self.stepsToSkip = 0
+        self.thread = threading.Thread(target = self._run_wrapper)
+        self.thread.start()
+
+    def sigmoid(self, x):
+        return 1.0 / (1.0 + 2.0 ** (-x))
+
+    def incrementSpeed(self, inc):
+        self.tickTime *= inc
+        # self.epsilon = min(1.0, self.epsilon)
+        # self.epsilon = max(0.0, self.epsilon)
+        # self.learner.setSpeed(self.epsilon)
+        self.speed_label[&#39;text&#39;] = &#39;Step Delay: %.5f&#39; % (self.tickTime)
+
+    def incrementEpsilon(self, inc):
+        self.ep += inc
+        self.epsilon = self.sigmoid(self.ep)
+        self.learner.setEpsilon(self.epsilon)
+        self.epsilon_label[&#39;text&#39;] = &#39;Epsilon: %.3f&#39; % (self.epsilon)
+
+    def incrementGamma(self, inc):
+        self.ga += inc
+        self.gamma = self.sigmoid(self.ga)
+        self.learner.setDiscount(self.gamma)
+        self.gamma_label[&#39;text&#39;] = &#39;Discount: %.3f&#39; % (self.gamma)
+
+    def incrementAlpha(self, inc):
+        self.al += inc
+        self.alpha = self.sigmoid(self.al)
+        self.learner.setLearningRate(self.alpha)
+        self.alpha_label[&#39;text&#39;] = &#39;Learning Rate: %.3f&#39; % (self.alpha)
+
+    def __initGUI(self, win):
+        # Window
+        self.win = win
+
+        # Initialize Frame
+        win.grid()
+        self.dec = -0.5
+        self.inc = 0.5
+        self.tickTime = 0.05
+
+        # Epsilon Button + Label
+        self.setupSpeedButtonAndLabel(win)
+
+        self.setupEpsilonButtonAndLabel(win)
+
+        # Gamma Button + Label
+        self.setUpGammaButtonAndLabel(win)
+
+        # Alpha Button + Label
+        self.setupAlphaButtonAndLabel(win)
+
+        # Exit Button
+        # self.exit_button = tkinter.Button(win, text=&#39;Quit&#39;, command=self.exit)
+        # self.exit_button.grid(row=0, column=9)
+
+        # Simulation Buttons
+        # self.setupSimulationButtons(win)
+
+        # Canvas
+        self.canvas = tkinter.Canvas(root, height=200, width=1000)
+        self.canvas.grid(row=2, columnspan=10)
+
+    def setupAlphaButtonAndLabel(self, win):
+        self.alpha_minus = tkinter.Button(win, text=&#34;-&#34;,
+                command=(lambda: self.incrementAlpha(self.dec)))
+        self.alpha_minus.grid(row=1, column=3, padx=10)
+
+        self.alpha = self.sigmoid(self.al)
+        self.alpha_label = tkinter.Label(win, text=&#39;Learning Rate: %.3f&#39; % (self.alpha))
+        self.alpha_label.grid(row=1, column=4)
+
+        self.alpha_plus = tkinter.Button(win, text=&#34;+&#34;,
+                command=(lambda: self.incrementAlpha(self.inc)))
+        self.alpha_plus.grid(row=1, column=5, padx=10)
+
+    def setUpGammaButtonAndLabel(self, win):
+        self.gamma_minus = tkinter.Button(win, text=&#34;-&#34;,
+                command=(lambda: self.incrementGamma(self.dec)))
+        self.gamma_minus.grid(row=1, column=0, padx=10)
+
+        self.gamma = self.sigmoid(self.ga)
+        self.gamma_label = tkinter.Label(win, text=&#39;Discount: %.3f&#39; % (self.gamma))
+        self.gamma_label.grid(row=1, column=1)
+
+        self.gamma_plus = tkinter.Button(win, text=&#34;+&#34;,
+                command=(lambda: self.incrementGamma(self.inc)))
+        self.gamma_plus.grid(row=1, column=2, padx=10)
+
+    def setupEpsilonButtonAndLabel(self, win):
+        self.epsilon_minus = tkinter.Button(win, text=&#34;-&#34;,
+                command=(lambda: self.incrementEpsilon(self.dec)))
+        self.epsilon_minus.grid(row=0, column=3)
+
+        self.epsilon = self.sigmoid(self.ep)
+        self.epsilon_label = tkinter.Label(win, text=&#39;Epsilon: %.3f&#39; % (self.epsilon))
+        self.epsilon_label.grid(row=0, column=4)
+
+        self.epsilon_plus = tkinter.Button(win, text=&#34;+&#34;,
+                command=(lambda: self.incrementEpsilon(self.inc)))
+        self.epsilon_plus.grid(row=0, column=5)
+
+    def setupSpeedButtonAndLabel(self, win):
+        self.speed_minus = tkinter.Button(win, text=&#34;-&#34;, command=(lambda: self.incrementSpeed(0.5)))
+        self.speed_minus.grid(row=0, column=0)
+
+        self.speed_label = tkinter.Label(win, text=&#39;Step Delay: %.5f&#39; % (self.tickTime))
+        self.speed_label.grid(row=0, column=1)
+
+        self.speed_plus = tkinter.Button(win, text=&#34;+&#34;, command=(lambda: self.incrementSpeed(2)))
+        self.speed_plus.grid(row=0, column=2)
+
+    def skip5kSteps(self):
+        self.stepsToSkip = 5000
+
+    def exit(self):
+        self.running = False
+
+        if (self.thread is not None):
+            self.thread.join()
+            self.thread = None
+
+        if (self.win is not None):
+            self.win.destroy()
+            self.win = None
+
+    def step(self):
+        self.stepCount += 1
+
+        state = self.robotEnvironment.getCurrentState()
+        actions = self.robotEnvironment.getPossibleActions(state)
+
+        if len(actions) == 0.0:
+            self.robotEnvironment.reset()
+            state = self.robotEnvironment.getCurrentState()
+            actions = self.robotEnvironment.getPossibleActions(state)
+            print(&#39;Reset!&#39;)
+
+        action = self.learner.getAction(state)
+        if (action is None):
+            raise Exception(&#39;None action returned: Code Not Complete&#39;)
+
+        nextState, reward = self.robotEnvironment.doAction(action)
+        self.learner.observeTransition(state, action, nextState, reward)
+
+    # Run on a different thread.
+    def _run_wrapper(self):
+        try:
+            self.run()
+        except Exception:
+            self.exit_status = 10
+            traceback.print_exc()
+            self.win.quit()
+
+        self.running = False
+        self.stopped = True
+
+        self.win.quit()
+
+    # Run on a different thread.
+    def run(self):
+        self.stepCount = 0
+        self.learner.startEpisode()
+
+        while True:
+            minSleep = 0.01
+            tm = max(minSleep, self.tickTime)
+            time.sleep(tm)
+            self.stepsToSkip = int(tm / self.tickTime) - 1
+
+            if not self.running:
+                break
+
+            for i in range(self.stepsToSkip):
+                self.step()
+
+            self.stepsToSkip = 0
+            self.step()
+
+            if (self.max_steps is not None and self.stepCount &gt;= self.max_steps):
+                break
+
+        self.learner.stopEpisode()
+
+    def start(self):
+        self.win.mainloop()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.ui.crawler.gui.Application.exit"><code class="name flex">
+<span>def <span class="ident">exit</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exit(self):
+    self.running = False
+
+    if (self.thread is not None):
+        self.thread.join()
+        self.thread = None
+
+    if (self.win is not None):
+        self.win.destroy()
+        self.win = None</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.incrementAlpha"><code class="name flex">
+<span>def <span class="ident">incrementAlpha</span></span>(<span>self, inc)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def incrementAlpha(self, inc):
+    self.al += inc
+    self.alpha = self.sigmoid(self.al)
+    self.learner.setLearningRate(self.alpha)
+    self.alpha_label[&#39;text&#39;] = &#39;Learning Rate: %.3f&#39; % (self.alpha)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.incrementEpsilon"><code class="name flex">
+<span>def <span class="ident">incrementEpsilon</span></span>(<span>self, inc)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def incrementEpsilon(self, inc):
+    self.ep += inc
+    self.epsilon = self.sigmoid(self.ep)
+    self.learner.setEpsilon(self.epsilon)
+    self.epsilon_label[&#39;text&#39;] = &#39;Epsilon: %.3f&#39; % (self.epsilon)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.incrementGamma"><code class="name flex">
+<span>def <span class="ident">incrementGamma</span></span>(<span>self, inc)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def incrementGamma(self, inc):
+    self.ga += inc
+    self.gamma = self.sigmoid(self.ga)
+    self.learner.setDiscount(self.gamma)
+    self.gamma_label[&#39;text&#39;] = &#39;Discount: %.3f&#39; % (self.gamma)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.incrementSpeed"><code class="name flex">
+<span>def <span class="ident">incrementSpeed</span></span>(<span>self, inc)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def incrementSpeed(self, inc):
+    self.tickTime *= inc
+    # self.epsilon = min(1.0, self.epsilon)
+    # self.epsilon = max(0.0, self.epsilon)
+    # self.learner.setSpeed(self.epsilon)
+    self.speed_label[&#39;text&#39;] = &#39;Step Delay: %.5f&#39; % (self.tickTime)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    self.stepCount = 0
+    self.learner.startEpisode()
+
+    while True:
+        minSleep = 0.01
+        tm = max(minSleep, self.tickTime)
+        time.sleep(tm)
+        self.stepsToSkip = int(tm / self.tickTime) - 1
+
+        if not self.running:
+            break
+
+        for i in range(self.stepsToSkip):
+            self.step()
+
+        self.stepsToSkip = 0
+        self.step()
+
+        if (self.max_steps is not None and self.stepCount &gt;= self.max_steps):
+            break
+
+    self.learner.stopEpisode()</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.setUpGammaButtonAndLabel"><code class="name flex">
+<span>def <span class="ident">setUpGammaButtonAndLabel</span></span>(<span>self, win)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setUpGammaButtonAndLabel(self, win):
+    self.gamma_minus = tkinter.Button(win, text=&#34;-&#34;,
+            command=(lambda: self.incrementGamma(self.dec)))
+    self.gamma_minus.grid(row=1, column=0, padx=10)
+
+    self.gamma = self.sigmoid(self.ga)
+    self.gamma_label = tkinter.Label(win, text=&#39;Discount: %.3f&#39; % (self.gamma))
+    self.gamma_label.grid(row=1, column=1)
+
+    self.gamma_plus = tkinter.Button(win, text=&#34;+&#34;,
+            command=(lambda: self.incrementGamma(self.inc)))
+    self.gamma_plus.grid(row=1, column=2, padx=10)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.setupAlphaButtonAndLabel"><code class="name flex">
+<span>def <span class="ident">setupAlphaButtonAndLabel</span></span>(<span>self, win)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setupAlphaButtonAndLabel(self, win):
+    self.alpha_minus = tkinter.Button(win, text=&#34;-&#34;,
+            command=(lambda: self.incrementAlpha(self.dec)))
+    self.alpha_minus.grid(row=1, column=3, padx=10)
+
+    self.alpha = self.sigmoid(self.al)
+    self.alpha_label = tkinter.Label(win, text=&#39;Learning Rate: %.3f&#39; % (self.alpha))
+    self.alpha_label.grid(row=1, column=4)
+
+    self.alpha_plus = tkinter.Button(win, text=&#34;+&#34;,
+            command=(lambda: self.incrementAlpha(self.inc)))
+    self.alpha_plus.grid(row=1, column=5, padx=10)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.setupEpsilonButtonAndLabel"><code class="name flex">
+<span>def <span class="ident">setupEpsilonButtonAndLabel</span></span>(<span>self, win)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setupEpsilonButtonAndLabel(self, win):
+    self.epsilon_minus = tkinter.Button(win, text=&#34;-&#34;,
+            command=(lambda: self.incrementEpsilon(self.dec)))
+    self.epsilon_minus.grid(row=0, column=3)
+
+    self.epsilon = self.sigmoid(self.ep)
+    self.epsilon_label = tkinter.Label(win, text=&#39;Epsilon: %.3f&#39; % (self.epsilon))
+    self.epsilon_label.grid(row=0, column=4)
+
+    self.epsilon_plus = tkinter.Button(win, text=&#34;+&#34;,
+            command=(lambda: self.incrementEpsilon(self.inc)))
+    self.epsilon_plus.grid(row=0, column=5)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.setupSpeedButtonAndLabel"><code class="name flex">
+<span>def <span class="ident">setupSpeedButtonAndLabel</span></span>(<span>self, win)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setupSpeedButtonAndLabel(self, win):
+    self.speed_minus = tkinter.Button(win, text=&#34;-&#34;, command=(lambda: self.incrementSpeed(0.5)))
+    self.speed_minus.grid(row=0, column=0)
+
+    self.speed_label = tkinter.Label(win, text=&#39;Step Delay: %.5f&#39; % (self.tickTime))
+    self.speed_label.grid(row=0, column=1)
+
+    self.speed_plus = tkinter.Button(win, text=&#34;+&#34;, command=(lambda: self.incrementSpeed(2)))
+    self.speed_plus.grid(row=0, column=2)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.sigmoid"><code class="name flex">
+<span>def <span class="ident">sigmoid</span></span>(<span>self, x)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sigmoid(self, x):
+    return 1.0 / (1.0 + 2.0 ** (-x))</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.skip5kSteps"><code class="name flex">
+<span>def <span class="ident">skip5kSteps</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def skip5kSteps(self):
+    self.stepsToSkip = 5000</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.start"><code class="name flex">
+<span>def <span class="ident">start</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    self.win.mainloop()</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.Application.step"><code class="name flex">
+<span>def <span class="ident">step</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def step(self):
+    self.stepCount += 1
+
+    state = self.robotEnvironment.getCurrentState()
+    actions = self.robotEnvironment.getPossibleActions(state)
+
+    if len(actions) == 0.0:
+        self.robotEnvironment.reset()
+        state = self.robotEnvironment.getCurrentState()
+        actions = self.robotEnvironment.getPossibleActions(state)
+        print(&#39;Reset!&#39;)
+
+    action = self.learner.getAction(state)
+    if (action is None):
+        raise Exception(&#39;None action returned: Code Not Complete&#39;)
+
+    nextState, reward = self.robotEnvironment.doAction(action)
+    self.learner.observeTransition(state, action, nextState, reward)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot"><code class="flex name class">
+<span>class <span class="ident">CrawlingRobot</span></span>
+<span>(</span><span>canvas)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CrawlingRobot(object):
+    def setAngles(self, armAngle, handAngle):
+        &#34;&#34;&#34;
+        set the robot&#39;s arm and hand angles
+        to the passed in values
+        &#34;&#34;&#34;
+
+        self.armAngle = armAngle
+        self.handAngle = handAngle
+
+    def getAngles(self):
+        &#34;&#34;&#34;
+        returns the pair of (armAngle, handAngle)
+        &#34;&#34;&#34;
+
+        return self.armAngle, self.handAngle
+
+    def getRobotPosition(self):
+        &#34;&#34;&#34;
+        returns the (x, y) coordinates
+        of the lower-left point of the robot
+        &#34;&#34;&#34;
+
+        return self.robotPos
+
+    def moveArm(self, newArmAngle):
+        &#34;&#34;&#34;
+        move the robot arm to &#39;newArmAngle&#39;
+        &#34;&#34;&#34;
+
+        if newArmAngle &gt; self.maxArmAngle:
+            raise Exception(&#39;Crawling Robot: Arm Raised too high. Careful!&#39;)
+
+        if newArmAngle &lt; self.minArmAngle:
+            raise Exception(&#39;Crawling Robot: Arm Raised too low. Careful!&#39;)
+
+        disp = self.displacement(self.armAngle, self.handAngle, newArmAngle, self.handAngle)
+        curXPos = self.robotPos[0]
+        self.robotPos = (curXPos + disp, self.robotPos[1])
+        self.armAngle = newArmAngle
+
+        # Position and Velocity Sign Post
+        self.positions.append(self.getRobotPosition()[0])
+
+        if len(self.positions) &gt; 100:
+            self.positions.pop(0)
+            # self.angleSums.pop(0)
+
+    def moveHand(self, newHandAngle):
+        &#34;&#34;&#34;
+        move the robot hand to &#39;newArmAngle&#39;
+        &#34;&#34;&#34;
+
+        if newHandAngle &gt; self.maxHandAngle:
+            raise Exception(&#39;Crawling Robot: Hand Raised too high. Careful!&#39;)
+
+        if newHandAngle &lt; self.minHandAngle:
+            raise Exception(&#39;Crawling Robot: Hand Raised too low. Careful!&#39;)
+
+        disp = self.displacement(self.armAngle, self.handAngle, self.armAngle, newHandAngle)
+        curXPos = self.robotPos[0]
+        self.robotPos = (curXPos + disp, self.robotPos[1])
+        self.handAngle = newHandAngle
+
+        # Position and Velocity Sign Post
+        self.positions.append(self.getRobotPosition()[0])
+
+        if len(self.positions) &gt; 100:
+            self.positions.pop(0)
+            # self.angleSums.pop(0)
+
+    def getMinAndMaxArmAngles(self):
+        &#34;&#34;&#34;
+        get the lower- and upper- bound
+        for the arm angles returns (min, max) pair
+        &#34;&#34;&#34;
+
+        return self.minArmAngle, self.maxArmAngle
+
+    def getMinAndMaxHandAngles(self):
+        &#34;&#34;&#34;
+        get the lower- and upper- bound
+        for the hand angles returns (min, max) pair
+        &#34;&#34;&#34;
+
+        return self.minHandAngle, self.maxHandAngle
+
+    def getRotationAngle(self):
+        &#34;&#34;&#34;
+        get the current angle the
+        robot body is rotated off the ground
+        &#34;&#34;&#34;
+
+        armCos, armSin = self.__getCosAndSin(self.armAngle)
+        handCos, handSin = self.__getCosAndSin(self.handAngle)
+
+        x = self.armLength * armCos + self.handLength * handCos + self.robotWidth
+        y = self.armLength * armSin + self.handLength * handSin + self.robotHeight
+
+        if y &lt; 0:
+            return math.atan(-y / x)
+        return 0.0
+
+    # You shouldn&#39;t need methods below here
+
+    def __getCosAndSin(self, angle):
+        return math.cos(angle), math.sin(angle)
+
+    def displacement(self, oldArmDegree, oldHandDegree, armDegree, handDegree):
+        oldArmCos, oldArmSin = self.__getCosAndSin(oldArmDegree)
+        armCos, armSin = self.__getCosAndSin(armDegree)
+        oldHandCos, oldHandSin = self.__getCosAndSin(oldHandDegree)
+        handCos, handSin = self.__getCosAndSin(handDegree)
+
+        xOld = self.armLength * oldArmCos + self.handLength * oldHandCos + self.robotWidth
+        yOld = self.armLength * oldArmSin + self.handLength * oldHandSin + self.robotHeight
+
+        x = self.armLength * armCos + self.handLength * handCos + self.robotWidth
+        y = self.armLength * armSin + self.handLength * handSin + self.robotHeight
+
+        if y &lt; 0:
+            if yOld &lt;= 0:
+                return math.sqrt(xOld * xOld + yOld * yOld) - math.sqrt(x * x + y * y)
+            return (xOld - yOld * (x - xOld) / (y - yOld)) - math.sqrt(x * x + y * y)
+        else:
+            if yOld &gt;= 0:
+                return 0.0
+            return -(x - y * (xOld - x) / (yOld - y)) + math.sqrt(xOld * xOld + yOld * yOld)
+
+        raise Exception(&#39;Never Should See This!&#39;)
+
+    def draw(self, stepCount, stepDelay):
+        x1, y1 = self.getRobotPosition()
+        x1 = x1 % self.totWidth
+
+        # Check Lower Still on the ground
+        if y1 != self.groundY:
+            raise Exception(&#39;Flying Robot!!&#39;)
+
+        rotationAngle = self.getRotationAngle()
+        cosRot, sinRot = self.__getCosAndSin(rotationAngle)
+
+        x2 = x1 + self.robotWidth * cosRot
+        y2 = y1 - self.robotWidth * sinRot
+
+        x3 = x1 - self.robotHeight * sinRot
+        y3 = y1 - self.robotHeight * cosRot
+
+        x4 = x3 + cosRot * self.robotWidth
+        y4 = y3 - sinRot * self.robotWidth
+
+        self.canvas.coords(self.robotBody, x1, y1, x2, y2, x4, y4, x3, y3)
+
+        armCos, armSin = self.__getCosAndSin(rotationAngle + self.armAngle)
+        xArm = x4 + self.armLength * armCos
+        yArm = y4 - self.armLength * armSin
+
+        self.canvas.coords(self.robotArm, x4, y4, xArm, yArm)
+
+        handCos, handSin = self.__getCosAndSin(self.handAngle + rotationAngle)
+        xHand = xArm + self.handLength * handCos
+        yHand = yArm - self.handLength * handSin
+
+        self.canvas.coords(self.robotHand, xArm, yArm, xHand, yHand)
+
+        # Position and Velocity Sign Post
+
+        # time = len(self.positions) + 0.5 * sum(self.angleSums)
+        # velocity = (self.positions[-1]-self.positions[0]) / time
+        # if len(self.positions) == 1: return
+
+        steps = (stepCount - self.lastStep)
+        if (steps == 0):
+            return
+
+        # pos = self.positions[-1]
+        # velocity = (pos - self.lastPos) / steps
+        # g = .9 ** (10 * stepDelay)
+        # g = .99 ** steps
+        # self.velAvg = g * self.velAvg + (1 - g) * velocity
+        # g = .999 ** steps
+        # self.velAvg2 = g * self.velAvg2 + (1 - g) * velocity
+
+        pos = self.positions[-1]
+        velocity = pos - self.positions[-2]
+        vel2 = (pos - self.positions[0]) / len(self.positions)
+        self.velAvg = .9 * self.velAvg + .1 * vel2
+        velMsg = &#39;100-step Avg Velocity: %.2f&#39; % self.velAvg
+        # velMsg2 = &#39;1000-step Avg Velocity: %.2f&#39; % self.velAvg2
+        velocityMsg = &#39;Velocity: %.2f&#39; % velocity
+        positionMsg = &#39;Position: %2.f&#39; % pos
+        stepMsg = &#39;Step: %d&#39; % stepCount
+
+        if (self.vel_msg is not None):
+            self.canvas.delete(self.vel_msg)
+            self.canvas.delete(self.pos_msg)
+            self.canvas.delete(self.step_msg)
+            self.canvas.delete(self.velavg_msg)
+            # self.canvas.delete(self.velavg2_msg)
+            # self.velavg2_msg = self.canvas.create_text(850, 190, text=velMsg2)
+
+        self.velavg_msg = self.canvas.create_text(650, 190, text=velMsg)
+        self.vel_msg = self.canvas.create_text(450, 190, text=velocityMsg)
+        self.pos_msg = self.canvas.create_text(250, 190, text=positionMsg)
+        self.step_msg = self.canvas.create_text(50, 190, text=stepMsg)
+
+        # self.lastPos = pos
+        self.lastStep = stepCount
+        # self.lastVel = velocity
+
+    def __init__(self, canvas):
+        # Canvas
+        self.canvas = canvas
+        self.velAvg = 0
+        # self.velAvg2 = 0
+        # self.lastPos = 0
+        self.lastStep = 0
+        # self.lastVel = 0
+
+        # Arm and Hand Degrees
+        self.armAngle = self.oldArmDegree = 0.0
+        self.handAngle = self.oldHandDegree = -math.pi / 6
+
+        self.maxArmAngle = math.pi / 6
+        self.minArmAngle = -math.pi / 6
+
+        self.maxHandAngle = 0
+        self.minHandAngle = -(5.0 / 6.0) * math.pi
+
+        # Draw Ground
+        self.totWidth = canvas.winfo_reqwidth()
+        self.totHeight = canvas.winfo_reqheight()
+        self.groundHeight = 40
+        self.groundY = self.totHeight - self.groundHeight
+
+        self.ground = canvas.create_rectangle(0, self.groundY, self.totWidth, self.totHeight,
+                fill = &#39;blue&#39;)
+
+        # Robot Body
+        self.robotWidth = 80
+        self.robotHeight = 40
+        self.robotPos = (20, self.groundY)
+        self.robotBody = canvas.create_polygon(0, 0, 0, 0, 0, 0, 0, 0, fill=&#39;green&#39;)
+
+        # Robot Arm
+        self.armLength = 60
+        self.robotArm = canvas.create_line(0, 0, 0, 0, fill=&#39;orange&#39;, width=5)
+
+        # Robot Hand
+        self.handLength = 40
+        self.robotHand = canvas.create_line(0, 0, 0, 0, fill=&#39;red&#39;, width=3)
+
+        self.positions = [0, 0]
+        # self.angleSums = [0, 0]
+
+        self.vel_msg = None
+        self.velavg_msg = None
+        self.pos_msg = None
+        self.step_msg = None</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.displacement"><code class="name flex">
+<span>def <span class="ident">displacement</span></span>(<span>self, oldArmDegree, oldHandDegree, armDegree, handDegree)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def displacement(self, oldArmDegree, oldHandDegree, armDegree, handDegree):
+    oldArmCos, oldArmSin = self.__getCosAndSin(oldArmDegree)
+    armCos, armSin = self.__getCosAndSin(armDegree)
+    oldHandCos, oldHandSin = self.__getCosAndSin(oldHandDegree)
+    handCos, handSin = self.__getCosAndSin(handDegree)
+
+    xOld = self.armLength * oldArmCos + self.handLength * oldHandCos + self.robotWidth
+    yOld = self.armLength * oldArmSin + self.handLength * oldHandSin + self.robotHeight
+
+    x = self.armLength * armCos + self.handLength * handCos + self.robotWidth
+    y = self.armLength * armSin + self.handLength * handSin + self.robotHeight
+
+    if y &lt; 0:
+        if yOld &lt;= 0:
+            return math.sqrt(xOld * xOld + yOld * yOld) - math.sqrt(x * x + y * y)
+        return (xOld - yOld * (x - xOld) / (y - yOld)) - math.sqrt(x * x + y * y)
+    else:
+        if yOld &gt;= 0:
+            return 0.0
+        return -(x - y * (xOld - x) / (yOld - y)) + math.sqrt(xOld * xOld + yOld * yOld)
+
+    raise Exception(&#39;Never Should See This!&#39;)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.draw"><code class="name flex">
+<span>def <span class="ident">draw</span></span>(<span>self, stepCount, stepDelay)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def draw(self, stepCount, stepDelay):
+    x1, y1 = self.getRobotPosition()
+    x1 = x1 % self.totWidth
+
+    # Check Lower Still on the ground
+    if y1 != self.groundY:
+        raise Exception(&#39;Flying Robot!!&#39;)
+
+    rotationAngle = self.getRotationAngle()
+    cosRot, sinRot = self.__getCosAndSin(rotationAngle)
+
+    x2 = x1 + self.robotWidth * cosRot
+    y2 = y1 - self.robotWidth * sinRot
+
+    x3 = x1 - self.robotHeight * sinRot
+    y3 = y1 - self.robotHeight * cosRot
+
+    x4 = x3 + cosRot * self.robotWidth
+    y4 = y3 - sinRot * self.robotWidth
+
+    self.canvas.coords(self.robotBody, x1, y1, x2, y2, x4, y4, x3, y3)
+
+    armCos, armSin = self.__getCosAndSin(rotationAngle + self.armAngle)
+    xArm = x4 + self.armLength * armCos
+    yArm = y4 - self.armLength * armSin
+
+    self.canvas.coords(self.robotArm, x4, y4, xArm, yArm)
+
+    handCos, handSin = self.__getCosAndSin(self.handAngle + rotationAngle)
+    xHand = xArm + self.handLength * handCos
+    yHand = yArm - self.handLength * handSin
+
+    self.canvas.coords(self.robotHand, xArm, yArm, xHand, yHand)
+
+    # Position and Velocity Sign Post
+
+    # time = len(self.positions) + 0.5 * sum(self.angleSums)
+    # velocity = (self.positions[-1]-self.positions[0]) / time
+    # if len(self.positions) == 1: return
+
+    steps = (stepCount - self.lastStep)
+    if (steps == 0):
+        return
+
+    # pos = self.positions[-1]
+    # velocity = (pos - self.lastPos) / steps
+    # g = .9 ** (10 * stepDelay)
+    # g = .99 ** steps
+    # self.velAvg = g * self.velAvg + (1 - g) * velocity
+    # g = .999 ** steps
+    # self.velAvg2 = g * self.velAvg2 + (1 - g) * velocity
+
+    pos = self.positions[-1]
+    velocity = pos - self.positions[-2]
+    vel2 = (pos - self.positions[0]) / len(self.positions)
+    self.velAvg = .9 * self.velAvg + .1 * vel2
+    velMsg = &#39;100-step Avg Velocity: %.2f&#39; % self.velAvg
+    # velMsg2 = &#39;1000-step Avg Velocity: %.2f&#39; % self.velAvg2
+    velocityMsg = &#39;Velocity: %.2f&#39; % velocity
+    positionMsg = &#39;Position: %2.f&#39; % pos
+    stepMsg = &#39;Step: %d&#39; % stepCount
+
+    if (self.vel_msg is not None):
+        self.canvas.delete(self.vel_msg)
+        self.canvas.delete(self.pos_msg)
+        self.canvas.delete(self.step_msg)
+        self.canvas.delete(self.velavg_msg)
+        # self.canvas.delete(self.velavg2_msg)
+        # self.velavg2_msg = self.canvas.create_text(850, 190, text=velMsg2)
+
+    self.velavg_msg = self.canvas.create_text(650, 190, text=velMsg)
+    self.vel_msg = self.canvas.create_text(450, 190, text=velocityMsg)
+    self.pos_msg = self.canvas.create_text(250, 190, text=positionMsg)
+    self.step_msg = self.canvas.create_text(50, 190, text=stepMsg)
+
+    # self.lastPos = pos
+    self.lastStep = stepCount
+    # self.lastVel = velocity</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.getAngles"><code class="name flex">
+<span>def <span class="ident">getAngles</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the pair of (armAngle, handAngle)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAngles(self):
+    &#34;&#34;&#34;
+    returns the pair of (armAngle, handAngle)
+    &#34;&#34;&#34;
+
+    return self.armAngle, self.handAngle</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.getMinAndMaxArmAngles"><code class="name flex">
+<span>def <span class="ident">getMinAndMaxArmAngles</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>get the lower- and upper- bound
+for the arm angles returns (min, max) pair</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMinAndMaxArmAngles(self):
+    &#34;&#34;&#34;
+    get the lower- and upper- bound
+    for the arm angles returns (min, max) pair
+    &#34;&#34;&#34;
+
+    return self.minArmAngle, self.maxArmAngle</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.getMinAndMaxHandAngles"><code class="name flex">
+<span>def <span class="ident">getMinAndMaxHandAngles</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>get the lower- and upper- bound
+for the hand angles returns (min, max) pair</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMinAndMaxHandAngles(self):
+    &#34;&#34;&#34;
+    get the lower- and upper- bound
+    for the hand angles returns (min, max) pair
+    &#34;&#34;&#34;
+
+    return self.minHandAngle, self.maxHandAngle</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.getRobotPosition"><code class="name flex">
+<span>def <span class="ident">getRobotPosition</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns the (x, y) coordinates
+of the lower-left point of the robot</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRobotPosition(self):
+    &#34;&#34;&#34;
+    returns the (x, y) coordinates
+    of the lower-left point of the robot
+    &#34;&#34;&#34;
+
+    return self.robotPos</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.getRotationAngle"><code class="name flex">
+<span>def <span class="ident">getRotationAngle</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>get the current angle the
+robot body is rotated off the ground</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRotationAngle(self):
+    &#34;&#34;&#34;
+    get the current angle the
+    robot body is rotated off the ground
+    &#34;&#34;&#34;
+
+    armCos, armSin = self.__getCosAndSin(self.armAngle)
+    handCos, handSin = self.__getCosAndSin(self.handAngle)
+
+    x = self.armLength * armCos + self.handLength * handCos + self.robotWidth
+    y = self.armLength * armSin + self.handLength * handSin + self.robotHeight
+
+    if y &lt; 0:
+        return math.atan(-y / x)
+    return 0.0</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.moveArm"><code class="name flex">
+<span>def <span class="ident">moveArm</span></span>(<span>self, newArmAngle)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>move the robot arm to 'newArmAngle'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def moveArm(self, newArmAngle):
+    &#34;&#34;&#34;
+    move the robot arm to &#39;newArmAngle&#39;
+    &#34;&#34;&#34;
+
+    if newArmAngle &gt; self.maxArmAngle:
+        raise Exception(&#39;Crawling Robot: Arm Raised too high. Careful!&#39;)
+
+    if newArmAngle &lt; self.minArmAngle:
+        raise Exception(&#39;Crawling Robot: Arm Raised too low. Careful!&#39;)
+
+    disp = self.displacement(self.armAngle, self.handAngle, newArmAngle, self.handAngle)
+    curXPos = self.robotPos[0]
+    self.robotPos = (curXPos + disp, self.robotPos[1])
+    self.armAngle = newArmAngle
+
+    # Position and Velocity Sign Post
+    self.positions.append(self.getRobotPosition()[0])
+
+    if len(self.positions) &gt; 100:
+        self.positions.pop(0)
+        # self.angleSums.pop(0)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.moveHand"><code class="name flex">
+<span>def <span class="ident">moveHand</span></span>(<span>self, newHandAngle)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>move the robot hand to 'newArmAngle'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def moveHand(self, newHandAngle):
+    &#34;&#34;&#34;
+    move the robot hand to &#39;newArmAngle&#39;
+    &#34;&#34;&#34;
+
+    if newHandAngle &gt; self.maxHandAngle:
+        raise Exception(&#39;Crawling Robot: Hand Raised too high. Careful!&#39;)
+
+    if newHandAngle &lt; self.minHandAngle:
+        raise Exception(&#39;Crawling Robot: Hand Raised too low. Careful!&#39;)
+
+    disp = self.displacement(self.armAngle, self.handAngle, self.armAngle, newHandAngle)
+    curXPos = self.robotPos[0]
+    self.robotPos = (curXPos + disp, self.robotPos[1])
+    self.handAngle = newHandAngle
+
+    # Position and Velocity Sign Post
+    self.positions.append(self.getRobotPosition()[0])
+
+    if len(self.positions) &gt; 100:
+        self.positions.pop(0)
+        # self.angleSums.pop(0)</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobot.setAngles"><code class="name flex">
+<span>def <span class="ident">setAngles</span></span>(<span>self, armAngle, handAngle)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>set the robot's arm and hand angles
+to the passed in values</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setAngles(self, armAngle, handAngle):
+    &#34;&#34;&#34;
+    set the robot&#39;s arm and hand angles
+    to the passed in values
+    &#34;&#34;&#34;
+
+    self.armAngle = armAngle
+    self.handAngle = handAngle</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobotEnvironment"><code class="flex name class">
+<span>class <span class="ident">CrawlingRobotEnvironment</span></span>
+<span>(</span><span>crawlingRobot)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A GUI display for crawler.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CrawlingRobotEnvironment(Environment):
+    &#34;&#34;&#34;
+    A GUI display for crawler.
+    &#34;&#34;&#34;
+
+    def __init__(self, crawlingRobot):
+        self.crawlingRobot = crawlingRobot
+
+        # The state is of the form (armAngle, handAngle)
+        # where the angles are bucket numbers, not actual
+        # degree measurements
+        self.state = None
+
+        self.nArmStates = 9
+        self.nHandStates = 13
+
+        # create a list of arm buckets and hand buckets to
+        # discretize the state space
+        minArmAngle, maxArmAngle = self.crawlingRobot.getMinAndMaxArmAngles()
+        minHandAngle, maxHandAngle = self.crawlingRobot.getMinAndMaxHandAngles()
+        armIncrement = (maxArmAngle - minArmAngle) / (self.nArmStates - 1)
+        handIncrement = (maxHandAngle - minHandAngle) / (self.nHandStates - 1)
+        self.armBuckets = [minArmAngle + (armIncrement * i) for i in range(self.nArmStates)]
+        self.handBuckets = [minHandAngle + (handIncrement * i) for i in range(self.nHandStates)]
+
+        # Reset
+        self.reset()
+
+    def getCurrentState(self):
+        &#34;&#34;&#34;
+        Return the current state of the crawling robot.
+        &#34;&#34;&#34;
+
+        return self.state
+
+    def getPossibleActions(self, state):
+        &#34;&#34;&#34;
+        Returns possible actions for the states in the current state.
+        &#34;&#34;&#34;
+
+        actions = list()
+        currArmBucket, currHandBucket = state
+
+        if currArmBucket &gt; 0:
+            actions.append(&#39;arm-down&#39;)
+
+        if currArmBucket &lt; self.nArmStates - 1:
+            actions.append(&#39;arm-up&#39;)
+
+        if currHandBucket &gt; 0:
+            actions.append(&#39;hand-down&#39;)
+
+        if currHandBucket &lt; self.nHandStates - 1:
+            actions.append(&#39;hand-up&#39;)
+
+        return actions
+
+    def doAction(self, action):
+        &#34;&#34;&#34;
+        Perform the action and update
+        the current state of the Environment
+        and return the reward for the
+        current state, the next state
+        and the taken action.
+
+        Returns:
+            nextState, reward
+        &#34;&#34;&#34;
+
+        nextState, reward = None, None
+
+        oldX, oldY = self.crawlingRobot.getRobotPosition()
+
+        armBucket, handBucket = self.state
+        armAngle, handAngle = self.crawlingRobot.getAngles()
+
+        if action == &#39;arm-up&#39;:
+            newArmAngle = self.armBuckets[armBucket + 1]
+            self.crawlingRobot.moveArm(newArmAngle)
+
+            nextState = (armBucket + 1, handBucket)
+        if action == &#39;arm-down&#39;:
+            newArmAngle = self.armBuckets[armBucket - 1]
+            self.crawlingRobot.moveArm(newArmAngle)
+            nextState = (armBucket - 1, handBucket)
+
+        if action == &#39;hand-up&#39;:
+            newHandAngle = self.handBuckets[handBucket + 1]
+            self.crawlingRobot.moveHand(newHandAngle)
+            nextState = (armBucket, handBucket + 1)
+
+        if action == &#39;hand-down&#39;:
+            newHandAngle = self.handBuckets[handBucket - 1]
+            self.crawlingRobot.moveHand(newHandAngle)
+            nextState = (armBucket, handBucket - 1)
+
+        newX, newY = self.crawlingRobot.getRobotPosition()
+
+        # a simple reward function
+        reward = newX - oldX
+
+        self.state = nextState
+        return nextState, reward
+
+    def reset(self):
+        &#34;&#34;&#34;
+        Resets the Environment to the initial state
+        &#34;&#34;&#34;
+
+        # Initialize the state to be the middle
+        # value for each parameter e.g. if there are 13 and 19
+        # buckets for the arm and hand parameters, then the intial
+        # state should be (6, 9)
+
+        # Also call self.crawlingRobot.setAngles()
+        # to the initial arm and hand angle
+
+        armState = int(self.nArmStates / 2)
+        handState = int(self.nHandStates / 2)
+
+        self.state = armState, handState
+        self.crawlingRobot.setAngles(self.armBuckets[armState], self.handBuckets[handState])
+        self.crawlingRobot.positions = [20, self.crawlingRobot.getRobotPosition()[0]]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pacai.core.environment.Environment" href="../../core/environment.html#pacai.core.environment.Environment">Environment</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pacai.ui.crawler.gui.CrawlingRobotEnvironment.doAction"><code class="name flex">
+<span>def <span class="ident">doAction</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Perform the action and update
+the current state of the Environment
+and return the reward for the
+current state, the next state
+and the taken action.</p>
+<h2 id="returns">Returns</h2>
+<p>nextState, reward</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def doAction(self, action):
+    &#34;&#34;&#34;
+    Perform the action and update
+    the current state of the Environment
+    and return the reward for the
+    current state, the next state
+    and the taken action.
+
+    Returns:
+        nextState, reward
+    &#34;&#34;&#34;
+
+    nextState, reward = None, None
+
+    oldX, oldY = self.crawlingRobot.getRobotPosition()
+
+    armBucket, handBucket = self.state
+    armAngle, handAngle = self.crawlingRobot.getAngles()
+
+    if action == &#39;arm-up&#39;:
+        newArmAngle = self.armBuckets[armBucket + 1]
+        self.crawlingRobot.moveArm(newArmAngle)
+
+        nextState = (armBucket + 1, handBucket)
+    if action == &#39;arm-down&#39;:
+        newArmAngle = self.armBuckets[armBucket - 1]
+        self.crawlingRobot.moveArm(newArmAngle)
+        nextState = (armBucket - 1, handBucket)
+
+    if action == &#39;hand-up&#39;:
+        newHandAngle = self.handBuckets[handBucket + 1]
+        self.crawlingRobot.moveHand(newHandAngle)
+        nextState = (armBucket, handBucket + 1)
+
+    if action == &#39;hand-down&#39;:
+        newHandAngle = self.handBuckets[handBucket - 1]
+        self.crawlingRobot.moveHand(newHandAngle)
+        nextState = (armBucket, handBucket - 1)
+
+    newX, newY = self.crawlingRobot.getRobotPosition()
+
+    # a simple reward function
+    reward = newX - oldX
+
+    self.state = nextState
+    return nextState, reward</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobotEnvironment.getCurrentState"><code class="name flex">
+<span>def <span class="ident">getCurrentState</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the current state of the crawling robot.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCurrentState(self):
+    &#34;&#34;&#34;
+    Return the current state of the crawling robot.
+    &#34;&#34;&#34;
+
+    return self.state</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobotEnvironment.getPossibleActions"><code class="name flex">
+<span>def <span class="ident">getPossibleActions</span></span>(<span>self, state)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns possible actions for the states in the current state.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPossibleActions(self, state):
+    &#34;&#34;&#34;
+    Returns possible actions for the states in the current state.
+    &#34;&#34;&#34;
+
+    actions = list()
+    currArmBucket, currHandBucket = state
+
+    if currArmBucket &gt; 0:
+        actions.append(&#39;arm-down&#39;)
+
+    if currArmBucket &lt; self.nArmStates - 1:
+        actions.append(&#39;arm-up&#39;)
+
+    if currHandBucket &gt; 0:
+        actions.append(&#39;hand-down&#39;)
+
+    if currHandBucket &lt; self.nHandStates - 1:
+        actions.append(&#39;hand-up&#39;)
+
+    return actions</code></pre>
+</details>
+</dd>
+<dt id="pacai.ui.crawler.gui.CrawlingRobotEnvironment.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets the Environment to the initial state</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;
+    Resets the Environment to the initial state
+    &#34;&#34;&#34;
+
+    # Initialize the state to be the middle
+    # value for each parameter e.g. if there are 13 and 19
+    # buckets for the arm and hand parameters, then the intial
+    # state should be (6, 9)
+
+    # Also call self.crawlingRobot.setAngles()
+    # to the initial arm and hand angle
+
+    armState = int(self.nArmStates / 2)
+    handState = int(self.nHandStates / 2)
+
+    self.state = armState, handState
+    self.crawlingRobot.setAngles(self.armBuckets[armState], self.handBuckets[handState])
+    self.crawlingRobot.positions = [20, self.crawlingRobot.getRobotPosition()[0]]</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pacai.core.environment.Environment" href="../../core/environment.html#pacai.core.environment.Environment">Environment</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pacai.core.environment.Environment.isTerminal" href="../../core/environment.html#pacai.core.environment.Environment.isTerminal">isTerminal</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pacai.ui.crawler" href="index.html">pacai.ui.crawler</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pacai.ui.crawler.gui.run" href="#pacai.ui.crawler.gui.run">run</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pacai.ui.crawler.gui.Application" href="#pacai.ui.crawler.gui.Application">Application</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.ui.crawler.gui.Application.exit" href="#pacai.ui.crawler.gui.Application.exit">exit</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.incrementAlpha" href="#pacai.ui.crawler.gui.Application.incrementAlpha">incrementAlpha</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.incrementEpsilon" href="#pacai.ui.crawler.gui.Application.incrementEpsilon">incrementEpsilon</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.incrementGamma" href="#pacai.ui.crawler.gui.Application.incrementGamma">incrementGamma</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.incrementSpeed" href="#pacai.ui.crawler.gui.Application.incrementSpeed">incrementSpeed</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.run" href="#pacai.ui.crawler.gui.Application.run">run</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.setUpGammaButtonAndLabel" href="#pacai.ui.crawler.gui.Application.setUpGammaButtonAndLabel">setUpGammaButtonAndLabel</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.setupAlphaButtonAndLabel" href="#pacai.ui.crawler.gui.Application.setupAlphaButtonAndLabel">setupAlphaButtonAndLabel</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.setupEpsilonButtonAndLabel" href="#pacai.ui.crawler.gui.Application.setupEpsilonButtonAndLabel">setupEpsilonButtonAndLabel</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.setupSpeedButtonAndLabel" href="#pacai.ui.crawler.gui.Application.setupSpeedButtonAndLabel">setupSpeedButtonAndLabel</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.sigmoid" href="#pacai.ui.crawler.gui.Application.sigmoid">sigmoid</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.skip5kSteps" href="#pacai.ui.crawler.gui.Application.skip5kSteps">skip5kSteps</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.start" href="#pacai.ui.crawler.gui.Application.start">start</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.Application.step" href="#pacai.ui.crawler.gui.Application.step">step</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pacai.ui.crawler.gui.CrawlingRobot" href="#pacai.ui.crawler.gui.CrawlingRobot">CrawlingRobot</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.displacement" href="#pacai.ui.crawler.gui.CrawlingRobot.displacement">displacement</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.draw" href="#pacai.ui.crawler.gui.CrawlingRobot.draw">draw</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.getAngles" href="#pacai.ui.crawler.gui.CrawlingRobot.getAngles">getAngles</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.getMinAndMaxArmAngles" href="#pacai.ui.crawler.gui.CrawlingRobot.getMinAndMaxArmAngles">getMinAndMaxArmAngles</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.getMinAndMaxHandAngles" href="#pacai.ui.crawler.gui.CrawlingRobot.getMinAndMaxHandAngles">getMinAndMaxHandAngles</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.getRobotPosition" href="#pacai.ui.crawler.gui.CrawlingRobot.getRobotPosition">getRobotPosition</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.getRotationAngle" href="#pacai.ui.crawler.gui.CrawlingRobot.getRotationAngle">getRotationAngle</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.moveArm" href="#pacai.ui.crawler.gui.CrawlingRobot.moveArm">moveArm</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.moveHand" href="#pacai.ui.crawler.gui.CrawlingRobot.moveHand">moveHand</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobot.setAngles" href="#pacai.ui.crawler.gui.CrawlingRobot.setAngles">setAngles</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pacai.ui.crawler.gui.CrawlingRobotEnvironment" href="#pacai.ui.crawler.gui.CrawlingRobotEnvironment">CrawlingRobotEnvironment</a></code></h4>
+<ul class="">
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobotEnvironment.doAction" href="#pacai.ui.crawler.gui.CrawlingRobotEnvironment.doAction">doAction</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobotEnvironment.getCurrentState" href="#pacai.ui.crawler.gui.CrawlingRobotEnvironment.getCurrentState">getCurrentState</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobotEnvironment.getPossibleActions" href="#pacai.ui.crawler.gui.CrawlingRobotEnvironment.getPossibleActions">getPossibleActions</a></code></li>
+<li><code><a title="pacai.ui.crawler.gui.CrawlingRobotEnvironment.reset" href="#pacai.ui.crawler.gui.CrawlingRobotEnvironment.reset">reset</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
