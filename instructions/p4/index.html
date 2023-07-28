@@ -1,0 +1,516 @@
+<html>
+   <head>
+      <title>P4: Pacman Capture the Flag</title>
+
+      <link rel='stylesheet' type='text/css' href='/common/css/normalize.css'>
+      <link rel='stylesheet' type='text/css' href='/common/css/cmps140.css'>
+   </head>
+   <body>
+      <div class='page'>
+         <h2>Project 4: Pacman Capture the Flag</h2>
+
+         <center>
+            <img alt="Pacman with Ghosts" src="/p4/instructions/capture1.gif" width="400px" />
+            <p></p>
+            <p class='no-margin'>Enough of defense,</p>
+            <p class='no-margin'>Onto enemy terrain.</p>
+            <p class='no-margin'>Capture all their food!</p>
+         </center>
+         <div class='section'>
+            <h3>Introduction</h3>
+            <p>
+               The final project involves a multi-player capture-the-flag variant of Pacman, where agents control both Pacman and ghosts in coordinated team-based strategies.
+               Your team will try to eat the food on the far side of the map, while defending the food on your home side.
+            </p>
+            <p>
+               The project will consist of three phases:
+               <ol>
+                  <li>
+                     The first phase will consist of finding a team (of no more than three people) and an initial test of the tournament.
+                     Students must have a team and at <strong>minimum</strong> must submit a
+                     <a href='/docs/pacai/agents/capture/dummy.html#pacai.agents.capture.dummy.DummyAgent'>DummyAgent</a> for this phase.
+                  </li>
+                  <li>
+                     The second phase will consist of daily round-robin style tournaments.
+                     During this phase students should improve their agent, while looking for weaknesses in their opponents' submissions.
+                  </li>
+                  <li>
+                     The final phase will be a final round-robin style tournament, in which students show their best.
+                     This is students' final chance to shine, winner takes all!
+                  </li>
+               </ol>
+            </p>
+            <p>
+               All of the deadlines for these events will exist on <strong>Canvas</strong>.
+               Make sure you check early, <strong>do not</strong> miss a deadline!
+            </p>
+            <p>
+               We will evaluate your submissions based on a short written report (2-3 pages) on your modeling of the problem and agent design, as well as your performance against your classmates in tournament play.
+            </p>
+
+            <h4>Submission</h4>
+
+            <p>
+               To enter into the nightly tournaments, your team's agents and all relevant functions must be defined in <a href='/docs/pacai/student/myTeam.html'>pacai.student.myTeam</a>.
+            </p>
+            <p>
+               Every team must have a unique name, consisting only of ASCII letters and digits (any other characters, including whitespace, will be ignored).
+               Fill in your team name and list all team members in <a href= "https://forms.gle/SSoWhRj526bkniKw9">this form</a>.
+               Please access this document using your UCSC account as this is intended to be shared with only with valid UCSC accounts.
+               As shown in the Google doc, you will state your chosen team name, motto, and members.
+               In every submission to the autograder (linked below), you must include a file <code>name.txt</code> in which you will write only your unique team name.
+               <strong>Do not</strong> include other extraneous text in this file.
+               Only your team name will be displayed to the rest of the class.
+            </p>
+            <p>
+               This assignment should be submitted with the filename <strong><code>solution.zip</code></strong> <a href="/p4/index.html">HERE</a>.
+               Please use the command line <code>zip</code> tool to make sure your submission gets zipped correctly:
+            </p>
+            <code>
+               zip -j solution.zip pacai/student/myTeam.py pacai/student/name.txt
+            </code>
+            <p>
+               For these submissions, unzip should directly yield the source files and <strong>not</strong> a directory named "solution", "pN", or "pacai".
+               Note that this is counter to standard conventions when sending a zip file to a human, but easier for the autograder.
+               Since there isn't a "correct" solution to this assignment,
+               the autograder will report whether your agent beat the provided <a href='/docs/pacai/core/baselineTeam.html'>pacai.core.baselineTeam</a> agent within the contest rules.
+            </p>
+            <p>
+               For your <strong>final submission</strong>, include a file named <code>[your team name].pdf</code> that contains your write-up.
+               Please make sure that this document contains the names of all members of your team clearly stated at the top.
+            </p>
+
+            <h4>Evaluation</h4>
+            <p>
+               The contest will count as your final project, worth 40 points.
+               20 of these points will be the result of a written report you submit with your agent describing your approach.
+               The remaining 20 points will be awarded based on your performance in the final contest.
+            <p>
+               The written report should be 2-3 pages <strong>(no more)</strong>.
+               Through this report we expect you to demonstrate your ability to constructively solve AI problems by identifying:
+            </p>
+            <ul>
+               <li>The fundamental problems you are trying to solve.</li>
+               <li>How you modeled these problems.</li>
+               <li>Your representations of the problems.</li>
+               <li>The computational strategy used to solve each problem.</li>
+               <li>Algorithmic choices you made in your implementation.</li>
+               <li>Any obstacles you encountered while solving the problem.</li>
+               <li>Evaluation of your agent.</li>
+               <li>Lessons learned during the project.</li>
+            </ul>
+
+            <p>
+               A portion of your grade will be based on performance against the following staff agents:
+            </p>
+             <ul>
+                 <li> staff_baseline</li>
+                <li> staff_SlugTrap</li>
+                <li> staff_SomeSlug</li>
+                <li> staff_SlugBrain</li>
+                 <br>
+                 <li> If you lose to the dummy agent, zero points will be awarded for this section.</li>
+                <li>10 points for beating the staff_baseline agent.
+                <li>+5 points for beating one additional staff agent. (15 points for beating the staff_baseline agent and one of the additional staff agents).</li>
+                <li>+5 points for beating 2 staff agents (in addition to staff_baseline), OR.
+                 <ul>
+                     <li>+1 points for being in the top 50%.</li>
+                     <li>+2 points for being in the top 40%.</li>
+                     <li>+3 points for being in the top 30%.</li>
+                     <li>+4 points for being in the top 20%.</li>
+                     <li>+5 points for being in the top 10%.</li>
+                 </ul>
+                 </li>
+                 <li>+1 Extra Credit point for being the number one team.</li>
+            </ul>
+
+            <p>
+               How we compute the percentiles based on the ranking of the teams is described below in <a href='#contest-details'>Contest Details</a>.
+            </p>
+
+            <h4>Academic Dishonesty</h4>
+            <p>
+               We will be checking your code against other submissions in the class for logical redundancy.
+               If you copy someone else's code and submit it with minor changes, we will know.
+               These cheat detectors are quite hard to fool, so please don't try.
+               We trust you all to submit your own work only; <em>please</em> don't let us down.
+               If you do, we will pursue the strongest consequences available to us.
+            </p>
+
+            <h4>Getting Help</h4>
+            <p>
+               You are not alone!
+               If you find yourself stuck on something, contact the course staff for help.
+               Office hours, section, and Piazza are there for your support; please use them.
+               If you can't make our office hours, let us know and we will schedule more.
+               We want these projects to be rewarding and instructional, not frustrating and demoralizing.
+               But, we don't know when or how to help unless you ask.
+               One more piece of advice: if you don't know what a variable does or what kind of values it takes, print it out.
+            </p>
+
+            <h4>Running Code on Your Local Machine</h4>
+            <p>
+               In order to run the Pac-Man code on your local machine, <a href="https://tkdocs.com/tutorial/install.html">you must have Tk</a>, python >= 3.5, and pip installed.
+               Finally you want to install Pacai's package requirements listed in the <code>requirements.txt</code> file in the project's root directory:
+           </p>
+            <code>
+                pip3 install --user -r requirements.txt
+            </code>
+            <p>
+             For the next set of instructions, simply follow the steps listed below depending on your OS.
+            </p>
+
+            <h5>Linux</h5>
+            <p>
+               Install the Python binding for the Tk package, usually called something like <code>python3-tk</code>.
+               On Ubuntu you can use the following command:
+            </p>
+            <code>
+                sudo apt-get install python3-tk
+            </code>
+
+            <h5>Mac OS X</h5>
+            <p>
+               The required additional components (Tk and Python3 Tk bindings) are typically bundled with the Python3 package.
+            </p>
+
+            <h5>Windows</h5>
+            <p>
+               There are two separate methods for getting Pacai to work on Windows.
+               One is using the <a href='https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux'>Windows Subsystem for Linux</a> (WSL)
+               and the other is using <a href='https://gitforwindows.org/'>Git Bash</a>.
+               We will first talk about the WSL.
+            </p>
+            <h6>Windows Subsystem for Linux (WSL)</h6>
+            <p>
+               1. First, make sure you have the WSL installed on your local machine.
+               You can follow <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">this installation guide</a>.
+               You are allowed to pick any distribution, however we will be providing specific instructions for Ubuntu.
+               Other distributions will have similar steps.
+            </p>
+            <p>
+               2. Next, you want to make sure you have an X server running.
+               This allows the WSL to launch graphical applications.
+               We recommend using VcXsrv and following <a href="https://codeyarns.com/2019/05/11/vcxsrv-x-server-for-windows/">this installation guide</a>.
+               Make sure your X server is running whenever you want to run Pacai with graphics.
+            </p>
+            <p>
+               3. Now launch your WSL.
+               You can do this by typing "Windows Subsystem for Linux" in your start menu and clicking on the icon.
+            </p>
+            <p>
+               4. Next, you must configure your bash inside the WSL to use the X server from step #2.
+               To do this, use the following commands:
+            </p>
+            <code>
+                echo "export DISPLAY=localhost:0.0" >> ~/.bashrc
+                <br />
+                source ~/.bashrc
+            </code>
+            <p>
+               This sets your <code>DISPLAY</code> environmental variable in your bashrc
+               and then reloads your bashrc.
+            </p>
+
+            <p>
+               5. Let's make sure you have all the required packages:
+            </p>
+            <code>
+                sudo apt-get update
+                <br />
+                sudo apt-get install python3 python3-pip python3-tk x11-apps
+            </code>
+
+            <p>
+               7. In order to test that you have the graphics set up correctly,
+               you can use the <code>xeyes</code> command:
+            </p>
+            <code>
+                xeyes
+            </code>
+            <p>
+               8. Finally, clone the Pacai repository and install Pacai's package requirements:
+            </p>
+            <code>
+                pip3 install --user -r requirements.txt
+            </code>
+            <h6>Git Bash</h6>
+            <p>
+                1. Install <a href='https://gitforwindows.org/'>Git Bash</a>, you can follow <a href=https://www.techoism.com/how-to-install-git-bash-on-windows/>this installation guide</a>.
+            </p>
+            <p>
+                2. Now launch your Git Bash.
+                You can do this by typing "Git Bash" in your start menu and clicking on the icon.
+            </p>
+            <p>
+                3. If you are using a newer version of Windows,
+                there may be a conflict with the version of Python 3 installed from the Windows Store.
+                This conflict will cause a permission denied error when running Python 3 in Git Bash.
+                To avoid this error, you will want to disable the Windows Store version of Python.
+                To do this, type "manage app execution aliases" into your start menu and click on the icon.
+                Within the app execution aliases, disable both <code>python.exe</code> and <code>python3.exe</code>.
+            </p>
+            <p>
+                4. You may also want to create an alias for <code>python3</code>.
+                All the commands in the instructions use <code>python3</code>,
+                but Git Bash just refers to the executable as <code>python</code>.
+                To create the alias, you can use the following commands:
+            </p>
+            <code>
+                echo "alias python3=python" >> ~/.bash_profile
+                <br />
+                source ~/.bash_profile
+            </code>
+            <p>
+                5. Finally, clone the Pacai repository and install Pacai's package requirements:
+            </p>
+            <code>
+                pip3 install --user -r requirements.txt
+            </code>
+         </div>
+
+         <div class='section'>
+            <h3>Pacman Capture the Flag</h3>
+
+            <p>
+               <strong>Layout:</strong>
+               The Pacman map is now divided into two halves: red (left) and blue (right).
+               Red agents (which all have even indices) must defend the red food while trying to eat the blue food.
+               When on the red side, a red agent is a ghost.
+               When crossing into enemy territory, the agent becomes a Pacman.
+            </p>
+
+            <p>
+               <strong>Scoring:</strong>
+               When a Pacman eats a food dot, the food is permanently removed and one point is scored for that Pacman's team.
+               Red team scores are positive, while Blue team scores are negative.
+            </p>
+
+            <p>
+               <strong>Eating Pacman:</strong>
+               When a Pacman is eaten by an opposing ghost, the Pacman returns to its starting position (as a ghost).
+               No points are awarded for eating an opponent.
+            </p>
+
+            <p>
+               <strong>Power capsules:</strong>
+               If Pacman eats a power capsule, agents on the opposing team become "scared" for the next 40 moves, or until they are eaten and respawn, whichever comes sooner.
+               Agents that are "scared" are susceptible while in the form of ghosts (i.e. while on their own team's side) to being eaten by Pacman.
+               Specifically, if Pacman collides with a "scared" ghost, Pacman is unaffected and the ghost respawns at its starting position (no longer in the "scared" state).
+            </p>
+
+            <p>
+               <strong>Winning:</strong>
+               A game ends when one team eats all but two of the opponents' dots.
+               Games are also limited to 1200 agent moves (300 moves per each of the four agents).
+               If this move limit is reached, whichever team has eaten the most food wins.
+               If the score is zero (i.e., tied) this is recorded as a tie game.
+            </p>
+
+            <p>
+               <strong>Computation Time:</strong>
+               We will run your submissions on a VM server.
+               Each move which does not return within one second will incur a warning.
+               After three warnings, or any single move taking more than 3 seconds, the game is forfeit.
+               There will be an initial start-up allowance of 15 seconds
+               (use the <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.registerInitialState'>pacai.agents.capture.capture.CaptureAgent.registerInitialState</a> function).
+               If you agent times out or otherwise throws an exception, an error message will be present in the log files, which you can download from the results page (see below).
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Getting Started</h3>
+
+            <p>
+               By default, you can run a game with the simple <a href='/docs/pacai/core/baselineTeam.html'>pacai.core.baselineTeam</a> that the staff has provided:
+            </p>
+            <code>
+                python3 -m pacai.bin.capture
+            </code>
+
+            <p>
+               A wealth of options are available to you:
+            </p>
+            <code>
+                python3 -m pacai.bin.capture --help
+            </code>
+
+            <p>
+               There are four slots for agents, where agents 0 and 2 are always on the red team, and agents 1 and 3 are on the blue team.
+               See the section on designing agents for a description of the agents invoked above.
+               The only team that we provide is the <a href='/docs/pacai/core/baselineTeam.html'>baselineTeam</a>.
+               It is chosen by default as both the red and blue team, but as an example of how to choose teams:
+            </p>
+            <code>
+                python3 -m pacai.bin.capture --red pacai.core.baselineTeam --blue pacai.core.baselineTeam
+            </code>
+
+            <p>
+               which specifies that the red team <code>--red</code> and the blue team <code>--blue</code> are both created from <a href='/docs/pacai/core/baselineTeam.html'>baselineTeam</a>.
+               To control one of the four agents with the keyboard, pass the appropriate option:
+            </p>
+            <code>
+                python3 -m pacai.bin.capture --keys0
+            </code>
+
+            <p>
+               The arrow keys control your character, which will change from ghost to Pacman when crossing the center line.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Layouts</h3>
+            <p>
+               By default, all games are run on the <code>defaultcapture</code> layout.
+               To test your agent on other layouts, use the <code>--layout</code> option.
+               In particular, you can generate random layouts by specifying <code>RANDOM[seed]</code>.
+               For example, <code>--layout RANDOM140</code> will use a map randomly generated with seed 140.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Game Types</h3>
+            <p>
+               You can play the game in two ways: local games and nightly tournaments.
+               Local games (described above) allow you to test your agents against the baseline teams we provide and are intended for use in development.
+            </p>
+
+            <h4><a name="tournaments">Official Tournaments</h4>
+            <p>
+               The round-robin contests will be run using nightly automated tournaments on the course server, with the final tournament deciding the final contest outcomes.
+               See the submission instructions for details of how to enter a team into the tournaments.
+               Tournaments are run every night (refer to Canvas for nightly cut off) and include all teams that have been submitted
+               (either earlier in the day or on a previous day) as of the start of the tournament.
+               Currently, each team plays every other team 15 times in one match.
+            </p>
+            <p>
+               The layouts used in the tournament will be drawn from both the default layout (5 games),
+               as well as randomly generated layouts (10 games).
+               All layouts are symmetric, and the team that moves first is randomly chosen.
+               The results for a nightly tournaments can be found <a href="">here (TBA)</a>, where you can view overall rankings and scores for each match.
+               You can also download replays, the layouts used, and the stdout / stderr logs for each agent.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Designing Agents</h3>
+
+            <p>
+               Unlike the other projects, an agent now has the more complex job of trading off offense versus defense and effectively functioning as both a ghost and a Pacman in a team setting.
+               Furthermore, the limited information provided to your agent will likely necessitate some probabilistic tracking.
+               Finally, the added time limit of computation introduces new challenges.
+            </p>
+
+            <p>
+               <strong>Baseline Team:</strong>
+               To kickstart your agent design, we have provided you with a team of two baseline agents, defined in <a href='/docs/pacai/core/baselineTeam.html'>pacai.core.baselineTeam</a>.
+               They are both quite bad.
+               The <a href='/docs/pacai/agents/capture/offense.html#pacai.agents.capture.offense.OffensiveReflexAgent'>pacai.agents.capture.offense.OffensiveReflexAgent</a>
+               moves toward the closest food on the opposing side.
+               The <a href='/docs/pacai/agents/capture/defense.html#pacai.agents.capture.defense.DefensiveReflexAgent'>pacai.agents.capture.defense.DefensiveReflexAgent</a>
+               wanders around on its own side and tries to chase down invaders it happens to see.
+            </p>
+
+            <p>
+               <strong>File naming:</strong>
+               For the purpose of testing or running games locally, you can define a team of agents in any arbitrarily-named python3 file.
+               When submitting to the nightly tournament, however, you must define your agents in <a href='/docs/pacai/student/myTeam.html'>pacai.student.myTeam</a>
+               (and you must also create a <code>name.txt</code> file that specifies your team name).
+            </p>
+
+            <p>
+               <strong>Interface:</strong>
+               The <a href='/docs/pacai/bin/capture.html#pacai.bin.capture.CaptureGameState'>pacai.bin.capture.CaptureGameState</a> should look familiar,
+               but contains new methods like <a href='/docs/pacai/bin/capture.html#pacai.bin.capture.CaptureGameState.getRedFood'>getRedFood</a>,
+               which gets a grid of food on the red side (note that the grid is the size of the board, but is only true for cells on the red side with food).
+               Also, note that you can list a team's indices with <a href='/docs/pacai/bin/capture.html#pacai.bin.capture.CaptureGameState.getRedTeamIndices'>getRedTeamIndices</a>,
+               or test membership with <a href='/docs/pacai/bin/capture.html#pacai.bin.capture.CaptureGameState.isOnRedTeam'>isOnRedTeam</a>.
+            </p>
+
+            <p>
+               <strong>Distance Calculation:</strong>
+               To facilitate agent development,
+               we provide code in <a href='/docs/pacai/core/distanceCalculator.html#pacai.core.distanceCalculator.DistanceCalculator'>pacai.core.distanceCalculator</a> to supply shortest path maze distances.
+            </p>
+
+            <p>
+               <strong>Useful Methods:</strong>
+               To get started designing your own agent,
+               we recommend subclassing the <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent'>pacai.agents.capture.capture.CaptureAgent</a> class.
+               This provides access to several convenience methods.
+               Some of these useful methods are:
+               <ul>
+                     <li>
+                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getFood'>getFood</a>
+                     </li>
+                     <li>
+                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getFoodYouAreDefending'>getFoodYouAreDefending</a>
+                     </li>
+                     <li>
+                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getOpponents'>getOpponents</a>
+                     </li>
+                     <li>
+                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getTeam'>getTeam</a>
+                     </li>
+                     <li>
+                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getScore'>getScore</a>
+                     </li>
+                     <li>
+                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getMazeDistance'>getMazeDistance</a>
+                     </li>
+                     <li>
+                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getPreviousObservation'>getPreviousObservation</a>
+                     </li>
+                     <li>
+                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getCurrentObservation'>getCurrentObservation</a>
+                     </li>
+               </ul>
+            </p>
+
+            <p>
+               <strong>Restrictions:</strong>
+               You are free to design any agent you want.
+               However, you will need to respect the provided APIs if you want to participate in the tournaments.
+               Agents which compute during the opponent's turn will be disqualified.
+               In particular, any form of parallelism is disallowed, because we have found it very hard to ensure that no computation takes place on the opponent's turn.
+            </p>
+
+            <p>
+               <strong>Warning:</strong>
+               If one of your agents produces any stdout/stderr output during its games in the nightly tournaments, that output will be included in the contest results posted on the website.
+               Additionally, in some cases a stack trace may be shown among this output in the event that one of your agents throws an exception.
+               You should design your code in such a way that this does not expose any information that you wish to keep confidential.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3><a name='contest-details'>Contest Details</a></h3>
+
+            <p>
+               <strong>Teams:</strong>
+               We highly encourage you to work in teams of three people (no more than three).
+            </p>
+
+            <p>
+               <strong>Prizes:</strong>
+               The performance-based portion of your grade will be based on the placement received in <strong>the final</strong> round-robin tournament.
+               Placement is determined by the number of wins (if multiple teams have the same number of wins, it will be broken by the number of ties).
+            </p>
+
+            <p>
+               <strong>Extra Credit:</strong>
+               Winners in the mid-project checkpoint contest will receive points as follows: 3 points for 1st place, 2 points for 2nd place, and 1 point for third place.
+            </p>
+
+            <p>
+               <center>
+                  <img src="/p4/instructions/capture2.gif" width="400"/>
+                  <p></p>
+                  <p class='no-margin'>Have fun!</p>
+                  <p class='no-margin'>Please bring our attention to any problems you discover.</p>
+               </center>
+            </p>
+         </div>
+      </div>
+   </body>
+</html>

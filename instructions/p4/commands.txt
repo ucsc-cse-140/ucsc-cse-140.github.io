@@ -1,0 +1,6 @@
+python3 capture.py
+python3 capture.py --help
+python3 capture.py -r baselineTeam -b baselineTeam
+python3 capture.py --keys0
+python3 pacclient.py
+python3 pacclient.py -g MyCoolGame

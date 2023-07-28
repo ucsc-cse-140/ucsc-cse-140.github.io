@@ -1,0 +1,719 @@
+<html>
+   <head>
+      <title>P1: Search in Pac-Man</title>
+
+      <link rel='stylesheet' type='text/css' href='/common/css/normalize.css'>
+      <link rel='stylesheet' type='text/css' href='/common/css/cmps140.css'>
+   </head>
+
+   <body>
+      <div class='page'>
+         <h2>Project 1: Search in Pac-Man</h2>
+
+         <center>
+            <img alt="Pacman Maze" src="/p1/instructions/pacman-large-search.gif" width="400px" />
+            <p></p>
+            <p class='no-margin'>All those colored walls,</p>
+            <p class='no-margin'>Mazes give Pac-Man the blues,</p>
+            <p class='no-margin'>So teach them to search.</p>
+         </center>
+
+         <div class='section'>
+            <h3>Introduction</h3>
+
+            <p>
+               In this project, your Pac-Man agent will find paths through their maze world, both to reach a particular location and to collect food efficiently.
+               You will build general search algorithms and apply them to different Pac-Man scenarios.
+            </p>
+            <p>
+               The code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some you can glance over.
+            </p>
+
+            <h4>Submission</h4>
+            <p>
+               You will fill in portions of <code>pacai/student/search.py</code> and <code>pacai/student/searchAgents.py</code> during this assignment.
+               You should <strong>only</strong> submit these two files.
+            </p>
+            <p>
+               This assignment should be submitted with the filename <strong><code>solution.zip</code></strong> <a href="/p1/index.html">HERE</a>.
+               Please use the command line <code>zip</code> tool to make sure your submission gets zipped correctly:
+            </p>
+            <code>
+               zip -j solution.zip pacai/student/search.py pacai/student/searchAgents.py
+            </code>
+            <p>
+               For these submissions, unzip should directly yield the source files and <strong>not</strong> a directory named "solution", "pN", or "pacai".
+               Note that this is counter to standard conventions when sending a zip file to a human, but easier for the autograder.
+            </p>
+            <p>
+               After submitting, the autograder will grade your submission and report the result back to you.
+               Do not close the tab or you will not be able to see your score.
+               You can submit as many times as you want.
+               However, if we find you continually making tiny changes instead of testing locally, then we will deduct points.
+               Any attempt to trick the autograder is considered cheating.
+            </p>
+
+            <h4>Evaluation</h4>
+            <p>
+               Your code will be autograded for technical correctness.
+               Please <em>do not</em> change the names of any provided functions or classes within the code, or you will wreak havoc on the autograder (and points will be deducted!).
+               However, you are allowed to add any new classes or function that you need.
+               The correctness of your implementation -- not the autograder's output -- will be the final judge of your score.
+               If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.
+               This assignment is graded out of 25 points.
+               20 points will be for correctness as determined by the autograder and the point system given below for each problem.
+               5 points will be for style, which the autograder will also check.
+               You can run the style checker using the <code>run_style.sh</code> script in the project root.
+            </p>
+
+            <h4>Academic Dishonesty</h4>
+            <p>
+               We will be checking your code against other submissions in the class for logical redundancy.
+               If you copy someone else's code and submit it with minor changes, we will know.
+               These cheat detectors are quite hard to fool, so please don't try.
+               We trust you all to submit your own work only; <em>please</em> don't let us down.
+               If you do, we will pursue the strongest consequences available to us.
+            </p>
+
+            <h4>Getting Help</h4>
+            <p>
+               You are not alone!
+               If you find yourself stuck on something, contact the course staff for help.
+               Office hours, section, and Piazza are there for your support; please use them.
+               If you can't make our office hours, let us know and we will schedule more.
+               We want these projects to be rewarding and instructional, not frustrating and demoralizing.
+               But, we don't know when or how to help unless you ask.
+               One more piece of advice: if you don't know what a variable does or what kind of values it takes, print it out.
+            </p>
+
+            <h4>Running Code on Your Local Machine</h4>
+            <p>
+               In order to run the Pac-Man code on your local machine, <a href="https://tkdocs.com/tutorial/install.html">you must have Tk</a>, python >= 3.5, and pip installed.
+               Finally you want to install Pacai's package requirements listed in the <code>requirements.txt</code> file in the project's root directory:
+           </p>
+            <code>
+                pip3 install --user -r requirements.txt
+            </code>
+            <p>
+             For the next set of instructions, simply follow the steps listed below depending on your OS.
+            </p>
+
+            <h5>Linux</h5>
+            <p>
+               Install the Python binding for the Tk package, usually called something like <code>python3-tk</code>.
+               On Ubuntu you can use the following command:
+            </p>
+            <code>
+                sudo apt-get install python3-tk
+            </code>
+
+            <h5>Mac OS X</h5>
+            <p>
+               The required additional components (Tk and Python3 Tk bindings) are typically bundled with the Python3 package.
+            </p>
+
+            <h5>Windows</h5>
+            <p>
+               There are two separate methods for getting Pacai to work on Windows.
+               One is using the <a href='https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux'>Windows Subsystem for Linux</a> (WSL)
+               and the other is using <a href='https://gitforwindows.org/'>Git Bash</a>.
+               We will first talk about the WSL.
+            </p>
+            <h6>Windows Subsystem for Linux (WSL)</h6>
+            <p>
+               1. First, make sure you have the WSL installed on your local machine.
+               You can follow <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">this installation guide</a>.
+               You are allowed to pick any distribution, however we will be providing specific instructions for Ubuntu.
+               Other distributions will have similar steps.
+            </p>
+            <p>
+               2. Next, you want to make sure you have an X server running.
+               This allows the WSL to launch graphical applications.
+               We recommend using VcXsrv and following <a href="https://codeyarns.com/2019/05/11/vcxsrv-x-server-for-windows/">this installation guide</a>.
+               Make sure your X server is running whenever you want to run Pacai with graphics.
+            </p>
+            <p>
+               3. Now launch your WSL.
+               You can do this by typing "Windows Subsystem for Linux" in your start menu and clicking on the icon.
+            </p>
+            <p>
+               4. Next, you must configure your bash inside the WSL to use the X server from step #2.
+               To do this, use the following commands:
+            </p>
+            <code>
+                echo "export DISPLAY=localhost:0.0" >> ~/.bashrc
+                <br />
+                source ~/.bashrc
+            </code>
+            <p>
+               This sets your <code>DISPLAY</code> environmental variable in your bashrc
+               and then reloads your bashrc.
+            </p>
+
+            <p>
+               5. Let's make sure you have all the required packages:
+            </p>
+            <code>
+                sudo apt-get update
+                <br />
+                sudo apt-get install python3 python3-pip python3-tk x11-apps
+            </code>
+
+            <p>
+               7. In order to test that you have the graphics set up correctly,
+               you can use the <code>xeyes</code> command:
+            </p>
+            <code>
+                xeyes
+            </code>
+            <p>
+               8. Finally, clone the Pacai repository and install Pacai's package requirements:
+            </p>
+            <code>
+                pip3 install --user -r requirements.txt
+            </code>
+            <h6>Git Bash</h6>
+            <p>
+                1. Install <a href='https://gitforwindows.org/'>Git Bash</a>, you can follow <a href=https://www.techoism.com/how-to-install-git-bash-on-windows/>this installation guide</a>.
+            </p>
+            <p>
+                2. Now launch your Git Bash.
+                You can do this by typing "Git Bash" in your start menu and clicking on the icon.
+            </p>
+            <p>
+                3. If you are using a newer version of Windows,
+                there may be a conflict with the version of Python 3 installed from the Windows Store.
+                This conflict will cause a permission denied error when running Python 3 in Git Bash.
+                To avoid this error, you will want to disable the Windows Store version of Python.
+                To do this, type "manage app execution aliases" into your start menu and click on the icon.
+                Within the app execution aliases, disable both <code>python.exe</code> and <code>python3.exe</code>.
+            </p>
+            <p>
+                4. You may also want to create an alias for <code>python3</code>.
+                All the commands in the instructions use <code>python3</code>,
+                but Git Bash just refers to the executable as <code>python</code>.
+                To create the alias, you can use the following commands:
+            </p>
+            <code>
+                echo "alias python3=python" >> ~/.bash_profile
+                <br />
+                source ~/.bash_profile
+            </code>
+            <p>
+                5. Finally, clone the Pacai repository and install Pacai's package requirements:
+            </p>
+            <code>
+                pip3 install --user -r requirements.txt
+            </code>
+         </div>
+
+         <div class='section'>
+            <h3>Code</h3>
+
+            <p>
+               All the code for this (and later projects) is available in this repository: <a href='https://github.com/linqs/pacman'>https://github.com/linqs/pacman</a>.
+               The only files you should edit are located in the <a href='/docs/pacai/student/index.html'>pacai.student</a> package.
+               You should <strong>not</strong> use any third-party libraries, but the <a href='https://docs.python.org/3/library/'>Python Standard Library</a> is fair-game.
+               If a bug is found in the code (non-student) code, then the class will be alerted and you will have to pull the changes from this repository.
+            </p>
+
+            <p>
+               Any commands provided throughout these instructions are to be executed from the project root directory (the one with the <code>README.md</code> and <code>LICENSE.md</code> files).
+            </p>
+
+            <p>
+               There are many files that will be used throughout this quarter-long project.
+               Below are a few that you should focus on for this assignment.
+            </p>
+
+            <ul>
+               <li>
+                  Agents
+                  <ul>
+                     <li><a href='/docs/pacai/agents/base.html#pacai.agents.base.BaseAgent'>pacai.agents.base.BaseAgent</a></li>
+                     <li><a href='/docs/pacai/agents/search/base.html#pacai.agents.search.base.SearchAgent'>pacai.agents.search.base.SearchAgent</a></li>
+                  </ul>
+               </li>
+
+               <li>
+                  Actions / Directions
+                  <ul>
+                     <li><a href='/docs/pacai/core/directions.html#pacai.core.directions.Directions'>pacai.core.directions.Directions</a></li>
+                     <li><a href='/docs/pacai/core/actions.html#pacai.core.actions.Actions'>pacai.core.actions.Actions</a></li>
+                  </ul>
+               </li>
+
+               <li>
+                  States
+                  <ul>
+                     <li><a href='/docs/pacai/core/gamestate.html#pacai.core.gamestate.AbstractGameState'>pacai.core.gamestate.AbstractGamestate</a></li>
+                     <li><a href='/docs/pacai/bin/pacman.html#pacai.bin.pacman.PacmanGameState'>pacai.bin.pacman.PacmanGameState</a></li>
+                     <li><a href='/docs/pacai/core/agentstate.html#pacai.core.agentstate.AgentState'>pacai.core.agentstate.AgentState</a></li>
+                  </ul>
+               </li>
+
+               <li>
+                  Search
+                  <ul>
+                     <li><a href='/docs/pacai/core/search/problem.html#pacai.core.search.problem.SearchProblem'>pacai.core.search.problem.SearchProblem</a></li>
+                     <li><a href='/docs/pacai/core/search/position.html#pacai.core.search.position.PositionSearchProblem'>pacai.core.search.position.PositionSearchProblem</a></li>
+                     <li><a href='/docs/pacai/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>pacai.core.search.food.FoodSearchProblem</a></li>
+                  </ul>
+               </li>
+
+               <li>
+                  Data Structures
+                  <ul>
+                     <li><a href='/docs/pacai/util/stack.html'>pacai.util.stack</a></li>
+                     <li><a href='/docs/pacai/util/queue.html'>pacai.util.queue</a></li>
+                     <li><a href='/docs/pacai/util/priorityQueue.html'>pacai.util.prioirtyQueue</a></li>
+                  </ul>
+            </ul>
+         </div>
+
+         <div class='section'>
+            <h3>Welcome to Pac-Man</h3>
+
+            <p>
+               Welcome to Pac-Man's world, wakka wakka!
+            </p>
+            <p>
+               Let's jump right into the assignment and play a game with Pac-man!
+               To begin a game of Pac-Man, use the following command:
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman
+            </code>
+            <p>
+               Pac-Man lives in a shiny blue world of twisting corridors and tasty round treats.
+               Navigating this world efficiently will be Pac-Man's first step in mastering their domain.
+               Play a quick game and hopefully... Pac-Man emerges victorious!
+               Lets try and continue this trend of victories throughout the rest of the quarter.
+            </p>
+            <p>
+            <strong>Note:</strong> If you are having errors regarding python-tk, use your system's package manager to install <i>python-tk</i>.
+               <a href="https://tkdocs.com/tutorial/install.html">Here</a> is a link to more detailed instructions, if needed.
+            </p>
+
+            <h4>First Agent</h4>
+            <p>
+               Since we won't always have direct control over Pac-Man, lets start working with agents that will control them for us.
+               The simplest agent, <a href='/docs/pacai/agents/gowest.html#pacai.agents.gowest.GoWestAgent'>GoWestAgent</a>, which always goes West (a trivial reflex agent).
+               This agent can occasionally win:
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --layout testMaze --pacman GoWestAgent
+            </code>
+
+            <p>
+               But, things get ugly for this agent when turning is required:
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --layout tinyMaze --pacman GoWestAgent
+            </code>
+
+            <p>
+               If (when) Pac-Man gets stuck, you can exit the game by typing CTRL-c into your terminal.
+               Soon, your agent will solve not only <code>tinyMaze</code>, but any maze you want.
+               Note that <code>pacai.bin.pacman</code> supports a number of options that can each be expressed in a long way (e.g., <code>--layout</code>) or a short way (e.g., <code>-l</code>).
+               You can see the list of all options and their default values via:
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --help
+            </code>
+         </div>
+
+         <div class='section'>
+            <h3>Finding a Fixed Food Dot using Search Algorithms</h3>
+
+            <p>
+               The <a href='/docs/pacai/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a> class plans out a path through Pac-Man's world and then executes that path step-by-step.
+               The search algorithms for formulating a plan are not implemented -- this is your job.
+               Before you begin your implementation test that the <a href='/docs/pacai/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a> is working correctly by running:
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --layout tinyMaze --pacman SearchAgent --agent-args fn=pacai.core.search.search.tinyMazeSearch
+            </code>
+            <p>
+               The command above tells the <a href='/docs/pacai/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a>
+               to use <a href='/docs/pacai/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> as its search algorithm.
+               Pac-Man should navigate this maze successfully, however, will fail and even perform illegal actions on other layouts:
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --layout mediumMaze --pacman SearchAgent --agent-args fn=pacai.core.search.search.tinyMazeSearch
+            </code>
+            <p>
+               This is because <a href='/docs/pacai/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> is hand made, catered to tiny maze.
+               Therefore, <a href='/docs/pacai/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> is not a generic search function and will not work on every maze.
+            </p>
+            <p>
+               With that in mind, it's time to write full-fledged generic search functions to help Pac-Man plan routes!
+               Pseudocode for the search algorithms you'll write can be found in the lecture slides and textbook.
+               Remember that a search node must contain not only a state but also the information necessary to reconstruct the path (plan) which gets to that state.
+            </p>
+            <p>
+               <em>Important note:</em>
+               All of your search functions need to return a list of <em>actions</em> that will lead the agent from the start to the goal.
+               These actions all have to be legal moves (valid directions, no moving through walls).
+            </p>
+            <p>
+               <em>Hint:</em>
+               Each algorithm is very similar.
+               Algorithms for DFS, BFS, UCS, and A* differ only in the details of how the fringe is managed.
+               So, concentrate on getting DFS right and the rest should be relatively straightforward.
+               Indeed, one possible implementation requires only a single generic search method which is configured with an algorithm-specific queuing strategy.
+               (Your implementation need <em>not</em> be of this form to receive full credit).
+            </p>
+            <p>
+               <em>Hint:</em>
+               Make sure to check out the classes in
+               <a href='/docs/pacai/util/stack.html'>pacai.util.stack</a>, <a href='/docs/pacai/util/queue.html'>pacai.util.queue</a>,
+               and <a href='/docs/pacai/util/priorityQueue.html'>pacai.util.prioirtyQueue</a>.
+            </p>
+
+            <h4>Question 1 (2 points)</h4>
+            <p>
+               Implement the depth-first search (DFS) algorithm in <a href='/docs/pacai/student/search.html#pacai.student.search.depthFirstSearch'>pacai.student.search.depthFirstSearch</a>.
+               To make your algorithm <em>complete</em>, write the graph search version of DFS, which avoids expanding any already visited states (textbook section 3.5).
+            </p>
+            <p>
+               Your code should quickly find a solution for:
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout tinyMaze --pacman SearchAgent --agent-args fn=pacai.student.search.depthFirstSearch
+               </code>
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout mediumMaze --pacman SearchAgent --agent-args fn=pacai.student.search.depthFirstSearch
+               </code>
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout bigMaze --pacman SearchAgent --agent-args fn=pacai.student.search.depthFirstSearch
+               </code>
+            </p>
+            <p>
+               The Pac-Man board will show an overlay of the states explored, and the order in which they were explored (deeper red means earlier exploration).
+               Is the exploration order what you would have expected?
+               Does Pac-Man actually go to all the explored squares on their way to the goal?
+            </p>
+            <p>
+               <em>Hint:</em>
+               If you use a <a href='/docs/pacai/util/stack.html#pacai.util.stack.Stack'>Stack</a> as your data structure,
+               the solution found by your DFS algorithm for <code>mediumMaze</code> should have a length of 130.
+               If you are getting 244, you pushed the successors onto the fringe in the reverse order provided by <a href='/docs/pacai/core/actions.html#pacai.core.actions.Actions.getSuccessor'>Actions.getSuccessor()</a>.
+               Is this a least cost solution?
+               If not, think about what depth-first search is doing wrong.
+            </p>
+
+            <h4>Question 2 (1 point)</h4>
+            <p>
+               Implement the breadth-first search (BFS) algorithm in <a href='/docs/pacai/student/search.html#pacai.student.search.breadthFirstSearch'>pacai.student.search.breadthFirstSearch</a>.
+               Again, write a graph search algorithm that avoids expanding any already visited states.
+               Test your code the same way you did for depth-first search.
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout mediumMaze --pacman SearchAgent --agent-args fn=pacai.student.search.breadthFirstSearch
+               </code>
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout bigMaze --pacman SearchAgent --agent-args fn=pacai.student.search.breadthFirstSearch
+               </code>
+            </p>
+            <p>
+               Does BFS find a least cost solution?
+               If not, check your implementation.
+            </p>
+            <p>
+               <em>Hint:</em>
+               If Pac-Man moves too slowly for you, increase the fps with <code>--fps 50</code>.
+            </p>
+
+            <p>
+               <em>Note:</em> If you've written your search code generically, your code should work equally well for the eight-puzzle search problem (textbook section 3.2) without any changes.
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.eightpuzzle
+               </code>
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Varying the Cost Function</h3>
+
+            <p>
+               While BFS will find a fewest-actions path to the goal, we might want to find paths that are "best" in other senses.
+               Consider <code>mediumDottedMaze</code> and <code>mediumScaryMaze</code>.
+               By changing the cost function, we can encourage Pac-Man to find different paths.
+               For example, we can charge more for dangerous steps in ghost-ridden areas or less for steps in food-rich areas, and a rational Pac-Man agent should adjust its behavior in response.
+            </p>
+
+            <h4>Question 3 (2 points)</h4>
+            <p>
+               Implement the uniform-cost graph search algorithm in <a href='/docs/pacai/student/search.html#pacai.student.search.uniformCostSearch'>pacai.student.search.uniformCostSearch</a>.
+               You should now observe successful behavior in all three of the following layouts.
+               Here the agents are all UCS agents that differ only in the cost function they use (the agents and cost functions are written for you):
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout mediumMaze --pacman SearchAgent --agent-args fn=pacai.student.search.uniformCostSearch
+               </code>
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout mediumDottedMaze --pacman StayEastSearchAgent
+               </code>
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout mediumScaryMaze --pacman StayWestSearchAgent
+               </code>
+            </p>
+            <p>
+               <em>Note:</em>
+               Both <a href='/docs/pacai/agents/search/staydirection.html#pacai.agents.search.staydirection.StayEastSearchAgent'>StayEastSearchAgent</a>
+               and <a href='/docs/pacai/agents/search/staydirection.html#pacai.agents.search.staydirection.StayWestSearchAgent'>StayWestSearchAgent</a>
+               use <a href='/docs/pacai/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a>.
+            </p>
+            <p>
+               <em>Note:</em>
+               You should get low and high path costs for <a href='/docs/pacai/agents/search/staydirection.html#pacai.agents.search.staydirection.StayEastSearchAgent'>StayEastSearchAgent</a>
+               and <a href='/docs/pacai/agents/search/staydirection.html#pacai.agents.search.staydirection.StayWestSearchAgent'>StayWestSearchAgent</a> respectively.
+               This is due to their exponential cost functions.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>A* search</h3>
+
+            <h4>Question 4 (3 points)</h4>
+
+            <p>
+               Implement A* graph search algorithm in <a href='/docs/pacai/student/search.html#pacai.student.search.aStarSearch'>pacai.student.search.aStarSearch</a>.
+               A* takes a heuristic function as an argument.
+               The heuristics function take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information).
+               The <a href='/docs/pacai/core/search/heuristic.html#pacai.core.search.heuristic.null'>null heuristic</a> is a trivial example.
+            </p>
+            <p>
+               You can test your A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic.
+               This heursitic is implemented for you already as <a href='/docs/pacai/core/search/heuristic.html#pacai.core.search.heuristic.manhattan'>pacai.core.search.heuristic.manhattan</a>.
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --layout bigMaze --pacman SearchAgent --agent-args fn=pacai.student.search.aStarSearch,heuristic=pacai.core.search.heuristic.manhattan
+            </code>
+            <p>
+               You should see that A* finds the optimal solution slightly faster than uniform cost search.
+               From around 619 nodes expanded to 538 nodes (ties in priority may vary output).
+               What happens on <code>openMaze</code> for the various search strategies?
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Finding All the Corners</h3>
+
+            <p>
+               The real power of A* will only be apparent with a more challenging search problem.
+               Now, it's time to formulate a new problem and design a heuristic for it.
+            </p>
+            <p>
+               In <em>corner mazes</em>, there are four dots, one in each corner.
+               Our new search problem is to find the shortest path through the maze that touches all four corners (whether the maze actually has food there or not).
+               Note that for some mazes like <code>tinyCorners</code>, the shortest path does not always go to the closest food first!
+               <em>Hint</em>: the shortest path through <code>tinyCorners</code> takes 28 steps.
+            </p>
+            <h4>Question 5 (2 points)</h4>
+            <p>
+               Implement the search problem <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.CornersProblem'>pacai.student.searchAgents.CornersProblem</a>.
+               You will need to choose a <strong>state representation</strong> that encodes all the information necessary to detect whether all four corners have been reached.
+               Now, your search agent should solve:
+            </p>
+            <p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout tinyCorners --pacman SearchAgent --agent-args fn=pacai.student.search.breadthFirstSearch,prob=pacai.student.searchAgents.CornersProblem
+               </code>
+            <p>
+            </p>
+               <code>
+                  python3 -m pacai.bin.pacman --layout mediumCorners --pacman SearchAgent --agent-args fn=pacai.student.search.breadthFirstSearch,prob=pacai.student.searchAgents.CornersProblem
+               </code>
+            </p>
+            <p>
+               To receive full credit, you need to define an abstract state representation that <em>does not</em> encode irrelevant information (like the position of ghosts, where extra food is, etc.).
+               In particular, do not use a Pac-Man <a href='/docs/pacai/bin/pacman.html#pacai.bin.pacman.PacmanGameState'>PacmanGameState</a> as a search state.
+               Your code will be very, very slow if you do (and also wrong).
+            </p>
+            <p>
+               <em>Hint:</em>
+               The only parts of the game state you need to reference in your implementation are the starting Pac-Man position and the location of the four corners.
+            </p>
+            <p>
+               Our implementation of <a href='/docs/pacai/student/search.html#pacai.student.search.breadthFirstSearch'>breadthFirstSearch</a> expands just under 2000 search nodes on <code>mediumCorners</code>.
+               However, heuristics (used with A* search) can reduce the amount of searching required.
+            </p>
+
+            <h4>Question 6 (3 points)</h4>
+
+            <p>
+               Implement a heuristic for <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.CornersProblem'>CornersProblem</a>
+               in <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.cornersHeuristic'>pacai.student.searchAgents.cornersHeuristic</a>.
+               To test your code run:
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --layout mediumCorners --pacman AStarCornersAgent
+            </code>
+            <p>
+               <em>Note:</em>
+               <a href='/docs/pacai/agents/search/corners.html#pacai.agents.search.corners.AStarCornersAgent'>pacai.core.search.corners.AStarCornersAgent</a> is an agent with these command line arguments:
+            </p>
+            <code>
+               --pacman SearchAgent --agent-args fn=pacai.student.search.aStarSearch,prob=pacai.student.searchAgents.CornersProblem,heuristic=pacai.student.searchAgents.cornersHeuristic
+            </code>
+            <p>
+               Grading: inadmissible heuristics will get <em>no</em> credit.
+               <ul>
+                  <li>1 point for <strong>any</strong> admissible heuristic</li>
+                  <li>2 point for expanding fewer than <strong>1600</strong> nodes</li>
+                  <li>3 point for expanding fewer than <strong>1200</strong> nodes</li>
+                  <li>Expand fewer than <strong>800</strong>, and you're doing great!</li>
+               </ul>
+            </p>
+            <p>
+               <em>Hint:</em>
+               Remember, heuristic functions just return numbers, which, to be admissible, must be lower bounds on the actual shortest path cost to the nearest goal.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Eating All The Dots</h3>
+
+            <p>
+               Now we'll solve a hard search problem: eating all the Pac-Man food in as few steps as possible.
+               For this, a new search problem definition which formalizes the food-clearing problem can be found in <a href='/docs/pacai/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>pacai.core.search.food.FoodSearchProblem</a>.
+               A solution is defined to be a path that collects all of the food in the Pac-Man world.
+            </p>
+            <p>
+               For the present project, solutions do not take into account any ghosts or power pellets.
+               They only depend on the placement of walls, regular food, and Pac-Man.
+               Of course ghosts can ruin the execution of a solution!
+               We'll get to that in the next project :)
+               If you have written your general search methods correctly, <a href='/docs/pacai/student/search.html#pacai.student.search.aStarSearch'>aStarSearch</a> with a null heuristic (equivalent to uniform-cost search)
+               should quickly find an optimal solution to <code>testSearch</code> with no code change on your part (total cost of 7).
+            </p>
+
+            <code>
+               python3 -m pacai.bin.pacman --layout testSearch --pacman AStarFoodSearchAgent
+            </code>
+
+            <p>
+               <em>Note:</em>
+               <a href='/docs/pacai/agents/search/foodsearch.html#pacai.agents.search.foodsearch.AStarFoodSearchAgent'>AStarFoodSearchAgent</a> is an agent with these command line arguments:
+            </p>
+            <code>
+               --pacman SearchAgent --agent-args fn=pacai.student.search.aStarSearch,prob=pacai.core.search.food.FoodSearchProblem,heuristic=pacai.student.searchAgents.foodHeuristic
+            </code>
+
+            <p>
+               You should find that <a href='/docs/pacai/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a> starts to slow down even for the seemingly simple <code>tinySearch</code>.
+               As a reference, our implementation takes 1.2 seconds to find a path of length 27 after expanding 4847 search nodes.
+            </p>
+
+            <h4>Question 7 (5 points)</h4>
+            <p>
+               Implement a heuristic for <a href='/docs/pacai/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>FoodSearchProblem</a>
+               in <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.foodHeuristic'>pacai.student.searchAgents.foodHeuristic</a>.
+               Try your agent on <code>trickySearch</code>:
+            </p>
+
+            <code>
+               python3 -m pacai.bin.pacman --layout trickySearch --pacman AStarFoodSearchAgent
+            </code>
+
+            <p>
+               Our <a href='/docs/pacai/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a> agent finds the optimal solution in about 8.5 seconds, exploring over 16,000 nodes.
+               If your heuristic is admissible, you will receive the following score, depending on how many nodes your heuristic expands.
+            </p>
+            <p>
+               Grading: inadmissible heuristics will get <em>no</em> credit.
+               <ul>
+                  <li>1 point for expanding fewer than <strong>15000</strong> nodes (very easy)</li>
+                  <li>2 point for expanding fewer than <strong>12000</strong> nodes (easy)</li>
+                  <li>3 point for expanding fewer than <strong>9000</strong> nodes (medium)</li>
+                  <li>4 point for expanding fewer than <strong>7000</strong> nodes (hard)</li>
+               </ul>
+            </p>
+            <p>
+               Think through admissibility carefully, as inadmissible heuristics may manage to produce fast searches and even optimal paths.
+               Can you solve <code>mediumSearch</code> in a short time?
+               If so, we're either very, very impressed, or your heuristic is inadmissible.
+            </p>
+
+            <h4>Admissibility vs. Consistency?</h4>
+            <p>
+               Technically, admissibility isn't enough to guarantee correctness in graph search -- you need the stronger condition of consistency.
+               For a heuristic to be consistent, it must hold that if an action has cost <em>c</em>, then taking that action can only cause a drop in heuristic of at most <em>c</em>.
+               If your heuristic is not only admissible, but also consistent, you will receive <strong>1 additional point</strong> for this question.
+            </p>
+            <p>
+               Almost always, admissible heuristics are also consistent, especially if they are derived from problem relaxations.
+               Therefore, it is probably easiest to start out by brainstorming admissible heuristics.
+               Once you have an admissible heuristic that works well, you can check whether it is indeed consistent, too.
+               Inconsistency can sometimes be detected by verifying that your returned solutions are non-decreasing in f-value.
+               Moreover, if UCS and A* ever return paths of different lengths, your heuristic is inconsistent.
+               This stuff is tricky.
+               If you need help, don't hesitate to ask the TAs!
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Suboptimal Search</h3>
+
+            <p>
+               Sometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard.
+               In these cases, we'd still like to find a reasonably good path, quickly.
+               In this section, you'll write an agent that always eats the closest dot.
+            </p>
+
+            <h4>Question 8 (2 points)</h4>
+            <p>
+               Implement the function <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot'>pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot</a>.
+               Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --layout bigSearch --pacman ClosestDotSearchAgent
+            </code>
+            <p>
+               <em>Hint:</em>
+               The quickest way to complete <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot'>findPathToClosestDot</a>
+               is to complete <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.AnyFoodSearchProblem'>pacai.student.searchAgents.AnyFoodSearchProblem</a>.
+               Then, solve that problem with an appropriate search function.
+               The solution should be very short!
+            </p>
+            <p>
+               Your <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent'>ClosestDotSearchAgent</a> won't always find the shortest possible path through the maze.
+               If you don't understand why, ask the TAs!
+               In fact, you can do better if you try.
+            </p>
+
+            <h4>Mini Contest (2 points extra credit)</h4>
+            <p>
+               Implement an <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.ApproximateSearchAgent'>pacai.student.searchAgents.ApproximateSearchAgent</a> that finds a short path through <code>bigSearch</code>.
+               The three teams that find the shortest path using no more than 30 seconds of computation will receive extra credit points.
+            </p>
+            <code>
+               python3 -m pacai.bin.pacman --layout bigSearch --pacman ApproximateSearchAgent --null-graphics
+            </code>
+            <p>
+               We will time your agent using the no graphics option <code>--null-graphics</code>, and it must complete in under 30 seconds on our grading machines.
+               Please describe what your agent is doing in a comment!
+               We reserve the right to give additional extra credit to creative solutions, even if they don't work that well.
+               Don't hard-code the path, of course.
+            </p>
+         </div>
+      </div>
+   </body>
+</html>

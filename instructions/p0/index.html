@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <title>P0: Unix/Python Tutorial</title>
+
+      <link rel='stylesheet' type='text/css' href='/common/css/normalize.css'>
+      <link rel='stylesheet' type='text/css' href='/common/css/cmps140.css'>
+   </head>
+
+   <body>
+      <div class='page'>
+         <h2>Project 0: Unix/Python Tutorial</h2>
+
+         <div class='section'>
+            <h3><a name='introduction'>Introduction</a></h3>
+            <p>
+               This project will cover the basics of working in the Unix environment and a small introduction to Python.
+               In this course, we will only be using <strong>Python 3</strong>.
+               You may remotely connect to the <a href='https://support.soe.ucsc.edu/linux-servers'>SOE servers</a> or use lab workstations as well as your own computer.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Submission</h3>
+            <p>
+               To get you familiarized with the automatic grading system, we will ask you to submit answers for problems 1 (<a href="#buyLotsOfFruit"><code>buyLotsOfFruit</code></a>) and 2 (<a href="#shopSmart"><code>shopSmart</code></a>).
+               The project may seem simple, but this is a good thing: learning the basics of Python now will save you many headaches later in the course.
+               Take this easy project as an opportunity to <strong>learn Python</strong>.
+            </p>
+            <p>
+               Here is the code provided for this assignment: <a href="/p0/instructions/p0.zip">p0.zip</a>.
+            </p>
+            <p>
+               This assignment should be submitted with the filename <strong><code>solution.zip</code></strong> <a href="/p0/index.html">HERE</a>.
+               Please use the command line <code>zip</code> tool to make sure your submission gets zipped correctly:
+            </p>
+            <code>
+               zip solution.zip buyLotsOfFruit.py shopSmart.py
+            </code>
+            <p>
+               For these submissions, unzip should directly yield the source files and <strong>not</strong> a directory named "solution" or "pN".
+               Note that this is counter to standard conventions when sending a zip file to a human, but easier for the autograder.
+            </p>
+            <p>
+               After submissions, the autograder will grade your submission and report the result back to you.
+               Do not close the tab or you will not be able to see your score.
+               You can submit as many times as you want.
+               However, if we find you continually making tiny changes instead of testing locally, then we will deduct points.
+               Any attempts to trick the autograder is considered cheating.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Resources</h3>
+            <p>
+               There are many great resources online for learning Unix and Python.
+            </p>
+
+            <h4>UNIX</h4>
+            <ul>
+               <li><a href='http://www.ee.surrey.ac.uk/Teaching/Unix/'>UNIX Tutorial for Beginners</a></li>
+               <li><a href='https://people.ischool.berkeley.edu/~kevin/unix-tutorial/toc.html'>UNIX Tutorial</a></li>
+            </ul>
+
+            <h4>Text Editors</h4>
+            <p>
+               Being familiar with a powerful text editor can make a surprising difference.
+               In the programming world, there are two text editors that have stayed on the top for over 30 years.
+               Vi (Vim) and Emacs are two very powerful terminal-based text editors (although both have GUI versions).
+               The arguments about which one is better have been going on for decades and will never be resolved.
+               In truth, they are both amazing editors and will greatly increase your productivity once you learn how to use them.
+               There are also many online resources for each:
+            </p>
+            <ul>
+               <li>Vim
+                  <ul>
+                     <li><a href='https://www.openvim.com/'>Interactive Vim Tutorial</a></li>
+                     <li><a href='https://scotch.io/tutorials/getting-started-with-vim-an-interactive-guide'>Visual Vim Tutorial</a></li>
+                     <li><a href='http://derekwyatt.org/vim/tutorials/'>Vim Videos</a></li>
+                     <li><a href='https://vim-adventures.com/'>Game-based Vim Tutorial</a></li>
+                  </ul>
+               </li>
+               <li>Emacs
+                  <ul>
+                     <li><a href='http://ergoemacs.org/emacs/emacs.html'>Practical Emacs Tutorial</a></li>
+                     <li><a href='https://www.gnu.org/software/emacs/tour/'>Another Emacs Tutorial</a></li>
+                     <li><a href='http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/'>Visual Emacs Tutorial</a></li>
+                  </ul>
+               </li>
+            </ul>
+
+            <h4>Git</h4>
+            <p>
+               Git is currently the most popular <a href='https://en.wikipedia.org/wiki/Version_control'>Version Control System</a>, period.
+               Learning how to use source control is a must for all programmers in today's world.
+               We <strong>strongly</strong> encourage all students to use source control for their coursework.
+               Of course, keep your repositories private so other students cannot see.
+               Here are several resources for learning how to use git:
+            </p>
+            <ul>
+               <li><a href='https://git-scm.com/book/en/v2'>The full Pro Git book</a></li>
+               <li><a href='https://eagain.net/articles/git-for-computer-scientists/'>Git for Computer Scientists</a></li>
+               <li><a href='http://marklodato.github.io/visual-git-guide/index-en.html?no-svg'>A Visual Git Reference</a></li>
+               <li><a href='https://danielmiessler.com/study/git/'>A git Primer</a></li>
+            </ul>
+
+            <h4>Python</h4>
+            <p>
+               Python is one of the <a href='https://insights.stackoverflow.com/survey/2018/#technology-programming-scripting-and-markup-languages'>most popular</a> programming languages.
+               So, there are many online resource available for it.
+               Here are just a few useful resources:
+            </p>
+            <ul>
+               <li><a href='https://greenteapress.com/wp/think-python-2e/'>The full "Think Python" Book</a></li>
+               <li><a href='https://docs.python.org/3/tutorial/index.html'>Official Tutorial</a></li>
+               <li><a href='https://wiki.python.org/moin/BeginnersGuide'>Official Beginning Guide</a></li>
+               <li><a href='https://docs.python-guide.org/index.html'>Hitchhiker's Guide to Python</a></li>
+               <li><a href='https://docs.python.org/3/tutorial/datastructures.html#'>Data Structures in Python (Official)</a></li>
+               <li><a href='https://python.swaroopch.com/data_structures.html'>Data Structures in Python (Unofficial)</a></li>
+               <li><a href='https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions'>List Comprehensions in Python</a></li>
+               <li><a href='https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions'>Lambda Functions in Python</a></li>
+            </ul>
+         </div>
+
+         <div class='section'>
+            <h3>Assignment</h3>
+            <p>
+               For this assignment, you will be filling in two methods in two different Python files.
+            </p>
+
+            <h3><a name="buyLotsOfFruit">Problem 1: Buy Lost Of Fruit</a></h3>
+            <p>
+               Implement the <code>buyLotsOfFruit</code> function in the <code>buyLotsOfFruit.py</code> file.
+               This function will take a list of <code>(fruit, weight)</code> tuples and returns the cost of your list.
+               If there is some fruit in the list which doesn't appear in <code>FRUIT_PRICES</code>, your function should print an error message and return <code>None</code> (which is like <code>null</code> in C and Java).
+               Please do not change the <code>FRUIT_PRICES</code> dict.
+            </p>
+
+            <h3><a name="shopSmart">Problem 2: Shop Smart</a></h3>
+            <p>
+               Implement the <code>shopSmart</code> function in the <code>shopSmart.py</code> file.
+               This function takes two arguments:
+               <ol>
+                  <li><code>orderList</code> - Like the kind passed in to <code>buyLotsOfFruit()</code>.
+                  <li><code>fruitShops</code> - A list of <code>FruitShop</code>.
+               </ol>
+               This function returns the <code>FruitShop</code> where your total order costs the least amount.
+
+               Don't change the file name or variable names, please.
+               Note that we will provide the <code>shop.py</code> implementation as a "support" file, so you don't need to submit yours.
+            </p>
+         </div>
+
+         <div class='section'>
+            <h3>Frequent Errors</h3>
+            <p>Here are some common problems (and their solutions) that new Python students have:</p>
+
+            <div class='section'>
+               <h4>ImportError - .py</h4>
+               <p><strong>Problem:</strong></p>
+               <p>
+                  You get the following error when running your program:
+               </p>
+               <code>
+                  ImportError: No module named py
+               </code>
+
+               <p><strong>Solution:</strong></p>
+               <p>
+                  When using <code>import</code>, do not include the ".py" from the filename.
+                  For example, you should say: <code>import shop</code>
+                  <strong>not:</strong> <code>import shop<strong>.py</strong></code>.
+               </p>
+            </div>
+
+            <div class='section'>
+               <h4>NameError - not defined</h4>
+               <p><strong>Problem:</strong></p>
+               <p>
+                  You get the following error when running your program:
+               </p>
+               <code>
+                  NameError: name 'my_variable' is not defined
+               </code>
+
+               <p><strong>Solution:</strong></p>
+               <p>
+                  To access a member of a module, you have to type <code>module_name.member_name</code>, where <code>module_name</code> is the name of the <code>.py</code> file,
+                  and <code>member_name</code> is the name of the variable (or function) you are trying to access.
+               </p>
+            </div>
+
+            <div class='section'>
+               <h4>TypeError - dict not callable</h4>
+               <p><strong>Problem:</strong></p>
+               <p>
+                  You get the following error when running your program:
+               </p>
+               <code>
+                  TypeError: 'dict' object is not callable
+               </code>
+
+               <p><strong>Solution:</strong></p>
+               <p>
+                  Dictionary looks up are done using square brackets: [ and ].
+                  NOT parenthesis: ( and ).
+               </p>
+            </div>
+
+            <div class='section'>
+               <h4>ValueError - too many to unpack</h4>
+               <p><strong>Problem:</strong></p>
+               <p>
+                  You get the following error when running your program:
+               </p>
+               <code>
+                  ValueError: too many values to unpack
+               </code>
+
+               <p><strong>Solution:</strong></p>
+               <p>
+                  Make sure the number of variables you are assigning to a variable or in a <code>for</code> loop matches the number of elements in each item of the list.
+                  Similarly for working with tuples.
+               </p>
+               <p>
+               For example, if <code>pair</code> is a tuple of two elements (e.g. <code>pair = ('apple', 2.0)</code>) then the following code would cause the "too many values to unpack error":
+               </p>
+               <pre class='code'>
+pair = ('apple', 2.0)
+(a, b, c) = pair
+               </pre>
+
+               <p>
+                  Here is a problematic scenario involving a <code>for</code> loop:
+               </p>
+               <pre class='code'>
+pairList = [('apples', 2.00), ('oranges', 1.50), ('pears', 1.75)]
+for fruit, price, <strong>color</strong> in pairList:
+   print('%s fruit costs %f and is the color %s' % (fruit, price, color))
+               </pre>
+            </div>
+
+            <div class='section'>
+               <h4>AttributeError - list length</h4>
+               <p><strong>Problem:</strong></p>
+               <p>
+                  You get the following (or similar) error when running your program:
+               </p>
+               <code>
+                  AttributeError: 'list' object has no attribute 'length'
+               </code>
+
+               <p><strong>Solution:</strong></p>
+               <p>
+                  Finding length of lists is done using <code>len(myList)</code>.
+               </p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
