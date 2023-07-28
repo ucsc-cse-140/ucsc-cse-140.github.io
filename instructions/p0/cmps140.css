@@ -1,0 +1,102 @@
+h1, h2, h3, h4 {
+   margin: 0;
+   color: #325B9D;
+}
+
+h1 {
+   border-bottom: 4px solid #527BBD;
+   margin-bottom: 40px;
+}
+
+h2 {
+   border-bottom: 2px solid #527BBD;
+   margin-bottom: 20px;
+}
+
+h3 {
+   border-bottom: 1px solid #527BBD;
+   margin-bottom: 10px;
+}
+
+h6 {
+   font-size: 0.75em;
+   font-style: italic;
+}
+
+body {
+   font-size: 13px;
+   font-family: verdana, helvetica, arial, sans-serif;
+   color: #333333;
+}
+
+table {
+   border: 0;
+   margin-bottom: 5px;
+}
+
+th, td {
+   padding: 5px;
+}
+
+.no-margin {
+   margin: 0;
+}
+
+.no-padding {
+   padding: 0;
+}
+
+code, pre.code {
+   background-color: #eee;
+   border-radius: 3px;
+   font-family: courier, monospace;
+   padding: 0 3px;
+}
+
+pre.code {
+   padding: 10px;
+   padding-bottom: 0;
+}
+
+dl dt {
+   margin-top: 10px;
+}
+
+dl dt:first-child {
+   margin-top: 0;
+}
+
+.page {
+    padding: 20px;
+}
+
+.page .section {
+   margin-top: 20px;
+}
+
+.form-area {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.cmps-form {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+}
+
+.cmps-form label {
+   font-family: monospace;
+}
+
+.cmps-form p {
+    margin: 0;
+}
+
+.grader-output {
+    background-color: #bbb;
+    padding: 20px;
+    font-family: monospace;
+    font-size: large;
+    overflow-x: scroll;
+}
