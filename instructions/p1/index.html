@@ -212,7 +212,7 @@
 
             <p>
                All the code for this (and later projects) is available in this repository: <a href='https://github.com/linqs/pacman'>https://github.com/linqs/pacman</a>.
-               The only files you should edit are located in the <a href='/docs/pacai/student/index.html'>pacai.student</a> package.
+               The only files you should edit are located in the <a id = "studentLink" href='#'>pacai.student</a> package.
                You should <strong>not</strong> use any third-party libraries, but the <a href='https://docs.python.org/3/library/'>Python Standard Library</a> is fair-game.
                If a bug is found in the code (non-student) code, then the class will be alerted and you will have to pull the changes from this repository.
             </p>
@@ -715,5 +715,14 @@
             </p>
          </div>
       </div>
+
+      <script>
+         var baseURL = "https://ucsc-cse-140.github.io"
+         var studentPath = '/docs/pacai/student/index.html'
+
+         var combinedStudentURL = new URL(baseURL, studentPath).href;
+         var combinedStudentLinkElement = document.getElementById("studentLink");
+         combinedStudentLinkElement.href = combinedStudentURL;
+      </script>
    </body>
 </html>
