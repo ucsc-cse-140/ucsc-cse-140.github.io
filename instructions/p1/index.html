@@ -212,7 +212,7 @@
 
             <p>
                All the code for this (and later projects) is available in this repository: <a href='https://github.com/linqs/pacman'>https://github.com/linqs/pacman</a>.
-               The only files you should edit are located in the <a id = "studentLink" href='#'>pacai.student</a> package.
+               The only files you should edit are located in the <a id="studentLink" href='#'>pacai.student</a> package.
                You should <strong>not</strong> use any third-party libraries, but the <a href='https://docs.python.org/3/library/'>Python Standard Library</a> is fair-game.
                If a bug is found in the code (non-student) code, then the class will be alerted and you will have to pull the changes from this repository.
             </p>
@@ -230,16 +230,16 @@
                <li>
                   Agents
                   <ul>
-                     <li><a href='/docs/pacai/agents/base.html#pacai.agents.base.BaseAgent'>pacai.agents.base.BaseAgent</a></li>
-                     <li><a href='/docs/pacai/agents/search/base.html#pacai.agents.search.base.SearchAgent'>pacai.agents.search.base.SearchAgent</a></li>
+                     <li><a id="baseAgentLink" href='#'>pacai.agents.base.BaseAgent</a></li>
+                     <li><a id="searchAgentLink" href='#'>pacai.agents.search.base.SearchAgents</a></li>
                   </ul>
                </li>
 
                <li>
                   Actions / Directions
                   <ul>
-                     <li><a href='/docs/pacai/core/directions.html#pacai.core.directions.Directions'>pacai.core.directions.Directions</a></li>
-                     <li><a href='/docs/pacai/core/actions.html#pacai.core.actions.Actions'>pacai.core.actions.Actions</a></li>
+                     <li><a id="directionsLink" href='core/directions.html#pacai.core.directions.Directions'>pacai.core.directions.Directions</a></li>
+                     <li><a id="actionsLink" href='/core/actions.html#pacai.core.actions.Actions'>pacai.core.actions.Actions</a></li>
                   </ul>
                </li>
 
@@ -717,12 +717,29 @@
       </div>
 
       <script>
-         var baseURL = "https://ucsc-cse-140.github.io"
-         var studentPath = '/docs/pacai/student/index.html'
-
-         var combinedStudentURL = new URL(baseURL, studentPath).href;
+         var baseURL = "https://ucsc-cse-140.github.io";
+         
+         var studentPath = '/student/index.html';
+         var combinedStudentLink = new URL(studentPath, baseURL).href;
          var combinedStudentLinkElement = document.getElementById("studentLink");
-         combinedStudentLinkElement.href = combinedStudentURL;
+         combinedStudentLinkElement.href = combinedStudentLink;
+      
+         var baseAgentPath = '/agents/base.html';
+         var combinedBaseAgentLink = new URL(baseAgentPath, baseURL).href;
+         var combinedBaseAgentLinkElement = document.getElementById("baseAgentLink");
+         combinedBaseAgentLinkElement.href = combinedBaseAgentLink;
+
+         var searchAgentPath = '/agents/search/base.html#pacai.agents.search.base.SearchAgent';
+         var combinedSearchAgentLink = new URL(searchAgentPath, baseURL).href;
+         var combinedSearchAgentLinkElement = document.getElementById("searchAgentLink");
+         combinedSearchAgentLinkElement.href = combinedSearchAgentLink;
+      
+         var directionsPath = 'core/directions.html#pacai.core.directions.Directions';
+         var combinedDirectionsLink = new URL(directionsPath, baseURL).href;
+         var combinedDirectionsLinkElement = document.getElementById("directionsLink");
+         combinedDirectionsLinkElement.href = combinedDirectionsLink;
+      
+      
       </script>
    </body>
 </html>
