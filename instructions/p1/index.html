@@ -212,7 +212,7 @@
 
             <p>
                All the code for this (and later projects) is available in this repository: <a href='https://github.com/linqs/pacman'>https://github.com/linqs/pacman</a>.
-               The only files you should edit are located in the <a id="studentLink" href='#'>pacai.student</a> package.
+               The only files you should edit are located in the <a href='/student/index.html'>pacai.student</a> package.
                You should <strong>not</strong> use any third-party libraries, but the <a href='https://docs.python.org/3/library/'>Python Standard Library</a> is fair-game.
                If a bug is found in the code (non-student) code, then the class will be alerted and you will have to pull the changes from this repository.
             </p>
@@ -230,43 +230,43 @@
                <li>
                   Agents
                   <ul>
-                     <li><a id="baseAgentLink" href='#'>pacai.agents.base.BaseAgent</a></li>
-                     <li><a id="searchAgentLink" href='#'>pacai.agents.search.base.SearchAgents</a></li>
+                     <li><a href='/agents/base.html'>pacai.agents.base.BaseAgent</a></li>
+                     <li><a href='/agents/search/base.html#pacai.agents.search.base.SearchAgent'>pacai.agents.search.base.SearchAgents</a></li>
                   </ul>
                </li>
 
                <li>
                   Actions / Directions
                   <ul>
-                     <li><a id="directionsLink" href='core/directions.html#pacai.core.directions.Directions'>pacai.core.directions.Directions</a></li>
-                     <li><a id="actionsLink" href='/core/actions.html#pacai.core.actions.Actions'>pacai.core.actions.Actions</a></li>
+                     <li><a href='/core/directions.html#pacai.core.directions.Directions'>pacai.core.directions.Directions</a></li>
+                     <li><a href='/core/actions.html#pacai.core.actions.Actions'>pacai.core.actions.Actions</a></li>
                   </ul>
                </li>
 
                <li>
                   States
                   <ul>
-                     <li><a href='/docs/pacai/core/gamestate.html#pacai.core.gamestate.AbstractGameState'>pacai.core.gamestate.AbstractGamestate</a></li>
-                     <li><a href='/docs/pacai/bin/pacman.html#pacai.bin.pacman.PacmanGameState'>pacai.bin.pacman.PacmanGameState</a></li>
-                     <li><a href='/docs/pacai/core/agentstate.html#pacai.core.agentstate.AgentState'>pacai.core.agentstate.AgentState</a></li>
+                     <li><a href='/core/gamestate.html#pacai.core.gamestate.AbstractGameState'>pacai.core.gamestate.AbstractGamestate</a></li>
+                     <li><a href='/bin/pacman.html#pacai.bin.pacman.PacmanGameState'>pacai.bin.pacman.PacmanGameState</a></li>
+                     <li><a href='/core/agentstate.html#pacai.core.agentstate.AgentState'>pacai.core.agentstate.AgentState</a></li>
                   </ul>
                </li>
 
                <li>
                   Search
                   <ul>
-                     <li><a href='/docs/pacai/core/search/problem.html#pacai.core.search.problem.SearchProblem'>pacai.core.search.problem.SearchProblem</a></li>
-                     <li><a href='/docs/pacai/core/search/position.html#pacai.core.search.position.PositionSearchProblem'>pacai.core.search.position.PositionSearchProblem</a></li>
-                     <li><a href='/docs/pacai/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>pacai.core.search.food.FoodSearchProblem</a></li>
+                     <li><a href='/core/search/problem.html#pacai.core.search.problem.SearchProblem'>pacai.core.search.problem.SearchProblem</a></li>
+                     <li><a href='/core/search/position.html#pacai.core.search.position.PositionSearchProblem'>pacai.core.search.position.PositionSearchProblem</a></li>
+                     <li><a href='/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>pacai.core.search.food.FoodSearchProblem</a></li>
                   </ul>
                </li>
 
                <li>
                   Data Structures
                   <ul>
-                     <li><a href='/docs/pacai/util/stack.html'>pacai.util.stack</a></li>
-                     <li><a href='/docs/pacai/util/queue.html'>pacai.util.queue</a></li>
-                     <li><a href='/docs/pacai/util/priorityQueue.html'>pacai.util.prioirtyQueue</a></li>
+                     <li><a href='/util/stack.html'>pacai.util.stack</a></li>
+                     <li><a href='/util/queue.html'>pacai.util.queue</a></li>
+                     <li><a href='/util/priorityQueue.html'>pacai.util.prioirtyQueue</a></li>
                   </ul>
             </ul>
          </div>
@@ -298,7 +298,7 @@
             <h4>First Agent</h4>
             <p>
                Since we won't always have direct control over Pac-Man, lets start working with agents that will control them for us.
-               The simplest agent, <a href='/docs/pacai/agents/gowest.html#pacai.agents.gowest.GoWestAgent'>GoWestAgent</a>, which always goes West (a trivial reflex agent).
+               The simplest agent, <a href='/agents/gowest.html#pacai.agents.gowest.GoWestAgent'>GoWestAgent</a>, which always goes West (a trivial reflex agent).
                This agent can occasionally win:
             </p>
             <code>
@@ -327,24 +327,24 @@
             <h3>Finding a Fixed Food Dot using Search Algorithms</h3>
 
             <p>
-               The <a href='/docs/pacai/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a> class plans out a path through Pac-Man's world and then executes that path step-by-step.
+               The <a href='/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a> class plans out a path through Pac-Man's world and then executes that path step-by-step.
                The search algorithms for formulating a plan are not implemented -- this is your job.
-               Before you begin your implementation test that the <a href='/docs/pacai/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a> is working correctly by running:
+               Before you begin your implementation test that the <a href='/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a> is working correctly by running:
             </p>
             <code>
                python3 -m pacai.bin.pacman --layout tinyMaze --pacman SearchAgent --agent-args fn=pacai.core.search.search.tinyMazeSearch
             </code>
             <p>
-               The command above tells the <a href='/docs/pacai/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a>
-               to use <a href='/docs/pacai/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> as its search algorithm.
+               The command above tells the <a href='/agents/search/base.html#pacai.agents.search.base.SearchAgent'>SearchAgent</a>
+               to use <a href='/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> as its search algorithm.
                Pac-Man should navigate this maze successfully, however, will fail and even perform illegal actions on other layouts:
             </p>
             <code>
                python3 -m pacai.bin.pacman --layout mediumMaze --pacman SearchAgent --agent-args fn=pacai.core.search.search.tinyMazeSearch
             </code>
             <p>
-               This is because <a href='/docs/pacai/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> is hand made, catered to tiny maze.
-               Therefore, <a href='/docs/pacai/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> is not a generic search function and will not work on every maze.
+               This is because <a href='/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> is hand made, catered to tiny maze.
+               Therefore, <a href='/core/search/search.html#pacai.core.search.search.tinyMazeSearch'>tinyMazeSearch</a> is not a generic search function and will not work on every maze.
             </p>
             <p>
                With that in mind, it's time to write full-fledged generic search functions to help Pac-Man plan routes!
@@ -367,13 +367,13 @@
             <p>
                <em>Hint:</em>
                Make sure to check out the classes in
-               <a href='/docs/pacai/util/stack.html'>pacai.util.stack</a>, <a href='/docs/pacai/util/queue.html'>pacai.util.queue</a>,
-               and <a href='/docs/pacai/util/priorityQueue.html'>pacai.util.prioirtyQueue</a>.
+               <a href='/util/stack.html'>pacai.util.stack</a>, <a href='/util/queue.html'>pacai.util.queue</a>,
+               and <a href='/util/priorityQueue.html'>pacai.util.prioirtyQueue</a>.
             </p>
 
             <h4>Question 1 (2 points)</h4>
             <p>
-               Implement the depth-first search (DFS) algorithm in <a href='/docs/pacai/student/search.html#pacai.student.search.depthFirstSearch'>pacai.student.search.depthFirstSearch</a>.
+               Implement the depth-first search (DFS) algorithm in <a href='/student/search.html#pacai.student.search.depthFirstSearch'>pacai.student.search.depthFirstSearch</a>.
                To make your algorithm <em>complete</em>, write the graph search version of DFS, which avoids expanding any already visited states (textbook section 3.5).
             </p>
             <p>
@@ -401,16 +401,16 @@
             </p>
             <p>
                <em>Hint:</em>
-               If you use a <a href='/docs/pacai/util/stack.html#pacai.util.stack.Stack'>Stack</a> as your data structure,
+               If you use a <a href='/util/stack.html#pacai.util.stack.Stack'>Stack</a> as your data structure,
                the solution found by your DFS algorithm for <code>mediumMaze</code> should have a length of 130.
-               If you are getting 244, you pushed the successors onto the fringe in the reverse order provided by <a href='/docs/pacai/core/actions.html#pacai.core.actions.Actions.getSuccessor'>Actions.getSuccessor()</a>.
+               If you are getting 244, you pushed the successors onto the fringe in the reverse order provided by <a href='/core/actions.html#pacai.core.actions.Actions.getSuccessor'>Actions.getSuccessor()</a>.
                Is this a least cost solution?
                If not, think about what depth-first search is doing wrong.
             </p>
 
             <h4>Question 2 (1 point)</h4>
             <p>
-               Implement the breadth-first search (BFS) algorithm in <a href='/docs/pacai/student/search.html#pacai.student.search.breadthFirstSearch'>pacai.student.search.breadthFirstSearch</a>.
+               Implement the breadth-first search (BFS) algorithm in <a href='/student/search.html#pacai.student.search.breadthFirstSearch'>pacai.student.search.breadthFirstSearch</a>.
                Again, write a graph search algorithm that avoids expanding any already visited states.
                Test your code the same way you did for depth-first search.
             </p>
@@ -455,7 +455,7 @@
 
             <h4>Question 3 (2 points)</h4>
             <p>
-               Implement the uniform-cost graph search algorithm in <a href='/docs/pacai/student/search.html#pacai.student.search.uniformCostSearch'>pacai.student.search.uniformCostSearch</a>.
+               Implement the uniform-cost graph search algorithm in <a href='/student/search.html#pacai.student.search.uniformCostSearch'>pacai.student.search.uniformCostSearch</a>.
                You should now observe successful behavior in all three of the following layouts.
                Here the agents are all UCS agents that differ only in the cost function they use (the agents and cost functions are written for you):
             </p>
@@ -476,14 +476,14 @@
             </p>
             <p>
                <em>Note:</em>
-               Both <a href='/docs/pacai/agents/search/staydirection.html#pacai.agents.search.staydirection.StayEastSearchAgent'>StayEastSearchAgent</a>
-               and <a href='/docs/pacai/agents/search/staydirection.html#pacai.agents.search.staydirection.StayWestSearchAgent'>StayWestSearchAgent</a>
-               use <a href='/docs/pacai/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a>.
+               Both <a href='/agents/search/staydirection.html#pacai.agents.search.staydirection.StayEastSearchAgent'>StayEastSearchAgent</a>
+               and <a href='/agents/search/staydirection.html#pacai.agents.search.staydirection.StayWestSearchAgent'>StayWestSearchAgent</a>
+               use <a href='/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a>.
             </p>
             <p>
                <em>Note:</em>
-               You should get low and high path costs for <a href='/docs/pacai/agents/search/staydirection.html#pacai.agents.search.staydirection.StayEastSearchAgent'>StayEastSearchAgent</a>
-               and <a href='/docs/pacai/agents/search/staydirection.html#pacai.agents.search.staydirection.StayWestSearchAgent'>StayWestSearchAgent</a> respectively.
+               You should get low and high path costs for <a href='/agents/search/staydirection.html#pacai.agents.search.staydirection.StayEastSearchAgent'>StayEastSearchAgent</a>
+               and <a href='/agents/search/staydirection.html#pacai.agents.search.staydirection.StayWestSearchAgent'>StayWestSearchAgent</a> respectively.
                This is due to their exponential cost functions.
             </p>
          </div>
@@ -494,14 +494,14 @@
             <h4>Question 4 (3 points)</h4>
 
             <p>
-               Implement A* graph search algorithm in <a href='/docs/pacai/student/search.html#pacai.student.search.aStarSearch'>pacai.student.search.aStarSearch</a>.
+               Implement A* graph search algorithm in <a href='/student/search.html#pacai.student.search.aStarSearch'>pacai.student.search.aStarSearch</a>.
                A* takes a heuristic function as an argument.
                The heuristics function take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information).
-               The <a href='/docs/pacai/core/search/heuristic.html#pacai.core.search.heuristic.null'>null heuristic</a> is a trivial example.
+               The <a href='/core/search/heuristic.html#pacai.core.search.heuristic.null'>null heuristic</a> is a trivial example.
             </p>
             <p>
                You can test your A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic.
-               This heursitic is implemented for you already as <a href='/docs/pacai/core/search/heuristic.html#pacai.core.search.heuristic.manhattan'>pacai.core.search.heuristic.manhattan</a>.
+               This heursitic is implemented for you already as <a href='/core/search/heuristic.html#pacai.core.search.heuristic.manhattan'>pacai.core.search.heuristic.manhattan</a>.
             </p>
             <code>
                python3 -m pacai.bin.pacman --layout bigMaze --pacman SearchAgent --agent-args fn=pacai.student.search.aStarSearch,heuristic=pacai.core.search.heuristic.manhattan
@@ -528,7 +528,7 @@
             </p>
             <h4>Question 5 (2 points)</h4>
             <p>
-               Implement the search problem <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.CornersProblem'>pacai.student.searchAgents.CornersProblem</a>.
+               Implement the search problem <a href='/student/searchAgents.html#pacai.student.searchAgents.CornersProblem'>pacai.student.searchAgents.CornersProblem</a>.
                You will need to choose a <strong>state representation</strong> that encodes all the information necessary to detect whether all four corners have been reached.
                Now, your search agent should solve:
             </p>
@@ -544,7 +544,7 @@
             </p>
             <p>
                To receive full credit, you need to define an abstract state representation that <em>does not</em> encode irrelevant information (like the position of ghosts, where extra food is, etc.).
-               In particular, do not use a Pac-Man <a href='/docs/pacai/bin/pacman.html#pacai.bin.pacman.PacmanGameState'>PacmanGameState</a> as a search state.
+               In particular, do not use a Pac-Man <a href='/bin/pacman.html#pacai.bin.pacman.PacmanGameState'>PacmanGameState</a> as a search state.
                Your code will be very, very slow if you do (and also wrong).
             </p>
             <p>
@@ -552,15 +552,15 @@
                The only parts of the game state you need to reference in your implementation are the starting Pac-Man position and the location of the four corners.
             </p>
             <p>
-               Our implementation of <a href='/docs/pacai/student/search.html#pacai.student.search.breadthFirstSearch'>breadthFirstSearch</a> expands just under 2000 search nodes on <code>mediumCorners</code>.
+               Our implementation of <a href='/student/search.html#pacai.student.search.breadthFirstSearch'>breadthFirstSearch</a> expands just under 2000 search nodes on <code>mediumCorners</code>.
                However, heuristics (used with A* search) can reduce the amount of searching required.
             </p>
 
             <h4>Question 6 (3 points)</h4>
 
             <p>
-               Implement a heuristic for <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.CornersProblem'>CornersProblem</a>
-               in <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.cornersHeuristic'>pacai.student.searchAgents.cornersHeuristic</a>.
+               Implement a heuristic for <a href='/student/searchAgents.html#pacai.student.searchAgents.CornersProblem'>CornersProblem</a>
+               in <a href='/student/searchAgents.html#pacai.student.searchAgents.cornersHeuristic'>pacai.student.searchAgents.cornersHeuristic</a>.
                To test your code run:
             </p>
             <code>
@@ -568,7 +568,7 @@
             </code>
             <p>
                <em>Note:</em>
-               <a href='/docs/pacai/agents/search/corners.html#pacai.agents.search.corners.AStarCornersAgent'>pacai.core.search.corners.AStarCornersAgent</a> is an agent with these command line arguments:
+               <a href='/agents/search/corners.html#pacai.agents.search.corners.AStarCornersAgent'>pacai.core.search.corners.AStarCornersAgent</a> is an agent with these command line arguments:
             </p>
             <code>
                --pacman SearchAgent --agent-args fn=pacai.student.search.aStarSearch,prob=pacai.student.searchAgents.CornersProblem,heuristic=pacai.student.searchAgents.cornersHeuristic
@@ -593,7 +593,7 @@
 
             <p>
                Now we'll solve a hard search problem: eating all the Pac-Man food in as few steps as possible.
-               For this, a new search problem definition which formalizes the food-clearing problem can be found in <a href='/docs/pacai/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>pacai.core.search.food.FoodSearchProblem</a>.
+               For this, a new search problem definition which formalizes the food-clearing problem can be found in <a href='/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>pacai.core.search.food.FoodSearchProblem</a>.
                A solution is defined to be a path that collects all of the food in the Pac-Man world.
             </p>
             <p>
@@ -601,7 +601,7 @@
                They only depend on the placement of walls, regular food, and Pac-Man.
                Of course ghosts can ruin the execution of a solution!
                We'll get to that in the next project :)
-               If you have written your general search methods correctly, <a href='/docs/pacai/student/search.html#pacai.student.search.aStarSearch'>aStarSearch</a> with a null heuristic (equivalent to uniform-cost search)
+               If you have written your general search methods correctly, <a href='/student/search.html#pacai.student.search.aStarSearch'>aStarSearch</a> with a null heuristic (equivalent to uniform-cost search)
                should quickly find an optimal solution to <code>testSearch</code> with no code change on your part (total cost of 7).
             </p>
 
@@ -611,21 +611,21 @@
 
             <p>
                <em>Note:</em>
-               <a href='/docs/pacai/agents/search/foodsearch.html#pacai.agents.search.foodsearch.AStarFoodSearchAgent'>AStarFoodSearchAgent</a> is an agent with these command line arguments:
+               <a href='/agents/search/foodsearch.html#pacai.agents.search.foodsearch.AStarFoodSearchAgent'>AStarFoodSearchAgent</a> is an agent with these command line arguments:
             </p>
             <code>
                --pacman SearchAgent --agent-args fn=pacai.student.search.aStarSearch,prob=pacai.core.search.food.FoodSearchProblem,heuristic=pacai.student.searchAgents.foodHeuristic
             </code>
 
             <p>
-               You should find that <a href='/docs/pacai/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a> starts to slow down even for the seemingly simple <code>tinySearch</code>.
+               You should find that <a href='/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a> starts to slow down even for the seemingly simple <code>tinySearch</code>.
                As a reference, our implementation takes 1.2 seconds to find a path of length 27 after expanding 4847 search nodes.
             </p>
 
             <h4>Question 7 (5 points)</h4>
             <p>
-               Implement a heuristic for <a href='/docs/pacai/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>FoodSearchProblem</a>
-               in <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.foodHeuristic'>pacai.student.searchAgents.foodHeuristic</a>.
+               Implement a heuristic for <a href='/core/search/food.html#pacai.core.search.food.FoodSearchProblem'>FoodSearchProblem</a>
+               in <a href='/student/searchAgents.html#pacai.student.searchAgents.foodHeuristic'>pacai.student.searchAgents.foodHeuristic</a>.
                Try your agent on <code>trickySearch</code>:
             </p>
 
@@ -634,7 +634,7 @@
             </code>
 
             <p>
-               Our <a href='/docs/pacai/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a> agent finds the optimal solution in about 8.5 seconds, exploring over 16,000 nodes.
+               Our <a href='/student/search.html#pacai.student.search.uniformCostSearch'>uniformCostSearch</a> agent finds the optimal solution in about 8.5 seconds, exploring over 16,000 nodes.
                If your heuristic is admissible, you will receive the following score, depending on how many nodes your heuristic expands.
             </p>
             <p>
@@ -680,7 +680,7 @@
 
             <h4>Question 8 (2 points)</h4>
             <p>
-               Implement the function <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot'>pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot</a>.
+               Implement the function <a href='/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot'>pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot</a>.
                Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:
             </p>
             <code>
@@ -688,20 +688,20 @@
             </code>
             <p>
                <em>Hint:</em>
-               The quickest way to complete <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot'>findPathToClosestDot</a>
-               is to complete <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.AnyFoodSearchProblem'>pacai.student.searchAgents.AnyFoodSearchProblem</a>.
+               The quickest way to complete <a href='/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent.findPathToClosestDot'>findPathToClosestDot</a>
+               is to complete <a href='/student/searchAgents.html#pacai.student.searchAgents.AnyFoodSearchProblem'>pacai.student.searchAgents.AnyFoodSearchProblem</a>.
                Then, solve that problem with an appropriate search function.
                The solution should be very short!
             </p>
             <p>
-               Your <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent'>ClosestDotSearchAgent</a> won't always find the shortest possible path through the maze.
+               Your <a href='/student/searchAgents.html#pacai.student.searchAgents.ClosestDotSearchAgent'>ClosestDotSearchAgent</a> won't always find the shortest possible path through the maze.
                If you don't understand why, ask the TAs!
                In fact, you can do better if you try.
             </p>
 
             <h4>Mini Contest (2 points extra credit)</h4>
             <p>
-               Implement an <a href='/docs/pacai/student/searchAgents.html#pacai.student.searchAgents.ApproximateSearchAgent'>pacai.student.searchAgents.ApproximateSearchAgent</a> that finds a short path through <code>bigSearch</code>.
+               Implement an <a href='/student/searchAgents.html#pacai.student.searchAgents.ApproximateSearchAgent'>pacai.student.searchAgents.ApproximateSearchAgent</a> that finds a short path through <code>bigSearch</code>.
                The three teams that find the shortest path using no more than 30 seconds of computation will receive extra credit points.
             </p>
             <code>
@@ -715,31 +715,5 @@
             </p>
          </div>
       </div>
-
-      <script>
-         var baseURL = "https://ucsc-cse-140.github.io";
-         
-         var studentPath = '/student/index.html';
-         var combinedStudentLink = new URL(studentPath, baseURL).href;
-         var combinedStudentLinkElement = document.getElementById("studentLink");
-         combinedStudentLinkElement.href = combinedStudentLink;
-      
-         var baseAgentPath = '/agents/base.html';
-         var combinedBaseAgentLink = new URL(baseAgentPath, baseURL).href;
-         var combinedBaseAgentLinkElement = document.getElementById("baseAgentLink");
-         combinedBaseAgentLinkElement.href = combinedBaseAgentLink;
-
-         var searchAgentPath = '/agents/search/base.html#pacai.agents.search.base.SearchAgent';
-         var combinedSearchAgentLink = new URL(searchAgentPath, baseURL).href;
-         var combinedSearchAgentLinkElement = document.getElementById("searchAgentLink");
-         combinedSearchAgentLinkElement.href = combinedSearchAgentLink;
-      
-         var directionsPath = 'core/directions.html#pacai.core.directions.Directions';
-         var combinedDirectionsLink = new URL(directionsPath, baseURL).href;
-         var combinedDirectionsLinkElement = document.getElementById("directionsLink");
-         combinedDirectionsLinkElement.href = combinedDirectionsLink;
-      
-      
-      </script>
    </body>
 </html>

@@ -213,7 +213,7 @@
 
             <p>
                All the code for this (and later projects) is available in this repository: <a href='https://github.com/linqs/pacman'>https://github.com/linqs/pacman</a>.
-               The only files you should edit are located in the <a href='/docs/pacai/student/index.html'>pacai.student</a> package.
+               The only files you should edit are located in the <a href='/student/index.html'>pacai.student</a> package.
                You should <strong>not</strong> use any third-party libraries, but the <a href='https://docs.python.org/3/library/'>Python Standard Library</a> is fair-game.
                If a bug is found in the code (non-student) code, then the class will be alerted and you will have to pull the changes from this repository.
             </p>
@@ -226,23 +226,23 @@
                <li>
                   States
                   <ul>
-                     <li><a href='/docs/pacai/core/gamestate.html#pacai.core.gamestate.AbstractGameState'>pacai.core.gamestate.AbstractGamestate</a></li>
-                     <li><a href='/docs/pacai/bin/pacman.html#pacai.bin.pacman.PacmanGameState'>pacai.bin.pacman.PacmanGameState</a></li>
+                     <li><a href='/core/gamestate.html#pacai.core.gamestate.AbstractGameState'>pacai.core.gamestate.AbstractGamestate</a></li>
+                     <li><a href='/bin/pacman.html#pacai.bin.pacman.PacmanGameState'>pacai.bin.pacman.PacmanGameState</a></li>
                   </ul>
                </li>
 
                <li>
                   Other Binaries
                   <ul>
-                     <li><a href='/docs/pacai/bin/crawler.html'>pacai.bin.crawler</a></li>
-                     <li><a href='/docs/pacai/bin/gridworld.html'>pacai.bin.gridworld</a></li>
+                     <li><a href='/bin/crawler.html'>pacai.bin.crawler</a></li>
+                     <li><a href='/bin/gridworld.html'>pacai.bin.gridworld</a></li>
                   </ul>
                </li>
 
                <li>
                   Utilities
                   <ul>
-                     <li><a href='/docs/pacai/util/probability.html#pacai.util.probability.flipCoin'>pacai.util.probability.flipCoin</a></li>
+                     <li><a href='/util/probability.html#pacai.util.probability.flipCoin'>pacai.util.probability.flipCoin</a></li>
                   </ul>
             </ul>
          </div>
@@ -306,21 +306,21 @@
 
             <h4>Question 1 (6 points)</h4>
             <p>
-               Write a value iteration agent in <a href='/docs/pacai/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent'>pacai.student.valueIterationAgent.ValueIterationAgent</a>.
+               Write a value iteration agent in <a href='/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent'>pacai.student.valueIterationAgent.ValueIterationAgent</a>.
                Your value iteration agent is an offline planner, not a reinforcement agent.
                This means the relevant training option is the number of iterations of value iteration it should run (option <code>--iterations</code>) in its initial planning phase.
-               A <a href='/docs/pacai/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent'>ValueIterationAgent</a>
+               A <a href='/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent'>ValueIterationAgent</a>
                takes an MDP on construction and runs value iteration for the specified number of iterations.
             </p>
 
             <p>
                Value iteration computes k-step estimates of the optimal values, V<sub>k</sub>.
                In addition to running value iteration,
-               implement the following methods for <a href='/docs/pacai/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent'>ValueIterationAgent</a> using V<sub>k</sub>.
+               implement the following methods for <a href='/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent'>ValueIterationAgent</a> using V<sub>k</sub>.
                <ul>
-                  <li><a href='/docs/pacai/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent.getValue'>getValue(state)</a> returns the value of a state.
-                  <li><a href='/docs/pacai/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent.getPolicy'>getPolicy(state)</a> returns the best action according to computed values.
-                  <li><a href='/docs/pacai/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent.getQValue'>getQValue(state, action)</a> returns the q-value of the (state, action) pair.
+                  <li><a href='/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent.getValue'>getValue(state)</a> returns the value of a state.
+                  <li><a href='/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent.getPolicy'>getPolicy(state)</a> returns the best action according to computed values.
+                  <li><a href='/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent.getQValue'>getQValue(state, action)</a> returns the q-value of the (state, action) pair.
                </ul>
             </p>
 
@@ -342,7 +342,7 @@
             </p>
 
             <p>
-               The following command loads your <a href='/docs/pacai/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent'>ValueIterationAgent</a>,
+               The following command loads your <a href='/student/valueIterationAgent.html#pacai.student.valueIterationAgent.ValueIterationAgent'>ValueIterationAgent</a>,
                which will compute a policy and execute it 10 times.
                Press a key to cycle through values, q-values, and the simulation.
                You should find that the value of the start state (<code>V(start)</code>) and the empirical resulting average reward are quite close.
@@ -361,7 +361,7 @@
             <p></p>
 
             <center>
-               <img src="/p3/instructions/value.png" width="50%" alt="Value iteration with k=5"/>
+               <img src="value.png" width="50%" alt="Value iteration with k=5"/>
             </center>
 
             <p>
@@ -373,7 +373,7 @@
             <p>
                On <code>BridgeGrid</code> with the default discount of 0.9 and the default noise of 0.2, the optimal policy does not cross the bridge.
                Change only <strong>ONE</strong> of the discount and noise parameters so that the optimal policy causes the agent to attempt to cross the bridge.
-               Put your answer in <a href='/docs/pacai/student/analysis.html#pacai.student.analysis.question2'>pacai.student.analysis.question2</a>.
+               Put your answer in <a href='/student/analysis.html#pacai.student.analysis.question2'>pacai.student.analysis.question2</a>.
                Note: noise refers to how often an agent ends up in an unintended successor state when they perform an action.
                The default corresponds to:
             </p>
@@ -400,7 +400,7 @@
             </p>
 
             <center>
-               <img src="/p3/instructions/discountgrid.png" width="50%" alt="DiscountGrid"/>
+               <img src="discountgrid.png" width="50%" alt="DiscountGrid"/>
             </center>
 
             <p>
@@ -421,8 +421,8 @@
             </ol>
 
             <p>
-               Now code <a href='/docs/pacai/student/analysis.html#pacai.student.analysis.question3a'>analysis.question3a</a>
-               through <a href='/docs/pacai/student/analysis.html#pacai.student.analysis.question3e'>analysis.question3e</a>
+               Now code <a href='/student/analysis.html#pacai.student.analysis.question3a'>analysis.question3a</a>
+               through <a href='/student/analysis.html#pacai.student.analysis.question3e'>analysis.question3e</a>
                by returning a 3-item tuple of discount, noise, living reward.
                If no answer is possible, return the constant <code>NOT_POSSIBLE</code>.
             </p>
@@ -447,31 +447,31 @@
             <h4>Question 4 (5 points)</h4>
             <p>
                You will now write a q-learning agent, which does very little on construction, but instead learns by trial and error from interactions with the environment through its
-               <a href='/docs/pacai/agents/learning/reinforcement.html#pacai.agents.learning.reinforcement.ReinforcementAgent.update'>update(state, action, nextState, reward)</a> method.
-               A stub of a q-learner is specified in <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>pacai.student.qlearningAgents.QLearningAgent</a>
+               <a href='/agents/learning/reinforcement.html#pacai.agents.learning.reinforcement.ReinforcementAgent.update'>update(state, action, nextState, reward)</a> method.
+               A stub of a q-learner is specified in <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>pacai.student.qlearningAgents.QLearningAgent</a>
                and you can select it with the command line option <code>--agent q</code>.
                For this question, you must implement the
-               <a href='/docs/pacai/agents/learning/reinforcement.html#pacai.student.qlearningAgents.QLearningAgent.update'>update</a>,
-               <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a>,
-               <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getValue'>getValue</a>,
-               and <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getPolicy'>getPolicy</a>
-               methods in <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgents</a>.
+               <a href='/agents/learning/reinforcement.html#pacai.student.qlearningAgents.QLearningAgent.update'>update</a>,
+               <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a>,
+               <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getValue'>getValue</a>,
+               and <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getPolicy'>getPolicy</a>
+               methods in <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgents</a>.
             </p>
 
             <p>
                <em>Note:</em>
-               For <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getValue'>getValue</a>
-               and <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getPolicy'>getPolicy</a>,
+               For <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getValue'>getValue</a>
+               and <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getPolicy'>getPolicy</a>,
                you should break ties randomly for better behavior.
                The <code>random.choice()</code> function will help.
                In a particular state, actions that your agent <em>hasn't</em> seen before still have a Q-value, specifically a Q-value of zero, and if all of the actions that your agent <em>has</em> seen before have a negative Q-value, an unseen action may be optimal.
             </p>
 
             <p>
-               <em>Important:</em> Make sure that you only access Q values by calling <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a>
-               in your <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getValue'>getValue</a>
-               and <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getPolicy'>getPolicy</a> functions.
-               This abstraction will be useful for question 9 when you override <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a>
+               <em>Important:</em> Make sure that you only access Q values by calling <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a>
+               in your <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getValue'>getValue</a>
+               and <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getPolicy'>getPolicy</a> functions.
+               This abstraction will be useful for question 9 when you override <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a>
                to use features of state-action pairs rather than state-action pairs directly.
             </p>
 
@@ -489,7 +489,7 @@
 
             <h4>Question 5 (2 points)</h4>
             <p>
-               Complete your q-learning agent by implementing epsilon-greedy action selection in <a href='/docs/pacai/agents/base.html#pacai.student.qlearningAgents.QLearningAgent.getAction'>getAction</a>,
+               Complete your q-learning agent by implementing epsilon-greedy action selection in <a href='/agents/base.html#pacai.student.qlearningAgents.QLearningAgent.getAction'>getAction</a>,
                meaning it chooses random actions epsilon of the time, and follows its current best q-values otherwise.
             </p>
             <code>
@@ -503,7 +503,7 @@
 
             <p>
                You can choose an element from a list uniformly at random by calling the <code>random.choice</code> function.
-               You can simulate a binary variable with probability <code>p</code> of success by using <a href='/docs/pacai/util/probability.html#pacai.util.probability.flipCoin'>pacai.util.probability.flipCoin</a>,
+               You can simulate a binary variable with probability <code>p</code> of success by using <a href='/util/probability.html#pacai.util.probability.flipCoin'>pacai.util.probability.flipCoin</a>,
                which returns <code>True</code> with probability <code>p</code> and <code>False</code> with probability <code>1 - p</code>.
             </p>
 
@@ -518,7 +518,7 @@
             <p>
                Now try the same experiment with an epsilon of 0.
                Is there an epsilon and a learning rate for which it is highly likely (greater than 99%) that the optimal policy will be learned after 50 iterations?
-               Code <a href='/docs/pacai/student/analysis.html#pacai.student.analysis.question3a'>analysis.question6</a>
+               Code <a href='/student/analysis.html#pacai.student.analysis.question3a'>analysis.question6</a>
                to return EITHER a 2-item tuple of <code>(epsilon, learning rate)</code> OR the constant <code>NOT_POSSIBLE</code> if there is none.
                Epsilon is controlled by <code>--episode</code>, learning rate by <code>--learning-rate</code>.
             </p>
@@ -532,7 +532,7 @@
             </code>
 
             <p>
-               If this doesn't work, you've probably written some code too specific to the <a href='/docs/pacai/bin/gridworld.html'>gridworld</a> problem and you should make it more general to all MDPs.
+               If this doesn't work, you've probably written some code too specific to the <a href='/bin/gridworld.html'>gridworld</a> problem and you should make it more general to all MDPs.
                You will receive full credit if the command above works without exceptions.
             </p>
 
@@ -571,20 +571,20 @@
             </code>
 
             <p>
-               Note that <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.PacmanQAgent'>pacai.student.qlearningAgent.PacmanQAgent</a>
-               is already defined for you in terms of the <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgent</a> you have already implemented.
-               <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.PacmanQAgent'>PacmanQAgent</a>
+               Note that <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.PacmanQAgent'>pacai.student.qlearningAgent.PacmanQAgent</a>
+               is already defined for you in terms of the <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgent</a> you have already implemented.
+               <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.PacmanQAgent'>PacmanQAgent</a>
                is only different in that it has default learning parameters that are more effective for the Pac-Man problem (<code>epsilon = 0.05, alpha = 0.2, gamma = 0.8</code>).
                You will receive full credit for this question if the command above works without exceptions and your agent wins at least 80% of the last 10 runs.
             </p>
 
             <p>
                <em>Hint:</em>
-               If your <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgent</a> works for
-               <a href='/docs/pacai/bin/gridworld.html'>gridworld</a> and <a href='/docs/pacai/bin/crawler.html'>crawlery</a>
+               If your <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgent</a> works for
+               <a href='/bin/gridworld.html'>gridworld</a> and <a href='/bin/crawler.html'>crawlery</a>
                but does not seem to be learning a good policy for Pac-Man on <code>smallGrid</code>,
-               it may be because your <a href='/docs/pacai/agents/base.html#pacai.student.qlearningAgents.QLearningAgent.getAction'>getAction</a>
-               and/or <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getPolicy'>getPolicy</a>
+               it may be because your <a href='/agents/base.html#pacai.student.qlearningAgents.QLearningAgent.getAction'>getAction</a>
+               and/or <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getPolicy'>getPolicy</a>
                methods do not in some cases properly consider unseen actions.
                In particular, because unseen actions have by definition a Q-value of zero,
                if all of the actions that <em>have</em> been seen have negative Q-values, an unseen action may be optimal.
@@ -595,9 +595,9 @@
                If you want to experiment with learning parameters, you can use the option <code>--agent-args</code>,
                for example <code>--agent-args epsilon=0.1,alpha=0.3,gamma=0.7</code>.
                These values will then be accessible as
-               <a href='/docs/pacai/agents/learning/reinforcement.html#pacai.agents.learning.reinforcement.ReinforcementAgent.getAlpha'>self.getAlpha()</a>,
-               <a href='/docs/pacai/agents/learning/reinforcement.html#pacai.agents.learning.reinforcement.ReinforcementAgent.getEpsilon'>self.getEpsilon()</a>,
-               and <a href='/docs/pacai/agents/learning/reinforcement.html#pacai.agents.learning.reinforcement.ReinforcementAgent.getGamma'>self.getGamma()</a>
+               <a href='/agents/learning/reinforcement.html#pacai.agents.learning.reinforcement.ReinforcementAgent.getAlpha'>self.getAlpha()</a>,
+               <a href='/agents/learning/reinforcement.html#pacai.agents.learning.reinforcement.ReinforcementAgent.getEpsilon'>self.getEpsilon()</a>,
+               and <a href='/agents/learning/reinforcement.html#pacai.agents.learning.reinforcement.ReinforcementAgent.getGamma'>self.getGamma()</a>
                inside the agent.
             </p>
 
@@ -654,15 +654,15 @@
             <p>
                Implement an approximate q-learning agent that learns weights for features of states,
                where many states might share the same features.
-               Write your implementation in <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.ApproximateQAgent'>pacai.student.qlearningAgent.ApproximateQAgent</a>,
-               which is a subclass of <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.PacmanQAgent'>PacmanQAgent</a>.
+               Write your implementation in <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.ApproximateQAgent'>pacai.student.qlearningAgent.ApproximateQAgent</a>,
+               which is a subclass of <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.PacmanQAgent'>PacmanQAgent</a>.
             </p>
 
             <p>
                <em>Note:</em>
                Approximate q-learning assumes the existence of a feature function f(s,a) over state and action pairs,
                which yields a vector f<sub>1</sub>(s,a) ... f<sub>i</sub>(s,a) ... f<sub>n</sub>(s,a) of feature values.
-               We provide feature functions for you in <a href='/docs/pacai/core/featureExtractors.html'>pacai.core.featureExtractors</a>.
+               We provide feature functions for you in <a href='/core/featureExtractors.html'>pacai.core.featureExtractors</a>.
                Feature vectors are dictionary objects containing the non-zero pairs of features and values;
                all omitted features have value zero.
             </p>
@@ -671,7 +671,7 @@
                The approximate q-function takes the following form:
             </p>
             <center>
-               <img src="/p3/instructions/define-eqn1.png">
+               <img src="define-eqn1.png">
             </center>
 
             <p>
@@ -680,7 +680,7 @@
                You will update your weight vectors similarly to how you updated q-values:
             </p>
             <center>
-               <img  src="/p3/instructions/define-eqn2.png">
+               <img  src="define-eqn2.png">
             </center>
 
             <p>
@@ -688,11 +688,11 @@
             </p>
 
             <p>
-               By default <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.ApproximateQAgent'>ApproximateQAgent</a>
-               uses the <a href='/docs/pacai/core/featureExtractors.html#pacai.core.featureExtractors.IdentityExtractor'>pacai.core.featureExtractors.IdentityExtractor</a>.
+               By default <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.ApproximateQAgent'>ApproximateQAgent</a>
+               uses the <a href='/core/featureExtractors.html#pacai.core.featureExtractors.IdentityExtractor'>pacai.core.featureExtractors.IdentityExtractor</a>.
                This assigns a single feature to every <code>(state, action)</code> pair.
                With this feature extractor, your approximate q-learning agent should work identically to
-               <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.PacmanQAgent'>PacmanQAgent</a>.
+               <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.PacmanQAgent'>PacmanQAgent</a>.
                You can test this with the following command:
             </p>
 
@@ -702,12 +702,12 @@
 
             <p>
                <em>Important:</em>
-               <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.ApproximateQAgent'>ApproximateQAgent</a>
-               is a subclass of <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgent</a>,
-               and it therefore shares several methods like <a href='/docs/pacai/agents/base.html#pacai.student.qlearningAgents.QLearningAgent.getAction'>getAction</a>.
-               Make sure that your methods in <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgent</a>
-               call <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a> instead of accessing q-values directly,
-               so that when you override <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a> in your approximate agent,
+               <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.ApproximateQAgent'>ApproximateQAgent</a>
+               is a subclass of <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgent</a>,
+               and it therefore shares several methods like <a href='/agents/base.html#pacai.student.qlearningAgents.QLearningAgent.getAction'>getAction</a>.
+               Make sure that your methods in <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent'>QLearningAgent</a>
+               call <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a> instead of accessing q-values directly,
+               so that when you override <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.QLearningAgent.getQValue'>getQValue</a> in your approximate agent,
                the new approximate q-values are used to compute actions.
             </p>
 
@@ -721,7 +721,7 @@
             </code>
 
             <p>
-               Even much larger layouts should be no problem for your <a href='/docs/pacai/student/qlearningAgents.html#pacai.student.qlearningAgents.ApproximateQAgent'>ApproximateQAgent</a>.
+               Even much larger layouts should be no problem for your <a href='/student/qlearningAgents.html#pacai.student.qlearningAgents.ApproximateQAgent'>ApproximateQAgent</a>.
                (<em>Warning</em>: this may take a few minutes to train.)
             </p>
 

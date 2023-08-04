@@ -28,7 +28,7 @@
                   <li>
                      The first phase will consist of finding a team (of no more than three people) and an initial test of the tournament.
                      Students must have a team and at <strong>minimum</strong> must submit a
-                     <a href='/docs/pacai/agents/capture/dummy.html#pacai.agents.capture.dummy.DummyAgent'>DummyAgent</a> for this phase.
+                     <a href='/agents/capture/dummy.html#pacai.agents.capture.dummy.DummyAgent'>DummyAgent</a> for this phase.
                   </li>
                   <li>
                      The second phase will consist of daily round-robin style tournaments.
@@ -51,7 +51,7 @@
             <h4>Submission</h4>
 
             <p>
-               To enter into the nightly tournaments, your team's agents and all relevant functions must be defined in <a href='/docs/pacai/student/myTeam.html'>pacai.student.myTeam</a>.
+               To enter into the nightly tournaments, your team's agents and all relevant functions must be defined in <a href='/student/myTeam.html'>pacai.student.myTeam</a>.
             </p>
             <p>
                Every team must have a unique name, consisting only of ASCII letters and digits (any other characters, including whitespace, will be ignored).
@@ -73,7 +73,7 @@
                For these submissions, unzip should directly yield the source files and <strong>not</strong> a directory named "solution", "pN", or "pacai".
                Note that this is counter to standard conventions when sending a zip file to a human, but easier for the autograder.
                Since there isn't a "correct" solution to this assignment,
-               the autograder will report whether your agent beat the provided <a href='/docs/pacai/core/baselineTeam.html'>pacai.core.baselineTeam</a> agent within the contest rules.
+               the autograder will report whether your agent beat the provided <a href='/core/baselineTeam.html'>pacai.core.baselineTeam</a> agent within the contest rules.
             </p>
             <p>
                For your <strong>final submission</strong>, include a file named <code>[your team name].pdf</code> that contains your write-up.
@@ -313,7 +313,7 @@
                Each move which does not return within one second will incur a warning.
                After three warnings, or any single move taking more than 3 seconds, the game is forfeit.
                There will be an initial start-up allowance of 15 seconds
-               (use the <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.registerInitialState'>pacai.agents.capture.capture.CaptureAgent.registerInitialState</a> function).
+               (use the <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.registerInitialState'>pacai.agents.capture.capture.CaptureAgent.registerInitialState</a> function).
                If you agent times out or otherwise throws an exception, an error message will be present in the log files, which you can download from the results page (see below).
             </p>
          </div>
@@ -322,7 +322,7 @@
             <h3>Getting Started</h3>
 
             <p>
-               By default, you can run a game with the simple <a href='/docs/pacai/core/baselineTeam.html'>pacai.core.baselineTeam</a> that the staff has provided:
+               By default, you can run a game with the simple <a href='/core/baselineTeam.html'>pacai.core.baselineTeam</a> that the staff has provided:
             </p>
             <code>
                 python3 -m pacai.bin.capture
@@ -338,7 +338,7 @@
             <p>
                There are four slots for agents, where agents 0 and 2 are always on the red team, and agents 1 and 3 are on the blue team.
                See the section on designing agents for a description of the agents invoked above.
-               The only team that we provide is the <a href='/docs/pacai/core/baselineTeam.html'>baselineTeam</a>.
+               The only team that we provide is the <a href='/core/baselineTeam.html'>baselineTeam</a>.
                It is chosen by default as both the red and blue team, but as an example of how to choose teams:
             </p>
             <code>
@@ -346,7 +346,7 @@
             </code>
 
             <p>
-               which specifies that the red team <code>--red</code> and the blue team <code>--blue</code> are both created from <a href='/docs/pacai/core/baselineTeam.html'>baselineTeam</a>.
+               which specifies that the red team <code>--red</code> and the blue team <code>--blue</code> are both created from <a href='/core/baselineTeam.html'>baselineTeam</a>.
                To control one of the four agents with the keyboard, pass the appropriate option:
             </p>
             <code>
@@ -403,66 +403,66 @@
 
             <p>
                <strong>Baseline Team:</strong>
-               To kickstart your agent design, we have provided you with a team of two baseline agents, defined in <a href='/docs/pacai/core/baselineTeam.html'>pacai.core.baselineTeam</a>.
+               To kickstart your agent design, we have provided you with a team of two baseline agents, defined in <a href='/core/baselineTeam.html'>pacai.core.baselineTeam</a>.
                They are both quite bad.
-               The <a href='/docs/pacai/agents/capture/offense.html#pacai.agents.capture.offense.OffensiveReflexAgent'>pacai.agents.capture.offense.OffensiveReflexAgent</a>
+               The <a href='/agents/capture/offense.html#pacai.agents.capture.offense.OffensiveReflexAgent'>pacai.agents.capture.offense.OffensiveReflexAgent</a>
                moves toward the closest food on the opposing side.
-               The <a href='/docs/pacai/agents/capture/defense.html#pacai.agents.capture.defense.DefensiveReflexAgent'>pacai.agents.capture.defense.DefensiveReflexAgent</a>
+               The <a href='/agents/capture/defense.html#pacai.agents.capture.defense.DefensiveReflexAgent'>pacai.agents.capture.defense.DefensiveReflexAgent</a>
                wanders around on its own side and tries to chase down invaders it happens to see.
             </p>
 
             <p>
                <strong>File naming:</strong>
                For the purpose of testing or running games locally, you can define a team of agents in any arbitrarily-named python3 file.
-               When submitting to the nightly tournament, however, you must define your agents in <a href='/docs/pacai/student/myTeam.html'>pacai.student.myTeam</a>
+               When submitting to the nightly tournament, however, you must define your agents in <a href='/student/myTeam.html'>pacai.student.myTeam</a>
                (and you must also create a <code>name.txt</code> file that specifies your team name).
             </p>
 
             <p>
                <strong>Interface:</strong>
-               The <a href='/docs/pacai/bin/capture.html#pacai.bin.capture.CaptureGameState'>pacai.bin.capture.CaptureGameState</a> should look familiar,
-               but contains new methods like <a href='/docs/pacai/bin/capture.html#pacai.bin.capture.CaptureGameState.getRedFood'>getRedFood</a>,
+               The <a href='/bin/capture.html#pacai.bin.capture.CaptureGameState'>pacai.bin.capture.CaptureGameState</a> should look familiar,
+               but contains new methods like <a href='/bin/capture.html#pacai.bin.capture.CaptureGameState.getRedFood'>getRedFood</a>,
                which gets a grid of food on the red side (note that the grid is the size of the board, but is only true for cells on the red side with food).
-               Also, note that you can list a team's indices with <a href='/docs/pacai/bin/capture.html#pacai.bin.capture.CaptureGameState.getRedTeamIndices'>getRedTeamIndices</a>,
-               or test membership with <a href='/docs/pacai/bin/capture.html#pacai.bin.capture.CaptureGameState.isOnRedTeam'>isOnRedTeam</a>.
+               Also, note that you can list a team's indices with <a href='/bin/capture.html#pacai.bin.capture.CaptureGameState.getRedTeamIndices'>getRedTeamIndices</a>,
+               or test membership with <a href='/bin/capture.html#pacai.bin.capture.CaptureGameState.isOnRedTeam'>isOnRedTeam</a>.
             </p>
 
             <p>
                <strong>Distance Calculation:</strong>
                To facilitate agent development,
-               we provide code in <a href='/docs/pacai/core/distanceCalculator.html#pacai.core.distanceCalculator.DistanceCalculator'>pacai.core.distanceCalculator</a> to supply shortest path maze distances.
+               we provide code in <a href='/core/distanceCalculator.html#pacai.core.distanceCalculator.DistanceCalculator'>pacai.core.distanceCalculator</a> to supply shortest path maze distances.
             </p>
 
             <p>
                <strong>Useful Methods:</strong>
                To get started designing your own agent,
-               we recommend subclassing the <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent'>pacai.agents.capture.capture.CaptureAgent</a> class.
+               we recommend subclassing the <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent'>pacai.agents.capture.capture.CaptureAgent</a> class.
                This provides access to several convenience methods.
                Some of these useful methods are:
                <ul>
                      <li>
-                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getFood'>getFood</a>
+                        <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getFood'>getFood</a>
                      </li>
                      <li>
-                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getFoodYouAreDefending'>getFoodYouAreDefending</a>
+                        <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getFoodYouAreDefending'>getFoodYouAreDefending</a>
                      </li>
                      <li>
-                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getOpponents'>getOpponents</a>
+                        <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getOpponents'>getOpponents</a>
                      </li>
                      <li>
-                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getTeam'>getTeam</a>
+                        <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getTeam'>getTeam</a>
                      </li>
                      <li>
-                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getScore'>getScore</a>
+                        <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getScore'>getScore</a>
                      </li>
                      <li>
-                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getMazeDistance'>getMazeDistance</a>
+                        <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getMazeDistance'>getMazeDistance</a>
                      </li>
                      <li>
-                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getPreviousObservation'>getPreviousObservation</a>
+                        <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getPreviousObservation'>getPreviousObservation</a>
                      </li>
                      <li>
-                        <a href='/docs/pacai/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getCurrentObservation'>getCurrentObservation</a>
+                        <a href='/agents/capture/capture.html#pacai.agents.capture.capture.CaptureAgent.getCurrentObservation'>getCurrentObservation</a>
                      </li>
                </ul>
             </p>
@@ -504,7 +504,7 @@
 
             <p>
                <center>
-                  <img src="/p4/instructions/capture2.gif" width="400"/>
+                  <img src="capture2.gif" width="400"/>
                   <p></p>
                   <p class='no-margin'>Have fun!</p>
                   <p class='no-margin'>Please bring our attention to any problems you discover.</p>
