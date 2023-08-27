@@ -1,5 +1,20 @@
-{{ range .Site.Data.results.records }}
 <div>
-    <p>{{.name}}</p>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Team Name</th>
+            <th>Wins</th>
+            <th>Ties</th>
+            <th>Losses</th>
+        </tr>
+        {{ range $index, $record := .Site.Data.results.records }}
+        <tr>
+            <td>{{ add $index 1 }}</td>
+            <td>{{ $record.name}}</td>
+            <td>{{ $record.wins}}</td>
+            <td>{{ $record.ties}}</td>
+            <td>{{ $record.losses}}</td>
+        </tr>
+        {{end}}
+    </table>
 </div>
-{{end}}
