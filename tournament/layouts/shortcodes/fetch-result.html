@@ -1,4 +1,5 @@
 <div>
+    <h1><u>Tournament Rankings!</u></h1>
     <table>
         <tr>
             <th>Rank</th>
@@ -14,6 +15,32 @@
             <td>{{ $record.wins}}</td>
             <td>{{ $record.ties}}</td>
             <td>{{ $record.losses}}</td>
+        </tr>
+        {{end}}
+    </table>
+</div>
+<div>
+    <h1><u>Match Stats</u></h1>
+    <table>
+        <tr>
+            <th></th>
+            <th>Match ID</th>
+            <td>Red</td>
+            <td>Blue</td>
+            <td>Red Wins</td>
+            <td>Blue Wins</td>
+            <td>Ties</td>
+        </tr>
+        {{ range $index, $record := .Site.Data.results.matches }}
+        <tr>
+            <th><a href="{{ $index | relURL }}">View Details</a></th>
+            <td>{{ $index }}</td>
+            <td>{{ $record.red.name }}</td>
+            <td>{{ $record.blue.name }}</td>
+            <td>{{ $record.red.wins }}</td>
+            <td>{{ $record.blue.wins }}</td>
+            <td>{{ $record.red.ties }}</td>
+            {{ $index = add $index 1}}
         </tr>
         {{end}}
     </table>
