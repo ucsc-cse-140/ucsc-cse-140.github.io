@@ -1,0 +1,13 @@
+INFO - 2023-08-27 01:16:44,230 - Loading Team: pacai.student.team__dummy
+INFO - 2023-08-27 01:16:44,230 - Arguments: {}
+INFO - 2023-08-27 01:16:44,252 - Loading Team: pacai.student.team_staff_SlugBrain
+INFO - 2023-08-27 01:16:44,255 - Arguments: {}
+INFO - 2023-08-27 01:16:44,266 - Blue team starts
+INFO - 2023-08-27 01:16:53,953 - The Blue team ate all but 2 of the opponents' dots.
+INFO - 2023-08-27 01:16:53,953 - The Blue team wins by 16 points.
+INFO - 2023-08-27 01:17:01,156 - Game recorded to: 'C:\Users\tooth\AppData\Local\Temp\140_tournament\20230827\matches\20230827__dummy_vs_staff_SlugBrain\20230827__dummy_vs_staff_SlugBrain_014.replay'.
+INFO - 2023-08-27 01:17:01,156 - Average Score:-16.0
+INFO - 2023-08-27 01:17:01,158 - Scores:-16
+INFO - 2023-08-27 01:17:01,158 - Red Win Rate: 0/1 (0.00)
+INFO - 2023-08-27 01:17:01,158 - Blue Win Rate: 1/1 (1.00)
+INFO - 2023-08-27 01:17:01,158 - Record: Blue

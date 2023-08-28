@@ -1,0 +1,15 @@
+INFO - 2023-08-27 01:39:24,610 - Loading Team: pacai.student.team__baseline
+INFO - 2023-08-27 01:39:24,610 - Arguments: {}
+INFO - 2023-08-27 01:39:24,611 - Loading Team: pacai.student.team_staff_SomeSlug
+INFO - 2023-08-27 01:39:24,611 - Arguments: {}
+INFO - 2023-08-27 01:39:24,616 - Red team starts
+WARNING - 2023-08-27 01:39:32,865 - Agent 3 took too long to move! This is warning 1
+WARNING - 2023-08-27 01:39:55,922 - Agent 3 timed out on a single move!
+WARNING - 2023-08-27 01:39:55,922 - Agent 3 crashedtimed out on a single move!
+ERROR - 2023-08-27 01:39:55,922 - Blue agent crashed.
+INFO - 2023-08-27 01:39:55,923 - Game recorded to: 'C:\Users\tooth\AppData\Local\Temp\140_tournament\20230827\matches\20230827__baseline_vs_staff_SomeSlug\20230827__baseline_vs_staff_SomeSlug_012.replay'.
+INFO - 2023-08-27 01:39:55,924 - Average Score:1.0
+INFO - 2023-08-27 01:39:55,924 - Scores:1
+INFO - 2023-08-27 01:39:55,924 - Red Win Rate: 1/1 (1.00)
+INFO - 2023-08-27 01:39:55,924 - Blue Win Rate: 0/1 (0.00)
+INFO - 2023-08-27 01:39:55,924 - Record: Red

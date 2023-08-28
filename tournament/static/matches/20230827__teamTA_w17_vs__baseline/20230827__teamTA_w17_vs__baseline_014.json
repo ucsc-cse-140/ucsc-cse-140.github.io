@@ -1,0 +1,25 @@
+{
+    "layout": "RANDOM3393513409",
+    "score": -11,
+    "time": 15.736109972000122,
+    "red": {
+        "name": "_teamTA_w17",
+        "win": false,
+        "tie": false,
+        "loss": true,
+        "time": 12.72695779800415,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    },
+    "blue": {
+        "name": "_baseline",
+        "win": true,
+        "tie": false,
+        "loss": false,
+        "time": 3.0091521739959717,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    }
+}
