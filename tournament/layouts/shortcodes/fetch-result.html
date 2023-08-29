@@ -26,7 +26,7 @@
 </div>
 
 <script>
-    fetch('/results.json')
+    fetch('/20230827/results.json')
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -39,11 +39,11 @@
             const rankingsTable = document.getElementById('rankingsTable');
             records.forEach((record, index) => {
                 const row = rankingsTable.insertRow(index + 1);
-                row.insertCell(0).textContent = index + 1;
-                row.insertCell(1).textContent = record.name;
-                row.insertCell(2).textContent = record.wins;
-                row.insertCell(3).textContent = record.ties;
-                row.insertCell(4).textContent = record.losses;
+                row.insertCell().textContent = index + 1;
+                row.insertCell().textContent = record.name;
+                row.insertCell().textContent = record.wins;
+                row.insertCell().textContent = record.ties;
+                row.insertCell().textContent = record.losses;
             });
         }
 
@@ -53,14 +53,15 @@
             matches.forEach((match, index) => {
                 console.log(match)
                 const row = statsTable.insertRow(index + 1);
-                row.insertCell(0).innerHTML = '<a href="${match.index | reURL}">View HTML</a>';
-                row.insertCell(1).textContent = match.red.name;
-                row.insertCell(2).textContent = match.blue.name;
-                row.insertCell(3).textContent = match.red.wins;
-                row.insertCell(4).textContent = match.blue.wins;
-                row.insertCell(5).textContent = match.red.ties;
-                row.insertCell(6).textContent = "Download";
-                row.insertCell(7).textContent = "Download";
+                row.insertCell().innerHTML = '<a href="${match.index | reURL}">View HTML</a>';
+                row.insertCell().textContent = index + 1;
+                row.insertCell().textContent = match.red.name;
+                row.insertCell().textContent = match.blue.name;
+                row.insertCell().textContent = match.red.wins;
+                row.insertCell().textContent = match.blue.wins;
+                row.insertCell().textContent = match.red.ties;
+                row.insertCell().textContent = "Download";
+                row.insertCell().textContent = "Download";
             });
         }
 </script>
