@@ -1,5 +1,3 @@
-<h2> {{ .Page.Params.title }}</h2>
-
 <div>
     <h1><u>Tournament Rankings!</u></h1>
     <table id = "rankingsTable">
@@ -30,7 +28,7 @@
 </div>
 
 <script>
-    var title = "{{ .Page.Params.title }}"
+    var title = "{{ .Page.Params.title }}".slice(28)
     var results = "/" + title + "/" + "/results.json"
     fetch(results)
         .then(response => response.json())
