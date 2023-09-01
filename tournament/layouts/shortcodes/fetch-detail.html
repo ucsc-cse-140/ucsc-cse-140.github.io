@@ -131,7 +131,7 @@
             const games_dl = document.getElementById('games_dl');
             games_dl.innerHTML = games_path;
 
-            for (let index = 1; index <= stats["red"]["times"].length; index++) {
+            for (let index = 0; index < stats["red"]["times"].length; index++) {
                 const row = gamesTable.insertRow(index + 1);
                 
                 var match_num = String(index);
