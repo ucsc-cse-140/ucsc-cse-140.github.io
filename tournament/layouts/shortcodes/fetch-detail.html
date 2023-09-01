@@ -133,10 +133,14 @@
             for (let index = 0; index < stats["red"]["times"].length; index++) {
                 const row = gamesTable.insertRow(index + 1);
                 
-                //var gif_path = 
+                var match_num = String(index);
+                while (match_num.length < 3) {
+                    match_num = "0" + match_num;
+                }
 
+                var gif_path = '<img src="' + resultsFolder + title + "/" + title + "_" + match_num + ".gif" + '"></a>';
 
-                row.insertCell(0).textContent = "gif";
+                row.insertCell(0).innerHTML = gif_path;
                 row.insertCell(1).textContent = "Output";
                 row.insertCell(2).textContent = "Replay";
                 row.insertCell(3).textContent = index;
