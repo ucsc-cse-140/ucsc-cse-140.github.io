@@ -1,0 +1,25 @@
+{
+    "layout": "RANDOM828725942",
+    "score": -2,
+    "time": 7.260487794876099,
+    "red": {
+        "name": "staff_SlugBrain",
+        "win": false,
+        "tie": false,
+        "loss": true,
+        "time": 4.1316187381744385,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    },
+    "blue": {
+        "name": "_baseline",
+        "win": true,
+        "tie": false,
+        "loss": false,
+        "time": 3.12886905670166,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    }
+}

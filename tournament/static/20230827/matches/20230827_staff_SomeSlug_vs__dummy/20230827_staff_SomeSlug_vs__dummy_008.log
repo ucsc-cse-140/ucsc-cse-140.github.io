@@ -1,0 +1,13 @@
+INFO - 2023-08-27 01:23:12,099 - Loading Team: pacai.student.team_staff_SomeSlug
+INFO - 2023-08-27 01:23:12,099 - Arguments: {}
+INFO - 2023-08-27 01:23:12,099 - Loading Team: pacai.student.team__dummy
+INFO - 2023-08-27 01:23:12,099 - Arguments: {}
+INFO - 2023-08-27 01:23:12,103 - Blue team starts
+INFO - 2023-08-27 01:23:35,813 - The Red team ate all but 2 of the opponents' dots.
+INFO - 2023-08-27 01:23:35,813 - The Red team wins by 16 points.
+INFO - 2023-08-27 01:23:43,074 - Game recorded to: 'C:\Users\tooth\AppData\Local\Temp\140_tournament\20230827\matches\20230827_staff_SomeSlug_vs__dummy\20230827_staff_SomeSlug_vs__dummy_008.replay'.
+INFO - 2023-08-27 01:23:43,074 - Average Score:16.0
+INFO - 2023-08-27 01:23:43,074 - Scores:16
+INFO - 2023-08-27 01:23:43,080 - Red Win Rate: 1/1 (1.00)
+INFO - 2023-08-27 01:23:43,080 - Blue Win Rate: 0/1 (0.00)
+INFO - 2023-08-27 01:23:43,080 - Record: Red

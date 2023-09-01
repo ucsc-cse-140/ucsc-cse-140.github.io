@@ -1,0 +1,25 @@
+{
+    "layout": "defaultCapture",
+    "score": -6,
+    "time": 7.069047451019287,
+    "red": {
+        "name": "_baseline",
+        "win": false,
+        "tie": false,
+        "loss": true,
+        "time": 2.4437193870544434,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    },
+    "blue": {
+        "name": "_teamTA_w17",
+        "win": true,
+        "tie": false,
+        "loss": false,
+        "time": 4.625328063964844,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "layout": "defaultCapture",
+    "score": 18,
+    "time": 1.3603215217590332,
+    "red": {
+        "name": "_baseline",
+        "win": true,
+        "tie": false,
+        "loss": false,
+        "time": 0.7431633472442627,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    },
+    "blue": {
+        "name": "_dummy",
+        "win": false,
+        "tie": false,
+        "loss": true,
+        "time": 0.6171581745147705,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    }
+}

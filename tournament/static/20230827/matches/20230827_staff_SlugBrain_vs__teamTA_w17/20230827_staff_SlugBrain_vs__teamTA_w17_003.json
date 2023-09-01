@@ -1,0 +1,25 @@
+{
+    "layout": "defaultCapture",
+    "score": -1,
+    "time": 3.8279428482055664,
+    "red": {
+        "name": "staff_SlugBrain",
+        "win": false,
+        "tie": false,
+        "loss": true,
+        "time": 1.7310960292816162,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    },
+    "blue": {
+        "name": "_teamTA_w17",
+        "win": true,
+        "tie": false,
+        "loss": false,
+        "time": 2.09684681892395,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    }
+}
