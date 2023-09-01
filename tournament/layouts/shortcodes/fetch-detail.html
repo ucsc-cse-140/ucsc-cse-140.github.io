@@ -120,8 +120,22 @@
         
         function populateGames(stats) {
             const gamesTable = document.getElementById('gamesTable');
+            var resultsFolder = "/" + date + "/matches/";
+            
+            var stats_path = '<a href="' + resultsFolder + title + "/" + title + "_matchstats.json" + '" download>Download Full Match Stats</a>';
+            const matchstats_dl = document.getElementById('matchstats_dl');
+            matchstats_dl.innerHTML = stats_path;
+            
+            var games_path = '<a href="' + resultsFolder + title + "/" + title + ".zip" + '" download>Download All Games</a>';
+            const games_dl = document.getElementById('games_dl');
+            games_dl.innerHTML = games_path;
+
             for (let index = 0; index < stats["red"]["times"].length; index++) {
                 const row = gamesTable.insertRow(index + 1);
+                
+                //var gif_path = 
+
+
                 row.insertCell(0).textContent = "gif";
                 row.insertCell(1).textContent = "Output";
                 row.insertCell(2).textContent = "Replay";
