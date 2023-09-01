@@ -53,18 +53,21 @@
             });
         }
 
+        var tournamentURL = window.location.protocol + "//" + window.location.host;
+
         function populateStats(matches) {
             const statsTable = document.getElementById('statsTable');
 
             matches.forEach((match, index) => {
-                console.log(match)
+
                 const row = statsTable.insertRow(index + 1);
                 var resultsFolder = "/" + title + "/matches/";
                 var matchName = title + "_" + match.red.name + "_vs_" + match.blue.name;
                 var stats_dl = '<a href="' + resultsFolder + matchName + "/" + matchName + "_matchstats.json" + '" download>Download</a>';
                 var games_dl = '<a href="' + resultsFolder + matchName + "/" + matchName + ".zip" + '" download>Download</a>';
                 matchName + ".zip";
-                row.insertCell(0).innerHTML = '<a href="${match.index | reURL}">View Details</a>';
+                var detailPath = '/tournament_pages/' + title + '/' + title + '_' + match.red.name + '_vs_' + match.blue.name;
+                row.insertCell(0).innerHTML = '<a href="' + tournamentURL + detailPath +'">View Details</a>';
                 row.insertCell(1).textContent = index;
                 row.insertCell(2).textContent = match.red.name;
                 row.insertCell(3).textContent = match.blue.name;
