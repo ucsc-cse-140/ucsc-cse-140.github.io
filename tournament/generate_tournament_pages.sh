@@ -7,10 +7,10 @@ for dir in static/*; do
 
         hugo new $output_file --kind tournament-result
 
-        for file in $dir/*/*/*; do
-            if [[ $file == *.log ]]; then
+        for file in $dir/*/*; do
+            if [ -d "$dir2"]; then
 
-                output_file2="content/tournament_pages/$foldername/$(basename "$file" .log).md"
+                output_file2="content/tournament_pages/$foldername/$(basename "$file").md"
 
                 hugo new content $output_file2 --kind match-result
             fi
