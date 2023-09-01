@@ -4,4 +4,4 @@ date: {{ .Date }}
 draft: false
 ---
 
-{{< fetch-result tournament="1" >}}
+{{< fetch-result >}}
