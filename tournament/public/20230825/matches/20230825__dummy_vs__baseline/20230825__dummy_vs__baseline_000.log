@@ -1,0 +1,13 @@
+INFO - 2023-08-25 13:52:18,880 - Loading Team: pacai.student.team__dummy
+INFO - 2023-08-25 13:52:18,882 - Arguments: {}
+INFO - 2023-08-25 13:52:18,883 - Loading Team: pacai.student.team__baseline
+INFO - 2023-08-25 13:52:18,883 - Arguments: {}
+INFO - 2023-08-25 13:52:18,886 - Red team starts
+INFO - 2023-08-25 13:52:20,339 - The Blue team ate all but 2 of the opponents' dots.
+INFO - 2023-08-25 13:52:20,339 - The Blue team wins by 18 points.
+INFO - 2023-08-25 13:52:24,568 - Game recorded to: 'C:\Users\tooth\AppData\Local\Temp\140_tournament\20230825\matches\20230825__dummy_vs__baseline\20230825__dummy_vs__baseline_000.replay'.
+INFO - 2023-08-25 13:52:24,568 - Average Score:-18.0
+INFO - 2023-08-25 13:52:24,577 - Scores:-18
+INFO - 2023-08-25 13:52:24,577 - Red Win Rate: 0/1 (0.00)
+INFO - 2023-08-25 13:52:24,577 - Blue Win Rate: 1/1 (1.00)
+INFO - 2023-08-25 13:52:24,577 - Record: Blue

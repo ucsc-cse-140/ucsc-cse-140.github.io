@@ -1,0 +1,25 @@
+{
+    "layout": "defaultCapture",
+    "score": 18,
+    "time": 18.641844987869263,
+    "red": {
+        "name": "staff_SomeSlug",
+        "win": true,
+        "tie": false,
+        "loss": false,
+        "time": 17.145992040634155,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    },
+    "blue": {
+        "name": "_dummy",
+        "win": false,
+        "tie": false,
+        "loss": true,
+        "time": 1.4958529472351074,
+        "time_warnings": 0,
+        "crash": false,
+        "timeouts": false
+    }
+}

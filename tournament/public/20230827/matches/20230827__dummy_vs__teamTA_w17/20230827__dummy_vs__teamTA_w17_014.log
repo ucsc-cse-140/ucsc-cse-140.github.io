@@ -1,0 +1,13 @@
+INFO - 2023-08-27 01:16:20,603 - Loading Team: pacai.student.team__dummy
+INFO - 2023-08-27 01:16:20,603 - Arguments: {}
+INFO - 2023-08-27 01:16:20,603 - Loading Team: pacai.student.team__teamTA_w17
+INFO - 2023-08-27 01:16:20,603 - Arguments: {}
+INFO - 2023-08-27 01:16:20,609 - Red team starts
+INFO - 2023-08-27 01:16:27,623 - The Blue team ate all but 2 of the opponents' dots.
+INFO - 2023-08-27 01:16:27,623 - The Blue team wins by 16 points.
+INFO - 2023-08-27 01:16:46,523 - Game recorded to: 'C:\Users\tooth\AppData\Local\Temp\140_tournament\20230827\matches\20230827__dummy_vs__teamTA_w17\20230827__dummy_vs__teamTA_w17_014.replay'.
+INFO - 2023-08-27 01:16:46,525 - Average Score:-16.0
+INFO - 2023-08-27 01:16:46,525 - Scores:-16
+INFO - 2023-08-27 01:16:46,525 - Red Win Rate: 0/1 (0.00)
+INFO - 2023-08-27 01:16:46,525 - Blue Win Rate: 1/1 (1.00)
+INFO - 2023-08-27 01:16:46,525 - Record: Blue
