@@ -1,5 +1,5 @@
 static = "static"
-baseURL = 'https://ucsc-cse-140.github.io/'
+baseURL = 'https://ucsc-cse-140.github.io/tournament'
 languageCode = 'en-us'
 title = 'Capture the Flag Tournament'
 theme = 'PaperMod'
