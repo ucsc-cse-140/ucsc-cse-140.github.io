@@ -1,0 +1,13 @@
+<div>
+    {{ $baseUrl := "/tournament_pages/" }}
+    {{ $staticDir := "static" }}
+    {{ $staticDirs := readDir $staticDir }}
+
+    <ul>
+    {{ range $staticDirs }}
+        {{ if .IsDir }}
+        <li><a href="{{ printf "%s%s/" $baseUrl .Name }}/{{ .Name }}">{{ .Name }}</a></li>
+        {{ end }}
+    {{ end }}
+    </ul>
+</div>
