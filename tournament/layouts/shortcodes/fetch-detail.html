@@ -1,59 +1,62 @@
 <h2> Match Stats (<a href="noob" id="matchstats_dl">Download Full Match Stats</a>) </h2>
 <hr>
-<div>
-    <h3><u>Red Team</u></h3>
-    <p>
-        <label>Name: </label>
-        <span id="redName"></span>
-    </p>
-    <p>
-        <label>Wins: </label>
-        <span id="redWins"></span>
-    </p>
-    <p>
-        <label>Ties: </label>
-        <span id="redTies"></span>
-    </p>
-    <p>
-        <label>Losses: </label>
-        <span id="redLosses"></span>
-    </p>
-    <p>
-        <label>Crashes: </label>
-        <span id="redCrashes"></span>
-    </p>
-    <p>
-        <label>Timeouts: </label>
-        <span id="redTimeouts"></span>
-    </p>
-</div>
+<div style="display: flex;">
 
-<div>
-    <h3><u>Blue Team</u></h3>
-    <p>
-        <label>Name: </label>
-        <span id="blueName"></span>
-    </p>
-    <p>
-        <label>Wins: </label>
-        <span id="blueWins"></span>
-    </p>
-    <p>
-        <label>Ties: </label>
-        <span id="blueTies"></span>
-    </p>
-    <p>
-        <label>Losses: </label>
-        <span id="blueLosses"></span>
-    </p>
-    <p>
-        <label>Crashes: </label>
-        <span id="blueCrashes"></span>
-    </p>
-    <p>
-        <label>Timeouts: </label>
-        <span id="blueTimeouts"></span>
-    </p>
+    <div style="flex:50%">
+        <h3><u>Red Team</u></h3>
+        <p>
+            <label>Name: </label>
+            <span id="redName"></span>
+        </p>
+        <p>
+            <label>Wins: </label>
+            <span id="redWins"></span>
+        </p>
+        <p>
+            <label>Ties: </label>
+            <span id="redTies"></span>
+        </p>
+        <p>
+            <label>Losses: </label>
+            <span id="redLosses"></span>
+        </p>
+        <p>
+            <label>Crashes: </label>
+            <span id="redCrashes"></span>
+        </p>
+        <p>
+            <label>Timeouts: </label>
+            <span id="redTimeouts"></span>
+        </p>
+    </div>
+
+    <div style="flex:50%">
+        <h3><u>Blue Team</u></h3>
+        <p>
+            <label>Name: </label>
+            <span id="blueName"></span>
+        </p>
+        <p>
+            <label>Wins: </label>
+            <span id="blueWins"></span>
+        </p>
+        <p>
+            <label>Ties: </label>
+            <span id="blueTies"></span>
+        </p>
+        <p>
+            <label>Losses: </label>
+            <span id="blueLosses"></span>
+        </p>
+        <p>
+            <label>Crashes: </label>
+            <span id="blueCrashes"></span>
+        </p>
+        <p>
+            <label>Timeouts: </label>
+            <span id="blueTimeouts"></span>
+        </p>
+    </div>
 </div>
 
 <div>
@@ -76,7 +79,7 @@
 
 <script>
     var title = "{{ .Page.Params.title }}".slice(23) //remove "Capture The Flag Match "
-    var date = title.slice(0,8)
+    var date = title.slice(0, 8)
 
     var matchstats = "/" + date + "/" + "/matches/" + title + "/" + title + "_matchstats.json"
     fetch(matchstats)
@@ -89,71 +92,71 @@
         })
         .catch(error => console.error('Error fetching data.json:', error));
 
-        function populateRed(stats) {
-            const redName = document.getElementById('redName');
-            redName.textContent = stats.name;
-            const redWins = document.getElementById('redWins');
-            redWins.textContent = stats.wins;
-            const redTies = document.getElementById('redTies');
-            redTies.textContent = stats.ties;
-            const redLosses = document.getElementById('redLosses');
-            redLosses.textContent = stats.losses;
-            const redCrashes = document.getElementById('redCrashes');
-            redCrashes.textContent = stats.crashes;
-            const redTimeouts = document.getElementById('redTimeouts');
-            redTimeouts.textContent = stats.timeouts;
-        }
+    function populateRed(stats) {
+        const redName = document.getElementById('redName');
+        redName.textContent = stats.name;
+        const redWins = document.getElementById('redWins');
+        redWins.textContent = stats.wins;
+        const redTies = document.getElementById('redTies');
+        redTies.textContent = stats.ties;
+        const redLosses = document.getElementById('redLosses');
+        redLosses.textContent = stats.losses;
+        const redCrashes = document.getElementById('redCrashes');
+        redCrashes.textContent = stats.crashes;
+        const redTimeouts = document.getElementById('redTimeouts');
+        redTimeouts.textContent = stats.timeouts;
+    }
 
-        function populateBlue(stats) {
-            const blueName = document.getElementById('blueName');
-            blueName.textContent = stats.name;
-            const blueWins = document.getElementById('blueWins');
-            blueWins.textContent = stats.wins;
-            const blueTies = document.getElementById('blueTies');
-            blueTies.textContent = stats.ties;
-            const blueLosses = document.getElementById('blueLosses');
-            blueLosses.textContent = stats.losses;
-            const blueCrashes = document.getElementById('blueCrashes');
-            blueCrashes.textContent = stats.crashes;
-            const blueTimeouts = document.getElementById('blueTimeouts');
-            blueTimeouts.textContent = stats.timeouts;
-        }
-        
-        function populateGames(stats) {
-            const gamesTable = document.getElementById('gamesTable');
-            var resultsFolder = "/" + date + "/matches/";
-            
-            var stats_path = '<a href="' + resultsFolder + title + "/" + title + "_matchstats.json" + '" download>Download Full Match Stats</a>';
-            const matchstats_dl = document.getElementById('matchstats_dl');
-            matchstats_dl.innerHTML = stats_path;
-            
-            var games_path = '<a href="' + resultsFolder + title + "/" + title + ".zip" + '" download>Download All Games</a>';
-            const games_dl = document.getElementById('games_dl');
-            games_dl.innerHTML = games_path;
+    function populateBlue(stats) {
+        const blueName = document.getElementById('blueName');
+        blueName.textContent = stats.name;
+        const blueWins = document.getElementById('blueWins');
+        blueWins.textContent = stats.wins;
+        const blueTies = document.getElementById('blueTies');
+        blueTies.textContent = stats.ties;
+        const blueLosses = document.getElementById('blueLosses');
+        blueLosses.textContent = stats.losses;
+        const blueCrashes = document.getElementById('blueCrashes');
+        blueCrashes.textContent = stats.crashes;
+        const blueTimeouts = document.getElementById('blueTimeouts');
+        blueTimeouts.textContent = stats.timeouts;
+    }
 
-            for (let index = 0; index < stats["red"]["times"].length; index++) {
-                const row = gamesTable.insertRow(index + 1);
-                
-                var match_num = String(index);
-                while (match_num.length < 3) {
-                    match_num = "0" + match_num;
-                }
+    function populateGames(stats) {
+        const gamesTable = document.getElementById('gamesTable');
+        var resultsFolder = "/" + date + "/matches/";
 
-                var gif_path = '<img src="' + resultsFolder + title + "/" + title + "_" + match_num + ".gif" + '"></a>';
-                var log_path = '<a href="' + resultsFolder + title + "/" + title + "_" + match_num + ".log" + '" download>Output</a>';
-                var replay_path = '<a href="' + resultsFolder + title + "/" + title + "_" + match_num + ".replay" + '" download>Replay</a>';
+        var stats_path = '<a href="' + resultsFolder + title + "/" + title + "_matchstats.json" + '" download>Download Full Match Stats</a>';
+        const matchstats_dl = document.getElementById('matchstats_dl');
+        matchstats_dl.innerHTML = stats_path;
 
+        var games_path = '<a href="' + resultsFolder + title + "/" + title + ".zip" + '" download>Download All Games</a>';
+        const games_dl = document.getElementById('games_dl');
+        games_dl.innerHTML = games_path;
 
-                row.insertCell(0).innerHTML = gif_path;
-                row.insertCell(1).innerHTML = log_path;
-                row.insertCell(2).innerHTML = replay_path;
-                row.insertCell(3).textContent = index;
-                row.insertCell(4).textContent = stats["layouts"][index];
-                row.insertCell(5).textContent = stats["scores"][index];
-                row.insertCell(6).textContent = String(stats["times"][index]).substring(0,6);
-                row.insertCell(7).textContent = String(stats["red"]["times"][index]).substring(0,6);
-                row.insertCell(8).textContent = String(stats["blue"]["times"][index]).substring(0,6);
+        for (let index = 0; index < stats["red"]["times"].length; index++) {
+            const row = gamesTable.insertRow(index + 1);
+
+            var match_num = String(index);
+            while (match_num.length < 3) {
+                match_num = "0" + match_num;
             }
+
+            var gif_path = '<img src="' + resultsFolder + title + "/" + title + "_" + match_num + ".gif" + '"></a>';
+            var log_path = '<a href="' + resultsFolder + title + "/" + title + "_" + match_num + ".log" + '" download>Output</a>';
+            var replay_path = '<a href="' + resultsFolder + title + "/" + title + "_" + match_num + ".replay" + '" download>Replay</a>';
+
+
+            row.insertCell(0).innerHTML = gif_path;
+            row.insertCell(1).innerHTML = log_path;
+            row.insertCell(2).innerHTML = replay_path;
+            row.insertCell(3).textContent = index;
+            row.insertCell(4).textContent = stats["layouts"][index];
+            row.insertCell(5).textContent = stats["scores"][index];
+            row.insertCell(6).textContent = String(stats["times"][index]).substring(0, 6);
+            row.insertCell(7).textContent = String(stats["red"]["times"][index]).substring(0, 6);
+            row.insertCell(8).textContent = String(stats["blue"]["times"][index]).substring(0, 6);
         }
+    }
 
 </script>
