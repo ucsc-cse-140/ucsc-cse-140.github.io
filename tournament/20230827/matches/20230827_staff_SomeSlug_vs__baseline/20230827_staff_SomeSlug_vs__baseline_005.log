@@ -1,0 +1,13 @@
+INFO - 2023-08-27 01:25:41,604 - Loading Team: pacai.student.team_staff_SomeSlug
+INFO - 2023-08-27 01:25:41,604 - Arguments: {}
+INFO - 2023-08-27 01:25:41,604 - Loading Team: pacai.student.team__baseline
+INFO - 2023-08-27 01:25:41,604 - Arguments: {}
+INFO - 2023-08-27 01:25:41,612 - Red team starts
+INFO - 2023-08-27 01:27:14,071 - Time is up.
+INFO - 2023-08-27 01:27:14,071 - The Red team wins by 5 points.
+INFO - 2023-08-27 01:27:34,261 - Game recorded to: 'C:\Users\tooth\AppData\Local\Temp\140_tournament\20230827\matches\20230827_staff_SomeSlug_vs__baseline\20230827_staff_SomeSlug_vs__baseline_005.replay'.
+INFO - 2023-08-27 01:27:34,261 - Average Score:5.0
+INFO - 2023-08-27 01:27:34,266 - Scores:5
+INFO - 2023-08-27 01:27:34,266 - Red Win Rate: 1/1 (1.00)
+INFO - 2023-08-27 01:27:34,266 - Blue Win Rate: 0/1 (0.00)
+INFO - 2023-08-27 01:27:34,266 - Record: Red

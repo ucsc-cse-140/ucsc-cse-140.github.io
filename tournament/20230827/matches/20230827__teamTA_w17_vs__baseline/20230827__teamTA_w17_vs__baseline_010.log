@@ -1,0 +1,13 @@
+INFO - 2023-08-27 01:11:43,825 - Loading Team: pacai.student.team__teamTA_w17
+INFO - 2023-08-27 01:11:43,825 - Arguments: {}
+INFO - 2023-08-27 01:11:43,825 - Loading Team: pacai.student.team__baseline
+INFO - 2023-08-27 01:11:43,825 - Arguments: {}
+INFO - 2023-08-27 01:11:43,913 - Red team starts
+INFO - 2023-08-27 01:11:51,973 - The Red team ate all but 2 of the opponents' dots.
+INFO - 2023-08-27 01:11:51,973 - The Red team wins by 4 points.
+INFO - 2023-08-27 01:12:00,563 - Game recorded to: 'C:\Users\tooth\AppData\Local\Temp\140_tournament\20230827\matches\20230827__teamTA_w17_vs__baseline\20230827__teamTA_w17_vs__baseline_010.replay'.
+INFO - 2023-08-27 01:12:00,563 - Average Score:4.0
+INFO - 2023-08-27 01:12:00,563 - Scores:4
+INFO - 2023-08-27 01:12:00,563 - Red Win Rate: 1/1 (1.00)
+INFO - 2023-08-27 01:12:00,563 - Blue Win Rate: 0/1 (0.00)
+INFO - 2023-08-27 01:12:00,563 - Record: Red
